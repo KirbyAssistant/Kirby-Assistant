@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    <style name="BuleTheme" parent="Theme.AppCompat.Light.NoActionBar">		
+		<item name="colorPrimary">#2196F3</item>	
+		<item name="colorPrimaryDark">#1976D2</item>
+		<item name="colorAccent">#2196F3</item>	
+	</style>
+
+	<style name="RedTheme" parent="Theme.AppCompat.Light.NoActionBar">		
+		<item name="colorPrimary">#F44336</item>	
+		<item name="colorPrimaryDark">#D32F2F</item>
+		<item name="colorAccent">#F44336</item>	
+	</style>
+	
+	<style name="PurpleTheme" parent="Theme.AppCompat.Light.NoActionBar">		
+		<item name="colorPrimary">#9C27B0</item>	
+		<item name="colorPrimaryDark">#7B1FA2</item>
+		<item name="colorAccent">#9C27B0</item>	
+	</style>
+	
+	<style name="LindigoTheme" parent="Theme.AppCompat.Light.NoActionBar">		
+		<item name="colorPrimary">#3F51B5</item>	
+		<item name="colorPrimaryDark">#303F9F</item>
+		<item name="colorAccent">#3F51B5</item>	
+	</style>
+	
+	<style name="TealTheme" parent="Theme.AppCompat.Light.NoActionBar">		
+		<item name="colorPrimary">#009688</item>	
+		<item name="colorPrimaryDark">#00796B</item>
+		<item name="colorAccent">#009688</item>	
+	</style>
+	
+	<style name="GreenTheme" parent="Theme.AppCompat.Light.NoActionBar">		
+		<item name="colorPrimary">#4CAF50</item>	
+		<item name="colorPrimaryDark">#388E3C</item>
+		<item name="colorAccent">#4CAF50</item>	
+	</style>
+	
+	<style name="OrangeTheme" parent="Theme.AppCompat.Light.NoActionBar">		
+		<item name="colorPrimary">#FF9800</item>	
+		<item name="colorPrimaryDark">#F57C00</item>
+		<item name="colorAccent">#FF9800</item>	
+	</style>
+	
+	<style name="BrownTheme" parent="Theme.AppCompat.Light.NoActionBar">		
+		<item name="colorPrimary">#795548</item>	
+		<item name="colorPrimaryDark">#5D4037</item>
+		<item name="colorAccent">#795548</item>	
+	</style>
+	
+	<style name="BlueGreyTheme" parent="Theme.AppCompat.Light.NoActionBar">		
+		<item name="colorPrimary">#607D8B</item>	
+		<item name="colorPrimaryDark">#455A64</item>
+		<item name="colorAccent">#607D8B</item>	
+	</style>
+	
+	<style name="YellowTheme" parent="Theme.AppCompat.Light.NoActionBar">		
+		<item name="colorPrimary">#FFEB3B</item>	
+		<item name="colorPrimaryDark">#FDD835</item>
+		<item name="colorAccent">#FFEB3B</item>	
+	</style>
+
+	<style name="KirbyTheme" parent="Theme.AppCompat.Light.NoActionBar">		
+		<item name="colorPrimary">#ee749d</item>	
+		<item name="colorPrimaryDark">#cf5f83</item>
+		<item name="colorAccent">#ee749d</item>	
+	</style>
+
+	<style name="DarkTheme" parent="Theme.AppCompat.NoActionBar">		
+		<item name="colorAccent">#009688</item>	
+	</style>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<android.support.design.widget.AppBarLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/mainAppBarLayout1">
+
+		<android.support.v7.widget.Toolbar
+			android:id="@+id/标题栏"
+			app:elevation="4dp"
+			android:layout_height="?attr/actionBarSize"
+			android:layout_width="match_parent"
+			android:background="?attr/colorPrimary"
+			android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+			app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+			app:layout_scrollFlags="scroll|enterAlways|snap"/>
+
+	</android.support.design.widget.AppBarLayout>
+
+	<EditText
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_below="@id/mainAppBarLayout1"
+		android:id="@+id/登录_用户名"
+		android:hint="@string/login_user"/>
+
+	<EditText
+		android:layout_height="wrap_content"
+		android:inputType="textPassword"
+		android:layout_width="match_parent"
+		android:layout_below="@id/登录_用户名"
+		android:hint="@string/login_password"
+		android:id="@+id/登录_密码"/>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical"
+		android:layout_alignParentBottom="true">
+
+		<Button
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="@string/login"
+			android:layout_weight="0.3"
+			android:id="@+id/登录"/>
+
+		<Button
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="@string/register"
+			android:layout_weight="0.3"
+			android:id="@+id/注册"/>
+
+		<Button
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="忘记密码"
+			android:layout_weight="0.3"
+			android:id="@+id/忘记密码"/>
+
+	</LinearLayout>
+
+</RelativeLayout>
+

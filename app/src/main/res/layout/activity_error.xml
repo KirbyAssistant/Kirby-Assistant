@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<android.support.design.widget.AppBarLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/mainAppBarLayout1">
+
+		<android.support.v7.widget.Toolbar
+			android:id="@+id/标题栏"
+			app:elevation="4dp"
+			android:layout_height="?attr/actionBarSize"
+			android:layout_width="match_parent"
+			android:background="?attr/colorPrimary"
+			android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+			app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+			app:layout_scrollFlags="scroll|enterAlways|snap"/>
+
+	</android.support.design.widget.AppBarLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:layout_below="@id/mainAppBarLayout1"
+		android:id="@+id/errorLinearLayout">
+
+		<Button
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="@string/copy"
+			android:layout_weight="5"
+			android:id="@+id/copy"/>
+
+		<Button
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="@string/email"
+			android:layout_weight="5"
+			android:id="@+id/email"/>
+
+	</LinearLayout>
+
+	<ScrollView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:layout_below="@id/errorLinearLayout"
+		android:id="@+id/errorScrollView1">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:id="@+id/crashText"/>
+
+	</ScrollView>
+
+</RelativeLayout>
+

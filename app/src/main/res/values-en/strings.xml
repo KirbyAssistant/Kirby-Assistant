@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kirby Assistant</string>
+	
+	<string name="game_title">Now is</string>
+	<string name="about_title">About</string>
+	<string name="help_title">Help</string>
+	<string name="mess_title">Details</string>
+	<string name="video_title">Video</string>
+	<string name="jsz_title">Cheat Code</string>
+	<string name="ziyuan">Resources</string>
+	<string name="talk">chat</string>
+	<string name="login_title">Login/Register</string>
+	<string name="game">Games</string>
+	<string name="welcome_to">Not just games</string>
+	<string name="moniqi">Emulators</string>
+	<string name="not_login">Not Login</string>
+	<string name="language">Language setting</string>
+	<string name="crash_title">Error</string>
+	
+	<string name="mess_true">Send Successfully:</string>
+	<string name="mess_false">Sand Unsuccessfully:</string>
+	<string name="user_title">User Information</string>
+	
+	<string name="copy">Copy</string>
+	<string name="email">Send Email</string>
+	
+	<string name="user_name">User Name</string>
+	<string name="user_email">E-mail</string>
+	
+	<string name="edit_email">Change E-mail</string>
+	<string name="email_title">Change E-mail (You Need Login Again If You Change Successfully)</string>
+	<string name="email_false">Email verification Unsuccessfully</string>
+	
+	<string name="is_null">Not Empty</string>
+	<string name="edit_true">Change Successfully</string>
+	<string name="edit_false">Change Unsuccessfully:</string>
+	
+	<string name="password">Twice You Input Passwords Are Different</string>
+	<string name="edit_password">Change Password</string>
+	<string name="password_title">Change Password (You Need Login Again If Change Successfully)</string>
+	<string name="password_false">ERROR</string>
+	
+	<string name="user_logout">Logout</string>
+	<string name="logout_true">Logout Successfully</string>
+	
+	<string name="theme_title">Themes</string>
+	
+	<string name="web_loading">Loading</string>
+	
+	<string name="hello">Hello:</string>
+	
+	<string name="look_more">Look More</string>
+	<string name="edit_some">Please write something...｡ӧ◡ӧ｡</string>	
+	<string name="look_funk">What are you seeing?!(ﾉ｀⊿´)ﾉ</string>
+	<string name="edit_ny">Text (1000 Letters)</string>
+	
+	<string name="game_name">Please Choose Versions Of  The Languages You Need</string>
+	<string name="game_name1">ONLY North American Version</string>
+	<string name="game_name2">ONLY Japanese Version</string>
+	
+	<string name="tj_app">Recommend App</string>
+	<string name="app_ZArchiver">Convenient File Compression And Decompression Utilities .</string>
+	
+	<string name="downloading">Downloading...</string>
+	<string name="download_susses">Download Successfully，Save Path:</string>
+	<string name="download_fail">Download Unsuccessfully:</string>
+	<string name="link_bmob">Linking Server...</string>
+	<string name="link_fail">Link Server Unsuccessfully</string>
+	<string name="download_dia_mess">ONLY Chinesize Version</string>
+	
+	<string name="jp">Japanese Version</string>
+	<string name="us">North America Version</string>
+	<string name="zh">Chinesize Versiom</string>
+	<string name="nu"></string>
+	
+	<string name="not_install_CoolApk">Not Installed Coolapk</string>
+	
+	<string name="login">Login</string>
+	<string name="login_user">User Name/E-mail</string>
+	<string name="login_password">Password</string>
+	<string name="login_susses">Login Successfully</string>
+	<string name="login_fail">Login Unsuccessfully</string>
+	<string name="register">Register</string>
+	<string name="register_susses">Register Successfully</string>
+	<string name="register_fail">Register Unsuccessfully</string>
+	
+	<string name="jsz_copy">Copy Cheat Code Successfully</string>
+	
+	<string name="intro_welcome_title">Welcome</string>
+	<string name="intro_welcome_text">It Is An App You Can Get Kirby Games Resource, And It Is FREE.</string><!-- Kirby能给斜体吗，英语中专用名词没有专名号用斜体代替-->
+	<string name="intro_user_title">Account</string>
+	<string name="intro_user_text">Kirby Assistant Have Users System, You Can Login Your Account If You Have Registered Before,Or Register\nOf Course,You Can Also Do It Whenever You Use This App.</string>
+	<string name="intro_finish_title">Done</string>
+	<string name="intro_finish_text">The Setup Wizard For The App Has Neen Completed\nHope You Use It Happily!</string>
+	<string name="intro_permission_title">Permission</string>
+	<string name="intro_permission_text">Kirby Assistant Need Some Permissions,Please Allowed.</string>
+	<string name="intro_permission_sd">"SD card read/write permissions"</string>
+	<string name="the_first_permission_3">WARNING:If Your Phone system is MIUI OS,Flyme OS Or Emui OS Rom\n--&gt;Please Open Phone Manager Or Set&gt;Authorization Management To Open SDcard Read And Write Permissions\nIf You Use Antivirus Softwares Such As Qihoo 360 Phone guard\n--&gt;Please Open Antivirus Softwares To Find Authorization Management To Open SDcard Read And Write Permissions\nIf You Have Done,Please Press This Button.</string>
+	<string name="next">Next</string>
+	<string name="next_funk">Skip</string>
+	<string name="next_finish">Done</string>
+	
+	<string name="x_title">Information</string>
+	<string name="version">Edition</string>
+	<string name="star1">Gtade</string>
+	<string name="star2">Hope You Give Me FIVE STAR!</string>
+	<string name="help1">Help</string>
+	<string name="help2">FAQ</string>
+	<string name="help3">Feedback</string>
+	<string name="help4">More Detailed Help？Pass The Button To Go To Me Tencent QQ Group</string>
+	<string name="kfz_title">developer</string>
+	<string name="me1">Coolapk</string>
+	<string name="me2">\@汝南京</string>
+	<string name="github">Browsing The Program In Github.</string>
+	
+	<string name="dia_y_email">Please Enter Your Original Email Address</string>
+	<string name="dia_n_email">Please Enter New Email Address</string>
+	<string name="dia_y_password">Please Enter Your Original Password</string>
+	<string name="dia_n_password">Please Enter New Password</string>
+	<string name="dia_a_password">Please Enter New Password Again</string>
+	<string name="dia_username">User Name(Can\'t Change If You Have Registered)</string>
+	<string name="dia_email">E-mail(Used To Retrieve Password)</string>
+	<string name="dia_password">Password(Numbers Or Letter</string>
+	
+	<string name="pay_title">Donate</string>
+	
+	<string name="dia_download">Download</string>
+	<string name="dia_yes">OK</string>
+	<string name="dia_cancel">Close</string>
+</resources>

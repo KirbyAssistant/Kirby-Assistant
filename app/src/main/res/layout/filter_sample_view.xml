@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.allattentionhere.fabulousfilter.AAH_FilterView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<RelativeLayout
+		tools:ignore="MissingPrefix"
+		tools:visibility="visible"
+		android:layout_width="match_parent"
+		android:layout_alignParentBottom="true"
+		android:visibility="invisible"
+		android:id="@+id/edit"
+		android:layout_height="match_parent"
+		android:background="?attr/android:windowBackground">
+
+		<ImageView
+			android:clickable="true"
+			android:padding="4dp"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:src="@drawable/ic_send"
+			android:id="@+id/发送"
+			android:layout_marginRight="12dp"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentTop="true"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="@string/edit_some"
+			android:layout_centerHorizontal="true"
+			android:layout_alignParentTop="true"
+			android:textSize="18sp"
+			android:layout_marginTop="4dp"/>
+
+		<EditText
+			android:layout_below="@id/发送"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:hint="@string/edit_ny"
+			android:id="@+id/内容_编辑"
+			android:maxEms="1000"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="@string/look_funk"
+			android:layout_alignParentBottom="true"
+			android:layout_centerHorizontal="true"/>
+
+	</RelativeLayout>
+
+</com.allattentionhere.fabulousfilter.AAH_FilterView>
+

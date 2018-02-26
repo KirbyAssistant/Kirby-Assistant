@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fitsSystemWindows="true"
+	android:id="@+id/mainCoordinatorLayout1">
+
+	<android.support.design.widget.AppBarLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/mainAppBarLayout1">
+
+
+		<android.support.v7.widget.Toolbar
+			android:id="@+id/标题栏"
+			android:layout_height="?attr/actionBarSize"
+			android:layout_width="match_parent"
+			android:background="?attr/colorPrimary"
+			android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+			app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+			android:elevation="4dp">
+
+			<com.nightonke.boommenu.BoomMenuButton
+				android:id="@+id/bmb"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentEnd="true"
+				android:layout_alignParentLeft="true"
+				app:bmb_backgroundEffect="false"
+				app:bmb_showScaleEaseEnum="outBack"
+				app:bmb_hideScaleEaseEnum="inBack"
+				app:bmb_use3DTransformAnimation="true"
+				app:bmb_buttonEnum="ham"
+				app:bmb_piecePlaceEnum="piecePlace_ham_5"
+				app:bmb_buttonPlaceEnum="buttonPlace_ham_5"
+				app:bmb_showDuration="500"
+				app:bmb_hideDuration="500"/>
+
+		</android.support.v7.widget.Toolbar>
+
+	</android.support.design.widget.AppBarLayout>
+
+	<FrameLayout
+		android:id="@+id/main_fragment"
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior"
+		android:layout_below="@id/mainAppBarLayout1"/>
+
+</RelativeLayout>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Kirby Assistant</string>
+	
+	<string name="game_title">當前是</string>
+	<string name="about_title">關於</string>
+	<string name="help_title">幫助</string>
+	<string name="mess_title">詳情</string>
+	<string name="video_title">視頻</string>
+	<string name="jsz_title">金手指</string>
+	<string name="ziyuan">資源</string>
+	<string name="talk">閑聊</string>
+	<string name="login_title">登錄/註冊</string>
+	<string name="game">遊戲</string>
+	<string name="welcome_to">不僅有遊戲</string>
+	<string name="moniqi">模擬器</string>
+	<string name="not_login">沒有登錄</string>
+	<string name="language">語言設置</string>
+	<string name="crash_title">出錯了</string>
+	
+	<string name="mess_true">發送成功:</string>
+	<string name="mess_false">發送失敗:</string>
+	<string name="user_title">用護信息</string>
+	
+	<string name="copy">複製</string>
+	<string name="email">郵件發送</string>
+	
+	<string name="user_name">用護名</string>
+	<string name="user_email">郵箱</string>
+	
+	<string name="edit_email">修改郵箱</string>
+	<string name="email_title">修改郵箱（成功後需要重新登錄）</string>
+	<string name="email_false">郵箱驗證失敗</string>
+	
+	<string name="is_null">不能為空</string>
+	<string name="edit_true">修改成功</string>
+	<string name="edit_false">修改失敗:</string>
+	
+	<string name="password">兩次輸入的密碼不同</string>
+	<string name="edit_password">修改密碼</string>
+	<string name="password_title">修改密碼（成功後需要重新登錄）</string>
+	<string name="password_false">出錯</string>
+	
+	<string name="user_logout">帳號登出</string>
+	<string name="logout_true">登出成功</string>
+	
+	<string name="theme_title">主題</string>
+	
+	<string name="web_loading">載入中</string>
+	
+	<string name="hello">妳好:</string>
+	
+	<string name="look_more">查看更多</string>
+	<string name="edit_some">寫點什麼吧｡ӧ◡ӧ｡</string>	
+	<string name="look_funk">看什麼看(ﾉ｀⊿´)ﾉ</string>
+	<string name="edit_ny">內容(1000字)</string>
+	
+	<string name="game_name">請選擇您需要的語言版本</string>
+	<string name="game_name1">[限定]僅存在美版</string>
+	<string name="game_name2">[限定]僅存在日版</string>
+	
+	<string name="tj_app">推薦APP</string>
+	<string name="app_ZArchiver">方便好用的解壓工具</string>
+	
+	<string name="downloading">下載中</string>
+	<string name="download_susses">下載成功，保存路徑:</string>
+	<string name="download_fail">下載失敗:</string>
+	<string name="link_bmob">連接服務器中</string>
+	<string name="link_fail">連接服務器失敗</string>
+	<string name="download_dia_mess">咱只給妳簡體漢化版</string>
+	
+	<string name="jp">日版</string>
+	<string name="us">美版</string>
+	<string name="zh">簡體漢化</string>
+	<string name="nu"></string>
+	
+	<string name="not_install_CoolApk">未安裝酷安</string>
+	
+	<string name="login">登錄</string>
+	<string name="login_user">用護名/郵箱</string>
+	<string name="login_password">密碼</string>
+	<string name="login_susses">登錄成功</string>
+	<string name="login_fail">登錄失敗</string>
+	<string name="register">註冊</string>
+	<string name="register_susses">註冊成功</string>
+	<string name="register_fail">註冊失敗</string>
+	
+	<string name="jsz_copy">復制金手指成功</string>
+	
+	<string name="intro_welcome_title">歡迎</string>
+	<string name="intro_welcome_text">這是壹個可以讓妳免費獲取到星之卡比遊戲資源的應用程序</string>
+	<string name="intro_user_title">帳護</string>
+	<string name="intro_user_text">Kirby Assistant擁有用護系統，妳可以登錄妳之前註冊的帳號或者註冊新帳號\n當然，妳也可以在進入程序之後登錄或註冊</string>
+	<string name="intro_finish_title">完成</string>
+	<string name="intro_finish_text">該程序的配置已經自動完成了\n祝妳使用愉快</string>
+	<string name="intro_permission_title">權限</string>
+	<string name="intro_permission_text">Kirby Assistant需要以下權限請授予</string>
+	<string name="intro_permission_sd">"SD卡讀寫權限"</string>
+	<string name="the_first_permission_3">警告:如果妳使用的是miui,flyme,emui等國產rom\n--&gt;請前往手機管家或者設置&gt;授權管理開啟SD卡權限\n如果使用360手機衛士等app\n--&gt;請前往360手機衛士等app找到授權管理打開SD卡權限\n操作完畢後再點擊上面的按鈕</string>
+	<string name="next">下一步</string>
+	<string name="next_funk">跳過</string>
+	<string name="next_finish">完成</string>
+	
+	<string name="x_title">信息</string>
+	<string name="version">版本</string>
+	<string name="star1">評分</string>
+	<string name="star2">期待妳的五分好評</string>
+	<string name="help1">幫助</string>
+	<string name="help2">常見問題匯總</string>
+	<string name="help3">反饋</string>
+	<string name="help4">更詳細的幫助？點我進入QQ群</string>
+	<string name="kfz_title">開發者</string>
+	<string name="me1">酷安</string>
+	<string name="me2">\@汝南京</string>
+	<string name="github">在Github查看這個項目</string>
+	
+	<string name="dia_y_email">請輸入原來的郵箱</string>
+	<string name="dia_n_email">請輸入新的郵箱</string>
+	<string name="dia_y_password">請輸入原密碼</string>
+	<string name="dia_n_password">請輸入新密碼</string>
+	<string name="dia_a_password">請再輸入壹次新密碼</string>
+	<string name="dia_username">用護名（註冊以後不可更改）</string>
+	<string name="dia_email">郵箱（用於找回密碼）</string>
+	<string name="dia_password">密碼（支持數字和字母）</string>
+	
+	<string name="pay_title">捐贈</string>
+	
+	<string name="dia_download">下載</string>
+	<string name="dia_yes">確定</string>
+	<string name="dia_cancel">關閉</string>
+</resources>

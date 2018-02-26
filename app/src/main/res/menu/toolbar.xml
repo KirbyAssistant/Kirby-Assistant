@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+	<item
+        android:id="@+id/theme"
+		android:icon="@drawable/theme"
+        android:title="@string/theme_title"
+		app:showAsAction="always"/>
+	<item
+        android:id="@+id/about"
+        android:title="@string/about_title"
+		app:showAsAction="never"/>
+	<item
+        android:id="@+id/app"
+        android:title="@string/tj_app"
+		app:showAsAction="never"/>
+	<item
+        android:id="@+id/pay"
+        android:title="@string/pay_title"
+		app:showAsAction="never"/>
+</menu>

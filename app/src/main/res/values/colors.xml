@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="buletheme">#2196F3</color>
+	<color name="redtheme">#F44336</color>
+	<color name="purpletheme">#9C27B0</color>
+	<color name="lindigotheme">#3F51B5</color>
+	<color name="tealtheme">#009688</color>
+	<color name="greentheme">#4CAF50</color>
+	<color name="orangetheme">#FF9800</color>
+	<color name="browntheme">#795548</color>
+	<color name="bluegreytheme">#607D8B</color>
+	<color name="yellowtheme">#FFEB3B</color>
+	<color name="kirbytheme">#ee749d</color>
+	<color name="darktheme">#000000</color>
+</resources>

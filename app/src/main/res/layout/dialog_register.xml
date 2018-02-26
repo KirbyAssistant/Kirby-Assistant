@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+	<EditText
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:ems="10"
+		android:hint="@string/dia_username"
+		android:id="@+id/注册_用户名"
+		android:inputType="text"/>
+
+	<EditText
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:hint="@string/dia_email"
+		android:id="@+id/邮箱"/>
+	
+	<EditText
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:ems="10"
+		android:hint="@string/dia_password"
+		android:id="@+id/注册_密码"
+		android:inputType="textPassword"/>
+	
+	<EditText
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:ems="10"
+		android:hint="@string/dia_a_password"
+		android:id="@+id/重复密码"
+		android:inputType="textPassword"/>
+
+</LinearLayout>
+

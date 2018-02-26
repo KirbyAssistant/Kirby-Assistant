@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:gravity="center">
+
+	<ImageView
+		android:src="@mipmap/ic_launcher"
+		android:layout_height="158dp"
+		android:layout_width="158dp"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/welcomeImageView1"/>
+	<com.hanks.htextview.scale.ScaleTextView
+        android:id="@+id/textview"
+		android:layout_width="match_parent"
+		android:layout_height="100dp"
+		android:layout_marginTop="20dp"
+		android:gravity="center_horizontal"
+		android:paddingTop="8dp"
+		android:textSize="25sp"
+		android:layout_below="@id/welcomeImageView1"/>
+	
+</RelativeLayout>
+
