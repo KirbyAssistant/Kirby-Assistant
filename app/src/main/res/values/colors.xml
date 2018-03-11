@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<color name="head">#c6c6c6</color>
 	<color name="buletheme">#2196F3</color>
 	<color name="redtheme">#F44336</color>
 	<color name="purpletheme">#9C27B0</color>

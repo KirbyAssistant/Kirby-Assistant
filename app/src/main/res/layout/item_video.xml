@@ -12,7 +12,7 @@
 	<LinearLayout
 		style="?android:attr/buttonBarButtonStyle"
 		android:background="?attr/selectableItemBackground"
-		android:orientation="horizontal"
+		android:orientation="vertical"
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
 		android:id="@+id/LinearLayout">

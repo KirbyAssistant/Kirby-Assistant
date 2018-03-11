@@ -8,6 +8,7 @@ import com.kirby.runanjing.*;
 import android.support.v7.widget.*;
 import com.kirby.runanjing.bean.*;
 import com.kirby.runanjing.activity.*;
+import com.bumptech.glide.Glide;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder>
 {
@@ -21,12 +22,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 		TextView 内容;
 		TextView 时间;
 	    TextView 查看更多;
+
+		private ImageView 头像;
 		
 
 		public ViewHolder(View view)
 		{
 			super(view);
 			relativelayout = (RelativeLayout)view.findViewById(R.id.messageitemRelativeLayout1);
+			头像 = (ImageView)view.findViewById(R.id.itemmessageImageView1);
 			用户名 = (TextView)view.findViewById(R.id.用户名);
 			内容 = (TextView)view.findViewById(R.id.内容);
 			时间 = (TextView)view.findViewById(R.id.时间);
@@ -68,6 +72,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 		holder.用户名.setText(mess.getName());
 		holder.内容.setText(mess.getMessage());
 		holder.时间.setText(mess.getTime());
+		Glide
+			.with(mContext)
+			.load(mess.getUserHead())
+			.placeholder(R.drawable.headhide)
+			.into(holder.头像);
 		if(mess.getShowAll()){
 			holder.查看更多.setVisibility(View.VISIBLE);
 		}

@@ -1,18 +1,18 @@
 package com.kirby.runanjing.bmob;
 
 import cn.bmob.v3.*;
+import java.io.File;
+import cn.bmob.v3.datatype.BmobFile;
 
 public class MyUser extends BmobUser
 {
-    private Boolean gender;
-	
-
-    public Boolean getGender()
+    private BmobFile UserHead;
+    public BmobFile getUserHead()
 	{
-        return gender;
+        return UserHead;
     }
-    public void setGender(Boolean gender)
+    public void setUserHead(BmobFile userHead)
 	{
-        this.gender = gender;
+        this.UserHead = userHead;
     }
 }

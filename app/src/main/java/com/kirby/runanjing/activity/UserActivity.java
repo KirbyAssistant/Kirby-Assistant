@@ -1,5 +1,6 @@
 package com.kirby.runanjing.activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -145,9 +146,9 @@ public class UserActivity extends BaseActivity
 						}
 						String time_=m.getCreatedAt();
 						String time = time_.substring(0, 16);
-						Mess mess=new Mess(user, message, time, message_full, show_all);
+						//Mess mess=new Mess(user, message, time, message_full, show_all);
 						//将查询到的数据依次添加到列表
-						messlist.add(mess);
+						//messlist.add(mess);
 						//设置适配器
 						re.setAdapter(adapter);
 					}			
@@ -316,8 +317,10 @@ public class UserActivity extends BaseActivity
 				{
 					u.logOut();
 					Toast.makeText(UserActivity.this, R.string.logout_true, Toast.LENGTH_SHORT).show();
-					finish();
-					//open();
+					Intent intent = new Intent(UserActivity.this, Launcher.class);
+					intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+				    startActivity(intent);
+					android.os.Process.killProcess(android.os.Process.myPid()); 
 				}
 			}
 		).show();

@@ -21,6 +21,7 @@
 	<string name="mess_true">发送成功:</string>
 	<string name="mess_false">发送失败:</string>
 	<string name="user_title">用户信息</string>
+	<string name="head_upload">上传头像中</string>
 	
 	<string name="copy">复制</string>
 	<string name="email">邮件发送</string>
@@ -75,6 +76,7 @@
 	<string name="nu"></string>
 	
 	<string name="not_install_CoolApk">未安装酷安</string>
+	<string name="no_login">未登录，无法使用</string>
 	
 	<string name="login">登录</string>
 	<string name="login_user">用户名/邮箱</string>

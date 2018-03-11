@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ziyuan"
+        android:icon="@drawable/ic_game"
+        android:title="@string/ziyuan"/>
+
+	<item
+        android:id="@+id/jsz"
+        android:icon="@drawable/ic_jsz"
+        android:title="@string/jsz_title"/>
+
+	<item
+        android:id="@+id/video"
+        android:icon="@drawable/ic_video"
+        android:title="@string/video_title"/>
+
+	<item
+        android:id="@+id/talk"
+        android:icon="@drawable/ic_talk"
+        android:title="@string/talk"/>
+	
+	<item
+        android:id="@+id/me"
+        android:icon="@drawable/ic_account"
+        android:title="我"/>
+
+</menu>

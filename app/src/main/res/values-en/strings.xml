@@ -21,6 +21,7 @@
 	<string name="mess_true">Send Successfully:</string>
 	<string name="mess_false">Sand Unsuccessfully:</string>
 	<string name="user_title">User Information</string>
+	<string name="head_upload">Uploading</string>
 	
 	<string name="copy">Copy</string>
 	<string name="email">Send Email</string>
@@ -75,6 +76,7 @@
 	<string name="nu"></string>
 	
 	<string name="not_install_CoolApk">Not Installed Coolapk</string>
+	<string name="no_login">Not logged in,unable to use</string>
 	
 	<string name="login">Login</string>
 	<string name="login_user">User Name/E-mail</string>

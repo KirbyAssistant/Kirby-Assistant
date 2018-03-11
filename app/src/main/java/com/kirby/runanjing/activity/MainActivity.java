@@ -22,8 +22,6 @@ import com.kirby.runanjing.adapter.*;
 import com.kirby.runanjing.bmob.*;
 import com.kirby.runanjing.fragment.main.*;
 import com.kirby.runanjing.untils.*;
-import com.nightonke.boommenu.*;
-import com.nightonke.boommenu.BoomButtons.*;
 import java.io.*;
 import java.util.*;
 
@@ -33,6 +31,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
+import android.support.annotation.IdRes;
+import android.support.design.widget.BottomNavigationView;
+import android.support.annotation.NonNull;
 
 public class MainActivity extends BaseActivity implements AAH_FabulousFragment.AnimationListener 
 {
@@ -43,8 +44,6 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 	private Context gameContext;
 
 	private ProgressDialog progressDialog;
-
-	private BoomMenuButton bmb;
 	@Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -60,10 +59,60 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		replaceFragment(new MainGameFragment());
 		//使用BmobUser类获取部分用户数据
 		u = BmobUser.getCurrentUser(MyUser.class);
-		bmb = (BoomMenuButton) findViewById(R.id.bmb);
-        assert bmb != null;
-		initBmb();
 		thePay();
+		bottomBar();
+	}
+
+	private void bottomBar()
+	{
+		BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+				@Override
+				public boolean onNavigationItemSelected(@NonNull MenuItem item)
+				{
+					switch (item.getItemId())
+					{
+						case R.id.ziyuan:
+							toolbar.setSubtitle(R.string.ziyuan);
+							replaceFragment(new MainGameFragment());
+							break;
+						case R.id.jsz:
+							toolbar.setSubtitle(R.string.jsz_title);
+							replaceFragment(new MainJszFragment());
+							break;
+						case R.id.video:
+							toolbar.setSubtitle(R.string.video_title);
+							replaceFragment(new MainVideoFragment());
+							break;
+						case R.id.talk:
+							toolbar.setSubtitle(R.string.talk);
+							if (null == u)
+							{
+								replaceFragment(new MainNullFragment());
+							}
+							else
+							{
+								replaceFragment(new MainMessFragment());
+							}
+							break;
+						case R.id.me:
+							if (null == u)
+							{
+								replaceFragment(new MainLoginFragment());
+								toolbar.setSubtitle(R.string.login_title);
+							}
+							else
+							{
+								replaceFragment(new MainUserFragment());
+								toolbar.setSubtitle(u.getUsername());
+								/*Intent user=new Intent(MainActivity.this, UserActivity.class);
+								IntentUtil.startActivityWithAnim(user, MainActivity.this);*/
+							}
+							break;
+					}
+					return true;
+				}
+			});
 	}
 	private void thePay()
 	{
@@ -71,92 +120,12 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		boolean 状态_ = 状态.getBoolean("thefirst_main", false);
 		if (状态_ == false)
 		{
-			int pay_code=(int)(1+Math.random()*(10-1+1));
-			if(pay_code==1||pay_code==3||pay_code==7||pay_code==10)
+			int pay_code=(int)(1 + Math.random() * (10 - 1 + 1));
+			if (pay_code == 1 || pay_code == 3 || pay_code == 7 || pay_code == 10)
 			{
-			showPay();
+				showPay();
 			}
 		}
-	}
-	private void initBmb()
-	{
-		
-		if (null == u)
-		{
-			HamButton.Builder user = new HamButton.Builder()
-				.normalTextRes(R.string.login_title)
-				.normalImageRes(R.drawable.ic_account)
-				.listener(new OnBMClickListener(){
-					@Override
-					public void onBoomButtonClick(int p1)
-					{
-						replaceFragment(new MainLoginFragment());
-						toolbar.setSubtitle(R.string.login_title);
-					}
-				});
-			bmb.addBuilder(user);
-		}
-		else
-		{
-			HamButton.Builder user = new HamButton.Builder()
-				.normalText(getResources().getString(R.string.hello) + u.getUsername())
-				.normalImageRes(R.drawable.ic_account)
-				.listener(new OnBMClickListener(){
-					@Override
-					public void onBoomButtonClick(int p1)
-					{
-						Intent user=new Intent(MainActivity.this, UserActivity.class);
-						IntentUtil.startActivityWithAnim(user,MainActivity.this);
-					}
-				});
-			bmb.addBuilder(user);
-		}
-		HamButton.Builder game = new HamButton.Builder()
-			.normalTextRes(R.string.ziyuan)
-			.normalImageRes(R.drawable.ic_game)
-			.listener(new OnBMClickListener(){
-				@Override
-				public void onBoomButtonClick(int p1)
-				{
-					toolbar.setSubtitle(R.string.ziyuan);
-					replaceFragment(new MainGameFragment());
-				}
-			});
-		bmb.addBuilder(game);
-		HamButton.Builder jsz = new HamButton.Builder()
-			.normalTextRes(R.string.jsz_title)
-			.listener(new OnBMClickListener(){
-				@Override
-				public void onBoomButtonClick(int p1)
-				{
-					toolbar.setSubtitle(R.string.jsz_title);
-					replaceFragment(new MainJszFragment());
-				}
-			});
-		bmb.addBuilder(jsz);
-		HamButton.Builder video = new HamButton.Builder()
-			.normalTextRes(R.string.video_title)
-			.listener(new OnBMClickListener(){
-				@Override
-				public void onBoomButtonClick(int p1)
-				{
-					toolbar.setSubtitle(R.string.video_title);
-					replaceFragment(new MainVideoFragment());
-				}
-			});
-		bmb.addBuilder(video);
-		HamButton.Builder mess = new HamButton.Builder()
-			.normalTextRes(R.string.talk)
-			.normalImageRes(R.drawable.ic_talk2)
-			.listener(new OnBMClickListener(){
-				@Override
-				public void onBoomButtonClick(int p1)
-				{
-					toolbar.setSubtitle(R.string.talk);
-					replaceFragment(new MainMessFragment());			
-				}
-			});
-		bmb.addBuilder(mess);
 	}
 	private void showPay()
 	{
@@ -171,7 +140,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 				public void onClick(DialogInterface dialog, int which)
 				{
 					Intent pay=new Intent(MainActivity.this, PayActivity.class);
-					IntentUtil.startActivityWithAnim(pay,MainActivity.this);
+					IntentUtil.startActivityWithAnim(pay, MainActivity.this);
 				}
 			}
 		)
@@ -193,6 +162,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 	{
 		FragmentManager fragmentManager=getSupportFragmentManager();
 		FragmentTransaction transaction=fragmentManager.beginTransaction();
+		transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 		transaction.replace(R.id.main_fragment, fragment);
 		transaction.commit();
 	}
@@ -224,10 +194,10 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 	public void open()
 	{
 		Intent intent = getIntent();
-		overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);//假装没退出过...
+		overridePendingTransition(R.transition.explode, android.R.anim.fade_out);//假装没退出过...
 		intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 		finish();
-		IntentUtil.startActivityWithAnim(intent,MainActivity.this);
+	    startActivity(intent);
 	}
 	//初始化toolbar菜单
 	public boolean onCreateOptionsMenu(Menu menu)
@@ -338,7 +308,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 			case R.id.about:
 				//跳转AboutActivity
 				Intent about=new Intent(MainActivity.this, AboutActivity.class);
-				IntentUtil.startActivityWithAnim(about,MainActivity.this);
+				IntentUtil.startActivityWithAnim(about, MainActivity.this);
 				break;
 			case R.id.app:
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -361,7 +331,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 				break;
 			case R.id.pay:
 				Intent pay=new Intent(MainActivity.this, PayActivity.class);
-				IntentUtil.startActivityWithAnim(pay,MainActivity.this);
+				IntentUtil.startActivityWithAnim(pay, MainActivity.this);
 				break;
 			default:
 		}
@@ -413,7 +383,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 					{
 						progressDialog.dismiss();
 						Toast.makeText(MainActivity.this, getResources().getString(R.string.download_susses) + savePath, Toast.LENGTH_SHORT).show();
-						Install.installApk(MainActivity.this,savePath);
+						Install.installApk(MainActivity.this, savePath);
 					}
 					else
 					{
@@ -568,7 +538,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 					{
 						progressDialog.dismiss();
 						Toast.makeText(gameContext, gameContext.getString(R.string.download_susses) + savePath, Toast.LENGTH_SHORT).show();
-						Install.installApk(gameContext,savePath);
+						Install.installApk(gameContext, savePath);
 					}
 					else
 					{
@@ -648,6 +618,9 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 			}
 		);
 		dialog.show();
+	}
+	public Activity getThis(){
+		return MainActivity.this;
 	}
 }
 

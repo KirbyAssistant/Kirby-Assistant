@@ -93,8 +93,7 @@ public class MainMessFragment extends Fragment
 		BmobQuery<MessageBmob> query=new BmobQuery<MessageBmob>();
 		query.order("-createdAt");//时间降序排列
 		query.setLimit(20);
-		query.findObjects(new FindListener<MessageBmob>() {
-		
+		query.findObjects(new FindListener<MessageBmob>() {	
 				@Override
 				public void done(List<MessageBmob> list, BmobException e)
 				{
@@ -145,10 +144,10 @@ public class MainMessFragment extends Fragment
 			});
 	}
 	private Handler messHandler=new Handler(){
-
+		
 		private String message;
-
 		private boolean show_all;
+		private String userHead;
 		@Override
 		public void handleMessage(Message msg)
 		{
@@ -172,7 +171,7 @@ public class MainMessFragment extends Fragment
 						}
 						String time_=m.getCreatedAt();
 						String time = time_.substring(0, 16);
-						Mess mess=new Mess(user,message,time,message_full,show_all);
+						Mess mess=new Mess(user,userHead,message,time,message_full,show_all);
 						//将查询到的数据依次添加到列表
 						messlist.add(mess);
 						//设置适配器
@@ -189,6 +188,7 @@ public class MainMessFragment extends Fragment
 		private String message;
 
 		private boolean show_all;
+
 		@Override
 		public void handleMessage(Message msg)
 		{
@@ -200,6 +200,7 @@ public class MainMessFragment extends Fragment
 					{
 						//从获取的数据中提取需要的数据
 						String user=m.getNickname();
+						String userHead=null;
 						String message_full=m.getMessage();
 						if(message_full.length()>40){
 							message=message_full.substring(0,40)+"...";
@@ -212,7 +213,7 @@ public class MainMessFragment extends Fragment
 						}
 						String time_=m.getCreatedAt();
 						String time = time_.substring(0, 16);
-						Mess mess=new Mess(user,message,time,message_full,show_all);
+						Mess mess=new Mess(user,userHead,message,time,message_full,show_all);
 						//将查询到的数据依次添加到列表
 						messlist.add(mess);
 						re.getAdapter().notifyItemChanged(messItem);

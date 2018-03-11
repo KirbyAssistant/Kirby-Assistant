@@ -101,7 +101,7 @@ public  class AboutPreferenceFragment extends PreferenceFragment
 				break;
 			case "github":
 				Intent github=new Intent("android.intent.action.VIEW");
-				github.setData(Uri.parse("https://github.com/nihaocun/kirbydownload"));
+				github.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant"));
 				getActivity().startActivity(github);
 				break;
 		}

@@ -21,6 +21,7 @@
 	<string name="mess_true">發送成功:</string>
 	<string name="mess_false">發送失敗:</string>
 	<string name="user_title">用護信息</string>
+	<string name="head_upload">上傳頭像中</string>
 	
 	<string name="copy">複製</string>
 	<string name="email">郵件發送</string>
@@ -75,6 +76,7 @@
 	<string name="nu"></string>
 	
 	<string name="not_install_CoolApk">未安裝酷安</string>
+	<string name="no_login">未登錄，無法使用</string>
 	
 	<string name="login">登錄</string>
 	<string name="login_user">用護名/郵箱</string>

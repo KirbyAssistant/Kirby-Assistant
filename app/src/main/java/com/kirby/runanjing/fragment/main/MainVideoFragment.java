@@ -43,7 +43,7 @@ public class MainVideoFragment extends Fragment
 	{
 		//设置显示视频的列表
 		re = (RecyclerView)view.findViewById(R.id.视频);
-		GridLayoutManager layoutManager=new GridLayoutManager(getActivity(), 1);
+		GridLayoutManager layoutManager=new GridLayoutManager(getActivity(), 2);
 		re.setLayoutManager(layoutManager);
 		adapter = new VideoAdapter(videolist);	
 		//刷新数据
