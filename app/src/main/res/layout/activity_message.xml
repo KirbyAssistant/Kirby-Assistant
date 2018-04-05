@@ -30,8 +30,15 @@
 
 		<RelativeLayout
 			android:layout_height="match_parent"
-			android:layout_width="match_parent"
-			android:padding="18dp">
+			android:layout_width="match_parent">
+
+			<ImageView
+				android:layout_height="48dp"
+				android:layout_width="48dp"
+				android:src="@drawable/kirbytheme"
+				android:id="@+id/user_head"
+				android:layout_marginTop="16dp"
+				android:layout_marginLeft="16dp"/>
 
 			<TextView
 				android:layout_height="wrap_content"
@@ -39,7 +46,10 @@
 				android:layout_width="wrap_content"
 				android:text="Medium Text"
 				android:id="@+id/userName"
-				android:textColor="#000000"/>
+				android:textColor="#000000"
+				android:layout_toRightOf="@id/user_head"
+				android:layout_marginTop="16dp"
+				android:layout_marginLeft="16dp"/>
 
 			<TextView
 				android:layout_height="wrap_content"
@@ -48,16 +58,20 @@
 				android:text="Small Text"
 				android:layout_below="@id/userName"
 				android:id="@+id/time"
-				android:layout_marginBottom="18dp"/>
+				android:layout_marginBottom="18dp"
+				android:layout_toRightOf="@id/user_head"
+				android:layout_marginLeft="16dp"/>
 
 			<TextView
 				android:layout_height="wrap_content"
 				android:textAppearance="?android:attr/textAppearanceMedium"
 				android:layout_width="wrap_content"
 				android:text="Medium Text"
-				android:layout_below="@id/time"
+				android:layout_below="@id/user_head"
 				android:id="@+id/mess"
-				android:textColor="#000000"/>
+				android:textColor="#000000"
+				android:layout_marginLeft="16dp"
+				android:layout_marginTop="16dp"/>
 
 		</RelativeLayout>
 

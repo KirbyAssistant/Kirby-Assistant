@@ -9,11 +9,9 @@ public class Mess
 	private String time;
 	private String message_full;
 	private boolean show_all;
-	private String userHead;
 	public Mess(String name,String userHead  ,String message, String time,String message_full,boolean show_all)
 	{
 		this.name = name;
-		this.userHead = userHead;
 		this.time = time;
 		this.message = message;
 		this.message_full=message_full;
@@ -22,9 +20,6 @@ public class Mess
 	public String getName()
 	{
 		return name;
-	}
-	public String getUserHead(){
-		return userHead;
 	}
 	public String getTime()
 	{
