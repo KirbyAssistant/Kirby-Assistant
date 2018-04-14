@@ -14,6 +14,7 @@ public class Kirby extends Application
     public void onCreate()
 	{
         super.onCreate();
+		Theme.setClassTheme(this);
         registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
 	    NeverCrash.init(new NeverCrash.CrashHandler() {
 				@Override

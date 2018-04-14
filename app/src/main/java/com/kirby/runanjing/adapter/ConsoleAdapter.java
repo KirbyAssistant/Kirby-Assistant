@@ -52,8 +52,8 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
 					Intent in=new Intent(mContext, GameListActivity.class);
 					String  input=console.getName().toString();	
 					MainActivity m=new MainActivity();
-					IntentUtil.startActivityWithAnim(in,m.getThis());
-					//mContext.startActivity(in);
+					//IntentUtil.startActivityWithAnim(in,m.getThis());
+					mContext.startActivity(in);
 					SharedPreferences.Editor t=mContext.getSharedPreferences("string", 0).edit();
 					t.putString("主机名称", input);
 					t.apply();
@@ -73,10 +73,8 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
 			.load(co.getImageUrl())
 			.placeholder(R.drawable.ic_download)
 			.error(R.drawable.ic_close_circle_outline)
-			.into(holder.consoleImage);
-			
+			.into(holder.consoleImage);		
 		}
-
     @Override
     public int getItemCount()
 	{

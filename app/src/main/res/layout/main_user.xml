@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="fill_parent"
@@ -15,7 +15,7 @@
 		android:layout_margin="5dp">
 
 		<RelativeLayout
-			android:layout_height="128dp"
+			android:layout_height="156dp"
 			android:layout_width="match_parent">
 
 			<TextView
@@ -47,6 +47,16 @@
 				android:textColor="#C6C6C6"
 				android:layout_centerHorizontal="true"/>
 
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:text="Small Text"
+				android:textColor="#C6C6C6"
+				android:layout_centerHorizontal="true"
+				android:layout_below="@id/user_data"
+				android:id="@+id/user_email"/>
+
 			<ImageView
 				android:layout_height="64dp"
 				android:layout_width="64dp"
@@ -60,5 +70,38 @@
 
 	</android.support.v7.widget.CardView>
 
-</RelativeLayout>
+	<android.support.v7.widget.CardView
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		app:elevation="5dp"
+		app:cardCornerRadius="4dp"
+		android:id="@+id/cardview"
+		android:layout_margin="5dp">
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<Button
+				android:layout_width="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:layout_height="wrap_content"
+				android:text="@string/edit_email"
+				android:layout_weight="5"
+				android:id="@+id/edit_email"/>
+
+			<Button
+				android:layout_width="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:layout_height="wrap_content"
+				android:text="@string/edit_password"
+				android:layout_weight="5"
+				android:id="@+id/edit_password"/>
+
+		</LinearLayout>
+
+	</android.support.v7.widget.CardView>
+
+</LinearLayout>
 

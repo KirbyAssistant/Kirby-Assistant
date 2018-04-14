@@ -44,6 +44,7 @@
 	
 	<string name="user_logout">Logout</string>
 	<string name="logout_true">Logout Successfully</string>
+	<string name="register_time">Registration time</string>
 	
 	<string name="theme_title">Themes</string>
 	

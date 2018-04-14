@@ -40,9 +40,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 	private DrawerLayout drawerLayout;
 	private MyUser u;
 	private Toolbar toolbar;
-
 	private Context gameContext;
-
 	private ProgressDialog progressDialog;
 	@Override
     protected void onCreate(Bundle savedInstanceState)
@@ -106,7 +104,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 								replaceFragment(new MainUserFragment());
 								toolbar.setSubtitle(u.getUsername());
 								/*Intent user=new Intent(MainActivity.this, UserActivity.class);
-								IntentUtil.startActivityWithAnim(user, MainActivity.this);*/
+								 IntentUtil.startActivityWithAnim(user, MainActivity.this);*/
 							}
 							break;
 					}
@@ -398,96 +396,96 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 				}
 			});
 	}
-	public void theDownload(Context con, String game_name)
+	public void theDownload(Context con, String game_name,String position)
 	{
 		gameContext = con;
-		switch (game_name)
+		switch (position)
 		{
-			case "星之卡比 梦之泉DX":
+			case "gba_mzqdx"://"星之卡比 梦之泉DX":
 				showDownloadDialog(game_name, R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3kURIBIZ", "https://eyun.baidu.com/s/3o86TXDS", "https://eyun.baidu.com/s/3dF22BWP");
 				break;
-			case "星之卡比 镜之大迷宫":
+			case "gba_jm"://"星之卡比 镜之大迷宫":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3hs7Mjsg", "https://eyun.baidu.com/s/3c5qBl8", "https://eyun.baidu.com/s/3i5t6Z3J");
 				break;
-			case "星之卡比 3":
+			case "sfc_x3"://"星之卡比 3":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKTD8EZ", "https://eyun.baidu.com/s/3gfwui2n", "");
 				break;
-			case "星之卡比 超豪华版":
+			case "sfc_kss"://"星之卡比 超豪华版":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3qXEc4Xm", "https://eyun.baidu.com/s/3nu8IVpv", "");
 				break;
-			case "星之卡比 卡比梦幻都":
+			case "sfc_mhd"://"星之卡比 卡比梦幻都":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3hsvCjfI", "https://eyun.baidu.com/s/3jHCmNps", "");
 				break;
-			case "[仅美国]星之卡比 卡比魔方气泡":
+			case "sfc_mfqp"://"[仅美国]星之卡比 卡比魔方气泡":
 				showDownloadDialog(game_name, R.string.game_name1, R.string.us , R.string.nu ,  R.string.nu, "https://eyun.baidu.com/s/3eSuusSi", "", "");
 				break;
-			case "[仅日本]星之卡比 卡比宝石星DX":
+			case "sfc_bsxdx"://"[仅日本]星之卡比 卡比宝石星DX":
 				showDownloadDialog(game_name, R.string.game_name2, R.string.jp, R.string.nu, R.string.nu, "https://eyun.baidu.com/s/3kVDhaS3", "", "");
 				break;
-			case "星之卡比 64":
+			case "n64_k64"://"星之卡比 64":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3jHPKdMY", "https://eyun.baidu.com/s/3jHPKdMY", "");
 				break;
-			case "星之卡比 飞天赛车":
+			case "ngc_ft"://"星之卡比 飞天赛车":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.us, R.string.nu, R.string.nu, "https://eyun.baidu.com/s/3qYAoXGC", "", "");
 				break;
-			case "星之卡比 重返梦幻岛":
+			case "wii_cf"://"星之卡比 重返梦幻岛":
 				//showDownloadDialog(game_name, "[注意有单/多文件之分]\n请选择你需要的版本", "日版（单）", "美版（多）", "汉化（多）", "https://eyun.baidu.com/s/3skEbla1", "https://eyun.baidu.com/s/3gf5Oxe7", "https://eyun.baidu.com/s/3gfqpuin");
 				break;
-			case "星之卡比 毛线卡比":
+			case "wii_mx"://"星之卡比 毛线卡比":
 				//showDownloadDialog(game_name, "[注意有单/多文件之分]\n请选择你需要的版本", "美版（多）", "美版（单）", "汉化（单）", "https://eyun.baidu.com/s/3c2inVEC", "https://eyun.baidu.com/s/3dFACfWd", "https://eyun.baidu.com/s/3eRYayD8");
 				break;
-			case "星之卡比 触摸卡比":
+			case "nds_cm"://"星之卡比 触摸卡比":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3hsqS3S4", "https://eyun.baidu.com/s/3c27V89i", "https://eyun.baidu.com/s/3i5Pwsxn");
 				break;
-			case "星之卡比 超究豪华版":
+			case "nds_kssu"://"星之卡比 超究豪华版":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3i4Ricbb", "https://eyun.baidu.com/s/3nvCwXlB", "https://eyun.baidu.com/s/3c2EblZi");
 				break;
-			case "星之卡比 呐喊团":
+			case "nds_nht"://"星之卡比 呐喊团":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3bo4Z5TH", "https://eyun.baidu.com/s/3czmilC", "https://eyun.baidu.com/s/3hr4PxbA");
 				break;
-			case "星之卡比 集合！卡比":
+			case "nds_jh"://"星之卡比 集合！卡比":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3geO4mbx", "https://eyun.baidu.com/s/3eSijdHS", "https://eyun.baidu.com/s/3o80PA6e");
 				break;
-			case "星之卡比 1":
+			case "gb_x1"://"星之卡比 1":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKN6dIz", "https://eyun.baidu.com/s/3pKZHpaF", "");
 				break;
-			case "星之卡比 2":
+			case "gb_x2"://"星之卡比 2":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3i57Kjjv", "https://eyun.baidu.com/s/3jI4urlW", "");
 				break;
-			case "星之卡比 卡比宝石星":
+			case "gb_bsx"://"星之卡比 卡比宝石星":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3miFgbtI", "https://eyun.baidu.com/s/3nvtzunn", "");
 				break;
-			case "星之卡比 卡比打砖块":
+			case "gb_dzk"://"星之卡比 卡比打砖块":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3i5Dkqah", "https://eyun.baidu.com/s/3ge7808r", "");
 				break;
-			case "星之卡比 卡比弹珠台":
+			case "gb_dzt"://"星之卡比 卡比弹珠台":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3i48QqMh", "https://eyun.baidu.com/s/3eSwv1DK", "");
 				break;
-			case "星之卡比 滚滚卡比":
+			case "gbc_gg"://"星之卡比 滚滚卡比":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKP9eav", "https://eyun.baidu.com/s/3nuQZavJ", "");
 				break;
-			case "星之卡比 梦之泉物语":
+			case "fc_mzq"://"星之卡比 梦之泉物语":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKXFx8n", "https://eyun.baidu.com/s/3pKZHpaF", "https://eyun.baidu.com/s/3i4HC8FN");
 				break;
-			case "GBA模拟器\nMy Boy!":
+			case "moniqi_gba"://"GBA " + getGameText(R.string.moniqi) + "\nMy Boy!":
 				showOtherDownloadDialog("gba", game_name);
 				break;
-			case "SFC模拟器\nSnes9x EX+":
+			case "moniqi_sfc"://"SFC "++"\nSnes9x EX+":
 				showOtherDownloadDialog("sfc", game_name);
 				break;
-			case "N64模拟器\nTendo64":
+			case "moniqi_n64"://"N64 "++"\nTendo64":
 				showOtherDownloadDialog("n64", game_name);
 				break;
-			case "NDS模拟器\nDraStic":
+			case "moniqi_nds"://"NDS "++"\nDraStic":
 				showOtherDownloadDialog("nds", game_name);
 				break;
-			case "NGC&WII模拟器\nDolphin":
+			case "moniqi_ngc"://"NGC&WII "++"\nDolphin":
 				showOtherDownloadDialog("wii", game_name);
 				break;
-			case "GB&GBC模拟器\nMy OldBoy!":
+			case "moniqi_gb"://"GB&GBC "++"\nMy OldBoy!":
 				showOtherDownloadDialog("gb", game_name);
 				break;
-			case "FC模拟器\nNES.emu":
+			case "moniqi_fc"://"FC "++"\nNES.emu":
 				showOtherDownloadDialog("fc", game_name);
 				break;
 		}
@@ -618,9 +616,6 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 			}
 		);
 		dialog.show();
-	}
-	public Activity getThis(){
-		return MainActivity.this;
 	}
 }
 

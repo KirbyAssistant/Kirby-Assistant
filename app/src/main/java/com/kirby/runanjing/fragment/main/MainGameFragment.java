@@ -25,23 +25,14 @@ public class MainGameFragment extends Fragment
 	private ConsoleAdapter adapter;
 	private GameAdapter adapter2;
     private Console[]主机={
-		new Console("gba", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/gba.png"),
-		new Console("sfc", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/sfc.png"),
-		new Console("n64", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/n64.png"),
-		new Console("ngc", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/ngc.png"),
-		new Console("wii", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/wii.png"),
-		new Console("nds", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/nds.png"),
-		new Console("gb/gbc", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/gbc.png"),
-		new Console("fc", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/fc.png")};
-	private Console[] 模拟器 = {
-		new Console("GBA模拟器\nMy Boy!", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_gba.png"),
-		new Console("SFC模拟器\nSnes9x EX+", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_sfc.png"),
-		new Console("N64模拟器\nTendo64", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_n64.png"),
-		new Console("NDS模拟器\nDraStic", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_nds.png"),
-		new Console("NGC&WII模拟器\nDolphin", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_wii.png"),
-		new Console("GB&GBC模拟器\nMy OldBoy!", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_gb_gbc.png"),
-		new Console("FC模拟器\nNES.emu", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_fc.png"),
-	}; 
+		new Console("gba", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/gba.png","gba"),
+		new Console("sfc", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/sfc.png","sfc"),
+		new Console("n64", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/n64.png","n64"),
+		new Console("ngc", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/ngc.png","ngc"),
+		new Console("wii", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/wii.png","wii"),
+		new Console("nds", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/nds.png","nds"),
+		new Console("gb/gbc", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/gbc.png","gbc"),
+		new Console("fc", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/fc.png","fc")};
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
@@ -50,9 +41,12 @@ public class MainGameFragment extends Fragment
 		initPaper(view);
 		return view;
 	}
-
+	private String getMoniqiText(int res_id)
+	{	
+		return getActivity().getResources().getString(res_id);
+	}
 	private void initPaper(View view)
-	{
+	{	
 		//实例化viewpager需要的
 		mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         mTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
@@ -99,6 +93,15 @@ public class MainGameFragment extends Fragment
 	}
 	private void init2()
 	{
+		Console[] 模拟器 = {
+			new Console("GBA " + getMoniqiText(R.string.moniqi) + "\nMy Boy!", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_gba.png","moniqi_gba"),
+			new Console("SFC " + getMoniqiText(R.string.moniqi) + "\nSnes9x EX+", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_sfc.png","moniqi_sfc"),
+			new Console("N64 " + getMoniqiText(R.string.moniqi) + "\nTendo64", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_n64.png","moniqi_n64"),
+			new Console("NDS " + getMoniqiText(R.string.moniqi) + "\nDraStic", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_nds.png","moniqi_nds"),
+			new Console("NGC&WII " + getMoniqiText(R.string.moniqi) + "\nDolphin", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_wii.png","moniqi_wii"),
+			new Console("GB&GBC " + getMoniqiText(R.string.moniqi) + "\nMy OldBoy!", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_gb_gbc.png","moniqi_gb"),
+			new Console("FC " + getMoniqiText(R.string.moniqi) + "\nNES.emu", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_fc.png","moniqi_fc"),
+		}; 
 		int in = 0;//定义数值
 		//遍历
 		while (in < 模拟器.length)
@@ -107,7 +110,7 @@ public class MainGameFragment extends Fragment
 		}
 	}
 	//viewpager适配器
-  class MyPagerAdapter extends PagerAdapter
+	class MyPagerAdapter extends PagerAdapter
 	{
         private List<View> mViewList;
 

@@ -4,10 +4,12 @@ public class Console
 {
 	private String name;
 	private String imageUrl;
-	public Console(String name, String imageUrl)
+	private String funk;
+	public Console(String name, String imageUrl,String funk)
 	{
 		this.name = name;
 		this.imageUrl = imageUrl;
+		this.funk=funk;
 	}
 	public String getName()
 	{
@@ -16,5 +18,9 @@ public class Console
 	public String getImageUrl()
 	{
 		return imageUrl;
+	}
+	public String getPosition()
+	{
+		return funk;
 	}
 }

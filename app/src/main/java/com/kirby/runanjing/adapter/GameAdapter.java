@@ -49,7 +49,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>
 					int position = holder.getAdapterPosition();
 					Console game = mGameList.get(position);
 					MainActivity m=new MainActivity();
-					m.theDownload(mContext, game.getName());
+					m.theDownload(mContext, game.getName(),game.getPosition());
 				}
 			}
 		);

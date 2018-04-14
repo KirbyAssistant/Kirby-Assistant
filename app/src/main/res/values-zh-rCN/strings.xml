@@ -44,6 +44,7 @@
 	
 	<string name="user_logout">账号登出</string>
 	<string name="logout_true">登出成功</string>
+	<string name="register_time">注册于</string>
 	
 	<string name="theme_title">主题</string>
 	

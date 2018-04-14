@@ -19,10 +19,8 @@ public  class AboutPreferenceFragment extends PreferenceFragment
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		addPreferencesFromResource(R.xml.about);
-		
+		addPreferencesFromResource(R.xml.about);	
 	}
-
 	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference)
 	{
@@ -42,17 +40,18 @@ public  class AboutPreferenceFragment extends PreferenceFragment
 				}		
 				break;
 			case "setLanguage":
-				SharedPreferences c=getActivity().getSharedPreferences("string", 0);
+				SharedPreferences c=getActivity().getSharedPreferences("setting", 0);
 				int itemSelected=c.getInt("language_i", 0);
-				String [] lan={"Auto","简体中文","繁體中文","ENGLISH"};
+				String [] lan={"Auto","简体中文","繁體中文（台灣）","ENGLISH"};
 				AlertDialog dialog = new AlertDialog.Builder(getActivity()).setTitle(R.string.language)
 					.setSingleChoiceItems(lan, itemSelected, new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int i)
 						{
-							SharedPreferences y=getActivity().getSharedPreferences("string",0);
-							SharedPreferences.Editor edit=y.edit();
+							SharedPreferences lan=getContext().getSharedPreferences("setting",0);
+							SharedPreferences.Editor edit=lan.edit();
 							edit.putInt("language_i",i);
+							edit.apply();
 							switch (i)
 							{
 								case 0:
@@ -72,11 +71,12 @@ public  class AboutPreferenceFragment extends PreferenceFragment
 									edit.apply();
 									break;
 							}
+							edit.commit();
+							dialog.dismiss();
 							Intent intent = new Intent(getActivity(), Launcher.class);
 							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 							getActivity().startActivity(intent);
 							android.os.Process.killProcess(android.os.Process.myPid()); 
-							dialog.dismiss();
 						}
 					}).create();
 				dialog.show();

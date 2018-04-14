@@ -77,7 +77,7 @@ public class Launcher extends AppCompatActivity
 	{
 
         //读取SharedPreferences数据，默认选中第一项
-        SharedPreferences preferences = getSharedPreferences("string", 0);
+        SharedPreferences preferences = getSharedPreferences("setting", 0);
         String language = preferences.getString("language", "auto");
 
         //根据读取到的数据，进行设置

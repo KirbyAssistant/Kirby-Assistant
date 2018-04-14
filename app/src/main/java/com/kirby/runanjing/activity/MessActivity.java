@@ -79,6 +79,8 @@ public class MessActivity extends BaseActivity
 	}
 	private Handler userHandler=new Handler(){
 
+		private String userHeadUrl;
+
 		@Override
 		public void handleMessage(Message msg)
 		{
@@ -88,8 +90,9 @@ public class MessActivity extends BaseActivity
 					List<MyUser> list= (List<MyUser>)msg.obj;
 					for (MyUser m : list)
 					{
-						String userHeadUrl=m.getUserHead().getFileUrl();
-						Toast.makeText(MessActivity.this, userHeadUrl, Toast.LENGTH_SHORT).show();
+						try{
+							userHeadUrl=m.getUserHead().getFileUrl();
+						}catch(Exception e){}			 
 						Glide
 							.with(MessActivity.this)
 							.load(userHeadUrl)
