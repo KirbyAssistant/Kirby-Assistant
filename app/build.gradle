@@ -23,6 +23,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
 	//彩蛋文字
 	compile 'yasic.library.ParticleTextView:particletextview:0.0.5'
+	//头像圆形
+	compile 'com.gcssloop.widget:rclayout:1.6.0'
 	//图片剪裁
 	compile 'com.github.yalantis:ucrop:2.2.1'
 	//第三方web

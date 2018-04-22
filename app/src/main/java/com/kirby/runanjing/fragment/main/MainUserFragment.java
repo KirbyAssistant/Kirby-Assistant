@@ -1,59 +1,54 @@
 package com.kirby.runanjing.fragment.main;
 
-import android.Manifest;
-import android.content.ContentUris;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Bundle;
-import android.provider.DocumentsContract;
-import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import cn.bmob.v3.BmobUser;
-import com.kirby.runanjing.R;
-import com.kirby.runanjing.activity.MainActivity;
-import com.kirby.runanjing.bmob.MyUser;
-import com.yalantis.ucrop.UCrop;
-import com.yalantis.ucrop.UCropActivity;
-import java.io.File;
-import android.text.TextUtils;
-import com.bumptech.glide.Glide;
-import cn.bmob.v3.listener.UpdateListener;
-import cn.bmob.v3.exception.BmobException;
-import java.net.URL;
-import cn.bmob.v3.datatype.BmobFile;
-import cn.bmob.v3.listener.UploadFileListener;
-import android.app.ProgressDialog;
-import android.widget.*;
-import android.support.v7.app.*;
+import android.*;
+import android.app.*;
 import android.content.*;
+import android.content.pm.*;
+import android.database.*;
+import android.graphics.*;
+import android.net.*;
+import android.os.*;
+import android.provider.*;
+import android.support.v4.app.*;
+import android.support.v4.content.*;
+import android.support.v7.app.*;
+import android.text.*;
+import android.view.*;
+import android.widget.*;
+import cn.bmob.v3.*;
+import cn.bmob.v3.datatype.*;
+import cn.bmob.v3.exception.*;
+import cn.bmob.v3.listener.*;
+import com.bumptech.glide.*;
+import com.kirby.runanjing.*;
+import com.kirby.runanjing.activity.*;
+import com.kirby.runanjing.bmob.*;
+import com.yalantis.ucrop.*;
+import java.io.*;
+
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
+import com.kirby.runanjing.R;
+import android.support.v7.widget.*;
+import com.kirby.runanjing.untils.*;
+import android.support.v4.util.*;
 
 public class MainUserFragment extends Fragment
 {
+	private LocalReceiver localReceiver;
+    private LocalBroadcastManager localBroadcastManager;
 	private View view;
 	private MainActivity m;
-	public static final int CHOOSE_PHOTO = 2;
 	private MyUser u;
-
 	private ImageView userHead;
-
 	private String name;
-
 	private String email;
-
 	private String id;
+	private CardView card;
+	private Button edit_email;
+	private Button edit_password;
+
+	private IntentFilter intentFilter;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
@@ -66,6 +61,12 @@ public class MainUserFragment extends Fragment
 
 	private void initUser(View view)
 	{
+		localBroadcastManager = localBroadcastManager.getInstance(getContext());
+		intentFilter = new IntentFilter();
+		intentFilter.addAction("com.kirby.download.CHANGE_USERHEAD");
+		localReceiver = new LocalReceiver();
+        //注册本地广播监听器
+        localBroadcastManager.registerReceiver(localReceiver,intentFilter);
 		name = u.getUsername();
 		email = u.getEmail();
 		id = u.getObjectId();
@@ -73,8 +74,19 @@ public class MainUserFragment extends Fragment
 		TextView userId=(TextView)view.findViewById(R.id.user_id);
 		TextView userTime=(TextView)view.findViewById(R.id.user_data);
 		TextView userEmail=(TextView)view.findViewById(R.id.user_email);
-		Button edit_email=(Button)view.findViewById(R.id.edit_email);
-		Button edit_password=(Button)view.findViewById(R.id.edit_password);
+		card = (CardView)view.findViewById(R.id.cardview);
+		edit_email = (Button)view.findViewById(R.id.edit_email);
+		edit_password = (Button)view.findViewById(R.id.edit_password);	
+		userName.setOnLongClickListener(new View.OnLongClickListener(){
+				@Override
+				public boolean onLongClick(View p1)
+				{
+					Intent egg=new Intent();
+					egg.setClass(getActivity(), EggActivity.class);
+					IntentUtil.startActivityWithAnim(egg, getActivity());
+					return false;
+				}
+			});
 		edit_email.setOnClickListener(new View.OnClickListener(){
 
 				@Override
@@ -106,8 +118,8 @@ public class MainUserFragment extends Fragment
 		{}
 		userName.setText(u.getUsername());
 		userId.setText("id:" + u.getObjectId());
-		userTime.setText(getActivity().getResources().getString(R.string.register_time)+":" + u.getCreatedAt());
-		userEmail.setText(getActivity().getResources().getString(R.string.user_email)+":"+u.getEmail());
+		userTime.setText(getActivity().getResources().getString(R.string.register_time) + ":" + u.getCreatedAt());
+		userEmail.setText(getActivity().getResources().getString(R.string.user_email) + ":" + u.getEmail());
 		userHead.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View p1)
@@ -118,141 +130,18 @@ public class MainUserFragment extends Fragment
 					}
 					else
 					{
-						openAlbum();
+						Pair<View, String> userHeadPair=new Pair<View,String>(userHead, "userHead");
+						Pair<View, String> cardPair= new Pair<View,String>(card, "card");
+						Pair<View, String> editEmailPair= new Pair<View,String>(edit_email, "email");
+						Pair<View, String> editPassPair= new Pair<View,String>(edit_password, "pass");
+						Intent intent = new Intent(getActivity(), HeadActivity.class);			
+						ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), userHeadPair, cardPair, editEmailPair, editPassPair);
+						startActivityForResult(intent,3, options.toBundle());
 					}
 				}
 			});
 	}
-	private void openAlbum()
-	{
-		// 激活系统图库，选择一张图片
-		Intent intent = new Intent(Intent.ACTION_PICK);
-	    intent.setType("image/*");
-		startActivityForResult(intent, CHOOSE_PHOTO);
-    }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
-	{
-        switch (requestCode)
-		{
-            case 1:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-				{
-                    openAlbum();
-                }
-                break;
-            default:
-        }
-    }
-	@Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-	{
-        switch (requestCode)
-		{
-            case CHOOSE_PHOTO:
-                if (resultCode == getActivity().RESULT_OK)
-				{
-					try
-					{
-						if (data != null)
-						{
-							Uri uri = data.getData();
-							if (!TextUtils.isEmpty(uri.getAuthority()))
-							{
-								Cursor cursor = getActivity().getContentResolver().query(uri, new String[]{MediaStore.Images.Media.DATA}, null, null, null);
-								if (null == cursor)
-								{
-									return;
-								}
-								cursor.moveToFirst();
-								//拿到了照片的path
-								String path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
-								cursor.close();
-								path = "file://" + path;
-								//启动裁剪界面，配置裁剪参数
-								startUcrop(path);
-							}
-						}
-					}
-					catch (Exception e)
-					{
-						e.printStackTrace();
-					}
-				}
-				break;
-			case UCrop.REQUEST_CROP:
-				try
-				{
-					final Uri croppedFileUri = UCrop.getOutput(data);
-					final ProgressDialog progressDialog = new ProgressDialog(getActivity());
-					progressDialog.setMessage(getResources().getString(R.string.head_upload));
-					progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-					progressDialog.show();
-					final BmobFile headFile=new BmobFile(new File(croppedFileUri.getPath()));
-					headFile.uploadblock(new UploadFileListener(){
-							@Override
-							public void done(BmobException e)
-							{
-								if (e == null)
-								{
-									MyUser newUser = new MyUser();
-									newUser.setUserHead(headFile);
-									newUser.update(u.getObjectId(), new UpdateListener() {
-											@Override
-											public void done(BmobException e)
-											{
-												if (e == null)
-												{
-													displayImage(croppedFileUri.getPath());
-												}
-												else
-												{
-													Toast.makeText(getActivity(), R.string.edit_false + e.getMessage(), Toast.LENGTH_SHORT).show();
-												}
-												progressDialog.dismiss();
-											}
-										});	
-								}
-								else
-								{
-									Toast.makeText(getActivity(), R.string.edit_false + e.getMessage(), Toast.LENGTH_SHORT).show();
-								}
-							}
-						});
-				}
-				catch (Exception e)
-				{}
-				break;
-			default:
-				break;
-		}
-	}
-	private void startUcrop(String path)
-	{
-        Uri uri_crop = Uri.parse(path);
-        //裁剪后保存到文件中
-        Uri destinationUri = Uri.fromFile(new File(getActivity().getExternalCacheDir(), u.getUsername() + ".jpg"));
-        UCrop uCrop = UCrop.of(uri_crop, destinationUri);
-        UCrop.Options options = new UCrop.Options();
-        //设置裁剪图片可操作的手势
-        options.setAllowedGestures(UCropActivity.SCALE, UCropActivity.ROTATE, UCropActivity.ALL);
-		uCrop.withOptions(options);
-		uCrop.withAspectRatio(1, 1);
-		uCrop.start(getContext(), MainUserFragment.this);
-    }
-    private void displayImage(String imagePath)
-	{
-        if (imagePath != null)
-		{
-            Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
-            userHead.setImageBitmap(bitmap);
-        }
-		else
-		{
-            Toast.makeText(getActivity(), "failed to get image", Toast.LENGTH_SHORT).show();
-        }
-    }
 	private void userEditEmail()
 	{
 		LayoutInflater lay_1 =getActivity().getLayoutInflater();
@@ -370,4 +259,11 @@ public class MainUserFragment extends Fragment
 			.setNegativeButton(R.string.dia_cancel, null)
 			.show();
 	}
+	private class LocalReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Toast.makeText(context,"收到本地广播",Toast.LENGTH_SHORT).show();
+			m.open();
+        }
+    }
 }

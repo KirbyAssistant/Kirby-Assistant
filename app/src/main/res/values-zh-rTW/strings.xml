@@ -17,6 +17,7 @@
 	<string name="not_login">沒有登錄</string>
 	<string name="language">語言設置</string>
 	<string name="crash_title">出錯了</string>
+	<string name="egg">这里是彩蛋</string>
 	
 	<string name="mess_true">發送成功:</string>
 	<string name="mess_false">發送失敗:</string>
@@ -28,6 +29,8 @@
 	
 	<string name="user_name">用護名</string>
 	<string name="user_email">郵箱</string>
+	<string name="talk_photo">拍照</string>
+	<string name="choose_photo">選擇圖片</string>
 	
 	<string name="edit_email">修改郵箱</string>
 	<string name="email_title">修改郵箱（成功後需要重新登錄）</string>

@@ -17,6 +17,7 @@
 	<string name="not_login">没有登陆</string>
 	<string name="language">语言设置</string>
 	<string name="crash_title">出错了</string>
+	<string name="egg">这里是彩蛋</string>
 	
 	<string name="mess_true">发送成功:</string>
 	<string name="mess_false">发送失败:</string>
@@ -28,6 +29,8 @@
 	
 	<string name="user_name">用户名</string>
 	<string name="user_email">邮箱</string>
+	<string name="talk_photo">拍照</string>
+	<string name="choose_photo">选择图片</string>
 	
 	<string name="edit_email">修改邮箱</string>
 	<string name="email_title">修改邮箱（成功后需要重新登录）</string>

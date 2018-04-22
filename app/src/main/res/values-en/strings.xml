@@ -17,6 +17,7 @@
 	<string name="not_login">Not Login</string>
 	<string name="language">Language setting</string>
 	<string name="crash_title">Error</string>
+	<string name="egg">Here is the egg</string>
 	
 	<string name="mess_true">Send Successfully:</string>
 	<string name="mess_false">Sand Unsuccessfully:</string>
@@ -28,6 +29,8 @@
 	
 	<string name="user_name">User Name</string>
 	<string name="user_email">E-mail</string>
+	<string name="take_photo">Take a picture</string>
+	<string name="choose_photo">Choose a picture</string>
 	
 	<string name="edit_email">Change E-mail</string>
 	<string name="email_title">Change E-mail (You Need Login Again If You Change Successfully)</string>

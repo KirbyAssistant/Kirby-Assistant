@@ -10,6 +10,7 @@ import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.untils.*;
 public class Kirby extends Application
 {
+	private static Kirby instance;
 	@Override
     public void onCreate()
 	{
@@ -24,7 +25,9 @@ public class Kirby extends Application
 				}
 			});
     }
-	
+	public static Context getCtx(){
+		return instance;
+	}
     public void toCrashActivity(final Throwable crash)
 	{
         new Handler(Looper.getMainLooper()).post(new Runnable() {

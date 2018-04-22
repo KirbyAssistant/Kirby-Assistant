@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<com.yasic.library.particletextview.View.ParticleTextView
+		android:id="@+id/egg"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="33"/>
+
+	<com.yasic.library.particletextview.View.ParticleTextView
+		android:id="@+id/kirbydownload"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="33"/>
+
+	<com.yasic.library.particletextview.View.ParticleTextView
+		android:id="@+id/hi"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="33"/>
+
+</LinearLayout>
+
