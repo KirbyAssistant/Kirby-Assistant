@@ -35,7 +35,8 @@ public class SendFabFragment extends AAH_FabulousFragment
 		{
 			edit_编辑.setText(mess);
 		}
-		contentView.findViewById(R.id.发送).setOnClickListener(new View.OnClickListener() {
+		ImageView 发送=contentView.findViewById(R.id.发送);
+		发送.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v)
 				{

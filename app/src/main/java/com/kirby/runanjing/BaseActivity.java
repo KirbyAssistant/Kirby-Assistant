@@ -11,6 +11,7 @@ import android.transition.TransitionInflater;
 import android.view.Window;
 import android.content.Intent;
 import android.app.ActivityOptions;
+import android.view.*;
 
 public class BaseActivity extends AppCompatActivity
 {
@@ -33,6 +34,7 @@ public class BaseActivity extends AppCompatActivity
         super.setContentView(layoutResID);
         setStatusBar();
     }
+
     protected void setStatusBar() {
 		StatusBarUtil.setColor(this, getDarkColorPrimary(),0);
 		getWindow().setNavigationBarColor(getDarkColorPrimary());
