@@ -7,6 +7,7 @@ import android.graphics.*;
 import android.net.*;
 import android.os.*;
 import android.provider.*;
+import android.support.v4.content.*;
 import android.text.*;
 import android.view.*;
 import android.widget.*;
@@ -17,13 +18,11 @@ import cn.bmob.v3.listener.*;
 import com.bumptech.glide.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.bmob.*;
-import com.kirby.runanjing.fragment.main.*;
+import com.kirby.runanjing.untils.*;
 import com.yalantis.ucrop.*;
 import java.io.*;
 
 import com.kirby.runanjing.R;
-import android.support.v4.content.*;
-import com.kirby.runanjing.untils.*;
 
 public class HeadActivity extends BaseActivity
 {
@@ -62,7 +61,8 @@ public class HeadActivity extends BaseActivity
 				@Override
 				public void onClick(View p1)
 				{
-					takePhoto();
+					//takePhoto();
+					Toast.makeText(HeadActivity.this,"未开放",Toast.LENGTH_LONG).show();
 				}			
 			});
 		choose_photo.setOnClickListener(new View.OnClickListener(){

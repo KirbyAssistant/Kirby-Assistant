@@ -32,7 +32,7 @@
 				android:layout_width="wrap_content"
 				style="?android:attr/buttonBarButtonStyle"
 				android:layout_height="wrap_content"
-				android:text="@string/take_photo"
+				android:text="@string/talk_photo"
 				android:layout_weight="5"
 				android:id="@+id/take_photo"
 				android:transitionName="email"/>

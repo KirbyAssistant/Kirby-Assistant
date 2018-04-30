@@ -4,12 +4,13 @@ import android.app.*;
 import android.content.*;
 import android.net.*;
 import android.os.*;
+import android.support.annotation.*;
+import android.support.design.widget.*;
 import android.support.v4.app.*;
 import android.support.v4.view.*;
 import android.support.v4.widget.*;
 import android.support.v7.app.*;
 import android.support.v7.widget.*;
-import android.transition.*;
 import android.view.*;
 import android.widget.*;
 import cn.bmob.v3.*;
@@ -31,9 +32,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
-import android.support.annotation.IdRes;
-import android.support.design.widget.BottomNavigationView;
-import android.support.annotation.NonNull;
 
 public class MainActivity extends BaseActivity implements AAH_FabulousFragment.AnimationListener 
 {

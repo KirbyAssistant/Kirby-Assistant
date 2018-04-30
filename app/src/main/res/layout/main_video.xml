@@ -12,10 +12,10 @@
 		android:layout_height="match_parent"
 		app:srlPrimaryColor="?attr/colorPrimary"
 		app:srlAccentColor="@android:color/white"
-		app:srlEnableHeaderTranslationContent="false"
+		app:srlEnableHeaderTranslationContent="true"
 		app:srlEnableLoadmore="true">
 
-		<com.scwang.smartrefresh.header.WaveSwipeHeader
+		<com.scwang.smartrefresh.header.BezierCircleHeader
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"/>
 

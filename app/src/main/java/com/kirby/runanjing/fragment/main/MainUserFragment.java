@@ -1,38 +1,26 @@
 package com.kirby.runanjing.fragment.main;
 
-import android.*;
-import android.app.*;
 import android.content.*;
 import android.content.pm.*;
-import android.database.*;
-import android.graphics.*;
-import android.net.*;
 import android.os.*;
-import android.provider.*;
 import android.support.v4.app.*;
 import android.support.v4.content.*;
+import android.support.v4.util.*;
 import android.support.v7.app.*;
-import android.text.*;
+import android.support.v7.widget.*;
 import android.view.*;
 import android.widget.*;
 import cn.bmob.v3.*;
-import cn.bmob.v3.datatype.*;
 import cn.bmob.v3.exception.*;
 import cn.bmob.v3.listener.*;
 import com.bumptech.glide.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bmob.*;
-import com.yalantis.ucrop.*;
-import java.io.*;
-
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import com.kirby.runanjing.R;
-import android.support.v7.widget.*;
 import com.kirby.runanjing.untils.*;
-import android.support.v4.util.*;
 
+import com.kirby.runanjing.R;
+import android.*;
 public class MainUserFragment extends Fragment
 {
 	private LocalReceiver localReceiver;
@@ -262,7 +250,6 @@ public class MainUserFragment extends Fragment
 	private class LocalReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Toast.makeText(context,"收到本地广播",Toast.LENGTH_SHORT).show();
 			m.open();
         }
     }

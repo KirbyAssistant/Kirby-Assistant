@@ -1,15 +1,13 @@
 package com.kirby.runanjing.adapter;
+import android.content.*;
 import android.support.v7.widget.*;
 import android.view.*;
 import android.widget.*;
-import com.kirby.runanjing.*;
-import com.kirby.runanjing.untils.*;
-import java.util.*;
-import android.content.*;
-import com.kirby.runanjing.activity.*;
 import com.bumptech.glide.*;
-import com.kirby.runanjing.fragment.*;
+import com.kirby.runanjing.*;
+import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bean.*;
+import java.util.*;
 
 public class JszGameAdapter extends RecyclerView.Adapter<JszGameAdapter.ViewHolder>
 {

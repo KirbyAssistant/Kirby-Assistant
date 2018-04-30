@@ -7,6 +7,7 @@ import android.widget.*;
 import cn.bmob.v3.*;
 import cn.bmob.v3.exception.*;
 import cn.bmob.v3.listener.*;
+import com.bumptech.glide.*;
 import com.github.anzewei.parallaxbacklayout.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.bmob.*;
@@ -15,8 +16,6 @@ import java.util.*;
 
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
-import android.util.*;
-import com.bumptech.glide.*;
 
 @ParallaxBack
 public class MessActivity extends BaseActivity

@@ -6,9 +6,8 @@ import android.widget.*;
 import com.bumptech.glide.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
-import java.util.*;
-import com.kirby.runanjing.untils.*;
 import com.kirby.runanjing.bean.*;
+import java.util.*;
 
 public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>
 {

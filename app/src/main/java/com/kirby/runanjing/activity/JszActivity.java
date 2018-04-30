@@ -6,16 +6,15 @@ import android.os.*;
 import android.support.v7.widget.*;
 import android.view.*;
 import android.widget.*;
-import com.jaeger.library.*;
+import com.github.anzewei.parallaxbacklayout.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.adapter.*;
+import com.kirby.runanjing.bean.*;
 import com.kirby.runanjing.untils.*;
 import java.util.*;
 
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
-import com.kirby.runanjing.bean.*;
-import com.github.anzewei.parallaxbacklayout.*;
 
 @ParallaxBack
 public class JszActivity extends BaseActivity

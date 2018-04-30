@@ -7,9 +7,8 @@ import android.view.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.adapter.*;
-import com.kirby.runanjing.untils.*;
-import java.util.*;
 import com.kirby.runanjing.bean.*;
+import java.util.*;
 
 public class MainJszFragment extends Fragment
 {

@@ -4,15 +4,14 @@ package com.kirby.runanjing.activity;
 import android.content.*;
 import android.os.*;
 import android.support.v7.widget.*;
+import android.text.*;
+import android.view.*;
 import android.widget.*;
+import com.kirby.runanjing.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.untils.*;
 
 import android.support.v7.widget.Toolbar;
-import android.text.*;
-import android.view.View.*;
-import android.view.*;
-import android.net.*;
 
 public class KirbyCrashActivity extends BaseActivity
 {

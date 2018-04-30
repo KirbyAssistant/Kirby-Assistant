@@ -12,6 +12,7 @@ import java.util.*;
 
 import com.kirby.runanjing.R;
 
+
 @ParallaxBack
 public class GameListActivity extends BaseActivity
 {

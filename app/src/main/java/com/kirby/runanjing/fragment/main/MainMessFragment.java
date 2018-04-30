@@ -1,10 +1,8 @@
 package com.kirby.runanjing.fragment.main;
 
-import android.graphics.*;
 import android.os.*;
 import android.support.design.widget.*;
 import android.support.v4.app.*;
-import android.support.v4.widget.*;
 import android.support.v7.widget.*;
 import android.util.*;
 import android.view.*;
@@ -14,17 +12,12 @@ import cn.bmob.v3.listener.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.adapter.*;
-import com.kirby.runanjing.fragment.fab.*;
-import com.kirby.runanjing.untils.*;
-import java.util.*;
-
-import com.kirby.runanjing.R;
-import com.kirby.runanjing.bmob.*;
 import com.kirby.runanjing.bean.*;
+import com.kirby.runanjing.bmob.*;
+import com.kirby.runanjing.fragment.fab.*;
 import com.scwang.smartrefresh.layout.api.*;
 import com.scwang.smartrefresh.layout.listener.*;
-import com.scwang.smartrefresh.header.*;
-import android.widget.*;
+import java.util.*;
 
 public class MainMessFragment extends Fragment
 {

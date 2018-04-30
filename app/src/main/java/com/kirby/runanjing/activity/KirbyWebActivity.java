@@ -1,21 +1,18 @@
 package com.kirby.runanjing.activity;
 
-
 import android.content.*;
 import android.os.*;
 import android.support.v7.widget.*;
-import android.view.*;
 import android.webkit.*;
 import android.widget.*;
 import com.github.anzewei.parallaxbacklayout.*;
+import com.just.agentweb.*;
+import com.kirby.runanjing.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.untils.*;
 
 import android.support.v7.widget.Toolbar;
-import android.webkit.DownloadListener;
 import com.kirby.runanjing.R;
-import android.net.*;
-import com.just.agentweb.*;
 
 @ParallaxBack
 public class KirbyWebActivity extends BaseActivity

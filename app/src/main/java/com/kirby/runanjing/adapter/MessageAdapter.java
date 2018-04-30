@@ -1,14 +1,12 @@
 package com.kirby.runanjing.adapter;
-import android.widget.*;
-import com.kirby.runanjing.untils.*;
 import android.content.*;
-import java.util.*;
-import android.view.*;
-import com.kirby.runanjing.*;
 import android.support.v7.widget.*;
-import com.kirby.runanjing.bean.*;
+import android.view.*;
+import android.widget.*;
+import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
-import com.bumptech.glide.Glide;
+import com.kirby.runanjing.bean.*;
+import java.util.*;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder>
 {

@@ -1,10 +1,11 @@
 package com.kirby.runanjing.activity;
 import android.os.*;
+import android.view.*;
+import com.kirby.runanjing.*;
 import com.kirby.runanjing.*;
 import com.yasic.library.particletextview.MovingStrategy.*;
-import com.yasic.library.particletextview.View.*;
 import com.yasic.library.particletextview.Object.*;
-import android.view.*;
+import com.yasic.library.particletextview.View.*;
 
 public class EggActivity extends BaseActivity
 {

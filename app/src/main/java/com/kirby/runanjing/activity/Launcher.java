@@ -1,16 +1,16 @@
 package com.kirby.runanjing.activity;
+
 import android.content.*;
 import android.content.res.*;
 import android.os.*;
 import android.support.v7.app.*;
 import android.util.*;
 import android.view.*;
-import com.kirby.runanjing.*;
-import java.util.*;
-
-import com.kirby.runanjing.R;
 import com.hanks.htextview.base.*;
+import com.kirby.runanjing.*;
+import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.untils.*;
+import java.util.*;
 
 public class Launcher extends AppCompatActivity
 {

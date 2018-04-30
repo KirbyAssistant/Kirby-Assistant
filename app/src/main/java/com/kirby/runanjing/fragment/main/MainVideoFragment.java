@@ -16,10 +16,6 @@ import com.kirby.runanjing.bmob.*;
 import com.scwang.smartrefresh.layout.api.*;
 import com.scwang.smartrefresh.layout.listener.*;
 import java.util.*;
-import okhttp3.*;
-import android.widget.*;
-import java.io.*;
-import com.kirby.runanjing.untils.*;
 
 public class MainVideoFragment extends Fragment 
 {

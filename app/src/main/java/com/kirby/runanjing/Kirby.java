@@ -8,6 +8,7 @@ import android.util.*;
 import android.content.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.untils.*;
+
 public class Kirby extends Application
 {
 	private static Kirby instance;
@@ -28,6 +29,10 @@ public class Kirby extends Application
 	public static Context getCtx(){
 		return instance;
 	}
+	protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+       // MultiDex.install(this);
+    }
     public void toCrashActivity(final Throwable crash)
 	{
         new Handler(Looper.getMainLooper()).post(new Runnable() {

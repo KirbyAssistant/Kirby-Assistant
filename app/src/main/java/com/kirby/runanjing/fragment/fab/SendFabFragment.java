@@ -1,16 +1,14 @@
 package com.kirby.runanjing.fragment.fab;
 
 import android.app.*;
+import android.content.*;
+import android.text.*;
 import android.view.*;
 import android.widget.*;
 import com.allattentionhere.fabulousfilter.*;
 import com.kirby.runanjing.*;
 
 import com.kirby.runanjing.R;
-import com.kirby.runanjing.activity.*;
-import android.content.*;
-import android.content.SharedPreferences.*;
-import android.text.*;
 
 public class SendFabFragment extends AAH_FabulousFragment
 {

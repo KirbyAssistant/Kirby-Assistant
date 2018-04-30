@@ -5,11 +5,9 @@ import android.content.*;
 import android.support.v7.widget.*;
 import android.view.*;
 import android.widget.*;
-import cn.bmob.v3.b.*;
 import com.bumptech.glide.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
-import com.kirby.runanjing.adapter.*;
 import com.kirby.runanjing.bean.*;
 import java.util.*;
 

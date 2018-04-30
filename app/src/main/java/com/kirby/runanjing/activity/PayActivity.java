@@ -1,7 +1,11 @@
 package com.kirby.runanjing.activity;
 
+import android.content.*;
+import android.didikee.donate.*;
 import android.os.*;
+import android.support.annotation.*;
 import android.support.v7.widget.*;
+import android.view.*;
 import android.widget.*;
 import com.github.anzewei.parallaxbacklayout.*;
 import com.kirby.runanjing.*;
@@ -9,11 +13,6 @@ import com.kirby.runanjing.untils.*;
 
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
-import android.view.View.*;
-import android.view.*;
-import android.didikee.donate.*;
-import android.support.annotation.*;
-import android.content.*;
 
 @ParallaxBack
 public class PayActivity extends BaseActivity

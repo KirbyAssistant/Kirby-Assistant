@@ -3,9 +3,8 @@ import android.content.*;
 import android.view.*;
 import android.widget.*;
 import com.kirby.runanjing.*;
-import com.kirby.runanjing.untils.*;
-import java.util.*;
 import com.kirby.runanjing.bean.*;
+import java.util.*;
 
 public class JszAdapter extends ArrayAdapter<Jsz>
 {

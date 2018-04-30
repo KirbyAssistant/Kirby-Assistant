@@ -102,10 +102,6 @@
 	<string name="intro_permission_title">權限</string>
 	<string name="intro_permission_text">Kirby Assistant需要以下權限請授予</string>
 	<string name="intro_permission_sd">"SD卡讀寫權限"</string>
-	<string name="the_first_permission_3">警告:如果妳使用的是miui,flyme,emui等國產rom\n--&gt;請前往手機管家或者設置&gt;授權管理開啟SD卡權限\n如果使用360手機衛士等app\n--&gt;請前往360手機衛士等app找到授權管理打開SD卡權限\n操作完畢後再點擊上面的按鈕</string>
-	<string name="next">下一步</string>
-	<string name="next_funk">跳過</string>
-	<string name="next_finish">完成</string>
 	
 	<string name="x_title">信息</string>
 	<string name="version">版本</string>

@@ -6,18 +6,12 @@ import android.os.*;
 import android.support.annotation.*;
 import android.support.v4.app.*;
 import android.view.*;
-import android.widget.*;
-import cn.bmob.v3.*;
-import cn.bmob.v3.exception.*;
-import cn.bmob.v3.listener.*;
 import com.github.paolorotolo.appintro.*;
 import com.github.paolorotolo.appintro.model.*;
 import com.kirby.runanjing.*;
-import com.kirby.runanjing.bmob.*;
 import com.kirby.runanjing.untils.*;
 
 import com.kirby.runanjing.R;
-import android.graphics.Color;
 
 public class KirbyIntroActivity extends AppIntro2
 {
@@ -34,7 +28,7 @@ public class KirbyIntroActivity extends AppIntro2
 		SliderPage sliderPage1 = new SliderPage();
         sliderPage1.setTitle(getResources().getString(R.string.intro_welcome_title));
         sliderPage1.setDescription(getResources().getString(R.string.intro_welcome_text));
-        sliderPage1.setImageDrawable(R.mipmap.ic_launcher);
+        sliderPage1.setImageDrawable(R.drawable.ic_foreground_image);
         sliderPage1.setBgColor(0xff1976d2);
         addSlide(AppIntroFragment.newInstance(sliderPage1));
 		

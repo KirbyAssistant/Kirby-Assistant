@@ -102,11 +102,7 @@
 	<string name="intro_permission_title">Permission</string>
 	<string name="intro_permission_text">Kirby Assistant Need Some Permissions,Please Allowed.</string>
 	<string name="intro_permission_sd">"SD card read/write permissions"</string>
-	<string name="the_first_permission_3">WARNING:If Your Phone system is MIUI OS,Flyme OS Or Emui OS Rom\n--&gt;Please Open Phone Manager Or Set&gt;Authorization Management To Open SDcard Read And Write Permissions\nIf You Use Antivirus Softwares Such As Qihoo 360 Phone guard\n--&gt;Please Open Antivirus Softwares To Find Authorization Management To Open SDcard Read And Write Permissions\nIf You Have Done,Please Press This Button.</string>
-	<string name="next">Next</string>
-	<string name="next_funk">Skip</string>
-	<string name="next_finish">Done</string>
-	
+
 	<string name="x_title">Information</string>
 	<string name="version">Edition</string>
 	<string name="star1">Gtade</string>
