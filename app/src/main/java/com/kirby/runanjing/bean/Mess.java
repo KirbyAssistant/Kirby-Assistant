@@ -1,6 +1,5 @@
 package com.kirby.runanjing.bean;
 import java.net.*;
-import org.apache.http.conn.util.*;
 
 public class Mess
 {

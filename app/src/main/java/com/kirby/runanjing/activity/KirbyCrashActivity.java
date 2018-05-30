@@ -26,6 +26,7 @@ public class KirbyCrashActivity extends BaseActivity
 		setContentView(R.layout.activity_error);
 		Toolbar toolbar=(Toolbar)findViewById(R.id.标题栏);
 		setSupportActionBar(toolbar);
+		//Toast.makeText(this,getResources().getString(R.string.bug_report),Toast.LENGTH_SHORT).show();
 		Intent crash=getIntent();
         crash_=(Throwable) crash.getSerializableExtra("crash");
 		phoneInfo = new PhoneUtil(this);

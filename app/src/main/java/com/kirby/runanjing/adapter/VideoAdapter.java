@@ -50,9 +50,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
 				{
 					int position=holder.getAdapterPosition();
 					Video video=mVideoList.get(position);
-					Intent in=new Intent(mContext, KirbyWebActivity.class);
-					in.putExtra("url",video.getAv());
-					mContext.startActivity(in);
+					Intent in = new Intent();        
+					in.setAction("android.intent.action.VIEW");    
+					in.putExtra("url",video.getAv());   
+					mContext.startActivity(in); 
 				}
 			}
 		);

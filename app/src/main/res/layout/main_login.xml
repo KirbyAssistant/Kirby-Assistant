@@ -5,11 +5,10 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
-	
+
 	<EditText
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
-		android:layout_below="@id/mainAppBarLayout1"
 		android:id="@+id/登录_用户名"
 		android:hint="@string/login_user"/>
 
@@ -31,8 +30,26 @@
 			style="?android:attr/buttonBarButtonStyle"
 			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
-			android:text="@string/login"
+			android:text="忘记密码"
 			android:layout_weight="0.3"
+			android:id="@+id/忘记密码"
+			android:visibility="gone"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:orientation="horizontal"
+		android:layout_below="@id/登录_密码"
+		android:gravity="end">
+
+		<Button
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="@string/login"
+			android:layout_weight="0.5"
 			android:id="@+id/登录"/>
 
 		<Button
@@ -40,16 +57,8 @@
 			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
 			android:text="@string/register"
-			android:layout_weight="0.3"
+			android:layout_weight="0.5"
 			android:id="@+id/注册"/>
-
-		<Button
-			style="?android:attr/buttonBarButtonStyle"
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="忘记密码"
-			android:layout_weight="0.3"
-			android:id="@+id/忘记密码"/>
 
 	</LinearLayout>
 

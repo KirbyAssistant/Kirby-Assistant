@@ -31,7 +31,8 @@
 		android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"
 		app:menu="@menu/bottombar"
-		android:background="?attr/android:windowBackground"/>
+		android:background="?attr/android:windowBackground"
+		android:elevation="6dp"/>
 
 	<FrameLayout
 		android:id="@+id/main_fragment"

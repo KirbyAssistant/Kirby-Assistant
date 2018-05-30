@@ -65,16 +65,6 @@ public class MainUserFragment extends Fragment
 		card = (CardView)view.findViewById(R.id.cardview);
 		edit_email = (Button)view.findViewById(R.id.edit_email);
 		edit_password = (Button)view.findViewById(R.id.edit_password);	
-		userName.setOnLongClickListener(new View.OnLongClickListener(){
-				@Override
-				public boolean onLongClick(View p1)
-				{
-					Intent egg=new Intent();
-					egg.setClass(getActivity(), EggActivity.class);
-					IntentUtil.startActivityWithAnim(egg, getActivity());
-					return false;
-				}
-			});
 		edit_email.setOnClickListener(new View.OnClickListener(){
 
 				@Override

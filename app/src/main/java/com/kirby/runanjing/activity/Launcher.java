@@ -11,7 +11,12 @@ import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.untils.*;
 import java.util.*;
-
+/**
+*类类型:Activity
+*名称:Launcher
+*进入看到的第一个Activity
+*用于显示加载动画
+*/
 public class Launcher extends AppCompatActivity
 {
 
@@ -51,7 +56,11 @@ public class Launcher extends AppCompatActivity
             }
 			, 2500);
 	}
-
+/**
+*方法名:theFirst
+*不需要传入参数
+*用于检测是否第一次进入app
+*/
 	private void theFirst()
 	{
 		SharedPreferences 状态=getSharedPreferences("boolean", 0);
@@ -73,6 +82,11 @@ public class Launcher extends AppCompatActivity
 			overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
 		}
 	}
+/**
+*方法名:setLanguage
+*不需要传入参数
+*用于设置语言
+*/
 	private void setLanguage()
 	{
 
@@ -104,6 +118,11 @@ public class Launcher extends AppCompatActivity
         }
         resources.updateConfiguration(configuration, displayMetrics);
     }
+/**
+*方法名:getColorPrumary
+*不需要传入参数
+*用于或许主题指定颜色
+*/
 	public int getColorPrimary()
 	{
 		TypedValue typedValue = new  TypedValue();

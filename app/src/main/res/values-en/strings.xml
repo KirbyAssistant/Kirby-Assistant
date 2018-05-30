@@ -12,12 +12,13 @@
 	<string name="talk">chat</string>
 	<string name="login_title">Login/Register</string>
 	<string name="game">Games</string>
-	<string name="welcome_to">Not just games</string>
+	<string name="welcome_to">Games and more</string>
 	<string name="moniqi">Emulators</string>
 	<string name="not_login">Not Login</string>
 	<string name="language">Language setting</string>
 	<string name="crash_title">Error</string>
 	<string name="egg">Here is the egg</string>
+	<string name="bug_report">Bug has uploaded</string>
 	
 	<string name="mess_true">Send Successfully:</string>
 	<string name="mess_false">Sand Unsuccessfully:</string>

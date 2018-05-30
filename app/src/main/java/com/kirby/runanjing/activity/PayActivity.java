@@ -85,7 +85,8 @@ public class PayActivity extends BaseActivity
 				@Override
 				public void onClick(View p1)
 				{
-					Intent in=new Intent(PayActivity.this, KirbyWebActivity.class);
+					Intent in = new Intent();        
+					in.setAction("android.intent.action.VIEW");    
 					in.putExtra("url",Donate_USER_HONG);
 					startActivity(in);
 				}

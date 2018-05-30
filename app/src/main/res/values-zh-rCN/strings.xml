@@ -18,6 +18,7 @@
 	<string name="language">语言设置</string>
 	<string name="crash_title">出错了</string>
 	<string name="egg">这里是彩蛋</string>
+	<string name="bug_report">Bug已经上传</string>
 	
 	<string name="mess_true">发送成功:</string>
 	<string name="mess_false">发送失败:</string>

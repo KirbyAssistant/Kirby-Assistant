@@ -32,7 +32,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
-
+/**
+*类类型:Activity
+*类名称:MainActivity
+*加载动画完毕后显示的Activity
+*是整个app的核心
+*/
 public class MainActivity extends BaseActivity implements AAH_FabulousFragment.AnimationListener 
 {
 	private DrawerLayout drawerLayout;
@@ -58,7 +63,12 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		thePay();
 		bottomBar();
 	}
-
+/**
+*方法名:bottomBar
+*不需要传入参数
+*用于显示底部导航栏的方法
+*内部完成了所有逻辑
+*/
 	private void bottomBar()
 	{
 		BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
@@ -110,6 +120,11 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 				}
 			});
 	}
+/**
+*方法名:thePay
+*不需要传入参数
+*用于判断是否显示捐赠
+*/
 	private void thePay()
 	{
 		SharedPreferences 状态=getSharedPreferences("boolean", 0);
@@ -123,6 +138,11 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 			}
 		}
 	}
+/**
+*方法名:showPay
+*不需要传入参数
+*用于显示捐赠窗口以及逻辑
+*/
 	private void showPay()
 	{
 		AlertDialog.Builder dialog = new
@@ -154,6 +174,13 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		);
 		dialog.show();
 	}
+/**
+*方法名:replaceFragment
+*需要传入参数(Fragment fragment)
+*参数说明:需要传入一个实例化的Fragment
+*参数举例:replaceFragment(new MainMessFragment())  MainMessFragment是对应Fragment的名称
+*用于显示MainActivity上id为fragment的组件显示的内容
+*/
 	public void replaceFragment(Fragment fragment)
 	{
 		FragmentManager fragmentManager=getSupportFragmentManager();
@@ -162,6 +189,11 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		transaction.replace(R.id.main_fragment, fragment);
 		transaction.commit();
 	}
+/**
+*方法名:setApply
+*不需要传入参数
+*用于初始化参数
+*/
 	private void setApply()
 	{
 		SharedPreferences.Editor y=getSharedPreferences("string", 0).edit();
@@ -178,7 +210,13 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		y.putString("游戏或模拟器名称", "0");
 		y.apply();
     }
-
+/**
+*方法名:setCustomTheme
+*需要传入参数(int i)
+*参数说明:需要传入一个int类型数据，这个数据是主题列表item对应的id，从0开始计算
+*参数举例:setCustomTheme(0)  表示设置列表第一个主题
+*用于设置主题颜色参数
+*/
 	public void setCustomTheme(int i)
 	{
 		Theme.setTheme(MainActivity.this, i);
@@ -187,6 +225,11 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		y.apply();
 		open();
 	}
+/**
+*方法名:open
+*不需要传入参数
+*用于退出并再次打开MainActivity 适用于修改主题或者修改用户头像等之后使用
+*/
 	public void open()
 	{
 		Intent intent = getIntent();
@@ -212,7 +255,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 	{
 		// TODO: Implement this method
 	}
-
+/*用于发送闲聊信息*/
 	@Override
 	public void onCloseAnimationStart()
 	{
@@ -259,6 +302,10 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 				drawerLayout.openDrawer(GravityCompat.START);
 				break;
 			case R.id.theme:
+				/**
+				*用于显示主题列表
+				*调用了方法setCustomTheme
+				*/
 				SharedPreferences c=getSharedPreferences("customtheme", 0);
 				final int itemSelected=c.getInt("id", 0);
 				AlertDialog.Builder theme = new AlertDialog.Builder(MainActivity.this);
@@ -333,6 +380,14 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		}
 		return true;	
 	}
+/**
+*方法名:downloadappApk
+*需要传入参数(final String app_namee
+*参数说明:需要传入一个String类型的应用名称
+*参数举例:downloadappApk("kirby Assistant")  表示查询名称为kirby Assistant的app的下载链接
+*主要用于查询模拟器和推荐应用链接
+*调用了方法:appFileDownload
+*/
 	public void downloadappApk(final String app_name)
 	{
 		progressDialog = new ProgressDialog(MainActivity.this);

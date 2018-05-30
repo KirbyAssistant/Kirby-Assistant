@@ -61,8 +61,8 @@ public class HeadActivity extends BaseActivity
 				@Override
 				public void onClick(View p1)
 				{
-					//takePhoto();
-					Toast.makeText(HeadActivity.this,"未开放",Toast.LENGTH_LONG).show();
+					takePhoto();
+					//Toast.makeText(HeadActivity.this,"未开放",Toast.LENGTH_LONG).show();
 				}			
 			});
 		choose_photo.setOnClickListener(new View.OnClickListener(){

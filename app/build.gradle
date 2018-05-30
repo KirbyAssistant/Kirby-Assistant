@@ -8,10 +8,11 @@ android {
         applicationId "com.kirby.runanjing"
         minSdkVersion 19
 	    targetSdkVersion 27
-        versionCode 6
-        versionName "0.2"
-		//multiDexEnabled false
-		//multiDexKeepProguard  'multidex-config.pro'
+        versionCode 7
+        versionName "0.3-beta1"
+		//multiDexEnabled true
+       // multiDexKeepProguard file('multiDexKeep.pro') 
+		//multiDexKeepFile file('multiDexKeep.txt')
     }
     buildTypes {
         release {
@@ -19,21 +20,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-	//dexOptions {
-       // javaMaxHeapSize "4g"
-  //  }
 }
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-	//彩蛋文字
-	compile 'yasic.library.ParticleTextView:particletextview:0.0.5'
 	//头像圆形
-	compile 'com.gcssloop.widget:rclayout:1.6.0'
+	compile 'com.gcssloop.widget:rclayout:+'
 	//图片剪裁
 	compile 'com.github.yalantis:ucrop:2.2.1'
-	//第三方web
-    compile 'com.just.agentweb:agentweb:4.0.2'
 	//支付服务-支付宝
 	compile 'com.github.didikee:AndroidDonate:0.1.0'
 	//多样的下拉刷新
@@ -42,10 +36,10 @@ dependencies {
 	//启动界面文字
 	compile "com.hanks:htextview-base:0.1.2"   
 	compile "com.hanks:htextview-scale:0.1.2"  
-   	//崩溃捕获
+   	//bmob
+	compile 'cn.bmob.android:bmob-sdk:3.6.2'
+	//崩溃捕获
 	compile 'com.king.thread:nevercrash:1.0.0'
-	//http
-	compile 'com.squareup.okhttp3:okhttp:3.9.1'
 	//欢迎界面Intro
 	compile 'com.github.apl-devs:appintro:v4.2.2'
 	//滑动返回
