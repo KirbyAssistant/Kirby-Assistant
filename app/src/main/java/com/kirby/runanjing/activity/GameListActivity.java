@@ -110,7 +110,7 @@ public class GameListActivity extends BaseActivity
 
 			Console[] 游戏 = {
 				new Console("星之卡比 重返梦幻岛", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/chongfan.jpg","wii_cf"),
-				new Console("星之卡比 毛线卡比", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/manxian.jpg","wii_mx"),
+				new Console("星之卡比 毛线卡比", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/maoxian.jpg","wii_mx"),
 			}; 
 			int index = 0;
 			while (index < 游戏.length)

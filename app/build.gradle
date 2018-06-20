@@ -8,8 +8,8 @@ android {
         applicationId "com.kirby.runanjing"
         minSdkVersion 19
 	    targetSdkVersion 27
-        versionCode 7
-        versionName "0.3-beta1"
+        versionCode 8
+        versionName "0.3-beta2"
 		//multiDexEnabled true
        // multiDexKeepProguard file('multiDexKeep.pro') 
 		//multiDexKeepFile file('multiDexKeep.txt')

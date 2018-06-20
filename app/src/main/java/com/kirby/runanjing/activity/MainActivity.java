@@ -482,10 +482,10 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 				showDownloadDialog(game_name,  R.string.game_name, R.string.us, R.string.nu, R.string.nu, "https://eyun.baidu.com/s/3qYAoXGC", "", "");
 				break;
 			case "wii_cf"://"星之卡比 重返梦幻岛":
-				//showDownloadDialog(game_name, "[注意有单/多文件之分]\n请选择你需要的版本", "日版（单）", "美版（多）", "汉化（多）", "https://eyun.baidu.com/s/3skEbla1", "https://eyun.baidu.com/s/3gf5Oxe7", "https://eyun.baidu.com/s/3gfqpuin");
+				showDownloadDialog(game_name, R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3skEbla1", "https://eyun.baidu.com/s/3gf5Oxe7", "https://eyun.baidu.com/s/3gfqpuin");
 				break;
 			case "wii_mx"://"星之卡比 毛线卡比":
-				//showDownloadDialog(game_name, "[注意有单/多文件之分]\n请选择你需要的版本", "美版（多）", "美版（单）", "汉化（单）", "https://eyun.baidu.com/s/3c2inVEC", "https://eyun.baidu.com/s/3dFACfWd", "https://eyun.baidu.com/s/3eRYayD8");
+				showDownloadDialog(game_name, R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3i5UCDpz", "https://eyun.baidu.com/s/3dFACfWd", "https://eyun.baidu.com/s/3eRYayD8");
 				break;
 			case "nds_cm"://"星之卡比 触摸卡比":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3hsqS3S4", "https://eyun.baidu.com/s/3c27V89i", "https://eyun.baidu.com/s/3i5Pwsxn");
