@@ -532,7 +532,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 			case "moniqi_nds"://"NDS "++"\nDraStic":
 				showOtherDownloadDialog("nds", game_name);
 				break;
-			case "moniqi_ngc"://"NGC&WII "++"\nDolphin":
+			case "moniqi_wii"://"NGC&WII "++"\nDolphin":
 				showOtherDownloadDialog("wii", game_name);
 				break;
 			case "moniqi_gb"://"GB&GBC "++"\nMy OldBoy!":

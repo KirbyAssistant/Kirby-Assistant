@@ -12,7 +12,7 @@
 		android:layout_centerHorizontal="true"
 		android:id="@+id/welcomeImageView1"
 		android:layout_gravity="center"/>
-
+	
 	<com.hanks.htextview.scale.ScaleTextView
 		android:id="@+id/textview"
 		android:layout_width="match_parent"
