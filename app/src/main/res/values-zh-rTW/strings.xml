@@ -3,6 +3,7 @@
     <string name="app_name">Kirby Assistant</string>
 	
 	<string name="game_title">當前是</string>
+	<string name="tj_title">推薦</string>
 	<string name="about_title">關於</string>
 	<string name="help_title">幫助</string>
 	<string name="mess_title">詳情</string>

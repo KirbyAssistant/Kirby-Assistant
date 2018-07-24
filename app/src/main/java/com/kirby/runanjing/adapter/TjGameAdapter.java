@@ -8,15 +8,11 @@ import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bean.*;
 import java.util.*;
-import android.app.*;
-import com.kirby.runanjing.untils.*;
 
-public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHolder>
+public class TjGameAdapter extends RecyclerView.Adapter<TjGameAdapter.ViewHolder>
 {
     private Context mContext;
     private List<Console> mConsoleList;
-
-	private Activity mActivity;
     static class ViewHolder extends RecyclerView.ViewHolder
 	{
         LinearLayout LinearLayout;
@@ -33,10 +29,9 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
         }
     }
 
-    public ConsoleAdapter(List<Console> consolelist,Activity activity)
+    public TjGameAdapter(List<Console> consolelist)
 	{
         mConsoleList = consolelist;
-		mActivity=activity;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -56,7 +51,8 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
 					Intent in=new Intent(mContext, GameListActivity.class);
 					String  input=console.getName().toString();	
 					MainActivity m=new MainActivity();
-					IntentUtil.startActivityWithAnim(in,mActivity);
+					//IntentUtil.startActivityWithAnim(in,m.getThis());
+					mContext.startActivity(in);
 					SharedPreferences.Editor t=mContext.getSharedPreferences("string", 0).edit();
 					t.putString("主机名称", input);
 					t.apply();
@@ -77,7 +73,7 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
 			.placeholder(R.drawable.ic_download)
 			.error(R.drawable.ic_close_circle_outline)
 			.into(holder.consoleImage);		
-		}
+	}
     @Override
     public int getItemCount()
 	{

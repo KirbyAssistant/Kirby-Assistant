@@ -6,11 +6,6 @@
         android:title="@string/ziyuan"/>
 
 	<item
-        android:id="@+id/jsz"
-        android:icon="@drawable/ic_jsz"
-        android:title="@string/jsz_title"/>
-
-	<item
         android:id="@+id/video"
         android:icon="@drawable/ic_video"
         android:title="@string/video_title"/>

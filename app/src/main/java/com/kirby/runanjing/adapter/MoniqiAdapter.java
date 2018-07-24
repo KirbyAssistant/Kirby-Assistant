@@ -10,11 +10,8 @@ import com.kirby.runanjing.bean.*;
 import java.util.*;
 import com.kirby.runanjing.untils.*;
 import android.app.*;
-import android.support.v4.util.*;
-import cn.bmob.v3.b.*;
-import android.support.v4.app.*;
 
-public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>
+public class MoniqiAdapter extends RecyclerView.Adapter<MoniqiAdapter.ViewHolder>
 {
     private Context mContext;
     private List<Console> mGameList;
@@ -22,14 +19,10 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>
 	private Activity mActivity;
     static class ViewHolder extends RecyclerView.ViewHolder
 	{
-
-		private CardView cardView;
-
-		private LinearLayout LinearLayout;
-
-		private ImageView gameImage;
-
-		private TextView gameName;
+        LinearLayout LinearLayout;
+		CardView cardView;
+        ImageView gameImage;
+        TextView gameName;
         public ViewHolder(View view)
 		{
             super(view);
@@ -39,10 +32,10 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>
             gameName = (TextView) view.findViewById(R.id.console_text);
         }
     }
-    public GameAdapter(List<Console> gamelist,Activity activity)
+    public MoniqiAdapter(List<Console> gamelist)
 	{
         mGameList = gamelist;
-		mActivity=activity;
+		//mActivity=activity;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -51,7 +44,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>
 		{
             mContext = parent.getContext();
         }
-        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_console, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_console, parent, false);
 		final ViewHolder holder=new ViewHolder(view);
 		holder.LinearLayout.setOnClickListener(new View.OnClickListener(){
 				@Override
@@ -64,11 +57,9 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>
 					mm.putExtra("game_name",game.getName());
 					mm.putExtra("game_img",game.getImageUrl());
 					mm.putExtra("game_pos",game.getPosition());
-					Pair<View, String> card=new Pair<View,String>(view.findViewById(R.id.cardview), "card");
-					Pair<View, String> image= new Pair<View,String>(view.findViewById(R.id.console_image), "image");
-					Pair<View, String> name= new Pair<View,String>(view.findViewById(R.id.console_text), "name");
-					mActivity.startActivity(mm,ActivityOptionsCompat.makeSceneTransitionAnimation(mActivity,card,image,name).toBundle());
-					//m.theDownload(mContext, game.getName(),game.getPosition());
+					//mContext.startActivity(mm);
+					//IntentUtil.startActivityWithAnim(mm,mActivity);
+					m.theDownload(mContext, game.getName(),game.getPosition());
 				}
 			}
 		);

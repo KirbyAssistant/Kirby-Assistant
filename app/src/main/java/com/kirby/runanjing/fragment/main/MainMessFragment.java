@@ -46,7 +46,7 @@ public class MainMessFragment extends Fragment
 		re = (RecyclerView)view.findViewById(R.id.留言);
 		GridLayoutManager layoutManager=new GridLayoutManager(getActivity(), 1);
 		re.setLayoutManager(layoutManager);
-		adapter = new MessageAdapter(messlist);	
+		adapter = new MessageAdapter(messlist,getActivity());	
 		//刷新数据
 		刷新 = (RefreshLayout)view.findViewById(R.id.刷新);
 		刷新.setOnRefreshListener(new OnRefreshListener(){

@@ -82,10 +82,6 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 							toolbar.setSubtitle(R.string.ziyuan);
 							replaceFragment(new MainGameFragment());
 							break;
-						case R.id.jsz:
-							toolbar.setSubtitle(R.string.jsz_title);
-							replaceFragment(new MainJszFragment());
-							break;
 						case R.id.video:
 							toolbar.setSubtitle(R.string.video_title);
 							replaceFragment(new MainVideoFragment());
@@ -454,7 +450,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		gameContext = con;
 		switch (position)
 		{
-			case "gba_mzqdx"://"星之卡比 梦之泉DX":
+			/*case "gba_mzqdx"://"星之卡比 梦之泉DX":
 				showDownloadDialog(game_name, R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3kURIBIZ", "https://eyun.baidu.com/s/3o86TXDS", "https://eyun.baidu.com/s/3dF22BWP");
 				break;
 			case "gba_jm"://"星之卡比 镜之大迷宫":
@@ -519,7 +515,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 				break;
 			case "fc_mzq"://"星之卡比 梦之泉物语":
 				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKXFx8n", "https://eyun.baidu.com/s/3pKZHpaF", "https://eyun.baidu.com/s/3i4HC8FN");
-				break;
+				break;*/
 			case "moniqi_gba"://"GBA " + getGameText(R.string.moniqi) + "\nMy Boy!":
 				showOtherDownloadDialog("gba", game_name);
 				break;

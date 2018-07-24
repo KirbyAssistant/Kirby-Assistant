@@ -31,7 +31,7 @@ public class GameListActivity extends BaseActivity
 		RecyclerView r=(RecyclerView)findViewById(R.id.主机列表);
 		GridLayoutManager layoutManager=new GridLayoutManager(this, 1);
 		r.setLayoutManager(layoutManager);
-		adapter = new GameAdapter(gamelist);
+		adapter = new GameAdapter(gamelist,this);
 		r.setAdapter(adapter);
 		//获取数据
 		SharedPreferences console=getSharedPreferences("string", 0);
@@ -50,7 +50,7 @@ public class GameListActivity extends BaseActivity
 				gamelist.add(游戏[index++]);
 			}
 		}
-		if (game == "gb/gbc")
+		if (game == "gb")
 		{
 			Console []游戏={		
 				new Console("星之卡比 1", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/xing1.jpg","gb_x1"),
@@ -58,6 +58,15 @@ public class GameListActivity extends BaseActivity
 				new Console("星之卡比 卡比宝石星", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/baoshixing.jpg","gb_bsx"),
 				new Console("星之卡比 卡比打砖块", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/dazhuankuai.jpg","gb_dzk"),
 				new Console("星之卡比 卡比弹珠台", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/danzhutai.jpg","gb_dzt"),
+		};
+			int index = 0;
+			while (index < 游戏.length)
+			{       	
+				gamelist.add(游戏[index++]);
+			}
+		}
+		if(game=="gbc"){
+			Console []游戏={		
 				new Console("星之卡比 滚滚卡比", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/gungun.jpg","gbc_gg"),
 			};
 			int index = 0;
@@ -73,7 +82,7 @@ public class GameListActivity extends BaseActivity
 				new Console("星之卡比 超豪华版", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/kss.jpg","sfc_kss"),
 				new Console("星之卡比 卡比梦幻都", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/menghuandu.jpg","sfc_mhd"),
 				new Console("[仅美国]星之卡比 卡比魔方气泡", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/mofangqipao.jpg","sfc_mfqp"),
-				new Console("[仅日本]星之卡比 卡比宝石星DX", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/banshixingdx.jpg","sfc_bsxdx"),
+				new Console("[仅日本]星之卡比 卡比宝石星DX", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/baoshixingdx.jpg","sfc_bsxdx"),
 			}; 
 			int index = 0;
 			while (index < 游戏.length)
@@ -137,7 +146,7 @@ public class GameListActivity extends BaseActivity
 		{
 
 			Console[] 游戏 = {
-				new Console("星之卡比 梦之泉物语", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/mengzhiquan.jpg","fc_jh"),
+				new Console("星之卡比 梦之泉物语", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/mengzhiquan.jpg","fc_mzq"),
 			}; 
 			int index = 0;
 			while (index < 游戏.length)

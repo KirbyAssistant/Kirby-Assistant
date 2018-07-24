@@ -8,12 +8,16 @@ import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bean.*;
 import java.util.*;
+import android.app.*;
+import com.kirby.runanjing.untils.*;
 
 public class JszGameAdapter extends RecyclerView.Adapter<JszGameAdapter.ViewHolder>
 {
 
 	private List<Console> mJszGameList;
 	private Context mContext;
+
+	private Activity mActivity;
 	static class ViewHolder extends RecyclerView.ViewHolder
 	{
         LinearLayout LinearLayout;
@@ -30,9 +34,10 @@ public class JszGameAdapter extends RecyclerView.Adapter<JszGameAdapter.ViewHold
         }
     }
 
-    public JszGameAdapter(List<Console> jszgamelist)
+    public JszGameAdapter(List<Console> jszgamelist,Activity activity)
 	{
         mJszGameList = jszgamelist;
+		mActivity=activity;
     }
 	@Override
 	public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -52,8 +57,7 @@ public class JszGameAdapter extends RecyclerView.Adapter<JszGameAdapter.ViewHold
 					Intent in=new Intent(mContext, JszActivity.class);
 					String  input=console.getName().toString();	
 					MainActivity m=new MainActivity();
-					//m.otherReplaceFragment(new JszFragment());
-					mContext.startActivity(in);
+					IntentUtil.startActivityWithAnim(in,mActivity);
 					SharedPreferences.Editor t=mContext.getSharedPreferences("string", 0).edit();
 					t.putString("金手指_游戏", input);
 					t.apply();

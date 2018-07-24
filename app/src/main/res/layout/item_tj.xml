@@ -5,7 +5,6 @@
 	android:layout_height="wrap_content"
 	android:layout_width="match_parent"
 	app:elevation="5dp"
-	android:transitionName="card"
 	app:cardCornerRadius="4dp"
 	android:id="@+id/cardview"
 	android:layout_margin="5dp">
@@ -13,7 +12,7 @@
 	<LinearLayout
 		style="?android:attr/buttonBarButtonStyle"
 		android:background="?attr/selectableItemBackground"
-		android:orientation="horizontal"
+		android:orientation="vertical"
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
 		android:id="@+id/LinearLayout">
@@ -21,19 +20,17 @@
 		<ImageView
 			android:layout_width="200dp"
 			android:layout_height="158dp"
-			android:id="@+id/console_image"
-			android:layout_gravity="left|center"
-			android:transitionName="image"/>
+			android:id="@+id/video_image"
+			android:layout_gravity="top|center"/>
 
 		<TextView
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
 			android:text="Text"
-			android:layout_margin="5dp"
 			android:textSize="18sp"
-			android:id="@+id/console_text"
-			android:layout_gravity="right|center"
-			android:transitionName="name"/>
+			android:id="@+id/video_text"
+			android:layout_gravity="bottom|center_horizontal"
+			android:layout_marginTop="4dp"/>
 
 	</LinearLayout>
 

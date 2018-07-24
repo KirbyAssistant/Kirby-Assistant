@@ -1,4 +1,5 @@
 package com.kirby.runanjing.adapter;
+import android.app.*;
 import android.content.*;
 import android.support.v7.widget.*;
 import android.view.*;
@@ -7,11 +8,16 @@ import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bean.*;
 import java.util.*;
+import com.kirby.runanjing.untils.*;
+import android.support.v4.app.*;
+import android.support.v4.util.*;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder>
 {
 	private Context mContext;
 	private List<Mess> mMesslist;
+
+	private Activity mActivity;
 
 	static class ViewHolder extends RecyclerView.ViewHolder
 	{
@@ -34,9 +40,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 			查看更多 = (TextView)view.findViewById(R.id.show_all);
 		}
 	}
-	public MessageAdapter(List<Mess>messlist)
+	public MessageAdapter(List<Mess>messlist,Activity activity)
 	{
 		mMesslist = messlist;
+		mActivity=activity;
 	}
 	@Override
 	public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -45,7 +52,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 		{
 			mContext = parent.getContext();
 		}
-		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message, parent, false);
+		final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message, parent, false);
 		final ViewHolder holder=new ViewHolder(view);
         holder.relativelayout.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -56,7 +63,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 					intent.putExtra(MessActivity.USER_NAME, mess.getName());
 					intent.putExtra(MessActivity.TIME, mess.getTime());
 					intent.putExtra(MessActivity.MESS, mess.getFullMessage());
-					mContext.startActivity(intent);
+					Pair<View, String> card=new Pair<View,String>(view.findViewById(R.id.用户名), "userName");
+					Pair<View, String> image= new Pair<View,String>(view.findViewById(R.id.时间), "timr");
+					Pair<View, String> name= new Pair<View,String>(view.findViewById(R.id.内容), "mess");
+					mActivity.startActivity(intent,ActivityOptionsCompat.makeSceneTransitionAnimation(mActivity,card,image,name).toBundle());
+					//IntentUtil.startActivityWithAnim(intent,mActivity);
 					}
 			});
 		return holder;
