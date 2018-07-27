@@ -74,8 +74,9 @@ public class MoniqiAdapter extends RecyclerView.Adapter<MoniqiAdapter.ViewHolder
 		Glide
 			.with(mContext)
 			.load(co.getImageUrl())
-			.placeholder(R.drawable.ic_download)
-			.error(R.drawable.ic_close_circle_outline)
+			.apply(Kirby.getRequestOptions())
+			//.placeholder(R.drawable.ic_kirby_download)
+			//.error(R.drawable.ic_kirby_load_fail)
 			.into(holder.gameImage);
     }
 

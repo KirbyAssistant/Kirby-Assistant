@@ -13,6 +13,8 @@ import android.util.*;
 import android.content.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.untils.*;
+import com.bumptech.glide.request.*;
+
 //import android.support.multidex.*;
 
 public class Kirby extends Application
@@ -34,6 +36,13 @@ public class Kirby extends Application
     }
 	public static Context getCtx(){
 		return instance;
+	}
+	public static RequestOptions getRequestOptions()
+	{
+		RequestOptions requ=new RequestOptions();
+		requ.placeholder(R.drawable.ic_kirby_download)
+			.error(R.drawable.ic_kirby_load_fail);
+		return requ;
 	}
 	/*@Override
 	protected void attachBaseContext(Context base) {

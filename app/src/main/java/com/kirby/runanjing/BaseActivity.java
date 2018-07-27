@@ -12,6 +12,7 @@ import android.view.Window;
 import android.content.Intent;
 import android.app.ActivityOptions;
 import android.view.*;
+import com.bumptech.glide.request.*;
 
 public class BaseActivity extends AppCompatActivity
 {
@@ -21,8 +22,9 @@ public class BaseActivity extends AppCompatActivity
 		getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
 		Transition explode = TransitionInflater.from(this).inflateTransition(R.transition.explode);
 		Transition slide = TransitionInflater.from(this).inflateTransition(R.transition.slide);
+		Transition fade = TransitionInflater.from(this).inflateTransition(R.transition.fade);
 		getWindow().setEnterTransition(explode); //首次进入显示的动画
-        getWindow().setExitTransition(slide); //启动一个新Activity,当前页的退出动画
+        getWindow().setExitTransition(fade); //启动一个新Activity,当前页的退出动画
 		getWindow().setReturnTransition(slide); //调用 finishAfterTransition() 退出时，当前页退出的动画
         getWindow().setReenterTransition(explode); //重新进入的动画。即第二次进入，可以和首次进入不一样。
 		super.onCreate(savedInstanceState);

@@ -95,8 +95,9 @@ public class MessActivity extends BaseActivity
 						Glide
 							.with(MessActivity.this)
 							.load(userHeadUrl)
-							.placeholder(R.drawable.ic_download)
-							.error(R.drawable.ic_close_circle_outline)
+							.apply(Kirby.getRequestOptions())
+							//.placeholder(R.drawable.ic_kirby_download)
+							//.error(R.drawable.ic_kirby_load_fail)
 							.into(userHeadImage);
 					}			
 					break;

@@ -100,15 +100,15 @@ public class MainGameFragment extends Fragment
 	private void init()
 	{
 		Console[]主机={
-			new Console("gba", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/gba.png", "gba"),
-			new Console("sfc", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/sfc.png", "sfc"),
-			new Console("n64", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/n64.png", "n64"),
-			new Console("ngc", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/ngc.png", "ngc"),
-			new Console("wii", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/wii.png", "wii"),
-			new Console("nds", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/nds.png", "nds"),
-			new Console("gb", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/gb.png", "gb"),
-			new Console("gbc", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/gbc.png", "gbc"),
-			new Console("fc", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/consose/fc.png", "fc")};
+			new Console("gba", "https://gitee.com/nihaocun/ka_image/raw/master/consose/gba.png", "gba"),
+			new Console("sfc", "https://gitee.com/nihaocun/ka_image/raw/master/consose/sfc.png", "sfc"),
+			new Console("n64", "https://gitee.com/nihaocun/ka_image/raw/master/consose/n64.png", "n64"),
+			new Console("ngc", "https://gitee.com/nihaocun/ka_image/raw/master/consose/ngc.png", "ngc"),
+			new Console("wii", "https://gitee.com/nihaocun/ka_image/raw/master/consose/wii.png", "wii"),
+			new Console("nds", "https://gitee.com/nihaocun/ka_image/raw/master/consose/nds.png", "nds"),
+			new Console("gb", "https://gitee.com/nihaocun/ka_image/raw/master/consose/gb.png", "gb"),
+			new Console("gbc", "https://gitee.com/nihaocun/ka_image/raw/master/consose/gbc.png", "gbc"),
+			new Console("fc", "https://gitee.com/nihaocun/ka_image/raw/master/consose/fc.png", "fc")};
 		
 		int index = 0;//定义数值
 		//遍历
@@ -120,13 +120,13 @@ public class MainGameFragment extends Fragment
 	private void init2()
 	{
 		Console[] 模拟器 = {
-			new Console("GBA " + getMoniqiText(R.string.moniqi) + "\nMy Boy!", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_gba.png", "moniqi_gba"),
-			new Console("SFC " + getMoniqiText(R.string.moniqi) + "\nSnes9x EX+", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_sfc.png", "moniqi_sfc"),
-			new Console("N64 " + getMoniqiText(R.string.moniqi) + "\nTendo64", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_n64.png", "moniqi_n64"),
-			new Console("NDS " + getMoniqiText(R.string.moniqi) + "\nDraStic", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_nds.png", "moniqi_nds"),
-			new Console("NGC&WII " + getMoniqiText(R.string.moniqi) + "\nDolphin", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_wii.png", "moniqi_wii"),
-			new Console("GB&GBC " + getMoniqiText(R.string.moniqi) + "\nMy OldBoy!", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_gb_gbc.png", "moniqi_gb"),
-			new Console("FC " + getMoniqiText(R.string.moniqi) + "\nNES.emu", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/moniqi/moniqi_fc.png", "moniqi_fc"),
+			new Console("GBA " + getMoniqiText(R.string.moniqi) + "\nMy Boy!", "https://gitee.com/nihaocun/ka_image/raw/master/moniqi/moniqi_gba.png", "moniqi_gba"),
+			new Console("SFC " + getMoniqiText(R.string.moniqi) + "\nSnes9x EX+", "https://gitee.com/nihaocun/ka_image/raw/master/moniqi/moniqi_sfc.png", "moniqi_sfc"),
+			new Console("N64 " + getMoniqiText(R.string.moniqi) + "\nTendo64", "https://gitee.com/nihaocun/ka_image/raw/master/moniqi/moniqi_n64.png", "moniqi_n64"),
+			new Console("NDS " + getMoniqiText(R.string.moniqi) + "\nDraStic", "https://gitee.com/nihaocun/ka_image/raw/master/moniqi/moniqi_nds.png", "moniqi_nds"),
+			new Console("NGC&WII " + getMoniqiText(R.string.moniqi) + "\nDolphin", "https://gitee.com/nihaocun/ka_image/raw/master/moniqi/moniqi_wii.png", "moniqi_wii"),
+			new Console("GB&GBC " + getMoniqiText(R.string.moniqi) + "\nMy OldBoy!", "https://gitee.com/nihaocun/ka_image/raw/master/moniqi/moniqi_gb_gbc.png", "moniqi_gb"),
+			new Console("FC " + getMoniqiText(R.string.moniqi) + "\nNES.emu", "https://gitee.com/nihaocun/ka_image/raw/master/moniqi/moniqi_fc.png", "moniqi_fc"),
 		}; 
 		int in = 0;//定义数值
 		//遍历
@@ -138,9 +138,9 @@ public class MainGameFragment extends Fragment
 	private void init3()
 	{
 		Console[]金手指_游戏={
-			new Console("星之卡比 梦之泉物语", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/mengzhiquan.jpg", "fc_mzq"),
-			new Console("星之卡比 梦之泉DX", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/mengzhiquandx.jpg", "gba_mzqdx"),
-			new Console("星之卡比 镜之大迷宫", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/jingmi.jpg", "gba_jm")
+			new Console("星之卡比 梦之泉物语", "https://gitee.com/nihaocun/ka_image/raw/master/game/mengzhiquan.jpg", "fc_mzq"),
+			new Console("星之卡比 梦之泉DX", "https://gitee.com/nihaocun/ka_image/raw/master/game/mengzhiquandx.jpg", "gba_mzqdx"),
+			new Console("星之卡比 镜之大迷宫", "https://gitee.com/nihaocun/ka_image/raw/master/game/jingmi.jpg", "gba_jm")
 		};
 		int ind = 0;//定义数值
 		//遍历
@@ -151,10 +151,10 @@ public class MainGameFragment extends Fragment
 	}
 	private void init4(){
 		Console[]tj_game={
-			new Console("星之卡比 梦之泉DX", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/mengzhiquandx.jpg", "gba_mzqdx"),
-			new Console("星之卡比 镜之大迷宫", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/jingmi.jpg", "gba_jm"),
-		    new Console("星之卡比 超究豪华版", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/kssu.jpg","nds_kssu"),
-		new Console("星之卡比 呐喊团", "https://raw.githubusercontent.com/nihaocun/kirby_image/master/game/nahantuan.jpg","nds_nht")
+			new Console("星之卡比 梦之泉DX", "https://gitee.com/nihaocun/ka_image/raw/master/game/mengzhiquandx.jpg", "gba_mzqdx"),
+			new Console("星之卡比 镜之大迷宫", "https://gitee.com/nihaocun/ka_image/raw/master/game/jingmi.jpg", "gba_jm"),
+		    new Console("星之卡比 超究豪华版", "https://gitee.com/nihaocun/ka_image/raw/master/game/kssu.jpg","nds_kssu"),
+		new Console("星之卡比 呐喊团", "https://gitee.com/nihaocun/ka_image/raw/master/game/nahantuan.jpg","nds_nht")
 		
 		};
 		int ind = 0;//定义数值

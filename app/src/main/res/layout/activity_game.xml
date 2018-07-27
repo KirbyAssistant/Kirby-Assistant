@@ -90,12 +90,6 @@
 			android:orientation="vertical"
 			android:padding="4dp">
 
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceLarge"
-				android:text="Large Text"/>
-
 			<ScrollView
 				android:layout_height="wrap_content"
 				android:layout_width="match_parent"

@@ -1,6 +1,5 @@
 package com.kirby.runanjing.activity;
 
-import android.*;
 import android.content.*;
 import android.os.*;
 import android.support.annotation.*;
@@ -12,6 +11,7 @@ import com.kirby.runanjing.*;
 import com.kirby.runanjing.untils.*;
 
 import com.kirby.runanjing.R;
+import android.*;
 
 public class KirbyIntroActivity extends AppIntro2
 {

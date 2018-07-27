@@ -8,8 +8,8 @@ android {
         applicationId "com.kirby.runanjing"
         minSdkVersion 19
 	    targetSdkVersion 27
-        versionCode 10
-        versionName "0.3-beta4"
+        versionCode 11
+        versionName "0.3"
 		//multiDexEnabled true
        // multiDexKeepProguard file('multiDexKeep.pro') 
 		//multiDexKeepFile file('multiDexKeep.txt')
@@ -24,6 +24,9 @@ android {
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+	//图片加载
+	compile "com.github.bumptech.glide:glide:4.7.1"
+	compile 'com.github.bumptech.glide:compiler:4.7.1'
 	//头像圆形
 	compile 'com.gcssloop.widget:rclayout:+'
 	//图片剪裁

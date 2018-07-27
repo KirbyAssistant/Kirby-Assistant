@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 	<item
         android:id="@+id/theme"
-		android:icon="@drawable/theme"
+		android:icon="@drawable/ic_theme"
         android:title="@string/theme_title"
 		app:showAsAction="always"/>
 	<item

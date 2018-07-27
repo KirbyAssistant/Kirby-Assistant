@@ -2,22 +2,27 @@
 
     <item
         android:id="@+id/ziyuan"
-        android:icon="@drawable/ic_game"
+        android:icon="@drawable/ic_kirby_game"
         android:title="@string/ziyuan"/>
 
+	<!--item
+		android:id="@+id/wiki"
+        android:icon="@drawable/ic_kirby_video"
+        android:title="@string/wiki_title"/-->
+	
 	<item
         android:id="@+id/video"
-        android:icon="@drawable/ic_video"
+        android:icon="@drawable/ic_kirby_video"
         android:title="@string/video_title"/>
 
 	<item
         android:id="@+id/talk"
-        android:icon="@drawable/ic_talk"
+        android:icon="@drawable/ic_kirby_talk"
         android:title="@string/talk"/>
 	
 	<item
         android:id="@+id/me"
-        android:icon="@drawable/ic_account"
+        android:icon="@drawable/ic_kirby_accout"
         android:title="我"/>
 
 </menu>

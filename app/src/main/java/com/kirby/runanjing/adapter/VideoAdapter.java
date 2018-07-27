@@ -10,6 +10,7 @@ import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bean.*;
 import java.util.*;
+import android.net.*;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
 {
@@ -50,10 +51,11 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
 				{
 					int position=holder.getAdapterPosition();
 					Video video=mVideoList.get(position);
-					Intent in = new Intent();        
-					in.setAction("android.intent.action.VIEW");    
-					in.putExtra("url",video.getAv());   
-					mContext.startActivity(in); 
+					Intent web = new Intent();        
+					web.setAction("android.intent.action.VIEW");    
+					Uri content_url = Uri.parse(video.getAv());   
+					web.setData(content_url);  
+					mContext.startActivity(web);  		
 				}
 			}
 		);
@@ -68,8 +70,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
         Glide
 			.with(mContext)
 			.load(vi.getImageUrl())
-			.placeholder(R.drawable.ic_download)
-			.error(R.drawable.ic_close_circle_outline)
+			.apply(Kirby.getRequestOptions())
+			//.placeholder(R.drawable.ic_kirby_download)
+			//.error(R.drawable.ic_kirby_load_fail)
 			.into(holder.videoImage);
 	}
 

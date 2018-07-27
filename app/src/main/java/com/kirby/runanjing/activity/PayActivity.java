@@ -13,6 +13,9 @@ import com.kirby.runanjing.untils.*;
 
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
+import android.net.*;
+import java.io.*;
+import android.graphics.*;
 
 @ParallaxBack
 public class PayActivity extends BaseActivity
@@ -23,12 +26,17 @@ public class PayActivity extends BaseActivity
 	private static String Donate_7="FKX00251DU42GFI6R3SCA1";
 	private static String Donate_USER_INPUT="FKX07472I7DSDDEO5UYS82";
 	private static String Donate_USER_HONG="https://qr.alipay.com/c1x06587bn9js77fggyvmca";
+	private static String Donate_PAYPAL="https://www.paypal.me/nihaocun";
 	private int currentMoney = 0;
 	private RadioGroup radioGroup;
 
 	private Button btAlipayFree;
 
 	private Button btAlipayHongbao;
+
+	private Button paypal;
+
+	private Button wechat;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -40,6 +48,8 @@ public class PayActivity extends BaseActivity
         btAlipayCustom = ((Button) findViewById(R.id.bt_alipay));
         btAlipayFree = ((Button) findViewById(R.id.bt_alipay_free));
 		btAlipayHongbao = ((Button) findViewById(R.id.bt_alipay_hongbao));
+		wechat=((Button)findViewById(R.id.wechat));
+		paypal=((Button)findViewById(R.id.paypal));
 		radioGroup = ((RadioGroup) findViewById(R.id.radio_group));
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
 				@Override
@@ -85,10 +95,31 @@ public class PayActivity extends BaseActivity
 				@Override
 				public void onClick(View p1)
 				{
-					Intent in = new Intent();        
-					in.setAction("android.intent.action.VIEW");    
-					in.putExtra("url",Donate_USER_HONG);
-					startActivity(in);
+					Intent web = new Intent();        
+					web.setAction("android.intent.action.VIEW");    
+					Uri content_url = Uri.parse(Donate_USER_HONG);   
+					web.setData(content_url);  
+					startActivity(web);  
+				}
+			});
+		paypal.setOnClickListener(new View.OnClickListener(){
+
+				@Override
+				public void onClick(View p1)
+				{
+					Intent web = new Intent();        
+					web.setAction("android.intent.action.VIEW");    
+					Uri content_url = Uri.parse(Donate_PAYPAL);   
+					web.setData(content_url);  
+					startActivity(web);  
+				}
+			});
+		wechat.setOnClickListener(new View.OnClickListener(){
+
+				@Override
+				public void onClick(View p1)
+				{
+					donateWeixin();
 				}
 			});
 	}
@@ -100,5 +131,12 @@ public class PayActivity extends BaseActivity
 		{
             AlipayDonate.startAlipayClient(PayActivity.this, payCode);
         }
+    }
+	private void donateWeixin() {
+        InputStream weixinQrIs = getResources().openRawResource(R.raw.wechat);
+        String qrPath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "AndroidDonateSample" + File.separator +
+			"kirby_assisstant_wechat.png";
+        WeiXinDonate.saveDonateQrImage2SDCard(qrPath, BitmapFactory.decodeStream(weixinQrIs));
+        WeiXinDonate.donateViaWeiXin(this, qrPath);
     }
 }
