@@ -81,6 +81,7 @@ public class GameListActivity extends BaseActivity
 				new Console("星之卡比 3", "https://gitee.com/nihaocun/ka_image/raw/master/game/xing3.jpg","sfc_x3"),
 				new Console("星之卡比 超豪华版", "https://gitee.com/nihaocun/ka_image/raw/master/game/kss.jpg","sfc_kss"),
 				new Console("星之卡比 卡比梦幻都", "https://gitee.com/nihaocun/ka_image/raw/master/game/menghuandu.jpg","sfc_mhd"),
+				new Console("星之卡比 玩具箱合集", "https://gitee.com/nihaocun/ka_image/raw/master/game/toybox.jpg","sfc_toybox"),
 				new Console("[仅美国]星之卡比 卡比魔方气泡", "https://gitee.com/nihaocun/ka_image/raw/master/game/mofangqipao.jpg","sfc_mfqp"),
 				new Console("[仅日本]星之卡比 卡比宝石星DX", "https://gitee.com/nihaocun/ka_image/raw/master/game/baoshixingdx.jpg","sfc_bsxdx"),
 			}; 

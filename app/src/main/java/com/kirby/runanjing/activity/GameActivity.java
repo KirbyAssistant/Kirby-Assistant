@@ -66,6 +66,9 @@ public class GameActivity extends BaseActivity
 						case "sfc_mhd"://"星之卡比 卡比梦幻都":
 							showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3hsvCjfI", "https://eyun.baidu.com/s/3jHCmNps", "");
 							break;
+						case "sfc_toybox"://"星之卡比 玩具箱合集":
+							showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.nu, R.string.nu, "https://eyun.baidu.com/s/3qZr1yry", "", "");
+							break;
 						case "sfc_mfqp"://"[仅美国]星之卡比 卡比魔方气泡":
 							showDownloadDialog(game_name, R.string.game_name1, R.string.us , R.string.nu ,  R.string.nu, "https://eyun.baidu.com/s/3eSuusSi", "", "");
 							break;
@@ -152,6 +155,12 @@ public class GameActivity extends BaseActivity
 				game_js_text.append(getResources().getString(R.string.sfc_mhd_bj)).append("\n").append("\n");
 				game_js_text.append(getResources().getString(R.string.js)).append("\n");
 				game_js_text.append(getResources().getString(R.string.sfc_mhd_js)).append("\n");
+				break;
+			case "sfc_toybox"://"星之卡比 玩具箱合集":
+				game_js_text.append(getResources().getString(R.string.bj)).append("\n");
+				game_js_text.append(getResources().getString(R.string.sfc_toybox_bj)).append("\n").append("\n");
+				game_js_text.append(getResources().getString(R.string.js)).append("\n");
+				game_js_text.append(getResources().getString(R.string.sfc_toybox_js)).append("\n");
 				break;
 			case "sfc_mfqp"://"[仅美国]星之卡比 卡比魔方气泡":
 				game_js_text.append(getResources().getString(R.string.bj)).append("\n");
