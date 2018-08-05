@@ -1,1 +1,2 @@
-android/support/v4/content/FileProvider/class
+com.android.support.v4.content.FileProvider.class
+com.kirby.runanjing.Kirby.class

@@ -19,10 +19,11 @@ import com.bumptech.glide.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.bmob.*;
 import com.kirby.runanjing.untils.*;
-import com.yalantis.ucrop.*;
+//import com.yalantis.ucrop.*;
 import java.io.*;
 
 import com.kirby.runanjing.R;
+import com.yalantis.ucrop.*;
 
 public class HeadActivity extends BaseActivity
 {

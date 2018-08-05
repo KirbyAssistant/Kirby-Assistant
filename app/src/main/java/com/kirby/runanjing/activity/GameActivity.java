@@ -16,7 +16,6 @@ import android.support.v7.app.*;
 import android.view.View.*;
 import android.view.*;
 
-@ParallaxBack
 public class GameActivity extends BaseActivity
 {
 	@Override
@@ -40,7 +39,7 @@ public class GameActivity extends BaseActivity
 		Glide
 			.with(this)
 			.load(game_img_url)
-			.apply(Kirby.getRequestOptions())
+			//.apply(Kirby.getGlideRequestOptions())
 			//.placeholder(R.drawable.ic_kirby_download)
 			//.error(R.drawable.ic_kirby_load_fail)
 			.into(game_img);

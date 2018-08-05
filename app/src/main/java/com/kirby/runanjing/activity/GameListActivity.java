@@ -13,7 +13,6 @@ import java.util.*;
 import com.kirby.runanjing.R;
 
 
-@ParallaxBack
 public class GameListActivity extends BaseActivity
 {
 	private List<Console> gamelist=new ArrayList<>();

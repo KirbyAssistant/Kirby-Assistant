@@ -9,6 +9,8 @@ import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bean.*;
 import java.util.*;
 
+import com.kirby.runanjing.R;
+
 public class TjGameAdapter extends RecyclerView.Adapter<TjGameAdapter.ViewHolder>
 {
     private Context mContext;
@@ -70,7 +72,7 @@ public class TjGameAdapter extends RecyclerView.Adapter<TjGameAdapter.ViewHolder
         Glide
 			.with(mContext)
 			.load(co.getImageUrl())
-			.apply(Kirby.getRequestOptions())
+			//.apply(Kirby.getRequestOptions())
 			//.placeholder(R.drawable.ic_kirby_download)
 			//.error(R.drawable.ic_kirby_load_fail)
 			.into(holder.consoleImage);		

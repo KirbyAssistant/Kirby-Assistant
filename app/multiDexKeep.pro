@@ -1,1 +1,4 @@
--keep class android.support.v4.content.FileProvider
+-keep class com.android.support.v4.content.**{*;}
+-keep class com.kirby.runanjing.**{*;}
+-keep class com.github.bumptech.glide.**{*;}
+-keep class com.king.thread.nevercrash.**{*;}

@@ -2,35 +2,37 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.1.0"
+    buildToolsVersion "27.1.1"
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.kirby.runanjing"
-        minSdkVersion 19
-	    targetSdkVersion 27
-        versionCode 11
-        versionName "0.3"
-		//multiDexEnabled true
-       // multiDexKeepProguard file('multiDexKeep.pro') 
-		//multiDexKeepFile file('multiDexKeep.txt')
-    }
+        minSdkVersion 21
+	    targetSdkVersion 28
+        versionCode 12
+        versionName "0.4-beta-1"
+		multiDexEnabled true
+        multiDexKeepProguard file('multiDexKeep.pro') 
+		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
+  }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultPrguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
+	testCompile 'junit:junit:4.12'
 	//图片加载
-	compile "com.github.bumptech.glide:glide:4.7.1"
-	compile 'com.github.bumptech.glide:compiler:4.7.1'
+	compile "com.github.bumptech.glide:glide:3.6.1"
+	//compile 'com.github.bumptech.glide:compiler:4.7.1'
 	//头像圆形
 	compile 'com.gcssloop.widget:rclayout:+'
 	//图片剪裁
+	//compile 'com.jph.takephoto:takephoto_library:4.0.3'
 	compile 'com.github.yalantis:ucrop:2.2.1'
+	//compile 'com.isseiaoki:simplecropview:1.1.7'
 	//支付服务-支付宝
 	compile 'com.github.didikee:AndroidDonate:0.1.0'
 	//多样的下拉刷新
@@ -40,7 +42,7 @@ dependencies {
 	compile "com.hanks:htextview-base:0.1.2"   
 	compile "com.hanks:htextview-scale:0.1.2"  
    	//bmob
-	compile 'cn.bmob.android:bmob-sdk:3.6.2'
+	compile 'cn.bmob.android:bmob-sdk:3.6.5'
 	//崩溃捕获
 	compile 'com.king.thread:nevercrash:1.0.0'
 	//欢迎界面Intro
@@ -53,6 +55,7 @@ dependencies {
 	compile 'com.allattentionhere:fabulousfilter:0.0.4'
     
 	//compile 'com.android.support:multidex:1.0.0'
+	compile 'com.android.support:design:25.3.1'
 	compile 'com.android.support:support-v4:25.3.1'
 	compile 'com.android.support:recyclerview-v7:25.3.1'
 	compile 'com.android.support:cardview-v7:25.3.1'

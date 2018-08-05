@@ -2,15 +2,16 @@ package com.kirby.runanjing.adapter;
 
 
 import android.content.*;
+import android.net.*;
 import android.support.v7.widget.*;
 import android.view.*;
 import android.widget.*;
 import com.bumptech.glide.*;
 import com.kirby.runanjing.*;
-import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bean.*;
 import java.util.*;
-import android.net.*;
+
+import com.kirby.runanjing.R;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
 {
@@ -70,9 +71,11 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
         Glide
 			.with(mContext)
 			.load(vi.getImageUrl())
-			.apply(Kirby.getRequestOptions())
-			//.placeholder(R.drawable.ic_kirby_download)
-			//.error(R.drawable.ic_kirby_load_fail)
+			//.apply(Kirby.getGlideRequestOptions())
+			.asBitmap()
+		    .fitCenter()
+			.placeholder(R.drawable.ic_kirby_download)
+			.error(R.drawable.ic_kirby_load_fail)
 			.into(holder.videoImage);
 	}
 

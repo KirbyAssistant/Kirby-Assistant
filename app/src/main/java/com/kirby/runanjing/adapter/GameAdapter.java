@@ -3,7 +3,7 @@ import android.content.*;
 import android.support.v7.widget.*;
 import android.view.*;
 import android.widget.*;
-import com.kirby.runanjing.*;
+import com.kirby.runanjing.R;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bean.*;
 import java.util.*;
@@ -13,6 +13,7 @@ import android.support.v4.util.*;
 import cn.bmob.v3.b.*;
 import android.support.v4.app.*;
 import com.bumptech.glide.*;
+import com.kirby.runanjing.*;
 
 public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>
 {
@@ -83,9 +84,11 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>
 		Glide
 			.with(mContext)
 			.load(co.getImageUrl())
-			.apply(Kirby.getRequestOptions())
-			//.placeholder(R.drawable.ic_kirby_download)
-			//.error(R.drawable.ic_kirby_load_fail)
+			//.apply(Kirby.getGlideRequestOptions())d
+			.asBitmap()
+		    .fitCenter()
+			.placeholder(R.drawable.ic_kirby_download)
+			.error(R.drawable.ic_kirby_load_fail)
 			.into(holder.gameImage);
     }
 

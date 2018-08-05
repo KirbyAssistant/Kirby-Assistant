@@ -1,4 +1,5 @@
 package com.kirby.runanjing.adapter;
+import android.app.*;
 import android.content.*;
 import android.support.v7.widget.*;
 import android.view.*;
@@ -7,9 +8,10 @@ import com.bumptech.glide.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bean.*;
-import java.util.*;
-import android.app.*;
 import com.kirby.runanjing.untils.*;
+import java.util.*;
+
+import com.kirby.runanjing.R;
 
 public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHolder>
 {
@@ -74,9 +76,11 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
         Glide
 			.with(mContext)
 			.load(co.getImageUrl())
-			.apply(Kirby.getRequestOptions())
-			//.placeholder(R.drawable.ic_kirby_download)
-			//.error(R.drawable.ic_kirby_load_fail)
+			//.apply(Kirby.getGlideRequestOptions())
+			.asBitmap()
+		    .fitCenter()
+			.placeholder(R.drawable.ic_kirby_download)
+			.error(R.drawable.ic_kirby_load_fail)
 			.into(holder.consoleImage);		
 		}
     @Override

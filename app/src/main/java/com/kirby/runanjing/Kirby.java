@@ -4,18 +4,20 @@
 *KEMU
 */
 package com.kirby.runanjing;
-import android.app.*;
-import com.github.anzewei.parallaxbacklayout.*;
-import android.widget.*;
-import android.os.*;
-import com.king.thread.nevercrash.*;
-import android.util.*;
-import android.content.*;
-import com.kirby.runanjing.activity.*;
-import com.kirby.runanjing.untils.*;
-import com.bumptech.glide.request.*;
 
 //import android.support.multidex.*;
+
+import android.app.*;
+import android.content.*;
+import android.os.*;
+import com.bumptech.glide.request.*;
+import com.github.anzewei.parallaxbacklayout.*;
+import com.king.thread.nevercrash.*;
+import com.kirby.runanjing.*;
+import com.kirby.runanjing.activity.*;
+import com.kirby.runanjing.untils.*;
+
+import com.kirby.runanjing.R;
 
 public class Kirby extends Application
 {
@@ -34,16 +36,13 @@ public class Kirby extends Application
 				}
 			});
     }
-	public static Context getCtx(){
-		return instance;
-	}
-	public static RequestOptions getRequestOptions()
+	/*public static RequestOptions getGlideRequestOptions()
 	{
 		RequestOptions requ=new RequestOptions();
 		requ.placeholder(R.drawable.ic_kirby_download)
 			.error(R.drawable.ic_kirby_load_fail);
 		return requ;
-	}
+	}*/
 	/*@Override
 	protected void attachBaseContext(Context base) {
 		super.attachBaseContext(base);

@@ -89,7 +89,12 @@ public class MainUserFragment extends Fragment
 				Glide
 					.with(getContext())
 					.load(u.getUserHead().getFileUrl())
-					.into(userHead);
+					//.apply(Kirby.getGlideRequestOptions())
+					.asBitmap()
+					.fitCenter()
+					.placeholder(R.drawable.ic_kirby_download)
+					.error(R.drawable.ic_kirby_load_fail)
+					.into(userHead);	
 			}
 		}
 		catch (Exception e)
