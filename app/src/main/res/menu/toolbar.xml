@@ -17,4 +17,8 @@
         android:id="@+id/pay"
         android:title="@string/pay_title"
 		app:showAsAction="never"/>
+	<item
+        android:id="@+id/switch_icon"
+        android:title="@string/switch_icon"
+		app:showAsAction="never"/>
 </menu>

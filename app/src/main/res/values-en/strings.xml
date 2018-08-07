@@ -5,6 +5,7 @@
 	<string name="game_title">Now is</string>
 	<string name="about_title">About</string>
 	<string name="help_title">Help</string>
+	<string name="switch_icon">Switch ICON</string>
 	<string name="mess_title">Details</string>
 	<string name="video_title">Video</string>
 	<string name="jsz_title">Cheat Code</string>
@@ -19,6 +20,7 @@
 	<string name="crash_title">Error</string>
 	<string name="egg">Here is the egg</string>
 	<string name="bug_report">Bug has uploaded</string>
+	<string name="two_back">Please press exit again</string>
 	
 	<string name="mess_true">Send Successfully:</string>
 	<string name="mess_false">Sand Unsuccessfully:</string>
@@ -28,10 +30,16 @@
 	<string name="copy">Copy</string>
 	<string name="email">Send Email</string>
 	
+	<string name="check_me">Choose me</string>
+	
+	<string name="sw_icon_finish">The icon has been switched, and you can see the new icon later after the desktop refresh </string>
+	
 	<string name="user_name">User Name</string>
 	<string name="user_email">E-mail</string>
 	<string name="take_photo">Take a picture</string>
 	<string name="choose_photo">Choose a picture</string>
+	<string name="not_have_user">No account number? Click me</string>
+	<string name="have_user">Existing account? Click me</string>
 	
 	<string name="edit_email">Change E-mail</string>
 	<string name="email_title">Change E-mail (You Need Login Again If You Change Successfully)</string>
@@ -103,6 +111,8 @@
 	<string name="intro_permission_title">Permission</string>
 	<string name="intro_permission_text">Kirby Assistant Need Some Permissions,Please Allowed.</string>
 	<string name="intro_permission_sd">"SD card read/write permissions"</string>
+	<string name="intro_icon_title">Icon</string>
+	<string name="intro_icon_text">The Kirby Asssistant has two icons that you can switch between later in the menu</string>
 
 	<string name="x_title">Information</string>
 	<string name="version">Edition</string>

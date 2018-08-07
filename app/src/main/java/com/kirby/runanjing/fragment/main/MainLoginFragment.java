@@ -12,11 +12,18 @@ import cn.bmob.v3.listener.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bmob.*;
+import java.lang.reflect.*;
+import android.support.v7.widget.*;
 
 public class MainLoginFragment extends Fragment
 {
 	private View view;
 	private MainActivity m;
+	private AlertDialog register_dialog;
+
+	private CardView login_card;
+
+	private CardView register_card;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
@@ -26,11 +33,35 @@ public class MainLoginFragment extends Fragment
 		return view;
 	}
 
-	private void initLogin(View view)
+	private void initLogin(final View view)
 	{
 		Button 登录=(Button)view.findViewById(R.id.登录);
-		Button 注册=(Button)view.findViewById(R.id.注册);
+		TextView 注册=(TextView)view.findViewById(R.id.注册);
 		Button 忘记密码=(Button)view.findViewById(R.id.忘记密码);
+		final TextView 切换=(TextView)view.findViewById(R.id.sw_login_register);
+		login_card=(CardView)view.findViewById(R.id.login);
+		register_card=(CardView)view.findViewById(R.id.register);
+		切换.setOnClickListener(new View.OnClickListener(){
+
+				@Override
+				public void onClick(View p1)
+				{
+					//判断是不是注册状态
+					if(register_card.getVisibility()==8){
+						//切换到注册
+						login_card.setVisibility(8);
+						register_card.setVisibility(0);
+						切换.setText(getActivity().getResources().getString(R.string.have_user));
+					}
+					else
+					{
+						//切换到登录
+						login_card.setVisibility(0);
+						register_card.setVisibility(8);
+						切换.setText(getActivity().getResources().getString(R.string.not_have_user));
+					}
+				}
+			});
 		//从edittext里获取字符串
 		final EditText 登录_用户名=(EditText)view.findViewById(R.id.登录_用户名);
 		final EditText 登录_密码=(EditText)view.findViewById(R.id.登录_密码);
@@ -74,26 +105,14 @@ public class MainLoginFragment extends Fragment
 				@Override
 				public void onClick(View v)
 				{
-					//实例化布局
-					LayoutInflater inflater = LayoutInflater.from(getActivity());
-					final View 注册_layout = inflater.inflate(R.layout.dialog_register, null);
-					new AlertDialog.Builder(getActivity())
-						.setTitle(R.string.register)
-						.setView(注册_layout)
-						.setPositiveButton("确定", new
-						DialogInterface.OnClickListener()
-						{
-							@Override
-							public void onClick(DialogInterface dialog, int which)
-							{
-								//从实例化布局的edittext中获取字符串并转化为string数据
-								EditText 注册_用户名=(EditText)注册_layout.findViewById(R.id.注册_用户名);
-								EditText 邮箱=(EditText)注册_layout.findViewById(R.id.邮箱);
-								EditText 注册_密码=(EditText)注册_layout.findViewById(R.id.注册_密码);
-								EditText 重复密码=(EditText)注册_layout.findViewById(R.id.重复密码);
-								String editText_用户名=注册_用户名.getText().toString();
+					//从实例化布局的edittext中获取字符串并转化为string数据
+								EditText 注册_用户名=(EditText)view.findViewById(R.id.注册_用户名);
+								EditText 邮箱=(EditText)view.findViewById(R.id.邮箱);
+								EditText 注册_密码=(EditText)view.findViewById(R.id.注册_密码);
+								EditText 重复密码=(EditText)view.findViewById(R.id.重复密码);
+								final String editText_用户名=注册_用户名.getText().toString();
 								String editText_邮箱=邮箱.getText().toString();
-								String editText_密码=注册_密码.getText().toString();
+								final String editText_密码=注册_密码.getText().toString();
 								String editText_重复密码=重复密码.getText().toString();
 								//判断是否为空
 								if (editText_用户名.isEmpty() || editText_邮箱.isEmpty() || editText_密码.isEmpty() || editText_重复密码.isEmpty())
@@ -116,10 +135,16 @@ public class MainLoginFragment extends Fragment
 												{
 													if (e == null)
 													{
+														登录_用户名.setText(editText_用户名);
+														登录_密码.setText(editText_密码);
+														login_card.setVisibility(0);
+														register_card.setVisibility(8);
+														切换.setText(getActivity().getResources().getString(R.string.not_have_user));
 														Toast.makeText(getActivity(), getActivity().getString(R.string.register_susses), Toast.LENGTH_SHORT).show();
 													}
 													else
 													{
+														
 														Toast.makeText(getActivity(), getActivity().getString(R.string.register_fail), Toast.LENGTH_SHORT).show();
 													}
 												}
@@ -127,22 +152,12 @@ public class MainLoginFragment extends Fragment
 									}
 									else
 									{
+										
 										Toast.makeText(getActivity(), getActivity().getString(R.string.password), Toast.LENGTH_SHORT).show();
 									}
 								}
 							}
 						}
-					)
-						.setNegativeButton(R.string.dia_cancel, null).show();
-				}
-			});
-		忘记密码.setOnClickListener(new View.OnClickListener(){
-
-				@Override
-				public void onClick(View v)
-				{
-					//没想好怎么弄
-				}
-			});
-	}
+					);
+}
 }

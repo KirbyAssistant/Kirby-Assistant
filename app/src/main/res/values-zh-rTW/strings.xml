@@ -5,6 +5,7 @@
 	<string name="game_title">當前是</string>
 	<string name="tj_title">推薦</string>
 	<string name="wiki_title">百科</string>
+	<string name="switch_icon">切換圖標</string>
 	<string name="about_title">關於</string>
 	<string name="help_title">幫助</string>
 	<string name="mess_title">詳情</string>
@@ -21,6 +22,7 @@
 	<string name="crash_title">出錯了</string>
 	<string name="egg">这里是彩蛋</string>
 	<string name="bug_report">Bug已經上傳</string>
+	<string name="two_back">請再按一次退出程式</string>
 	
 	<string name="mess_true">發送成功:</string>
 	<string name="mess_false">發送失敗:</string>
@@ -32,10 +34,15 @@
 	
 	<string name="check_me">點我</string>
 	
+	<string name="sw_icon_finish">圖標已經切換完畢了，稍後桌面會刷新並顯示新的圖標</string>
+	
 	<string name="user_name">用護名</string>
 	<string name="user_email">郵箱</string>
 	<string name="talk_photo">拍照</string>
 	<string name="choose_photo">選擇圖片</string>
+	<string name="not_have_user">沒有賬號？點我</string>
+	<string name="have_user">已有賬號？點我</string>
+	
 	
 	<string name="edit_email">修改郵箱</string>
 	<string name="email_title">修改郵箱（成功後需要重新登錄）</string>
@@ -107,6 +114,8 @@
 	<string name="intro_permission_title">權限</string>
 	<string name="intro_permission_text">Kirby Assistant需要以下權限請授予</string>
 	<string name="intro_permission_sd">"SD卡讀寫權限"</string>
+	<string name="intro_icon_title">圖標</string>
+	<string name="intro_icon_text">Kirby Asssistant擁有兩個圖標，你可以稍後在菜單切換</string>
 	
 	<string name="x_title">信息</string>
 	<string name="version">版本</string>

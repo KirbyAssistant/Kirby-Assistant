@@ -5,76 +5,85 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
+
 	<android.support.v7.widget.CardView
-		android:layout_height="wrap_content"
+		android:layout_height="192dp"
 		android:layout_width="match_parent"
 		app:elevation="5dp"
 		app:cardCornerRadius="4dp"
 		android:id="@+id/egg"
 		android:layout_margin="5dp">
-	<RelativeLayout
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:padding="12dp">
-		
-		<com.gcssloop.widget.RCRelativeLayout
-			android:layout_height="80dp"
-			android:layout_width="80dp"
-			app:round_as_circle="true"
-			android:id="@+id/mainuserRCRelativeLayout1"
-			android:layout_centerHorizontal="true"
-			android:transitionName="userHead">
+
+		<RelativeLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent">
 
 			<ImageView
-				android:src="@drawable/kirbytheme"
-				android:id="@+id/user_head"
+				android:layout_width="match_parent"
 				android:layout_height="match_parent"
-				android:layout_width="match_parent"/>
+				android:scaleType="centerCrop"
+				android:id="@+id/mo_user_head"/>
 
-		</com.gcssloop.widget.RCRelativeLayout>
+			<com.gcssloop.widget.RCRelativeLayout
+				android:layout_height="80dp"
+				android:layout_width="80dp"
+				app:round_as_circle="true"
+				android:id="@+id/mainuserRCRelativeLayout1"
+				android:layout_centerHorizontal="true"
+				android:transitionName="userHead"
+				android:layout_marginTop="10dp">
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:text="Large Text"
-			android:id="@+id/user_name"
-			android:layout_centerHorizontal="true"
-			android:layout_below="@id/mainuserRCRelativeLayout1"/>
+				<ImageView
+					android:src="@drawable/kirbytheme"
+					android:id="@+id/user_head"
+					android:layout_height="match_parent"
+					android:layout_width="match_parent"/>
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceSmall"
-			android:text="Small Text"
-			android:id="@+id/user_id"
-			android:layout_below="@id/user_name"
-			android:textColor="#C6C6C6"
-			android:layout_centerHorizontal="true"/>
+			</com.gcssloop.widget.RCRelativeLayout>
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceSmall"
-			android:text="Small Text"
-			android:layout_below="@id/user_id"
-			android:id="@+id/user_data"
-			android:textColor="#C6C6C6"
-			android:layout_centerHorizontal="true"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:text="Large Text"
+				android:id="@+id/user_name"
+				android:layout_centerHorizontal="true"
+				android:layout_below="@id/mainuserRCRelativeLayout1"/>
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceSmall"
-			android:text="Small Text"
-			android:textColor="#C6C6C6"
-			android:layout_centerHorizontal="true"
-			android:layout_below="@id/user_data"
-			android:id="@+id/user_email"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:text="Small Text"
+				android:id="@+id/user_id"
+				android:layout_below="@id/user_name"
+				android:textColor="#C6C6C6"
+				android:layout_centerHorizontal="true"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:text="Small Text"
+				android:layout_below="@id/user_id"
+				android:id="@+id/user_data"
+				android:textColor="#C6C6C6"
+				android:layout_centerHorizontal="true"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:text="Small Text"
+				android:textColor="#C6C6C6"
+				android:layout_centerHorizontal="true"
+				android:layout_below="@id/user_data"
+				android:id="@+id/user_email"
+				android:layout_marginBottom="10dp"/>
+
 		</RelativeLayout>
-			
-		</android.support.v7.widget.CardView>
-	
+
+	</android.support.v7.widget.CardView>
 
 	<android.support.v7.widget.CardView
 		android:layout_height="wrap_content"
@@ -107,6 +116,33 @@
 				android:layout_weight="5"
 				android:id="@+id/edit_password"
 				android:transitionName="pass"/>
+
+		</LinearLayout>
+
+	</android.support.v7.widget.CardView>
+
+	<android.support.v7.widget.CardView
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		app:elevation="5dp"
+		app:cardCornerRadius="4dp"
+		android:transitionName="card"
+		android:id="@+id/cardview"
+		android:layout_margin="5dp">
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<Button
+				android:layout_width="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:layout_height="wrap_content"
+				android:text="@string/user_logout"
+				android:layout_weight="5"
+				android:id="@+id/user_logout"
+				android:transitionName="email"/>
 
 		</LinearLayout>
 

@@ -21,6 +21,8 @@ import com.kirby.runanjing.untils.*;
 
 import com.kirby.runanjing.R;
 import android.*;
+import android.graphics.*;
+import android.text.*;
 public class MainUserFragment extends Fragment
 {
 	private LocalReceiver localReceiver;
@@ -37,6 +39,10 @@ public class MainUserFragment extends Fragment
 	private Button edit_password;
 
 	private IntentFilter intentFilter;
+
+	private Button user_logout;
+
+	private ImageView mo_userHead;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
@@ -65,6 +71,7 @@ public class MainUserFragment extends Fragment
 		card = (CardView)view.findViewById(R.id.cardview);
 		edit_email = (Button)view.findViewById(R.id.edit_email);
 		edit_password = (Button)view.findViewById(R.id.edit_password);	
+		user_logout = (Button)view.findViewById(R.id.user_logout);	
 		edit_email.setOnClickListener(new View.OnClickListener(){
 
 				@Override
@@ -81,7 +88,17 @@ public class MainUserFragment extends Fragment
 					userEditPassword();
 				}
 			});
+		user_logout.setOnClickListener(new View.OnClickListener(){
+
+				@Override
+				public void onClick(View p1)
+				{
+					u.logOut();
+					m.open();
+				}
+			});
 		userHead = (ImageView)view.findViewById(R.id.user_head);
+		mo_userHead=(ImageView)view.findViewById(R.id.mo_user_head);
 		try
 		{
 			if (u.getUserHead().getFileUrl() != null)
@@ -95,6 +112,36 @@ public class MainUserFragment extends Fragment
 					.placeholder(R.drawable.ic_kirby_download)
 					.error(R.drawable.ic_kirby_load_fail)
 					.into(userHead);	
+				
+				new Thread(new Runnable() {
+
+					String pattern="8";
+					String url=u.getUserHead().getFileUrl();
+						@Override
+						public void run() {
+							int scaleRatio = 0;
+							if (TextUtils.isEmpty(pattern)) {
+								scaleRatio = 0;
+							} else if (scaleRatio < 0) {
+								scaleRatio = 10;
+							} else {
+								scaleRatio = Integer.parseInt(pattern);
+							}
+							//                        下面的这个方法必须在子线程中执行
+							final Bitmap blurBitmap2 = FastBlurUtil.GetUrlBitmap(url, scaleRatio);
+
+							//                        刷新ui必须在主线程中执行
+							getActivity().runOnUiThread(new Runnable(){
+
+									@Override
+									public void run()
+									{
+										mo_userHead.setScaleType(ImageView.ScaleType.CENTER_CROP);
+										mo_userHead.setImageBitmap(blurBitmap2);
+									}
+								});
+						}
+					}).start();
 			}
 		}
 		catch (Exception e)

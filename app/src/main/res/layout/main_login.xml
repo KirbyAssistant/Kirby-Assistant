@@ -6,19 +6,304 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
 
-	<EditText
+	<RelativeLayout
+		android:layout_width="wrap_content"
+		android:layout_centerInParent="true"
 		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:id="@+id/登录_用户名"
-		android:hint="@string/login_user"/>
+		android:id="@+id/mainloginRelativeLayout1">
 
-	<EditText
-		android:layout_height="wrap_content"
-		android:inputType="textPassword"
-		android:layout_width="match_parent"
-		android:layout_below="@id/登录_用户名"
-		android:hint="@string/login_password"
-		android:id="@+id/登录_密码"/>
+		<android.support.v7.widget.CardView
+			android:layout_width="350dp"
+			android:layout_height="wrap_content"
+			app:cardCornerRadius="6dp"
+			app:cardElevation="3dp"
+			app:cardUseCompatPadding="true"
+			android:id="@+id/login">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+
+				<RelativeLayout
+					android:layout_marginTop="10dp"
+					android:layout_width="match_parent"
+					android:layout_height="45dp">
+
+					<View
+						android:layout_alignParentStart="true"
+						android:layout_width="8dp"
+						android:layout_height="match_parent"
+						android:background="?attr/colorPrimaryDark"/>
+
+					<TextView
+						android:layout_centerVertical="true"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="50dp"
+						android:text="@string/login"
+						android:textColor="?attr/colorPrimaryDark"
+						android:textSize="18sp"
+						android:textStyle="bold"/>
+
+				</RelativeLayout>
+
+				<LinearLayout
+					android:layout_marginTop="10dp"
+					android:paddingStart="50dp"
+					android:paddingEnd="30dp"
+					android:orientation="horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="50dp">
+
+					<android.support.design.widget.TextInputLayout
+						android:textColorHint="#c5c5c5"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<EditText
+							android:textSize="18sp"
+							android:hint="@string/login_user"
+							android:textColor="?attr/colorPrimary"
+							android:id="@+id/登录_用户名"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:inputType="textPersonName"
+							android:background="@drawable/selector_bg_edit"
+							android:textCursorDrawable="@drawable/bg_input_cursor"
+							android:paddingBottom="2dp"/>
+
+					</android.support.design.widget.TextInputLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+					android:paddingStart="50dp"
+					android:paddingEnd="30dp"
+					android:orientation="horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="50dp">
+
+					<android.support.design.widget.TextInputLayout
+						android:textColorHint="#c5c5c5"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<EditText
+							android:textSize="18sp"
+							android:hint="@string/login_password"
+							android:textColor="?attr/colorPrimary"
+							android:id="@+id/登录_密码"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:inputType="textPassword"
+							android:background="@drawable/selector_bg_edit"
+							android:textCursorDrawable="@drawable/bg_input_cursor"
+							android:paddingBottom="2dp"/>
+
+					</android.support.design.widget.TextInputLayout>
+
+				</LinearLayout>
+
+				<RelativeLayout
+					android:layout_marginTop="25dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+
+					<Button
+						android:id="@+id/登录"
+						android:background="@drawable/bt_shape"
+						android:stateListAnimator="@drawable/state_list_animator_z"
+						android:layout_width="150dp"
+						android:layout_height="50dp"
+						android:text="@string/login"
+						android:textColor="?attr/colorPrimary"
+						android:layout_centerHorizontal="true"
+						android:layout_marginBottom="10dp">
+
+					</Button>
+
+				</RelativeLayout>
+
+			</LinearLayout>
+
+		</android.support.v7.widget.CardView>
+
+		<android.support.v7.widget.CardView
+			android:layout_width="350dp"
+			android:layout_height="wrap_content"
+			app:cardCornerRadius="6dp"
+			app:cardElevation="3dp"
+			app:cardUseCompatPadding="true"
+			android:id="@+id/register"
+			android:visibility="gone">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+
+				<RelativeLayout
+					android:layout_marginTop="10dp"
+					android:layout_width="match_parent"
+					android:layout_height="45dp">
+
+					<View
+						android:layout_alignParentStart="true"
+						android:layout_width="8dp"
+						android:layout_height="match_parent"
+						android:background="?attr/colorPrimaryDark"/>
+
+					<TextView
+						android:layout_centerVertical="true"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="50dp"
+						android:text="@string/register"
+						android:textColor="?attr/colorPrimaryDark"
+						android:textSize="18sp"
+						android:textStyle="bold"/>
+
+				</RelativeLayout>
+
+				<LinearLayout
+					android:paddingStart="50dp"
+					android:paddingEnd="30dp"
+					android:orientation="horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="50dp">
+
+					<android.support.design.widget.TextInputLayout
+						android:textColorHint="#c5c5c5"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<EditText
+							android:textSize="18sp"
+							android:hint="@string/login_password"
+							android:textColor="?attr/colorPrimary"
+							android:id="@+id/注册_用户名"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:inputType="textPassword"
+							android:background="@drawable/selector_bg_edit"
+							android:textCursorDrawable="@drawable/bg_input_cursor"
+							android:paddingBottom="2dp"/>
+
+					</android.support.design.widget.TextInputLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+					android:paddingStart="50dp"
+					android:paddingEnd="30dp"
+					android:orientation="horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="50dp">
+
+					<android.support.design.widget.TextInputLayout
+						android:textColorHint="#c5c5c5"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<EditText
+							android:textSize="18sp"
+							android:hint="@string/dia_email"
+							android:textColor="?attr/colorPrimary"
+							android:id="@+id/邮箱"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:inputType="textPassword"
+							android:background="@drawable/selector_bg_edit"
+							android:textCursorDrawable="@drawable/bg_input_cursor"
+							android:paddingBottom="2dp"/>
+
+					</android.support.design.widget.TextInputLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+					android:layout_marginTop="10dp"
+					android:paddingStart="50dp"
+					android:paddingEnd="30dp"
+					android:orientation="horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="50dp">
+
+					<android.support.design.widget.TextInputLayout
+						android:textColorHint="#c5c5c5"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<EditText
+							android:textSize="18sp"
+							android:hint="@string/dia_password"
+							android:textColor="?attr/colorPrimary"
+							android:id="@+id/注册_密码"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:inputType="textPersonName"
+							android:background="@drawable/selector_bg_edit"
+							android:textCursorDrawable="@drawable/bg_input_cursor"
+							android:paddingBottom="2dp"/>
+
+					</android.support.design.widget.TextInputLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+					android:paddingStart="50dp"
+					android:paddingEnd="30dp"
+					android:orientation="horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="50dp">
+
+					<android.support.design.widget.TextInputLayout
+						android:textColorHint="#c5c5c5"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<EditText
+							android:textSize="18sp"
+							android:hint="@string/dia_a_password"
+							android:textColor="?attr/colorPrimary"
+							android:id="@+id/重复密码"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:inputType="textPassword"
+							android:background="@drawable/selector_bg_edit"
+							android:textCursorDrawable="@drawable/bg_input_cursor"
+							android:paddingBottom="2dp"/>
+
+					</android.support.design.widget.TextInputLayout>
+
+				</LinearLayout>
+
+				<RelativeLayout
+					android:layout_marginTop="25dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+
+					<Button
+						android:id="@+id/注册"
+						android:background="@drawable/bt_shape"
+						android:stateListAnimator="@drawable/state_list_animator_z"
+						android:layout_width="150dp"
+						android:layout_height="50dp"
+						android:text="@string/register"
+						android:textColor="?attr/colorPrimary"
+						android:layout_centerHorizontal="true"
+						android:layout_marginBottom="10dp">
+
+					</Button>
+
+				</RelativeLayout>
+
+			</LinearLayout>
+
+		</android.support.v7.widget.CardView>
+
+	</RelativeLayout>
 
 	<LinearLayout
 		android:layout_height="wrap_content"
@@ -37,30 +322,14 @@
 
 	</LinearLayout>
 
-	<LinearLayout
-		android:layout_height="wrap_content"
+	<TextView
 		android:layout_width="wrap_content"
-		android:orientation="horizontal"
-		android:layout_below="@id/登录_密码"
-		android:gravity="end">
-
-		<Button
-			style="?android:attr/buttonBarButtonStyle"
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="@string/login"
-			android:layout_weight="0.5"
-			android:id="@+id/登录"/>
-
-		<Button
-			style="?android:attr/buttonBarButtonStyle"
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="@string/register"
-			android:layout_weight="0.5"
-			android:id="@+id/注册"/>
-
-	</LinearLayout>
+		android:layout_height="wrap_content"
+		android:text="@string/not_have_user"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:id="@+id/sw_login_register"
+		android:layout_centerHorizontal="true"
+		android:layout_above="@id/mainloginRelativeLayout1"/>
 
 </RelativeLayout>
 

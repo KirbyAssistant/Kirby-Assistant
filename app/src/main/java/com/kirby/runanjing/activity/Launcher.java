@@ -10,6 +10,7 @@ import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.untils.*;
 import java.util.*;
+import android.widget.*;
 
 /**
  *类类型:Activity
@@ -25,6 +26,8 @@ public class Launcher extends AppCompatActivity
 
 	private HTextView welcome;
 
+	private ImageView icon;
+
 	@Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -36,6 +39,14 @@ public class Launcher extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setLanguage();
 		setContentView(R.layout.activity_welcome);
+		icon=(ImageView)findViewById(R.id.welcomeImageView1);
+		SharedPreferences preferences = getSharedPreferences("icon", 0);
+        String icon_ver = preferences.getString("icon_ver", "hk");
+		if(icon_ver.equals("hk")){
+			icon.setImageDrawable(getResources().getDrawable(R.drawable.ic_foreground_image_hk));
+		}else{
+			icon.setImageDrawable(getResources().getDrawable(R.drawable.ic_foreground_image_ma));
+		}
 		welcome = (HTextView)findViewById(R.id.textview);
 		welcome.setTextColor(getColorPrimary());
 		welcome.animateText("Kirby Assistant");

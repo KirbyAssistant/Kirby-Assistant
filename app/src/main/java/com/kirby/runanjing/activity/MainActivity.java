@@ -288,6 +288,22 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 	{
 		// TODO: Implement this method
 	}
+	//按两次退出
+	private long exitTime = 0;
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK
+			&& event.getAction() == KeyEvent.ACTION_DOWN) {
+			if ((System.currentTimeMillis() - exitTime) > 2000) {
+				Toast.makeText(getApplicationContext(), getResources().getString(R.string.two_back), Toast.LENGTH_SHORT).show();
+				exitTime = System.currentTimeMillis();
+			} else {
+				finish();
+			}
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
 	@Override
 	//获取toolbar菜单id执行事件
 	public boolean onOptionsItemSelected(MenuItem item)
@@ -371,6 +387,10 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 			case R.id.pay:
 				Intent pay=new Intent(MainActivity.this, PayActivity.class);
 				IntentUtil.startActivityWithAnim(pay, MainActivity.this);
+				break;
+			case R.id.switch_icon:
+				Intent sw_icon=new Intent(MainActivity.this, SwitchIconActivity.class);
+				IntentUtil.startActivityWithAnim(sw_icon, MainActivity.this);
 				break;
 			default:
 		}

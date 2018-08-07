@@ -28,7 +28,7 @@ public class KirbyIntroActivity extends AppIntro2
 		SliderPage sliderPage1 = new SliderPage();
         sliderPage1.setTitle(getResources().getString(R.string.intro_welcome_title));
         sliderPage1.setDescription(getResources().getString(R.string.intro_welcome_text));
-        sliderPage1.setImageDrawable(R.drawable.ic_foreground_image);
+        sliderPage1.setImageDrawable(R.drawable.ic_foreground_image_hk);
         sliderPage1.setBgColor(0xff1976d2);
         addSlide(AppIntroFragment.newInstance(sliderPage1));
 		
@@ -41,9 +41,15 @@ public class KirbyIntroActivity extends AppIntro2
 		askForPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
 		
 		SliderPage sliderPage3 = new SliderPage();
-        sliderPage3.setTitle(getResources().getString(R.string.intro_finish_title));
-        sliderPage3.setDescription(getResources().getString(R.string.intro_finish_text));
+        sliderPage3.setTitle(getResources().getString(R.string.intro_icon_title));
+        sliderPage3.setDescription(getResources().getString(R.string.intro_icon_text));
         sliderPage3.setBgColor(0xff1976d2);
+        addSlide(AppIntroFragment.newInstance(sliderPage3));
+		
+		SliderPage sliderPage4 = new SliderPage();
+        sliderPage4.setTitle(getResources().getString(R.string.intro_finish_title));
+        sliderPage4.setDescription(getResources().getString(R.string.intro_finish_text));
+        sliderPage4.setBgColor(0xff1976d2);
         addSlide(AppIntroFragment.newInstance(sliderPage3));
 		
         showSkipButton(false);
