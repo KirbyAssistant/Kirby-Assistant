@@ -94,7 +94,7 @@ public class MainLoginFragment extends Fragment
 									}
 									else
 									{
-										Toast.makeText(getActivity(), getActivity().getString(R.string.login_fail), Toast.LENGTH_SHORT).show();
+										Toast.makeText(getActivity(), getActivity().getString(R.string.login_fail)+e.getErrorCode()+e.toString(), Toast.LENGTH_SHORT).show();
 									}
 								}
 							});

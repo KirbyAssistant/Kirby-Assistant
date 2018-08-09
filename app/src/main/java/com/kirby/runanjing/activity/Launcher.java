@@ -11,6 +11,7 @@ import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.untils.*;
 import java.util.*;
 import android.widget.*;
+import android.graphics.*;
 
 /**
  *类类型:Activity
@@ -32,10 +33,19 @@ public class Launcher extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
 		//隐藏状态栏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+       /* getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 							 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-		Theme.setClassTheme(this);
+		getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);*/
+		Window window = this.getWindow();
+		//添加Flag把状态栏设为可绘制模式
+		window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+			//取消设置Window半透明的Flag
+			window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+			//设置状态栏为透明
+			window.setStatusBarColor(Color.TRANSPARENT);
+			//设置window的状态栏不可见
+			window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+		//Theme.setClassTheme(this);
 		super.onCreate(savedInstanceState);
 		setLanguage();
 		setContentView(R.layout.activity_welcome);

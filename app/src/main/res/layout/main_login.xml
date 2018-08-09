@@ -180,7 +180,7 @@
 
 						<EditText
 							android:textSize="18sp"
-							android:hint="@string/login_password"
+							android:hint="@string/register_username"
 							android:textColor="?attr/colorPrimary"
 							android:id="@+id/注册_用户名"
 							android:layout_width="match_parent"
@@ -208,7 +208,7 @@
 
 						<EditText
 							android:textSize="18sp"
-							android:hint="@string/dia_email"
+							android:hint="@string/register_email"
 							android:textColor="?attr/colorPrimary"
 							android:id="@+id/邮箱"
 							android:layout_width="match_parent"
@@ -237,7 +237,7 @@
 
 						<EditText
 							android:textSize="18sp"
-							android:hint="@string/dia_password"
+							android:hint="@string/register_password"
 							android:textColor="?attr/colorPrimary"
 							android:id="@+id/注册_密码"
 							android:layout_width="match_parent"
@@ -265,7 +265,7 @@
 
 						<EditText
 							android:textSize="18sp"
-							android:hint="@string/dia_a_password"
+							android:hint="@string/register_password_again"
 							android:textColor="?attr/colorPrimary"
 							android:id="@+id/重复密码"
 							android:layout_width="match_parent"

@@ -43,19 +43,22 @@
 	<string name="not_have_user">沒有賬號？點我</string>
 	<string name="have_user">已有賬號？點我</string>
 	
-	
-	<string name="edit_email">修改郵箱</string>
-	<string name="email_title">修改郵箱（成功後需要重新登錄）</string>
-	<string name="email_false">郵箱驗證失敗</string>
+	<string name="change_email">修改郵箱</string>
+	<string name="change_email_hint">修改郵箱（成功後需要重新登錄）</string>
+	<string name="change_email_false">郵箱驗證失敗</string>
+	<string name="change_email_old">請輸入原來的郵箱</string>
+	<string name="change_email_new">請輸入新的郵箱</string>
+	<string name="change_password_old">請輸入原密碼</string>
+	<string name="change_password_new">請輸入新密碼</string>
+	<string name="change_password_new_again">請再輸入壹次新密碼</string>
+	<string name="password">兩次輸入的密碼不同</string>
+	<string name="change_password">修改密碼</string>
+	<string name="change_password_hint">修改密碼（成功後需要重新登錄）</string>
+	<string name="change_password_false">出錯</string>
 	
 	<string name="is_null">不能為空</string>
 	<string name="edit_true">修改成功</string>
 	<string name="edit_false">修改失敗:</string>
-	
-	<string name="password">兩次輸入的密碼不同</string>
-	<string name="edit_password">修改密碼</string>
-	<string name="password_title">修改密碼（成功後需要重新登錄）</string>
-	<string name="password_false">出錯</string>
 	
 	<string name="user_logout">帳號登出</string>
 	<string name="logout_true">登出成功</string>
@@ -99,9 +102,6 @@
 	<string name="login_password">密碼</string>
 	<string name="login_susses">登錄成功</string>
 	<string name="login_fail">登錄失敗</string>
-	<string name="register">註冊</string>
-	<string name="register_susses">註冊成功</string>
-	<string name="register_fail">註冊失敗</string>
 	
 	<string name="jsz_copy">復制金手指成功</string>
 	
@@ -130,14 +130,13 @@
 	<string name="me2">\@汝南京</string>
 	<string name="github">在Github查看這個項目</string>
 	
-	<string name="dia_y_email">請輸入原來的郵箱</string>
-	<string name="dia_n_email">請輸入新的郵箱</string>
-	<string name="dia_y_password">請輸入原密碼</string>
-	<string name="dia_n_password">請輸入新密碼</string>
-	<string name="dia_a_password">請再輸入壹次新密碼</string>
-	<string name="dia_username">用護名（註冊以後不可更改）</string>
-	<string name="dia_email">郵箱（用於找回密碼）</string>
-	<string name="dia_password">密碼（支持數字和字母）</string>
+	<string name="register">註冊</string>
+	<string name="register_susses">註冊成功</string>
+	<string name="register_fail">註冊失敗</string>
+	<string name="register_username">用護名（註冊以後不可更改）</string>
+	<string name="register_email">郵箱（用於找回密碼）</string>
+	<string name="register_password">密碼（支持數字和字母）</string>
+	<string name="register_password_again">請再次輸入密碼</string>
 	
 	<string name="pay_title">捐贈</string>
 	

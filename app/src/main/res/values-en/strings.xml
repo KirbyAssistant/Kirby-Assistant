@@ -40,19 +40,24 @@
 	<string name="choose_photo">Choose a picture</string>
 	<string name="not_have_user">No account number? Click me</string>
 	<string name="have_user">Existing account? Click me</string>
+	<string name="change_email_old">Please Enter Your Original Email Address</string>
+	<string name="change_email_new">Please Enter New Email Address</string>
+	<string name="change_email_new_again">Please Enter Your Original Password</string>
+	<string name="change_password_old">Please Enter Old Password</string>
+	<string name="change_password_new">Please Enter New Password</string>
+	<string name="change_password_new_again">Please Enter New Password Again</string>
+	<string name="change_email">Change E-mail</string>
+	<string name="change_email_hint">Change E-mail (You Need Login Again If You Change Successfully)</string>
+	<string name="change_email_false">Email verification Unsuccessfully</string>
+	<string name="password">Twice You Input Passwords Are Different</string>
+	<string name="change_password">Change Password</string>
+	<string name="change_password_hint">Change Password (You Need Login Again If Change Successfully)</string>
+	<string name="change_password_false">ERROR</string>
 	
-	<string name="edit_email">Change E-mail</string>
-	<string name="email_title">Change E-mail (You Need Login Again If You Change Successfully)</string>
-	<string name="email_false">Email verification Unsuccessfully</string>
 	
 	<string name="is_null">Not Empty</string>
 	<string name="edit_true">Change Successfully</string>
 	<string name="edit_false">Change Unsuccessfully:</string>
-	
-	<string name="password">Twice You Input Passwords Are Different</string>
-	<string name="edit_password">Change Password</string>
-	<string name="password_title">Change Password (You Need Login Again If Change Successfully)</string>
-	<string name="password_false">ERROR</string>
 	
 	<string name="user_logout">Logout</string>
 	<string name="logout_true">Logout Successfully</string>
@@ -96,10 +101,7 @@
 	<string name="login_password">Password</string>
 	<string name="login_susses">Login Successfully</string>
 	<string name="login_fail">Login Unsuccessfully</string>
-	<string name="register">Register</string>
-	<string name="register_susses">Register Successfully</string>
-	<string name="register_fail">Register Unsuccessfully</string>
-	
+		
 	<string name="jsz_copy">Copy Cheat Code Successfully</string>
 	
 	<string name="intro_welcome_title">Welcome</string>
@@ -127,14 +129,13 @@
 	<string name="me2">\@汝南京</string>
 	<string name="github">Browsing The Program In Github.</string>
 	
-	<string name="dia_y_email">Please Enter Your Original Email Address</string>
-	<string name="dia_n_email">Please Enter New Email Address</string>
-	<string name="dia_y_password">Please Enter Your Original Password</string>
-	<string name="dia_n_password">Please Enter New Password</string>
-	<string name="dia_a_password">Please Enter New Password Again</string>
-	<string name="dia_username">User Name(Can\'t Change If You Have Registered)</string>
-	<string name="dia_email">E-mail(Used To Retrieve Password)</string>
-	<string name="dia_password">Password(Numbers Or Letter</string>
+	<string name="register">Register</string>
+	<string name="register_susses">Register Successfully</string>
+	<string name="register_fail">Register Unsuccessfully</string>
+	<string name="register_username">User Name(Can\'t Change If You Have Registered)</string>
+	<string name="register_email">E-mail(Used To Retrieve Password)</string>
+	<string name="register_password">Password(Numbers Or Letter)</string>
+	<string name="register_password_again">Please enter your password again</string>
 	
 	<string name="pay_title">Donate</string>
 	

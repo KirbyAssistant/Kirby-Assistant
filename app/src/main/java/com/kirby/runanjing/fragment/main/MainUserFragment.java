@@ -177,7 +177,7 @@ public class MainUserFragment extends Fragment
 		LayoutInflater lay_1 =getActivity().getLayoutInflater();
 		final View modification_email_layout = lay_1.inflate(R.layout.dialog_modification_email, null);
 		new AlertDialog.Builder(getActivity())
-			.setTitle(R.string.email_title)
+			.setTitle(R.string.change_email)
 			.setView(modification_email_layout) 
 			.setPositiveButton(R.string.dia_yes, new
 			DialogInterface.OnClickListener()
@@ -221,7 +221,7 @@ public class MainUserFragment extends Fragment
 						}
 						else
 						{
-							Toast.makeText(getActivity(), R.string.email_false, Toast.LENGTH_SHORT).show();
+							Toast.makeText(getActivity(), R.string.change_email_false, Toast.LENGTH_SHORT).show();
 						}
 					}
 				}
@@ -235,7 +235,7 @@ public class MainUserFragment extends Fragment
 		LayoutInflater lay_2 =getActivity().getLayoutInflater();
 		final View modification_password_layout = lay_2.inflate(R.layout.dialog_modification_password, null);
 		new AlertDialog.Builder(getActivity())
-			.setTitle(R.string.password_title)
+			.setTitle(R.string.change_password)
 			.setView(modification_password_layout) 
 			.setPositiveButton(R.string.dia_yes, new
 			DialogInterface.OnClickListener()
@@ -280,7 +280,7 @@ public class MainUserFragment extends Fragment
 						}
 						else
 						{
-							Toast.makeText(getActivity(), R.string.password_false, Toast.LENGTH_SHORT).show();
+							Toast.makeText(getActivity(), R.string.change_password_false, Toast.LENGTH_SHORT).show();
 						}
 					}
 				}

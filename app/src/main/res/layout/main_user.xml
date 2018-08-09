@@ -103,7 +103,7 @@
 				android:layout_width="wrap_content"
 				style="?android:attr/buttonBarButtonStyle"
 				android:layout_height="wrap_content"
-				android:text="@string/edit_email"
+				android:text="@string/change_email"
 				android:layout_weight="5"
 				android:id="@+id/edit_email"
 				android:transitionName="email"/>
@@ -112,7 +112,7 @@
 				android:layout_width="wrap_content"
 				style="?android:attr/buttonBarButtonStyle"
 				android:layout_height="wrap_content"
-				android:text="@string/edit_password"
+				android:text="@string/change_password"
 				android:layout_weight="5"
 				android:id="@+id/edit_password"
 				android:transitionName="pass"/>

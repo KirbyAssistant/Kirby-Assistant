@@ -60,7 +60,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		replaceFragment(new MainGameFragment());
 		//使用BmobUser类获取部分用户数据
 		u = BmobUser.getCurrentUser(MyUser.class);
-		thePay();
+		//thePay();
 		bottomBar();
 	}
 /**

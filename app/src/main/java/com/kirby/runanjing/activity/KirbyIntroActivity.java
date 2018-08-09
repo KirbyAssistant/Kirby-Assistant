@@ -50,7 +50,7 @@ public class KirbyIntroActivity extends AppIntro2
         sliderPage4.setTitle(getResources().getString(R.string.intro_finish_title));
         sliderPage4.setDescription(getResources().getString(R.string.intro_finish_text));
         sliderPage4.setBgColor(0xff1976d2);
-        addSlide(AppIntroFragment.newInstance(sliderPage3));
+        addSlide(AppIntroFragment.newInstance(sliderPage4));
 		
         showSkipButton(false);
         setProgressButtonEnabled(true);

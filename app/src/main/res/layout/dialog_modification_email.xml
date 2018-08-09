@@ -11,7 +11,7 @@
 		android:inputType="textEmailAddress"
 		android:layout_width="match_parent"
 		android:ems="10"
-		android:hint="@string/dia_y_email"
+		android:hint="@string/change_email_old"
 		android:id="@+id/修改邮箱_原邮箱"/>
 
 	<EditText
@@ -19,7 +19,7 @@
 		android:inputType="textEmailAddress"
 		android:layout_width="match_parent"
 		android:ems="10"
-		android:hint="@string/dia_n_email"
+		android:hint="@string/change_email_new"
 		android:id="@+id/修改邮箱_新邮箱"/>
 
 </LinearLayout>
