@@ -31,24 +31,15 @@
 		<RelativeLayout
 			android:layout_height="match_parent"
 			android:layout_width="match_parent">
-
-			<com.gcssloop.widget.RCRelativeLayout
+			
+			<de.hdodenhof.circleimageview.CircleImageView
 				android:layout_height="64dp"
 				android:layout_width="64dp"
-				app:round_as_circle="true"
+				android:src="@drawable/kirbytheme"
+				android:id="@+id/user_head"
 				android:layout_marginTop="16dp"
-				
-				android:layout_marginLeft="16dp"
-				android:id="@+id/activitymessageRCRelativeLayout1">
-
-				<ImageView
-					android:src="@drawable/kirbytheme"
-					android:id="@+id/user_head"
-					android:layout_height="match_parent"
-					android:layout_width="match_parent"/>
-
-			</com.gcssloop.widget.RCRelativeLayout>
-
+				android:layout_marginLeft="16dp"/>
+			
 			<TextView
 				android:layout_height="wrap_content"
 				android:textAppearance="?android:attr/textAppearanceMedium"
@@ -57,7 +48,7 @@
 				android:id="@+id/userName"
 				android:textColor="#000000"
 				android:transitionName="userName"
-				android:layout_toRightOf="@id/activitymessageRCRelativeLayout1"
+				android:layout_toRightOf="@id/user_head"
 				android:layout_marginTop="16dp"
 				android:layout_marginLeft="16dp"/>
 
@@ -70,7 +61,7 @@
 				android:id="@+id/time"
 				android:transitionName="timr"
 				android:layout_marginBottom="18dp"
-				android:layout_toRightOf="@id/activitymessageRCRelativeLayout1"
+				android:layout_toRightOf="@id/user_head"
 				android:layout_marginLeft="16dp"/>
 
 			<TextView
@@ -78,7 +69,7 @@
 				android:textAppearance="?android:attr/textAppearanceMedium"
 				android:layout_width="wrap_content"
 				android:text="Medium Text"
-				android:layout_below="@id/activitymessageRCRelativeLayout1"
+				android:layout_below="@id/user_head"
 				android:id="@+id/mess"
 				android:transitionName="mess"
 				android:textColor="#000000"

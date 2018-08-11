@@ -24,23 +24,15 @@
 				android:scaleType="centerCrop"
 				android:id="@+id/mo_user_head"/>
 
-			<com.gcssloop.widget.RCRelativeLayout
+			<de.hdodenhof.circleimageview.CircleImageView
 				android:layout_height="80dp"
 				android:layout_width="80dp"
-				app:round_as_circle="true"
-				android:id="@+id/mainuserRCRelativeLayout1"
+				android:id="@+id/user_head"
+				android:src="@drawable/kirbytheme"
 				android:layout_centerHorizontal="true"
 				android:transitionName="userHead"
-				android:layout_marginTop="10dp">
-
-				<ImageView
-					android:src="@drawable/kirbytheme"
-					android:id="@+id/user_head"
-					android:layout_height="match_parent"
-					android:layout_width="match_parent"/>
-
-			</com.gcssloop.widget.RCRelativeLayout>
-
+				android:layout_marginTop="10dp"/>
+			
 			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
@@ -48,7 +40,7 @@
 				android:text="Large Text"
 				android:id="@+id/user_name"
 				android:layout_centerHorizontal="true"
-				android:layout_below="@id/mainuserRCRelativeLayout1"/>
+				android:layout_below="@id/user_head"/>
 
 			<TextView
 				android:layout_width="wrap_content"

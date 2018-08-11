@@ -1,9 +1,10 @@
 package com.kirby.runanjing.fragment.main;
 
-import android.content.*;
+import android.app.*;
 import android.os.*;
 import android.support.v4.app.*;
 import android.support.v7.app.*;
+import android.support.v7.widget.*;
 import android.view.*;
 import android.widget.*;
 import cn.bmob.v3.*;
@@ -12,8 +13,9 @@ import cn.bmob.v3.listener.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bmob.*;
-import java.lang.reflect.*;
-import android.support.v7.widget.*;
+
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 
 public class MainLoginFragment extends Fragment
 {
@@ -66,15 +68,22 @@ public class MainLoginFragment extends Fragment
 		final EditText 登录_用户名=(EditText)view.findViewById(R.id.登录_用户名);
 		final EditText 登录_密码=(EditText)view.findViewById(R.id.登录_密码);
 		登录.setOnClickListener(new View.OnClickListener(){
+
+				private ProgressDialog loginProgress;
 				@Override
 				public void onClick(View v)
 				{
+					loginProgress = new ProgressDialog(getActivity());
+					loginProgress.setMessage(getResources().getString(R.string.login));
+					loginProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+					loginProgress.show();
 					//获取的字符串转化为string数据类型
 					String editText_用户名=登录_用户名.getText().toString();
 					String editText_密码=登录_密码.getText().toString();
 					//判断是否为空
 					if (editText_用户名.isEmpty() || editText_密码.isEmpty())
 					{
+						loginProgress.dismiss();
 						Toast.makeText(getActivity(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
 					}
 					else
@@ -89,11 +98,13 @@ public class MainLoginFragment extends Fragment
 								{
 									if (e == null)
 									{
+										loginProgress.dismiss();
 										Toast.makeText(getActivity(),getActivity().getString(R.string.login_susses), Toast.LENGTH_SHORT).show();
 										m.open();
 									}
 									else
 									{
+										loginProgress.dismiss();
 										Toast.makeText(getActivity(), getActivity().getString(R.string.login_fail)+e.getErrorCode()+e.toString(), Toast.LENGTH_SHORT).show();
 									}
 								}
@@ -102,9 +113,15 @@ public class MainLoginFragment extends Fragment
 				}
 			});
 		注册.setOnClickListener(new View.OnClickListener(){
+
+				private ProgressDialog registerProgress;
 				@Override
 				public void onClick(View v)
 				{
+					registerProgress = new ProgressDialog(getActivity());
+					registerProgress.setMessage(getResources().getString(R.string.register));
+					registerProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+					registerProgress.show();
 					//从实例化布局的edittext中获取字符串并转化为string数据
 								EditText 注册_用户名=(EditText)view.findViewById(R.id.注册_用户名);
 								EditText 邮箱=(EditText)view.findViewById(R.id.邮箱);
@@ -117,6 +134,7 @@ public class MainLoginFragment extends Fragment
 								//判断是否为空
 								if (editText_用户名.isEmpty() || editText_邮箱.isEmpty() || editText_密码.isEmpty() || editText_重复密码.isEmpty())
 								{
+									registerProgress.dismiss();
 									Toast.makeText(getActivity(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
 								}
 								else
@@ -135,6 +153,7 @@ public class MainLoginFragment extends Fragment
 												{
 													if (e == null)
 													{
+														registerProgress.dismiss();
 														登录_用户名.setText(editText_用户名);
 														登录_密码.setText(editText_密码);
 														login_card.setVisibility(0);
@@ -144,8 +163,8 @@ public class MainLoginFragment extends Fragment
 													}
 													else
 													{
-														
-														Toast.makeText(getActivity(), getActivity().getString(R.string.register_fail), Toast.LENGTH_SHORT).show();
+														registerProgress.dismiss();
+														Toast.makeText(getActivity(), getActivity().getString(R.string.register_fail)+e.toString(), Toast.LENGTH_SHORT).show();
 													}
 												}
 											});

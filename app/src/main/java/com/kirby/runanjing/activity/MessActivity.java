@@ -90,17 +90,16 @@ public class MessActivity extends BaseActivity
 					for (MyUser m : list)
 					{
 						try{
-							userHeadUrl=m.getUserHead().getFileUrl();
-						}catch(Exception e){}			 
 						Glide
 							.with(MessActivity.this)
-							.load(userHeadUrl)
+							.load(m.getUserHead().getFileUrl())
 							//.apply(Kirby.getGlideRequestOptions())
 							.asBitmap()
 							.fitCenter()
 							.placeholder(R.drawable.ic_kirby_download)
 							.error(R.drawable.ic_kirby_load_fail)
 							.into(userHeadImage);
+							}catch(Exception e){}
 					}			
 					break;
 			}

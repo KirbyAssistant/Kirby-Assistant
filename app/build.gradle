@@ -8,8 +8,8 @@ android {
         applicationId "com.kirby.runanjing"
         minSdkVersion 21
 	    targetSdkVersion 28
-        versionCode 15
-        versionName "0.4-beta-4"
+        versionCode 17
+        versionName "0.4-beta-5"
 		multiDexEnabled true
         multiDexKeepProguard file('multiDexKeep.pro') 
 		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
@@ -24,12 +24,12 @@ android {
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
 	testCompile 'junit:junit:4.12'
+	//图片圆形
+	compile 'de.hdodenhof:circleimageview:2.2.0'
 	//图片加载
 	compile "com.github.bumptech.glide:glide:3.6.1"
 	//compile 'com.github.bumptech.glide:compiler:4.7.1'
-	//头像圆形
-	compile 'com.gcssloop.widget:rclayout:+'
-	//图片剪裁
+    //图片剪裁
 	//compile 'com.jph.takephoto:takephoto_library:4.0.3'
 	compile 'com.github.yalantis:ucrop:2.2.1'
 	//compile 'com.isseiaoki:simplecropview:1.1.7'

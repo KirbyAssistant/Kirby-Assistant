@@ -21,7 +21,8 @@
 			android:layout_width="wrap_content"
 			android:layout_height="158dp"
 			android:id="@+id/video_image"
-			android:layout_gravity="top|center"/>
+			android:layout_gravity="top"
+			android:scaleType="centerCrop"/>
 
 		<TextView
 			android:layout_height="wrap_content"

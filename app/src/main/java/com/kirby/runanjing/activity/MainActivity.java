@@ -32,6 +32,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
+import com.kirby.runanjing.helper.*;
 /**
 *类类型:Activity
 *类名称:MainActivity
@@ -72,7 +73,8 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 	private void bottomBar()
 	{
 		BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+		BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+		bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 				@Override
 				public boolean onNavigationItemSelected(@NonNull MenuItem item)
 				{

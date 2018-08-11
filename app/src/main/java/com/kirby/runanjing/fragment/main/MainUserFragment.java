@@ -1,13 +1,17 @@
 package com.kirby.runanjing.fragment.main;
 
+import android.*;
+import android.app.*;
 import android.content.*;
 import android.content.pm.*;
+import android.graphics.*;
 import android.os.*;
 import android.support.v4.app.*;
 import android.support.v4.content.*;
 import android.support.v4.util.*;
 import android.support.v7.app.*;
 import android.support.v7.widget.*;
+import android.text.*;
 import android.view.*;
 import android.widget.*;
 import cn.bmob.v3.*;
@@ -18,11 +22,12 @@ import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bmob.*;
 import com.kirby.runanjing.untils.*;
+import java.io.*;
+import java.net.*;
 
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import com.kirby.runanjing.R;
-import android.*;
-import android.graphics.*;
-import android.text.*;
 public class MainUserFragment extends Fragment
 {
 	private LocalReceiver localReceiver;
@@ -60,7 +65,7 @@ public class MainUserFragment extends Fragment
 		intentFilter.addAction("com.kirby.download.CHANGE_USERHEAD");
 		localReceiver = new LocalReceiver();
         //注册本地广播监听器
-        localBroadcastManager.registerReceiver(localReceiver,intentFilter);
+        localBroadcastManager.registerReceiver(localReceiver, intentFilter);
 		name = u.getUsername();
 		email = u.getEmail();
 		id = u.getObjectId();
@@ -98,7 +103,7 @@ public class MainUserFragment extends Fragment
 				}
 			});
 		userHead = (ImageView)view.findViewById(R.id.user_head);
-		mo_userHead=(ImageView)view.findViewById(R.id.mo_user_head);
+		mo_userHead = (ImageView)view.findViewById(R.id.mo_user_head);
 		try
 		{
 			if (u.getUserHead().getFileUrl() != null)
@@ -112,34 +117,45 @@ public class MainUserFragment extends Fragment
 					.placeholder(R.drawable.ic_kirby_download)
 					.error(R.drawable.ic_kirby_load_fail)
 					.into(userHead);	
-				
+
 				new Thread(new Runnable() {
 
-					String pattern="8";
-					String url=u.getUserHead().getFileUrl();
+						String pattern="8";
+						String url=u.getUserHead().getFileUrl();
 						@Override
-						public void run() {
+						public void run()
+						{
 							int scaleRatio = 0;
-							if (TextUtils.isEmpty(pattern)) {
+							if (TextUtils.isEmpty(pattern))
+							{
 								scaleRatio = 0;
-							} else if (scaleRatio < 0) {
+							}
+							else if (scaleRatio < 0)
+							{
 								scaleRatio = 10;
-							} else {
+							}
+							else
+							{
 								scaleRatio = Integer.parseInt(pattern);
 							}
 							//                        下面的这个方法必须在子线程中执行
 							final Bitmap blurBitmap2 = FastBlurUtil.GetUrlBitmap(url, scaleRatio);
 
 							//                        刷新ui必须在主线程中执行
-							getActivity().runOnUiThread(new Runnable(){
+							try
+							{
+								getActivity().runOnUiThread(new Runnable(){
 
-									@Override
-									public void run()
-									{
-										mo_userHead.setScaleType(ImageView.ScaleType.CENTER_CROP);
-										mo_userHead.setImageBitmap(blurBitmap2);
-									}
-								});
+										@Override
+										public void run()
+										{
+											mo_userHead.setScaleType(ImageView.ScaleType.CENTER_CROP);
+											mo_userHead.setImageBitmap(blurBitmap2);
+										}
+									});
+							}
+							catch (Exception e)
+							{}
 						}
 					}).start();
 			}
@@ -166,7 +182,7 @@ public class MainUserFragment extends Fragment
 						Pair<View, String> editPassPair= new Pair<View,String>(edit_password, "pass");
 						Intent intent = new Intent(getActivity(), HeadActivity.class);			
 						ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), userHeadPair, cardPair, editEmailPair, editPassPair);
-						startActivityForResult(intent,3, options.toBundle());
+						startActivityForResult(intent, 3, options.toBundle());
 					}
 				}
 			});
@@ -182,15 +198,22 @@ public class MainUserFragment extends Fragment
 			.setPositiveButton(R.string.dia_yes, new
 			DialogInterface.OnClickListener()
 			{
+
+				private ProgressDialog changeEmailProgress;
 				@Override
 				public void onClick(DialogInterface dialog, int which)
 				{
+					changeEmailProgress = new ProgressDialog(getActivity());
+					changeEmailProgress.setMessage(getResources().getString(R.string.change_email));
+					changeEmailProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+					changeEmailProgress.show();
 					EditText 修改邮箱_原邮箱=(EditText)modification_email_layout.findViewById(R.id.修改邮箱_原邮箱);
 					EditText 修改邮箱_新邮箱=(EditText)modification_email_layout.findViewById(R.id.修改邮箱_新邮箱);
 					String edit_原邮箱=修改邮箱_原邮箱.getText().toString();
 					String edit_新邮箱=修改邮箱_新邮箱.getText().toString();
 					if (edit_原邮箱.isEmpty() || edit_新邮箱.isEmpty())
 					{
+						changeEmailProgress.dismiss();
 						Toast.makeText(getActivity(), R.string.is_null, Toast.LENGTH_SHORT).show();
 					}
 					else
@@ -206,6 +229,7 @@ public class MainUserFragment extends Fragment
 									{
 										if (e == null)
 										{
+											changeEmailProgress.dismiss();
 											Toast.makeText(getActivity(), R.string.edit_true, Toast.LENGTH_SHORT).show();
 											u.logOut();
 											//finish();
@@ -213,6 +237,7 @@ public class MainUserFragment extends Fragment
 										}
 										else
 										{
+											changeEmailProgress.dismiss();
 											Toast.makeText(getActivity(), R.string.edit_false + e.getMessage(), Toast.LENGTH_SHORT).show();
 										}
 									}
@@ -242,9 +267,15 @@ public class MainUserFragment extends Fragment
 			{
 
 				private int text;
+
+				private ProgressDialog changePasswordProgress;
 				@Override
 				public void onClick(DialogInterface dialog, int which)
 				{
+					changePasswordProgress = new ProgressDialog(getActivity());
+					changePasswordProgress.setMessage(getResources().getString(R.string.change_password));
+					changePasswordProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+					changePasswordProgress.show();
 					EditText 修改密码_原密码=(EditText)modification_password_layout.findViewById(R.id.修改密码_原密码);
 					EditText 修改密码_新密码=(EditText)modification_password_layout.findViewById(R.id.修改密码_新密码);
 					EditText 修改密码_验证=(EditText)modification_password_layout.findViewById(R.id.修改密码_验证);
@@ -253,6 +284,7 @@ public class MainUserFragment extends Fragment
 					String edit_验证=修改密码_验证.getText().toString();
 					if (edit_原密码.isEmpty() || edit_新密码.isEmpty() || edit_验证.isEmpty())
 					{
+						changePasswordProgress.dismiss();
 						Toast.makeText(getActivity(), R.string.is_null, Toast.LENGTH_SHORT).show();
 					}
 					else
@@ -266,6 +298,7 @@ public class MainUserFragment extends Fragment
 									{
 										if (e == null)
 										{
+											changePasswordProgress.dismiss();
 											Toast.makeText(getActivity(), R.string.edit_true, Toast.LENGTH_SHORT).show();
 											u.logOut();
 											//finish();
@@ -273,6 +306,7 @@ public class MainUserFragment extends Fragment
 										}
 										else
 										{
+											changePasswordProgress.dismiss();
 											Toast.makeText(getActivity(), R.string.edit_false + e.getMessage(), Toast.LENGTH_SHORT).show();
 										}
 									}
@@ -289,10 +323,47 @@ public class MainUserFragment extends Fragment
 			.setNegativeButton(R.string.dia_cancel, null)
 			.show();
 	}
-	private class LocalReceiver extends BroadcastReceiver {
+	private class LocalReceiver extends BroadcastReceiver
+	{
         @Override
-        public void onReceive(Context context, Intent intent) {
+        public void onReceive(Context context, Intent intent)
+		{
 			m.open();
         }
     }
+	public static Bitmap netPicToBmp(String src)
+	{
+		try
+		{
+			URL url = new URL(src);
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setDoInput(true);
+			connection.connect();
+			InputStream input = connection.getInputStream();
+			Bitmap myBitmap = BitmapFactory.decodeStream(input);
+
+			//设置固定大小
+			//需要的大小
+			float newWidth = 200f;
+			float newHeigth = 200f;
+
+			//图片大小
+			int width = myBitmap.getWidth();
+			int height = myBitmap.getHeight();
+
+			//缩放比例
+			float scaleWidth = newWidth / width;
+			float scaleHeigth = newHeigth / height;
+			Matrix matrix = new Matrix();
+			matrix.postScale(scaleWidth, scaleHeigth);
+
+			Bitmap bitmap = Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix, true);
+			return bitmap;
+		}
+		catch (IOException e)
+		{
+			// Log exception
+			return null;
+		}
+	}
 }
