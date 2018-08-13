@@ -33,6 +33,7 @@
 	<string name="email">郵件發送</string>
 	
 	<string name="check_me">點我</string>
+	<string name="email_fail">郵箱格式不正確</string>
 	
 	<string name="sw_icon_finish">圖標已經切換完畢了，稍後桌面會刷新並顯示新的圖標</string>
 	

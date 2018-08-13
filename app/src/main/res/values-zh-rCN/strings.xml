@@ -33,6 +33,7 @@
 	<string name="email">邮件发送</string>
 
 	<string name="check_me">点我</string>
+	<string name="email_fail">邮箱格式不正确</string>
 	
 	<string name="sw_icon_finish">图标已经切换完毕了，桌面刷新后你就可以看到新的图标了</string>
 	

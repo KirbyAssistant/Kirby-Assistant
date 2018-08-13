@@ -204,6 +204,7 @@ public class MainUserFragment extends Fragment
 				public void onClick(DialogInterface dialog, int which)
 				{
 					changeEmailProgress = new ProgressDialog(getActivity());
+					changeEmailProgress.setCanceledOnTouchOutside(false);
 					changeEmailProgress.setMessage(getResources().getString(R.string.change_email));
 					changeEmailProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 					changeEmailProgress.show();
@@ -218,6 +219,10 @@ public class MainUserFragment extends Fragment
 					}
 					else
 					{
+						if (Email.checkEmail(edit_原邮箱)==false||Email.checkEmail(edit_新邮箱)==false){
+							changeEmailProgress.dismiss();
+							Toast.makeText(getActivity(), R.string.email_fail, Toast.LENGTH_SHORT).show();
+						}else{
 						if (email.equals(edit_原邮箱))
 						{
 							MyUser 邮箱=new MyUser();
@@ -251,7 +256,8 @@ public class MainUserFragment extends Fragment
 					}
 				}
 			}
-		)					
+		}
+	)					
 			.setNegativeButton(R.string.dia_cancel, null)
 			.show();
 	}
@@ -273,6 +279,7 @@ public class MainUserFragment extends Fragment
 				public void onClick(DialogInterface dialog, int which)
 				{
 					changePasswordProgress = new ProgressDialog(getActivity());
+					changePasswordProgress.setCanceledOnTouchOutside(false);
 					changePasswordProgress.setMessage(getResources().getString(R.string.change_password));
 					changePasswordProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 					changePasswordProgress.show();

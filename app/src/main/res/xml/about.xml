@@ -4,7 +4,7 @@
     <PreferenceCategory android:title="@string/x_title">
         <Preference
             android:key="version"
-			android:summary="0.4-beta-5"
+			android:summary="0.4-beta-5-0813fix"
             android:title="@string/version" />
 		<Preference	
 			android:key="setLanguage"

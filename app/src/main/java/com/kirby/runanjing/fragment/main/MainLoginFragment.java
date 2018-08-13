@@ -16,6 +16,7 @@ import com.kirby.runanjing.bmob.*;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import com.kirby.runanjing.untils.*;
 
 public class MainLoginFragment extends Fragment
 {
@@ -74,6 +75,7 @@ public class MainLoginFragment extends Fragment
 				public void onClick(View v)
 				{
 					loginProgress = new ProgressDialog(getActivity());
+					loginProgress.setCanceledOnTouchOutside(false);
 					loginProgress.setMessage(getResources().getString(R.string.login));
 					loginProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 					loginProgress.show();
@@ -119,6 +121,7 @@ public class MainLoginFragment extends Fragment
 				public void onClick(View v)
 				{
 					registerProgress = new ProgressDialog(getActivity());
+				    registerProgress.setCanceledOnTouchOutside(false);
 					registerProgress.setMessage(getResources().getString(R.string.register));
 					registerProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 					registerProgress.show();
@@ -139,6 +142,10 @@ public class MainLoginFragment extends Fragment
 								}
 								else
 								{
+									if(Email.checkEmail(editText_邮箱)==false){
+										registerProgress.dismiss();
+										Toast.makeText(getActivity(), R.string.email_fail, Toast.LENGTH_SHORT).show();							
+									}else{
 									//判断两次的密码是否一样
 									if (editText_密码.equalsIgnoreCase(editText_重复密码))
 									{
@@ -176,7 +183,7 @@ public class MainLoginFragment extends Fragment
 									}
 								}
 							}
-						}
+						}}
 					);
 }
 }

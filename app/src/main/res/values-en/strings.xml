@@ -31,6 +31,7 @@
 	<string name="email">Send Email</string>
 	
 	<string name="check_me">Choose me</string>
+	<string name="email_fail">The mailbox format is not correct</string>
 	
 	<string name="sw_icon_finish">The icon has been switched, and you can see the new icon later after the desktop refresh </string>
 	

@@ -185,7 +185,7 @@
 							android:id="@+id/注册_用户名"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
-							android:inputType="textPassword"
+							android:inputType="text"
 							android:background="@drawable/selector_bg_edit"
 							android:textCursorDrawable="@drawable/bg_input_cursor"
 							android:paddingBottom="2dp"/>
@@ -213,7 +213,7 @@
 							android:id="@+id/邮箱"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
-							android:inputType="textPassword"
+							android:inputType="textEmailAddress"
 							android:background="@drawable/selector_bg_edit"
 							android:textCursorDrawable="@drawable/bg_input_cursor"
 							android:paddingBottom="2dp"/>
@@ -242,7 +242,7 @@
 							android:id="@+id/注册_密码"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
-							android:inputType="textPersonName"
+							android:inputType="textPassword"
 							android:background="@drawable/selector_bg_edit"
 							android:textCursorDrawable="@drawable/bg_input_cursor"
 							android:paddingBottom="2dp"/>
