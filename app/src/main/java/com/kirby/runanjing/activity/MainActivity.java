@@ -33,6 +33,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
 import com.kirby.runanjing.helper.*;
+import android.util.*;
 /**
 *类类型:Activity
 *类名称:MainActivity
@@ -46,6 +47,8 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 	private Toolbar toolbar;
 	private Context gameContext;
 	private ProgressDialog progressDialog;
+
+	//private CosXmlService cosXmlService;
 	@Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -63,6 +66,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		u = BmobUser.getCurrentUser(MyUser.class);
 		//thePay();
 		bottomBar();
+		//initTencentCloud();
 	}
 /**
 *方法名:bottomBar
@@ -172,6 +176,32 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		);
 		dialog.show();
 	}
+	
+	/*private void initTencentCloud()
+	{
+		String appid = "1253475863";
+		String region = "ap-shanghai"; 
+
+		String secretId = "AKIDt4utx89lfgtCZyuqpJ0tpozDUqbLqKTg";
+		String secretKey ="7jaWYfoaUTWftA57GUrM51FgJs3S3pel";
+		long keyDuration = 600; //SecretKey 的有效时间，单位秒
+
+//创建 CosXmlServiceConfig 对象，根据需要修改默认的配置参数
+		CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
+			.isHttps(true)
+		    .setAppidAndRegion(appid, region)
+			.setDebuggable(true)
+			.builder();
+
+//创建获取签名类(请参考下面的生成签名示例，或者参考 sdk中提供的ShortTimeCredentialProvider类）
+		ShortTimeCredentialProvider localCredentialProvider = new ShortTimeCredentialProvider(secretId, secretKey, keyDuration);
+
+//创建 CosXmlService 对象，实现对象存储服务各项操作.
+		Context context = getApplicationContext(); //应用的上下文
+
+	 cosXmlService = new CosXmlService(context,serviceConfig, localCredentialProvider);
+	}*/
+	
 /**
 *方法名:replaceFragment
 *需要传入参数(Fragment fragment)
@@ -413,6 +443,7 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
 		progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		progressDialog.setMax(100);
 		progressDialog.show();
+		
 		BmobQuery<moniqi> query = new BmobQuery<moniqi>();
         query.addWhereEqualTo("name", app_name);
         query.findObjects(new FindListener<moniqi>(){

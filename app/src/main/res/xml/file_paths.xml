@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
-	<external-path name="download" path="" />
+	<!-- "/" -->
+	<root-path name="root" path=""/>
+    <!--Context.getFilesDir().-->
+    <files-path path="" name="files"/>
+    <!-- getCacheDir().-->
+    <cache-path name="cache" path="" />
+    <!-- Environment.getExternalStorageDirectory().-->
+    <external-path name="external" path="" />
+    <!--Context#getExternalFilesDir(String) Context.getExternalFilesDir(null).   -->
+    <external-files-path name="external_file" path="" />
+    <!-- Context.getExternalCacheDir().  -->
+    <external-cache-path name="external_cache" path="" />
 </paths>

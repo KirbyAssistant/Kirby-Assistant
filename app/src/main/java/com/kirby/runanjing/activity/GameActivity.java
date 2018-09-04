@@ -51,6 +51,8 @@ public class GameActivity extends BaseActivity
 					switch (game_pos)
 					{
 						case "gba_mzqdx"://"星之卡比 梦之泉DX":
+							Intent gg=new Intent(GameActivity.this,KirbyWebActivity.class);
+							startActivity(gg);
 							showDownloadDialog(game_name, R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3kURIBIZ", "https://eyun.baidu.com/s/3o86TXDS", "https://eyun.baidu.com/s/3dF22BWP");
 							break;
 						case "gba_jm"://"星之卡比 镜之大迷宫":

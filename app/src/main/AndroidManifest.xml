@@ -41,7 +41,7 @@
 			android:name=".activity.MainActivity"
 			android:label="Kirby Assistant"/>
 		<activity android:name=".activity.KirbyIntroActivity"/>
-		<activity android:name=".activity.EggActivity"/>
+		<activity android:name=".activity.KirbyWebActivity"/>
 		<activity android:name=".activity.HeadActivity"/>
 			<activity
 			android:name=".activity.PayActivity"

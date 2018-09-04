@@ -18,12 +18,10 @@ import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.untils.*;
 
 import com.kirby.runanjing.R;
-
 public class Kirby extends Application
 {
 	private static Kirby instance;
-	@Override
-    public void onCreate()
+	public void onCreate()
 	{
         super.onCreate();
 		Theme.setClassTheme(this);
