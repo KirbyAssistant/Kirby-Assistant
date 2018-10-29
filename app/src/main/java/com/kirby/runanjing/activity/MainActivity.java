@@ -40,7 +40,7 @@ import android.util.*;
 *加载动画完毕后显示的Activity
 *是整个app的核心
 */
-public class MainActivity extends BaseActivity implements AAH_FabulousFragment.AnimationListener 
+public class MainActivity extends BaseActivity
 {
 	private DrawerLayout drawerLayout;
 	private MyUser u;
@@ -272,54 +272,6 @@ public class MainActivity extends BaseActivity implements AAH_FabulousFragment.A
         getMenuInflater().inflate(R.menu.toolbar, menu);
         return true;
     }
-	@Override
-	public void onOpenAnimationStart()
-	{
-
-	}
-
-	@Override
-	public void onOpenAnimationEnd()
-	{
-		// TODO: Implement this method
-	}
-/*用于发送闲聊信息*/
-	@Override
-	public void onCloseAnimationStart()
-	{
-		SharedPreferences console=getSharedPreferences("string", 0);
-		String edit_内容= console.getString("Message", "");
-		//自定义MessBmob发送留言
-		MessageBmob mess = new MessageBmob();
-		mess.setMessage(edit_内容);
-		mess.setNickname(u.getUsername());
-		mess.save(new SaveListener<String>() {
-				@Override
-				public void done(String objectId, BmobException e)
-				{
-					if (e == null)
-					{		
-						MainMessFragment main_mess=(MainMessFragment)getSupportFragmentManager().findFragmentById(R.id.main_fragment);
-						main_mess.getMessage();
-						Toast.makeText(MainActivity.this, getResources().getString(R.string.mess_true) + objectId, Toast.LENGTH_SHORT).show();
-						SharedPreferences y=getSharedPreferences("string", 0);
-						SharedPreferences.Editor edit=y.edit();
-						edit.putString("Message", "");
-						edit.apply();
-					}
-					else
-					{
-						Toast.makeText(MainActivity.this, getResources().getString(R.string.mess_false) + e.getMessage(), Toast.LENGTH_SHORT).show();
-					}
-				}
-			});
-	}
-
-	@Override
-	public void onCloseAnimationEnd()
-	{
-		// TODO: Implement this method
-	}
 	//按两次退出
 	private long exitTime = 0;
 	@Override

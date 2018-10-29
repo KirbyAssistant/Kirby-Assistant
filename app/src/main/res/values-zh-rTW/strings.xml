@@ -24,6 +24,7 @@
 	<string name="bug_report">Bug已經上傳</string>
 	<string name="two_back">請再按一次退出程式</string>
 	
+	<string name="mess_upload">發送中</string>
 	<string name="mess_true">發送成功:</string>
 	<string name="mess_false">發送失敗:</string>
 	<string name="user_title">用護信息</string>

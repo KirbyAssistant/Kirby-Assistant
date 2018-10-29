@@ -25,7 +25,9 @@ dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
 	testCompile 'junit:junit:4.12'
 	//web服务
-	compile 'com.just.agentweb:agentweb:4.0.2' 
+	//compile 'com.just.agentweb:agentweb:4.0.2' 
+	//compile 'com.liulishuo.okdownload:okdownload:1.0.4'
+	//compile 'com.liulishuo.okdownload:sqlite:1.0.4'
 	//腾讯云服务
 	//compile 'com.tencent.qcloud:cosxml:5.4.8'
 	//图片圆形
@@ -54,8 +56,9 @@ dependencies {
 	//状态栏变色
 	compile 'com.jaeger.statusbarutil:library:1.4.0'
     //fab动画
-	compile 'com.allattentionhere:fabulousfilter:0.0.4'
-    
+	//compile 'me.shaohui:bottomdialog:1.1.9'
+	//compile 'com.allattentionhere:fabulousfilter:0.0.4'
+    compile 'com.github.SheHuan:NiceDialog:1.1.6'
 	//compile 'com.android.support:multidex:1.0.0'
 	compile 'com.android.support:design:25.3.1'
 	compile 'com.android.support:support-v4:25.3.1'

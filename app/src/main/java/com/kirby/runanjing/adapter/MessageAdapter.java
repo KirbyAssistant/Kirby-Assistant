@@ -66,7 +66,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 					Pair<View, String> card=new Pair<View,String>(view.findViewById(R.id.用户名), "userName");
 					Pair<View, String> image= new Pair<View,String>(view.findViewById(R.id.时间), "timr");
 					Pair<View, String> name= new Pair<View,String>(view.findViewById(R.id.内容), "mess");
-					mActivity.startActivity(intent,ActivityOptionsCompat.makeSceneTransitionAnimation(mActivity,card,image,name).toBundle());
+					mActivity.startActivity(intent,ActivityOptionsCompat.makeSceneTransitionAnimation(mActivity,card,image).toBundle());
 					//IntentUtil.startActivityWithAnim(intent,mActivity);
 					}
 			});

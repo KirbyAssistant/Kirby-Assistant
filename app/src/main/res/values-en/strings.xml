@@ -22,6 +22,7 @@
 	<string name="bug_report">Bug has uploaded</string>
 	<string name="two_back">Please press exit again</string>
 	
+	<string name="mess_upload">Sending</string>
 	<string name="mess_true">Send Successfully:</string>
 	<string name="mess_false">Sand Unsuccessfully:</string>
 	<string name="user_title">User Information</string>

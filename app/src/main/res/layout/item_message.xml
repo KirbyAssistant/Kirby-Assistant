@@ -26,7 +26,7 @@
 		android:layout_margin="8dp"
 		android:id="@+id/时间"
 		android:textSize="10sp"
-		android:textColor="#C6C6C6"
+		android:textColor="#C5c5c5"
 		android:layout_below="@id/用户名"
 		android:transitionName="time"/>
 

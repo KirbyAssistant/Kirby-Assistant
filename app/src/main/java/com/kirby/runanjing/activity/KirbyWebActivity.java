@@ -14,7 +14,7 @@ import android.graphics.*;
 public class KirbyWebActivity extends BaseActivity
 {
 
-	protected AgentWeb mAgentWeb;
+	//protected AgentWeb mAgentWeb;
 
 	private LinearLayout mLinearLayout;
 	@Override
@@ -31,13 +31,13 @@ public class KirbyWebActivity extends BaseActivity
 
 	private void initinitweb()
 	{
-		mAgentWeb = AgentWeb.with(this)
+		/*mAgentWeb = AgentWeb.with(this)
 			.setAgentWebParent(mLinearLayout, new LinearLayout.LayoutParams(-1, -1))                
 			.useDefaultIndicator()
 			.setWebViewClient(mWebViewClient)
 			.createAgentWeb()
 			.ready()
-			.go("https://eyun.baidu.com/s/3kURIBIZ");
+			.go("https://eyun.baidu.com/s/3kURIBIZ");*/
 	 }
 	private WebViewClient mWebViewClient=new WebViewClient(){
         @Override

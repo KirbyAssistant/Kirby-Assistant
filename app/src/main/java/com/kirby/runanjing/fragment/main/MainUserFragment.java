@@ -120,7 +120,7 @@ public class MainUserFragment extends Fragment
 
 				new Thread(new Runnable() {
 
-						String pattern="8";
+						String pattern="5";
 						String url=u.getUserHead().getFileUrl();
 						@Override
 						public void run()

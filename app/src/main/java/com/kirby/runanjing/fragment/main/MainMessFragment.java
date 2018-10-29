@@ -1,11 +1,15 @@
 package com.kirby.runanjing.fragment.main;
 
+import android.app.*;
+import android.content.*;
 import android.os.*;
 import android.support.design.widget.*;
 import android.support.v4.app.*;
 import android.support.v7.widget.*;
+import android.text.*;
 import android.util.*;
 import android.view.*;
+import android.widget.*;
 import cn.bmob.v3.*;
 import cn.bmob.v3.exception.*;
 import cn.bmob.v3.listener.*;
@@ -14,10 +18,15 @@ import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.adapter.*;
 import com.kirby.runanjing.bean.*;
 import com.kirby.runanjing.bmob.*;
-import com.kirby.runanjing.fragment.fab.*;
 import com.scwang.smartrefresh.layout.api.*;
 import com.scwang.smartrefresh.layout.listener.*;
 import java.util.*;
+import me.shaohui.bottomdialog.*;
+
+import android.support.v4.app.Fragment;
+import com.kirby.runanjing.R;
+import android.view.inputmethod.*;
+import com.othershe.nicedialog.*;
 
 public class MainMessFragment extends Fragment
 {
@@ -30,6 +39,8 @@ public class MainMessFragment extends Fragment
 	private View view;
 	private MainActivity m;
 	private int messItem;
+	private EditText edit_编辑;  
+	//private BottomDialog mess_dia;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
@@ -64,21 +75,92 @@ public class MainMessFragment extends Fragment
 				}
 			});
 		//使用BmobUser类获取部分用户数据
-		MyUser u = BmobUser.getCurrentUser(MyUser.class);
+		final MyUser u = BmobUser.getCurrentUser(MyUser.class);
 		name = u.getUsername();
 		编写 = (FloatingActionButton)view.findViewById(R.id.FAB_编辑);
 		编写.setOnClickListener(new View.OnClickListener(){
+
+				
 				@Override
 				public void onClick(View v)			
 				{
-					//处理发送
-					SendFabFragment dialogFrag = SendFabFragment.newInstance();
-					dialogFrag.setParentFab(编写);
-					dialogFrag.show(m.getSupportFragmentManager(), dialogFrag.getTag());
+					NiceDialog.init()
+						.setLayoutId(R.layout.filter_sample_view)     //设置dialog布局文件
+						.setConvertListener(new ViewConvertListener() {     //进行相关View操作的回调
+							@Override
+							public void convertView(ViewHolder v, final BaseNiceDialog dialog) {
+								SharedPreferences mess_=getActivity().getSharedPreferences("string", 0);
+								String mess= mess_.getString("Message", null);
+								edit_编辑=(EditText)v.getView(R.id.内容_编辑);
+								edit_编辑.post(new Runnable() {
+										@Override
+										public void run() {
+											InputMethodManager imm =
+												(InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+											imm.showSoftInput(edit_编辑, 0);
+										}
+									});
+								edit_编辑.addTextChangedListener(textWatcher);
+								if (mess != null)
+								{
+									edit_编辑.setText(mess);
+								}
+								ImageView 发送=v.getView(R.id.发送);
+								发送.setOnClickListener(new View.OnClickListener() {
+
+										@Override
+										public void onClick(View v)
+										{
+											//获取字符串转化为string数据
+											//EditText 内容=(EditText)v.findViewById(R.id.内容_编辑);
+											String edit_内容 = edit_编辑.getText().toString();
+											//判断是否为空
+											if (edit_内容.isEmpty())
+											{
+												Toast.makeText(getContext(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
+											}
+											else
+											{			
+												final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+												progressDialog.setMessage(getResources().getString(R.string.mess_upload));
+												progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+												progressDialog.show();
+												//自定义MessBmob发送留言
+												MessageBmob mess = new MessageBmob();
+												mess.setMessage(edit_内容);
+												mess.setNickname(u.getUsername());
+												mess.save(new SaveListener<String>() {
+														@Override
+														public void done(String objectId, BmobException e)
+														{
+															progressDialog.dismiss();
+															if (e == null)
+															{		
+																SharedPreferences y=getActivity().getSharedPreferences("string", 0);
+																SharedPreferences.Editor edit=y.edit();
+																edit.putString("Message", "");
+																edit.apply();
+																Toast.makeText(getActivity(), getResources().getString(R.string.mess_true) + objectId, Toast.LENGTH_SHORT).show();
+															}
+															else
+															{
+																Toast.makeText(getActivity(), getResources().getString(R.string.mess_false) + e.getMessage(), Toast.LENGTH_SHORT).show();
+																dialog.dismiss();
+																getMessage();
+															}
+														}
+													});
+											}
+										}
+									});
+							}
+						})
+						.setDimAmount(0.5f)     //调节灰色背景透明度[0-1]，默认0.5f
+						.setShowBottom(true)     //是否在底部显示dialog，默认flase
+					    .show(getActivity().getSupportFragmentManager());
 				}
 			});
 	}
-
 	public void  getMessage()
 	{
 		messlist.clear();//清空列表
@@ -215,6 +297,29 @@ public class MainMessFragment extends Fragment
 					刷新.finishLoadmore();
 					break;
 			}
+		}
+	};
+	private TextWatcher textWatcher = new TextWatcher() {
+
+		@Override
+		public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4)
+		{
+
+		}
+
+		@Override
+		public void onTextChanged(CharSequence p1, int p2, int p3, int p4)
+		{
+			SharedPreferences y=getContext().getSharedPreferences("string", 0);
+			SharedPreferences.Editor edit=y.edit();
+			edit.putString("Message", edit_编辑.getText().toString());
+			edit.apply();
+		}
+
+		@Override
+		public void afterTextChanged(Editable p1)
+		{
+			// TODO: Implement this method
 		}
 	};
 }
