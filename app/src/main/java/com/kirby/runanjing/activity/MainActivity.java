@@ -17,11 +17,11 @@ import cn.bmob.v3.*;
 import cn.bmob.v3.datatype.*;
 import cn.bmob.v3.exception.*;
 import cn.bmob.v3.listener.*;
-import com.allattentionhere.fabulousfilter.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.adapter.*;
 import com.kirby.runanjing.bmob.*;
 import com.kirby.runanjing.fragment.main.*;
+import com.kirby.runanjing.helper.*;
 import com.kirby.runanjing.untils.*;
 import java.io.*;
 import java.util.*;
@@ -31,9 +31,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
-import com.kirby.runanjing.R;
-import com.kirby.runanjing.helper.*;
-import android.util.*;
 /**
 *类类型:Activity
 *类名称:MainActivity
@@ -67,6 +64,40 @@ public class MainActivity extends BaseActivity
 		//thePay();
 		bottomBar();
 		//initTencentCloud();
+		permissionAndPrivacy();
+	}
+	
+	private void permissionAndPrivacy(){
+		SharedPreferences preferences = getSharedPreferences("boolean", 0);
+        boolean pAp = preferences.getBoolean("permissionAndPrivacy", false);
+		if(pAp==false){
+		AlertDialog.Builder permissionAndPrivacy_dialog=new AlertDialog.Builder(this)
+		.setTitle(R.string.permissionandprivacy_title)
+		.setMessage(R.string.permissionandprivacy_cnntent)
+		.setCancelable(false)
+		.setPositiveButton(getResources().getString(R.string.permissionandprivacy_agree), new
+			DialogInterface.OnClickListener()
+			{
+				@Override
+				public void onClick(DialogInterface dialog, int which)
+				{
+					SharedPreferences.Editor t=getSharedPreferences("boolean", 0).edit();
+					t.putBoolean("permissionAndPrivacy", true);
+					t.apply();
+				}
+			}
+		)
+			.setNeutralButton(getResources().getString(R.string.permissionandprivacy_disagree), new DialogInterface.OnClickListener()
+			{
+				@Override
+				public void onClick(DialogInterface dialog, int which)
+				{
+					finish();
+				}
+			}
+		);
+		permissionAndPrivacy_dialog.show();
+		}
 	}
 /**
 *方法名:bottomBar
@@ -434,7 +465,7 @@ public class MainActivity extends BaseActivity
 					if (e == null)
 					{
 						progressDialog.dismiss();
-						Toast.makeText(MainActivity.this, getResources().getString(R.string.download_susses) + savePath, Toast.LENGTH_SHORT).show();
+						Toast.makeText(MainActivity.this, getResources().getString(R.string.download_success) + savePath, Toast.LENGTH_SHORT).show();
 						Install.installApk(MainActivity.this, savePath);
 					}
 					else
@@ -589,7 +620,7 @@ public class MainActivity extends BaseActivity
 					if (e == null)
 					{
 						progressDialog.dismiss();
-						Toast.makeText(gameContext, gameContext.getString(R.string.download_susses) + savePath, Toast.LENGTH_SHORT).show();
+						Toast.makeText(gameContext, gameContext.getString(R.string.download_success) + savePath, Toast.LENGTH_SHORT).show();
 						Install.installApk(gameContext, savePath);
 					}
 					else

@@ -72,7 +72,7 @@ public class JszActivity extends BaseActivity
 				String q=jsz.getJsz();
 				ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 				cm.setText(q);
-				Toast.makeText(JszActivity.this,getResources().getString(R.string.jsz_copy),Toast.LENGTH_SHORT).show();
+				Toast.makeText(JszActivity.this,getResources().getString(R.string.copy_success),Toast.LENGTH_SHORT).show();
 			}
 		});
 	}

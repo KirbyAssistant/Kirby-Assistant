@@ -24,9 +24,35 @@
 	<string name="bug_report">Bug已經上傳</string>
 	<string name="two_back">請再按一次退出程式</string>
 	
+	<string name="permissionandprivacy_title">权限和隐私政策</string>
+	<string name="permissionandprivacy_cnntent">權限說明:\n
+		Kirby Assistant申請了壹些運行時權限和普通權限，關於這些權限申請的說明，請看下文:\n
+		網絡訪問權限:用於獲取遊戲封面圖，查看攻略視頻封操作\n
+		存儲讀寫權限:用於下載模擬器文件以及更換用戶頭像\n
+		請求訪問安裝包權限:用於下載模擬器文件完畢後進行跳轉安裝\n
+		防止手機休眠:服務商要求必須申請的權限，否則無法使用服務商提供的服務\n
+		讀取日誌:用於程序崩潰後，定位崩潰信息的操作\n
+		如果您不同意上述權限可以不賦予相關權限或者退出Kirby Assistant\n
+		\n\n\n
+		隱私政策:\n
+		Kirby Assistant僅使用了服務商提供的數據服務功能，也就是用戶登錄註冊，閑聊發送獲取，視頻封面獲取，遊戲封面獲取，模擬器文件下載等操作。
+		當程序崩潰時會收集崩潰信息，可能包括:手機型號、系統版本、程序版本等信息，這些信息不會上傳，您需要手動發送給我，而且這些信息不會包括您的私人數據。
+	</string>
+	<string name="permissionandprivacy_agree">同意</string>
+	<string name="permissionandprivacy_disagree">不同意</string>
+	
 	<string name="mess_upload">發送中</string>
 	<string name="mess_true">發送成功:</string>
 	<string name="mess_false">發送失敗:</string>
+	<string name="mess_del_success">閑聊刪除成功</string>
+	<string name="mess_del_fail">閑聊刪除失敗:</string>
+	<string name="mess_edit_success">閑聊編輯成功</string>
+	<string name="mess_edit_fail">閑聊編輯失敗:</string>
+	<string name="mess_copy">複製內容</string>
+	<string name="mess_del">刪除此閑聊</string>
+	<string name="mess_edit">編輯此閑聊</string>
+	
+	
 	<string name="user_title">用護信息</string>
 	<string name="head_upload">上傳頭像中</string>
 	
@@ -85,7 +111,7 @@
 	<string name="app_ZArchiver">方便好用的解壓工具</string>
 	
 	<string name="downloading">下載中</string>
-	<string name="download_susses">下載成功，保存路徑:</string>
+	<string name="download_success">下載成功，保存路徑:</string>
 	<string name="download_fail">下載失敗:</string>
 	<string name="link_bmob">連接服務器中</string>
 	<string name="link_fail">連接服務器失敗</string>
@@ -102,10 +128,10 @@
 	<string name="login">登錄</string>
 	<string name="login_user">用護名/郵箱</string>
 	<string name="login_password">密碼</string>
-	<string name="login_susses">登錄成功</string>
+	<string name="login_success">登錄成功</string>
 	<string name="login_fail">登錄失敗</string>
 	
-	<string name="jsz_copy">復制金手指成功</string>
+	<string name="copy_success">文本已複製</string>
 	
 	<string name="intro_welcome_title">歡迎</string>
 	<string name="intro_welcome_text">這是壹個可以讓妳免費獲取到星之卡比遊戲資源的應用程序</string>
@@ -133,7 +159,7 @@
 	<string name="github">在Github查看這個項目</string>
 	
 	<string name="register">註冊</string>
-	<string name="register_susses">註冊成功</string>
+	<string name="register_success">註冊成功</string>
 	<string name="register_fail">註冊失敗</string>
 	<string name="register_username">用護名（註冊以後不可更改）</string>
 	<string name="register_email">郵箱（用於找回密碼）</string>

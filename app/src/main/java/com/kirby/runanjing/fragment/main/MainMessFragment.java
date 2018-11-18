@@ -21,12 +21,12 @@ import com.kirby.runanjing.bmob.*;
 import com.scwang.smartrefresh.layout.api.*;
 import com.scwang.smartrefresh.layout.listener.*;
 import java.util.*;
-import me.shaohui.bottomdialog.*;
 
 import android.support.v4.app.Fragment;
 import com.kirby.runanjing.R;
 import android.view.inputmethod.*;
 import com.othershe.nicedialog.*;
+import android.view.animation.*;
 
 public class MainMessFragment extends Fragment
 {
@@ -35,7 +35,7 @@ public class MainMessFragment extends Fragment
 	private RecyclerView re;
 	private RefreshLayout 刷新;
 	private String name;
-	private FloatingActionButton 编写;
+	private FloatingActionButton edit_mess_button;
 	private View view;
 	private MainActivity m;
 	private int messItem;
@@ -57,7 +57,7 @@ public class MainMessFragment extends Fragment
 		re = (RecyclerView)view.findViewById(R.id.留言);
 		GridLayoutManager layoutManager=new GridLayoutManager(getActivity(), 1);
 		re.setLayoutManager(layoutManager);
-		adapter = new MessageAdapter(messlist,getActivity());	
+		adapter = new MessageAdapter(messlist,getActivity(),getActivity().getSupportFragmentManager());	
 		//刷新数据
 		刷新 = (RefreshLayout)view.findViewById(R.id.刷新);
 		刷新.setOnRefreshListener(new OnRefreshListener(){
@@ -77,10 +77,8 @@ public class MainMessFragment extends Fragment
 		//使用BmobUser类获取部分用户数据
 		final MyUser u = BmobUser.getCurrentUser(MyUser.class);
 		name = u.getUsername();
-		编写 = (FloatingActionButton)view.findViewById(R.id.FAB_编辑);
-		编写.setOnClickListener(new View.OnClickListener(){
-
-				
+		edit_mess_button = (FloatingActionButton)view.findViewById(R.id.FAB_编辑);
+		edit_mess_button.setOnClickListener(new View.OnClickListener(){			
 				@Override
 				public void onClick(View v)			
 				{
@@ -140,13 +138,13 @@ public class MainMessFragment extends Fragment
 																SharedPreferences.Editor edit=y.edit();
 																edit.putString("Message", "");
 																edit.apply();
+																dialog.dismiss();
+																getMessage();
 																Toast.makeText(getActivity(), getResources().getString(R.string.mess_true) + objectId, Toast.LENGTH_SHORT).show();
 															}
 															else
 															{
 																Toast.makeText(getActivity(), getResources().getString(R.string.mess_false) + e.getMessage(), Toast.LENGTH_SHORT).show();
-																dialog.dismiss();
-																getMessage();
 															}
 														}
 													});
@@ -181,10 +179,13 @@ public class MainMessFragment extends Fragment
 						//向handler发送消息
 						messHandler.sendMessage(message);
 						messItem=20;
+						edit_mess_button.setVisibility(View.VISIBLE);
+						ScaleAnimation mess_fab_anim = (ScaleAnimation) AnimationUtils.loadAnimation(getActivity(), R.transition.mess_fab);
+						edit_mess_button.startAnimation(mess_fab_anim);
 					}
 					else
 					{
-						Log.e("bmob", "" + e);
+						Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
 						刷新.finishRefresh();
 					}
 				}
@@ -233,6 +234,7 @@ public class MainMessFragment extends Fragment
 					for (MessageBmob m : list)
 					{
 						//从获取的数据中提取需要的数据
+						String id=m.getObjectId();
 						String user=m.getNickname();
 						String message_full=m.getMessage();
 						if(message_full.length()>40){
@@ -246,7 +248,7 @@ public class MainMessFragment extends Fragment
 						}
 						String time_=m.getCreatedAt();
 						String time = time_.substring(0, 16);
-						Mess mess=new Mess(user,userHead,message,time,message_full,show_all);
+						Mess mess=new Mess(id,user,userHead,message,time,message_full,show_all);
 						//将查询到的数据依次添加到列表
 						messlist.add(mess);
 						//设置适配器
@@ -274,6 +276,7 @@ public class MainMessFragment extends Fragment
 					for (MessageBmob m : list)
 					{
 						//从获取的数据中提取需要的数据
+						String id=m.getObjectId();
 						String user=m.getNickname();
 						String userHead=null;
 						String message_full=m.getMessage();
@@ -288,7 +291,7 @@ public class MainMessFragment extends Fragment
 						}
 						String time_=m.getCreatedAt();
 						String time = time_.substring(0, 16);
-						Mess mess=new Mess(user,userHead,message,time,message_full,show_all);
+						Mess mess=new Mess(id,user,userHead,message,time,message_full,show_all);
 						//将查询到的数据依次添加到列表
 						messlist.add(mess);
 						re.getAdapter().notifyItemChanged(messItem);

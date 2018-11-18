@@ -40,7 +40,7 @@ public class MainLoginFragment extends Fragment
 	{
 		Button 登录=(Button)view.findViewById(R.id.登录);
 		TextView 注册=(TextView)view.findViewById(R.id.注册);
-		Button 忘记密码=(Button)view.findViewById(R.id.忘记密码);
+		TextView forgetpassword=(TextView)view.findViewById(R.id.forgetpassword);
 		final TextView 切换=(TextView)view.findViewById(R.id.sw_login_register);
 		login_card=(CardView)view.findViewById(R.id.login);
 		register_card=(CardView)view.findViewById(R.id.register);
@@ -101,7 +101,7 @@ public class MainLoginFragment extends Fragment
 									if (e == null)
 									{
 										loginProgress.dismiss();
-										Toast.makeText(getActivity(),getActivity().getString(R.string.login_susses), Toast.LENGTH_SHORT).show();
+										Toast.makeText(getActivity(),getActivity().getString(R.string.login_success), Toast.LENGTH_SHORT).show();
 										m.open();
 									}
 									else
@@ -166,7 +166,7 @@ public class MainLoginFragment extends Fragment
 														login_card.setVisibility(0);
 														register_card.setVisibility(8);
 														切换.setText(getActivity().getResources().getString(R.string.not_have_user));
-														Toast.makeText(getActivity(), getActivity().getString(R.string.register_susses), Toast.LENGTH_SHORT).show();
+														Toast.makeText(getActivity(), getActivity().getString(R.string.register_success), Toast.LENGTH_SHORT).show();
 													}
 													else
 													{
@@ -185,5 +185,24 @@ public class MainLoginFragment extends Fragment
 							}
 						}}
 					);
+		forgetpassword.setOnClickListener(new View.OnClickListener(){
+
+				@Override
+				public void onClick(View p1)
+				{
+					final String email = "nihaocun@163.com";
+					BmobUser.resetPasswordByEmail(email, new UpdateListener() {
+
+							@Override
+							public void done(BmobException e) {
+								if(e==null){
+									Toast.makeText(getActivity(),"重置密码请求成功，请到" + email + "邮箱进行密码重置操作",Toast.LENGTH_SHORT).show();
+								}else{
+									Toast.makeText(getActivity(),"失败:" + e.getMessage(),Toast.LENGTH_SHORT).show();
+								}
+							}
+						});
+				}
+			});
 }
 }

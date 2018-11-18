@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <item
+        android:id="@+id/mess_copy"
+        android:title="@string/mess_copy"/>
+	<item
+        android:id="@+id/mess_del"
+        android:title="@string/mess_del"/>
+	<item
+        android:id="@+id/mess_edit"
+        android:title="@string/mess_edit"/>
+    
+</menu>

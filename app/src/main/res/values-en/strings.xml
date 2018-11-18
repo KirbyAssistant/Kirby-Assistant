@@ -24,7 +24,34 @@
 	
 	<string name="mess_upload">Sending</string>
 	<string name="mess_true">Send Successfully:</string>
-	<string name="mess_false">Sand Unsuccessfully:</string>
+	<string name="mess_false">Send Unsuccessfully:</string>
+	<string name="mess_del_success">Chat delete successfully</string>
+	<string name="mess_del_fail">Chat delete failed :</string>
+	<string name="mess_edit_success">Chat editing successfully</string>
+	<string name="mess_edit_fail">Chat editing fail:</string>
+	<string name="mess_copy">Copy content</string>
+	<string name="mess_del">Delete this chat</string>
+	<string name="mess_edit">Edit this chat</string>
+	
+	
+	
+	<string name="permissionandprivacy_title">Permission＆Privacy policy</string>
+	<string name="permissionandprivacy_cnntent">Permission description: \n
+		Kirby Assistant has applied for some runtime permissions and normal permissions. For a description of these permission requests, please see below:\n
+		Network access: used to get the game cover map, view the Raiders video seal operation \n
+		Storage read and write permissions: used to download the emulator file and replace the user avatar\n
+		Request access to the installation package permissions: used to download the emulator file after the jump installation \n
+		Prevent the phone from sleeping: the service provider requires permission to apply, otherwise the service provided by the service provider cannot be used.
+		Read log: operation for locating crash information after program crash\n
+		If you disagree with the above permissions, you can leave the relevant permissions or quit Kirby Assistant\n
+		\n\n\n
+		Privacy Policy: \n
+		Kirby Assistant only uses the data service functions provided by the service provider, that is, user login registration, chat delivery, video cover acquisition, game cover acquisition, simulator file download and other operations.
+		Crash information will be collected when the program crashes, which may include: phone model, system version, program version, etc., this information will not be uploaded, you need to send it to me manually, and this information will not include your private data.
+	</string>
+	<string name="permissionandprivacy_agree">Agree</string>
+	<string name="permissionandprivacy_disagree">Disagree</string>
+	
 	<string name="user_title">User Information</string>
 	<string name="head_upload">Uploading</string>
 	
@@ -84,7 +111,7 @@
 	<string name="app_ZArchiver">Convenient File Compression And Decompression Utilities .</string>
 	
 	<string name="downloading">Downloading...</string>
-	<string name="download_susses">Download Successfully，Save Path:</string>
+	<string name="download_success">Download Successfully，Save Path:</string>
 	<string name="download_fail">Download Unsuccessfully:</string>
 	<string name="link_bmob">Linking Server...</string>
 	<string name="link_fail">Link Server Unsuccessfully</string>
@@ -101,10 +128,10 @@
 	<string name="login">Login</string>
 	<string name="login_user">User Name/E-mail</string>
 	<string name="login_password">Password</string>
-	<string name="login_susses">Login Successfully</string>
+	<string name="login_success">Login Successfully</string>
 	<string name="login_fail">Login Unsuccessfully</string>
 		
-	<string name="jsz_copy">Copy Cheat Code Successfully</string>
+	<string name="copy_success">The text has been copied</string>
 	
 	<string name="intro_welcome_title">Welcome</string>
 	<string name="intro_welcome_text">It Is An App You Can Get Kirby Games Resource, And It Is FREE.</string><!-- Kirby能给斜体吗，英语中专用名词没有专名号用斜体代替-->
@@ -132,7 +159,7 @@
 	<string name="github">Browsing The Program In Github.</string>
 	
 	<string name="register">Register</string>
-	<string name="register_susses">Register Successfully</string>
+	<string name="register_success">Register Successfully</string>
 	<string name="register_fail">Register Unsuccessfully</string>
 	<string name="register_username">User Name(Can\'t Change If You Have Registered)</string>
 	<string name="register_email">E-mail(Used To Retrieve Password)</string>

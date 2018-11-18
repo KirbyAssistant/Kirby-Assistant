@@ -1,16 +1,18 @@
 package com.kirby.runanjing.adapter;
 import android.app.*;
 import android.content.*;
+import android.support.v4.app.*;
+import android.support.v4.util.*;
 import android.support.v7.widget.*;
 import android.view.*;
 import android.widget.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bean.*;
+import com.kirby.runanjing.dialog.*;
 import java.util.*;
-import com.kirby.runanjing.untils.*;
-import android.support.v4.app.*;
-import android.support.v4.util.*;
+
+import android.support.v4.app.FragmentManager;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder>
 {
@@ -18,6 +20,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 	private List<Mess> mMesslist;
 
 	private Activity mActivity;
+
+	private FragmentManager mFragmentManager;
 
 	static class ViewHolder extends RecyclerView.ViewHolder
 	{
@@ -40,10 +44,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 			查看更多 = (TextView)view.findViewById(R.id.show_all);
 		}
 	}
-	public MessageAdapter(List<Mess>messlist,Activity activity)
+	public MessageAdapter(List<Mess>messlist,Activity activity,FragmentManager fragmentManager)
 	{
 		mMesslist = messlist;
 		mActivity=activity;
+		mFragmentManager=fragmentManager;
 	}
 	@Override
 	public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -58,17 +63,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 				@Override
 				public void onClick(View v) {
 					int position = holder.getAdapterPosition();
-					Mess mess = mMesslist.get(position);
-					Intent intent = new Intent(mContext, MessActivity.class);
-					intent.putExtra(MessActivity.USER_NAME, mess.getName());
-					intent.putExtra(MessActivity.TIME, mess.getTime());
-					intent.putExtra(MessActivity.MESS, mess.getFullMessage());
-					Pair<View, String> card=new Pair<View,String>(view.findViewById(R.id.用户名), "userName");
-					Pair<View, String> image= new Pair<View,String>(view.findViewById(R.id.时间), "timr");
-					Pair<View, String> name= new Pair<View,String>(view.findViewById(R.id.内容), "mess");
-					mActivity.startActivity(intent,ActivityOptionsCompat.makeSceneTransitionAnimation(mActivity,card,image).toBundle());
-					//IntentUtil.startActivityWithAnim(intent,mActivity);
-					}
+					Mess mess = mMesslist.get(position);			
+					MessDialog.newInstance("1",mess.getId(),mess.getFullMessage(),mess.getName(),mess.getTime())
+					.setMargin(0)
+					.setShowBottom(true)   
+					.show(mFragmentManager);
+				}
 			});
 		return holder;
 	}

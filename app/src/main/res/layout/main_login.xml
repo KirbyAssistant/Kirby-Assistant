@@ -305,23 +305,6 @@
 
 	</RelativeLayout>
 
-	<LinearLayout
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:orientation="vertical"
-		android:layout_alignParentBottom="true">
-
-		<Button
-			style="?android:attr/buttonBarButtonStyle"
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="忘记密码"
-			android:layout_weight="0.3"
-			android:id="@+id/忘记密码"
-			android:visibility="gone"/>
-
-	</LinearLayout>
-
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
@@ -330,6 +313,16 @@
 		android:id="@+id/sw_login_register"
 		android:layout_centerHorizontal="true"
 		android:layout_above="@id/mainloginRelativeLayout1"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Text"
+		android:layout_below="@id/mainloginRelativeLayout1"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/forgetpassword"
+		android:visibility="gone"/>
 
 </RelativeLayout>
 

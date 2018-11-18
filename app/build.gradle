@@ -8,8 +8,8 @@ android {
         applicationId "com.kirby.runanjing"
         minSdkVersion 21
 	    targetSdkVersion 28
-        versionCode 19
-        versionName "0.4-beta-6"
+        versionCode 20
+        versionName "0.4"
 		multiDexEnabled true
         multiDexKeepProguard file('multiDexKeep.pro') 
 		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
@@ -24,6 +24,7 @@ android {
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
 	testCompile 'junit:junit:4.12'
+	
 	//web服务
 	//compile 'com.just.agentweb:agentweb:4.0.2' 
 	//compile 'com.liulishuo.okdownload:okdownload:1.0.4'
@@ -50,14 +51,13 @@ dependencies {
 	//崩溃捕获
 	compile 'com.king.thread:nevercrash:1.0.0'
 	//欢迎界面Intro
-	compile 'com.github.apl-devs:appintro:v4.2.2'
+	//compile 'com.github.apl-devs:appintro:v4.2.2'
 	//滑动返回
 	compile 'com.github.anzewei:parallaxbacklayout:1.1.6'
 	//状态栏变色
 	compile 'com.jaeger.statusbarutil:library:1.4.0'
     //fab动画
-	//compile 'me.shaohui:bottomdialog:1.1.9'
-	//compile 'com.allattentionhere:fabulousfilter:0.0.4'
+	
     compile 'com.github.SheHuan:NiceDialog:1.1.6'
 	//compile 'com.android.support:multidex:1.0.0'
 	compile 'com.android.support:design:25.3.1'

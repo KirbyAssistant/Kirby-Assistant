@@ -12,4 +12,11 @@
     <external-files-path name="external_file" path="" />
     <!-- Context.getExternalCacheDir().  -->
     <external-cache-path name="external_cache" path="" />
+		
+	<cache-path
+        name="apk1"
+        path="." />
+    <external-path
+        name="apk2"
+        path="." />
 </paths>

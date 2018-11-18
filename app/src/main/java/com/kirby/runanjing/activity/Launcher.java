@@ -22,7 +22,6 @@ import android.graphics.*;
 public class Launcher extends AppCompatActivity
 {
 
-	private boolean 状态_;
 	private Handler mHandler = new Handler();
 
 	private HTextView welcome;
@@ -72,36 +71,15 @@ public class Launcher extends AppCompatActivity
 				@Override
 				public void run()
 				{
-					theFirst();
+					//跳转
+					Intent intent=new Intent(Launcher.this, MainActivity.class);
+					intent.setClass(Launcher.this, MainActivity.class);
+					startActivity(intent);
+					finish();
+					overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
 				}
             }
 			, 2500);
-	}
-	/**
-	 *方法名:theFirst
-	 *不需要传入参数
-	 *用于检测是否第一次进入app
-	 */
-	private void theFirst()
-	{
-		SharedPreferences 状态=getSharedPreferences("boolean", 0);
-		状态_ = 状态.getBoolean("thefirst_状态", false);
-		if (状态_ == false)
-		{
-			Intent intent=new Intent(Launcher.this, KirbyIntroActivity.class);
-			intent.setClass(Launcher.this, KirbyIntroActivity.class);
-			startActivity(intent);
-			finish();
-		}
-		else
-		{
-			//跳转
-			Intent intent=new Intent(Launcher.this, MainActivity.class);
-			intent.setClass(Launcher.this, MainActivity.class);
-			startActivity(intent);
-			finish();
-			overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-		}
 	}
 	/**
 	 *方法名:setLanguage
