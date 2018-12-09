@@ -12,6 +12,8 @@ import com.kirby.runanjing.untils.*;
 import java.util.*;
 import android.widget.*;
 import android.graphics.*;
+import android.view.animation.*;
+import com.kirby.runanjing.customui.*;
 
 /**
  *类类型:Activity
@@ -27,6 +29,8 @@ public class Launcher extends AppCompatActivity
 	private HTextView welcome;
 
 	private ImageView icon;
+
+	private RippleLayout rippleBackground;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,6 +53,7 @@ public class Launcher extends AppCompatActivity
 		setLanguage();
 		setContentView(R.layout.activity_welcome);
 		icon=(ImageView)findViewById(R.id.welcomeImageView1);
+		rippleBackground=(RippleLayout)findViewById(R.id.content);
 		SharedPreferences preferences = getSharedPreferences("icon", 0);
         String icon_ver = preferences.getString("icon_ver", "hk");
 		if(icon_ver.equals("hk")){
@@ -63,6 +68,7 @@ public class Launcher extends AppCompatActivity
 				@Override
 				public void run()
 				{
+					rippleBackground.startRippleAnimation();
 					welcome.animateText(getResources().getString(R.string.welcome_to));
 				}
 			}

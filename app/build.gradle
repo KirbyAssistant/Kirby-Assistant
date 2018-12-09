@@ -8,15 +8,16 @@ android {
         applicationId "com.kirby.runanjing"
         minSdkVersion 21
 	    targetSdkVersion 28
-        versionCode 20
-        versionName "0.4"
+        versionCode 21
+        versionName "未来·炫动-1.0"
 		multiDexEnabled true
         multiDexKeepProguard file('multiDexKeep.pro') 
 		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
   }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+			shrinkResources true
             proguardFiles getDefaultPrguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -24,13 +25,16 @@ android {
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
 	testCompile 'junit:junit:4.12'
-	
+	//友盟统计
+	compile  'com.umeng.umsdk:analytics:7.5.4'
+    compile  'com.umeng.umsdk:common:1.5.4'
 	//web服务
 	//compile 'com.just.agentweb:agentweb:4.0.2' 
 	//compile 'com.liulishuo.okdownload:okdownload:1.0.4'
 	//compile 'com.liulishuo.okdownload:sqlite:1.0.4'
 	//腾讯云服务
 	//compile 'com.tencent.qcloud:cosxml:5.4.8'
+	//compile 'jp.wasabeef:recyclerview-animators:3.0.0'
 	//图片圆形
 	compile 'de.hdodenhof:circleimageview:2.2.0'
 	//图片加载
@@ -41,23 +45,18 @@ dependencies {
 	//支付服务-支付宝
 	compile 'com.github.didikee:AndroidDonate:0.1.0'
 	//多样的下拉刷新
-	compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
-	compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-7'
-	//启动界面文字
+	compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-16'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-16'
+    //启动界面文字
 	compile "com.hanks:htextview-base:0.1.2"   
-	compile "com.hanks:htextview-scale:0.1.2"  
+	compile "com.hanks:htextview-evaporate:0.1.2"  
    	//bmob
 	compile 'cn.bmob.android:bmob-sdk:3.6.5'
-	//崩溃捕获
-	compile 'com.king.thread:nevercrash:1.0.0'
-	//欢迎界面Intro
-	//compile 'com.github.apl-devs:appintro:v4.2.2'
 	//滑动返回
 	compile 'com.github.anzewei:parallaxbacklayout:1.1.6'
 	//状态栏变色
 	compile 'com.jaeger.statusbarutil:library:1.4.0'
     //fab动画
-	
     compile 'com.github.SheHuan:NiceDialog:1.1.6'
 	//compile 'com.android.support:multidex:1.0.0'
 	compile 'com.android.support:design:25.3.1'

@@ -61,7 +61,7 @@
 						android:textSize="16sp"
 						android:layout_gravity="center_horizontal"/>
 
-					<RadioGroup
+					<!--RadioGroup
 						android:id="@+id/radio_group"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
@@ -88,15 +88,15 @@
 						android:id="@+id/bt_alipay"
 						android:layout_width="match_parent"
 						android:layout_height="48dp"
-						android:text="支付宝捐赠(0.5元)"/>
+						android:text="支付宝捐赠(0.5元)"/!-->
 
 					<Button
-						android:id="@+id/bt_alipay_free"
+						android:id="@+id/bt_alipay_user_input"
 						android:layout_width="match_parent"
 						android:layout_height="48dp"
 						android:layout_marginBottom="8dp"
 						android:layout_marginTop="8dp"
-						android:text="支付宝捐赠(自由调节金额)"/>
+						android:text="@string/check_me"/>
 
 					<Button
 						android:id="@+id/bt_alipay_hongbao"
@@ -104,7 +104,7 @@
 						android:layout_height="48dp"
 						android:layout_marginBottom="8dp"
 						android:layout_marginTop="8dp"
-						android:text="支付宝捐赠(免费)(每日一次)"/>
+						android:text="支付宝领取红包捐赠"/>
 
 				</LinearLayout>
 
@@ -156,7 +156,47 @@
 				android:layout_margin="4dp"
 				app:cardCornerRadius="4dp"
 				app:cardElevation="2dp"
-				android:layout_below="@id/activitypayCardView2">
+				android:layout_below="@id/activitypayCardView2"
+				android:id="@+id/activitypayCardView3">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="12dp">
+
+					<ImageView
+						android:src="@drawable/ic_kirby_qq"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center_horizontal"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:paddingBottom="8dp"
+						android:paddingTop="8dp"
+						android:text="QQ"
+						android:textSize="16sp"
+						android:layout_gravity="center_horizontal"/>
+
+					<Button
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/check_me"
+						android:id="@+id/qq"/>
+
+				</LinearLayout>
+
+			</android.support.v7.widget.CardView>
+			
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				app:cardCornerRadius="4dp"
+				app:cardElevation="2dp"
+				android:layout_below="@id/activitypayCardView3">
 
 				<LinearLayout
 					android:layout_width="match_parent"

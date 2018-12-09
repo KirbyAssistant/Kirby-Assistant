@@ -12,12 +12,13 @@ import android.content.*;
 import android.os.*;
 import com.bumptech.glide.request.*;
 import com.github.anzewei.parallaxbacklayout.*;
-import com.king.thread.nevercrash.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.untils.*;
 
 import com.kirby.runanjing.R;
+import com.umeng.commonsdk.*;
+import com.umeng.analytics.*;
 public class Kirby extends Application
 {
 	private static Kirby instance;
@@ -26,13 +27,15 @@ public class Kirby extends Application
         super.onCreate();
 		Theme.setClassTheme(this);
 		registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
-	    NeverCrash.init(new NeverCrash.CrashHandler() {
+	    CaptureCrash.init(new CaptureCrash.CrashHandler() {
 				@Override
 				public void uncaughtException(Thread t, Throwable e)
-				{		
+				{	
+					MobclickAgent.reportError(getApplicationContext(), e);
 					toCrashActivity(e);
 				}
 			});
+		UMConfigure.init(this,"5c000429b465f56fdb0005ba", "CoolApk",UMConfigure.DEVICE_TYPE_PHONE, null);
     }
 	/*public static RequestOptions getGlideRequestOptions()
 	{

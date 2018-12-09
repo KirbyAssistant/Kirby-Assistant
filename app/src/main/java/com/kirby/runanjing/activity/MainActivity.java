@@ -31,12 +31,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import com.umeng.analytics.*;
 /**
-*类类型:Activity
-*类名称:MainActivity
-*加载动画完毕后显示的Activity
-*是整个app的核心
-*/
+ *类类型:Activity
+ *类名称:MainActivity
+ *加载动画完毕后显示的Activity
+ *是整个app的核心
+ */
 public class MainActivity extends BaseActivity
 {
 	private DrawerLayout drawerLayout;
@@ -65,46 +66,54 @@ public class MainActivity extends BaseActivity
 		bottomBar();
 		//initTencentCloud();
 		permissionAndPrivacy();
-	}
-	
-	private void permissionAndPrivacy(){
-		SharedPreferences preferences = getSharedPreferences("boolean", 0);
-        boolean pAp = preferences.getBoolean("permissionAndPrivacy", false);
-		if(pAp==false){
-		AlertDialog.Builder permissionAndPrivacy_dialog=new AlertDialog.Builder(this)
-		.setTitle(R.string.permissionandprivacy_title)
-		.setMessage(R.string.permissionandprivacy_cnntent)
-		.setCancelable(false)
-		.setPositiveButton(getResources().getString(R.string.permissionandprivacy_agree), new
-			DialogInterface.OnClickListener()
-			{
-				@Override
-				public void onClick(DialogInterface dialog, int which)
-				{
-					SharedPreferences.Editor t=getSharedPreferences("boolean", 0).edit();
-					t.putBoolean("permissionAndPrivacy", true);
-					t.apply();
-				}
-			}
-		)
-			.setNeutralButton(getResources().getString(R.string.permissionandprivacy_disagree), new DialogInterface.OnClickListener()
-			{
-				@Override
-				public void onClick(DialogInterface dialog, int which)
-				{
-					finish();
-				}
-			}
-		);
-		permissionAndPrivacy_dialog.show();
+
+		//友盟统计
+		if (u != null)
+		{
+			MobclickAgent.onProfileSignIn(u.getUsername());
 		}
 	}
-/**
-*方法名:bottomBar
-*不需要传入参数
-*用于显示底部导航栏的方法
-*内部完成了所有逻辑
-*/
+
+	private void permissionAndPrivacy()
+	{
+		SharedPreferences preferences = getSharedPreferences("boolean", 0);
+        boolean pAp = preferences.getBoolean("permissionAndPrivacy", false);
+		if (pAp == false)
+		{
+			AlertDialog.Builder permissionAndPrivacy_dialog=new AlertDialog.Builder(this)
+				.setTitle(R.string.permissionandprivacy_title)
+				.setMessage(R.string.permissionandprivacy_cnntent)
+				.setCancelable(false)
+				.setPositiveButton(getResources().getString(R.string.permissionandprivacy_agree), new
+				DialogInterface.OnClickListener()
+				{
+					@Override
+					public void onClick(DialogInterface dialog, int which)
+					{
+						SharedPreferences.Editor t=getSharedPreferences("boolean", 0).edit();
+						t.putBoolean("permissionAndPrivacy", true);
+						t.apply();
+					}
+				}
+			)
+				.setNeutralButton(getResources().getString(R.string.permissionandprivacy_disagree), new DialogInterface.OnClickListener()
+				{
+					@Override
+					public void onClick(DialogInterface dialog, int which)
+					{
+						finish();
+					}
+				}
+			);
+			permissionAndPrivacy_dialog.show();
+		}
+	}
+	/**
+	 *方法名:bottomBar
+	 *不需要传入参数
+	 *用于显示底部导航栏的方法
+	 *内部完成了所有逻辑
+	 */
 	private void bottomBar()
 	{
 		BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
@@ -116,36 +125,49 @@ public class MainActivity extends BaseActivity
 					switch (item.getItemId())
 					{
 						case R.id.ziyuan:
-							toolbar.setSubtitle(R.string.ziyuan);
-							replaceFragment(new MainGameFragment());
+							if (toolbar.getSubtitle() != getResources().getString(R.string.ziyuan))
+							{
+								toolbar.setSubtitle(R.string.ziyuan);
+								replaceFragment(new MainGameFragment());
+							}
 							break;
 						case R.id.video:
-							toolbar.setSubtitle(R.string.video_title);
-							replaceFragment(new MainVideoFragment());
+							if (toolbar.getSubtitle() != getResources().getString(R.string.video_title))
+							{
+								toolbar.setSubtitle(R.string.video_title);
+								replaceFragment(new MainVideoFragment());
+							}
 							break;
 						case R.id.talk:
-							toolbar.setSubtitle(R.string.talk);
-							if (null == u)
+							if (toolbar.getSubtitle() != getResources().getString(R.string.talk))
 							{
-								replaceFragment(new MainNullFragment());
-							}
-							else
-							{
-								replaceFragment(new MainMessFragment());
+								toolbar.setSubtitle(R.string.talk);
+								if (null == u)
+								{
+									replaceFragment(new MainNullFragment());
+								}
+								else
+								{
+									replaceFragment(new MainMessFragment());
+								}
 							}
 							break;
 						case R.id.me:
 							if (null == u)
 							{
-								replaceFragment(new MainLoginFragment());
-								toolbar.setSubtitle(R.string.login_title);
+								if (toolbar.getSubtitle() != getResources().getString(R.string.login_title))
+								{
+									replaceFragment(new MainLoginFragment());
+									toolbar.setSubtitle(R.string.login_title);
+								}
 							}
 							else
 							{
-								replaceFragment(new MainUserFragment());
-								toolbar.setSubtitle(u.getUsername());
-								/*Intent user=new Intent(MainActivity.this, UserActivity.class);
-								 IntentUtil.startActivityWithAnim(user, MainActivity.this);*/
+								if (toolbar.getSubtitle() != u.getUsername())
+								{
+									replaceFragment(new MainUserFragment());
+									toolbar.setSubtitle(u.getUsername());
+								}
 							}
 							break;
 					}
@@ -153,11 +175,11 @@ public class MainActivity extends BaseActivity
 				}
 			});
 	}
-/**
-*方法名:thePay
-*不需要传入参数
-*用于判断是否显示捐赠
-*/
+	/**
+	 *方法名:thePay
+	 *不需要传入参数
+	 *用于判断是否显示捐赠
+	 */
 	private void thePay()
 	{
 		SharedPreferences 状态=getSharedPreferences("boolean", 0);
@@ -171,11 +193,11 @@ public class MainActivity extends BaseActivity
 			}
 		}
 	}
-/**
-*方法名:showPay
-*不需要传入参数
-*用于显示捐赠窗口以及逻辑
-*/
+	/**
+	 *方法名:showPay
+	 *不需要传入参数
+	 *用于显示捐赠窗口以及逻辑
+	 */
 	private void showPay()
 	{
 		AlertDialog.Builder dialog = new
@@ -207,39 +229,39 @@ public class MainActivity extends BaseActivity
 		);
 		dialog.show();
 	}
-	
+
 	/*private void initTencentCloud()
-	{
-		String appid = "1253475863";
-		String region = "ap-shanghai"; 
+	 {
+	 String appid = "1253475863";
+	 String region = "ap-shanghai"; 
 
-		String secretId = "AKIDt4utx89lfgtCZyuqpJ0tpozDUqbLqKTg";
-		String secretKey ="7jaWYfoaUTWftA57GUrM51FgJs3S3pel";
-		long keyDuration = 600; //SecretKey 的有效时间，单位秒
+	 String secretId = "AKIDt4utx89lfgtCZyuqpJ0tpozDUqbLqKTg";
+	 String secretKey ="7jaWYfoaUTWftA57GUrM51FgJs3S3pel";
+	 long keyDuration = 600; //SecretKey 的有效时间，单位秒
 
-//创建 CosXmlServiceConfig 对象，根据需要修改默认的配置参数
-		CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
-			.isHttps(true)
-		    .setAppidAndRegion(appid, region)
-			.setDebuggable(true)
-			.builder();
+	 //创建 CosXmlServiceConfig 对象，根据需要修改默认的配置参数
+	 CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
+	 .isHttps(true)
+	 .setAppidAndRegion(appid, region)
+	 .setDebuggable(true)
+	 .builder();
 
-//创建获取签名类(请参考下面的生成签名示例，或者参考 sdk中提供的ShortTimeCredentialProvider类）
-		ShortTimeCredentialProvider localCredentialProvider = new ShortTimeCredentialProvider(secretId, secretKey, keyDuration);
+	 //创建获取签名类(请参考下面的生成签名示例，或者参考 sdk中提供的ShortTimeCredentialProvider类）
+	 ShortTimeCredentialProvider localCredentialProvider = new ShortTimeCredentialProvider(secretId, secretKey, keyDuration);
 
-//创建 CosXmlService 对象，实现对象存储服务各项操作.
-		Context context = getApplicationContext(); //应用的上下文
+	 //创建 CosXmlService 对象，实现对象存储服务各项操作.
+	 Context context = getApplicationContext(); //应用的上下文
 
 	 cosXmlService = new CosXmlService(context,serviceConfig, localCredentialProvider);
-	}*/
-	
-/**
-*方法名:replaceFragment
-*需要传入参数(Fragment fragment)
-*参数说明:需要传入一个实例化的Fragment
-*参数举例:replaceFragment(new MainMessFragment())  MainMessFragment是对应Fragment的名称
-*用于显示MainActivity上id为fragment的组件显示的内容
-*/
+	 }*/
+
+	/**
+	 *方法名:replaceFragment
+	 *需要传入参数(Fragment fragment)
+	 *参数说明:需要传入一个实例化的Fragment
+	 *参数举例:replaceFragment(new MainMessFragment())  MainMessFragment是对应Fragment的名称
+	 *用于显示MainActivity上id为fragment的组件显示的内容
+	 */
 	public void replaceFragment(Fragment fragment)
 	{
 		FragmentManager fragmentManager=getSupportFragmentManager();
@@ -248,11 +270,11 @@ public class MainActivity extends BaseActivity
 		transaction.replace(R.id.main_fragment, fragment);
 		transaction.commit();
 	}
-/**
-*方法名:setApply
-*不需要传入参数
-*用于初始化参数
-*/
+	/**
+	 *方法名:setApply
+	 *不需要传入参数
+	 *用于初始化参数
+	 */
 	private void setApply()
 	{
 		SharedPreferences.Editor y=getSharedPreferences("string", 0).edit();
@@ -269,13 +291,13 @@ public class MainActivity extends BaseActivity
 		y.putString("游戏或模拟器名称", "0");
 		y.apply();
     }
-/**
-*方法名:setCustomTheme
-*需要传入参数(int i)
-*参数说明:需要传入一个int类型数据，这个数据是主题列表item对应的id，从0开始计算
-*参数举例:setCustomTheme(0)  表示设置列表第一个主题
-*用于设置主题颜色参数
-*/
+	/**
+	 *方法名:setCustomTheme
+	 *需要传入参数(int i)
+	 *参数说明:需要传入一个int类型数据，这个数据是主题列表item对应的id，从0开始计算
+	 *参数举例:setCustomTheme(0)  表示设置列表第一个主题
+	 *用于设置主题颜色参数
+	 */
 	public void setCustomTheme(int i)
 	{
 		Theme.setTheme(MainActivity.this, i);
@@ -284,11 +306,11 @@ public class MainActivity extends BaseActivity
 		y.apply();
 		open();
 	}
-/**
-*方法名:open
-*不需要传入参数
-*用于退出并再次打开MainActivity 适用于修改主题或者修改用户头像等之后使用
-*/
+	/**
+	 *方法名:open
+	 *不需要传入参数
+	 *用于退出并再次打开MainActivity 适用于修改主题或者修改用户头像等之后使用
+	 */
 	public void open()
 	{
 		Intent intent = getIntent();
@@ -306,13 +328,18 @@ public class MainActivity extends BaseActivity
 	//按两次退出
 	private long exitTime = 0;
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
 		if (keyCode == KeyEvent.KEYCODE_BACK
-			&& event.getAction() == KeyEvent.ACTION_DOWN) {
-			if ((System.currentTimeMillis() - exitTime) > 2000) {
+			&& event.getAction() == KeyEvent.ACTION_DOWN)
+		{
+			if ((System.currentTimeMillis() - exitTime) > 2000)
+			{
 				Toast.makeText(getApplicationContext(), getResources().getString(R.string.two_back), Toast.LENGTH_SHORT).show();
 				exitTime = System.currentTimeMillis();
-			} else {
+			}
+			else
+			{
 				finish();
 			}
 			return true;
@@ -330,9 +357,9 @@ public class MainActivity extends BaseActivity
 				break;
 			case R.id.theme:
 				/**
-				*用于显示主题列表
-				*调用了方法setCustomTheme
-				*/
+				 *用于显示主题列表
+				 *调用了方法setCustomTheme
+				 */
 				SharedPreferences c=getSharedPreferences("customtheme", 0);
 				final int itemSelected=c.getInt("id", 0);
 				AlertDialog.Builder theme = new AlertDialog.Builder(MainActivity.this);
@@ -411,14 +438,14 @@ public class MainActivity extends BaseActivity
 		}
 		return true;	
 	}
-/**
-*方法名:downloadappApk
-*需要传入参数(final String app_namee
-*参数说明:需要传入一个String类型的应用名称
-*参数举例:downloadappApk("kirby Assistant")  表示查询名称为kirby Assistant的app的下载链接
-*主要用于查询模拟器和推荐应用链接
-*调用了方法:appFileDownload
-*/
+	/**
+	 *方法名:downloadappApk
+	 *需要传入参数(final String app_namee
+	 *参数说明:需要传入一个String类型的应用名称
+	 *参数举例:downloadappApk("kirby Assistant")  表示查询名称为kirby Assistant的app的下载链接
+	 *主要用于查询模拟器和推荐应用链接
+	 *调用了方法:appFileDownload
+	 */
 	public void downloadappApk(final String app_name)
 	{
 		progressDialog = new ProgressDialog(MainActivity.this);
@@ -426,7 +453,7 @@ public class MainActivity extends BaseActivity
 		progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		progressDialog.setMax(100);
 		progressDialog.show();
-		
+
 		BmobQuery<moniqi> query = new BmobQuery<moniqi>();
         query.addWhereEqualTo("name", app_name);
         query.findObjects(new FindListener<moniqi>(){
@@ -481,77 +508,77 @@ public class MainActivity extends BaseActivity
 				}
 			});
 	}
-	public void theDownload(Context con, String game_name,String position)
+	public void theDownload(Context con, String game_name, String position)
 	{
 		gameContext = con;
 		switch (position)
 		{
-			/*case "gba_mzqdx"://"星之卡比 梦之泉DX":
-				showDownloadDialog(game_name, R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3kURIBIZ", "https://eyun.baidu.com/s/3o86TXDS", "https://eyun.baidu.com/s/3dF22BWP");
-				break;
-			case "gba_jm"://"星之卡比 镜之大迷宫":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3hs7Mjsg", "https://eyun.baidu.com/s/3c5qBl8", "https://eyun.baidu.com/s/3i5t6Z3J");
-				break;
-			case "sfc_x3"://"星之卡比 3":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKTD8EZ", "https://eyun.baidu.com/s/3gfwui2n", "");
-				break;
-			case "sfc_kss"://"星之卡比 超豪华版":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3qXEc4Xm", "https://eyun.baidu.com/s/3nu8IVpv", "");
-				break;
-			case "sfc_mhd"://"星之卡比 卡比梦幻都":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3hsvCjfI", "https://eyun.baidu.com/s/3jHCmNps", "");
-				break;
-			case "sfc_mfqp"://"[仅美国]星之卡比 卡比魔方气泡":
-				showDownloadDialog(game_name, R.string.game_name1, R.string.us , R.string.nu ,  R.string.nu, "https://eyun.baidu.com/s/3eSuusSi", "", "");
-				break;
-			case "sfc_bsxdx"://"[仅日本]星之卡比 卡比宝石星DX":
-				showDownloadDialog(game_name, R.string.game_name2, R.string.jp, R.string.nu, R.string.nu, "https://eyun.baidu.com/s/3kVDhaS3", "", "");
-				break;
-			case "n64_k64"://"星之卡比 64":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3jHPKdMY", "https://eyun.baidu.com/s/3jHPKdMY", "");
-				break;
-			case "ngc_ft"://"星之卡比 飞天赛车":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.us, R.string.nu, R.string.nu, "https://eyun.baidu.com/s/3qYAoXGC", "", "");
-				break;
-			case "wii_cf"://"星之卡比 重返梦幻岛":
-				showDownloadDialog(game_name, R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3skEbla1", "https://eyun.baidu.com/s/3gf5Oxe7", "https://eyun.baidu.com/s/3gfqpuin");
-				break;
-			case "wii_mx"://"星之卡比 毛线卡比":
-				showDownloadDialog(game_name, R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3i5UCDpz", "https://eyun.baidu.com/s/3dFACfWd", "https://eyun.baidu.com/s/3eRYayD8");
-				break;
-			case "nds_cm"://"星之卡比 触摸卡比":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3hsqS3S4", "https://eyun.baidu.com/s/3c27V89i", "https://eyun.baidu.com/s/3i5Pwsxn");
-				break;
-			case "nds_kssu"://"星之卡比 超究豪华版":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3i4Ricbb", "https://eyun.baidu.com/s/3nvCwXlB", "https://eyun.baidu.com/s/3c2EblZi");
-				break;
-			case "nds_nht"://"星之卡比 呐喊团":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3bo4Z5TH", "https://eyun.baidu.com/s/3czmilC", "https://eyun.baidu.com/s/3hr4PxbA");
-				break;
-			case "nds_jh"://"星之卡比 集合！卡比":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3geO4mbx", "https://eyun.baidu.com/s/3eSijdHS", "https://eyun.baidu.com/s/3o80PA6e");
-				break;
-			case "gb_x1"://"星之卡比 1":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKN6dIz", "https://eyun.baidu.com/s/3pKZHpaF", "");
-				break;
-			case "gb_x2"://"星之卡比 2":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3i57Kjjv", "https://eyun.baidu.com/s/3jI4urlW", "");
-				break;
-			case "gb_bsx"://"星之卡比 卡比宝石星":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3miFgbtI", "https://eyun.baidu.com/s/3nvtzunn", "");
-				break;
-			case "gb_dzk"://"星之卡比 卡比打砖块":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3i5Dkqah", "https://eyun.baidu.com/s/3ge7808r", "");
-				break;
-			case "gb_dzt"://"星之卡比 卡比弹珠台":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3i48QqMh", "https://eyun.baidu.com/s/3eSwv1DK", "");
-				break;
-			case "gbc_gg"://"星之卡比 滚滚卡比":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKP9eav", "https://eyun.baidu.com/s/3nuQZavJ", "");
-				break;
-			case "fc_mzq"://"星之卡比 梦之泉物语":
-				showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKXFx8n", "https://eyun.baidu.com/s/3pKZHpaF", "https://eyun.baidu.com/s/3i4HC8FN");
-				break;*/
+				/*case "gba_mzqdx"://"星之卡比 梦之泉DX":
+				 showDownloadDialog(game_name, R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3kURIBIZ", "https://eyun.baidu.com/s/3o86TXDS", "https://eyun.baidu.com/s/3dF22BWP");
+				 break;
+				 case "gba_jm"://"星之卡比 镜之大迷宫":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3hs7Mjsg", "https://eyun.baidu.com/s/3c5qBl8", "https://eyun.baidu.com/s/3i5t6Z3J");
+				 break;
+				 case "sfc_x3"://"星之卡比 3":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKTD8EZ", "https://eyun.baidu.com/s/3gfwui2n", "");
+				 break;
+				 case "sfc_kss"://"星之卡比 超豪华版":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3qXEc4Xm", "https://eyun.baidu.com/s/3nu8IVpv", "");
+				 break;
+				 case "sfc_mhd"://"星之卡比 卡比梦幻都":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3hsvCjfI", "https://eyun.baidu.com/s/3jHCmNps", "");
+				 break;
+				 case "sfc_mfqp"://"[仅美国]星之卡比 卡比魔方气泡":
+				 showDownloadDialog(game_name, R.string.game_name1, R.string.us , R.string.nu ,  R.string.nu, "https://eyun.baidu.com/s/3eSuusSi", "", "");
+				 break;
+				 case "sfc_bsxdx"://"[仅日本]星之卡比 卡比宝石星DX":
+				 showDownloadDialog(game_name, R.string.game_name2, R.string.jp, R.string.nu, R.string.nu, "https://eyun.baidu.com/s/3kVDhaS3", "", "");
+				 break;
+				 case "n64_k64"://"星之卡比 64":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3jHPKdMY", "https://eyun.baidu.com/s/3jHPKdMY", "");
+				 break;
+				 case "ngc_ft"://"星之卡比 飞天赛车":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.us, R.string.nu, R.string.nu, "https://eyun.baidu.com/s/3qYAoXGC", "", "");
+				 break;
+				 case "wii_cf"://"星之卡比 重返梦幻岛":
+				 showDownloadDialog(game_name, R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3skEbla1", "https://eyun.baidu.com/s/3gf5Oxe7", "https://eyun.baidu.com/s/3gfqpuin");
+				 break;
+				 case "wii_mx"://"星之卡比 毛线卡比":
+				 showDownloadDialog(game_name, R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3i5UCDpz", "https://eyun.baidu.com/s/3dFACfWd", "https://eyun.baidu.com/s/3eRYayD8");
+				 break;
+				 case "nds_cm"://"星之卡比 触摸卡比":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3hsqS3S4", "https://eyun.baidu.com/s/3c27V89i", "https://eyun.baidu.com/s/3i5Pwsxn");
+				 break;
+				 case "nds_kssu"://"星之卡比 超究豪华版":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3i4Ricbb", "https://eyun.baidu.com/s/3nvCwXlB", "https://eyun.baidu.com/s/3c2EblZi");
+				 break;
+				 case "nds_nht"://"星之卡比 呐喊团":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3bo4Z5TH", "https://eyun.baidu.com/s/3czmilC", "https://eyun.baidu.com/s/3hr4PxbA");
+				 break;
+				 case "nds_jh"://"星之卡比 集合！卡比":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.zh, "https://eyun.baidu.com/s/3geO4mbx", "https://eyun.baidu.com/s/3eSijdHS", "https://eyun.baidu.com/s/3o80PA6e");
+				 break;
+				 case "gb_x1"://"星之卡比 1":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKN6dIz", "https://eyun.baidu.com/s/3pKZHpaF", "");
+				 break;
+				 case "gb_x2"://"星之卡比 2":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3i57Kjjv", "https://eyun.baidu.com/s/3jI4urlW", "");
+				 break;
+				 case "gb_bsx"://"星之卡比 卡比宝石星":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3miFgbtI", "https://eyun.baidu.com/s/3nvtzunn", "");
+				 break;
+				 case "gb_dzk"://"星之卡比 卡比打砖块":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3i5Dkqah", "https://eyun.baidu.com/s/3ge7808r", "");
+				 break;
+				 case "gb_dzt"://"星之卡比 卡比弹珠台":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3i48QqMh", "https://eyun.baidu.com/s/3eSwv1DK", "");
+				 break;
+				 case "gbc_gg"://"星之卡比 滚滚卡比":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKP9eav", "https://eyun.baidu.com/s/3nuQZavJ", "");
+				 break;
+				 case "fc_mzq"://"星之卡比 梦之泉物语":
+				 showDownloadDialog(game_name,  R.string.game_name, R.string.jp, R.string.us, R.string.nu, "https://eyun.baidu.com/s/3pKXFx8n", "https://eyun.baidu.com/s/3pKZHpaF", "https://eyun.baidu.com/s/3i4HC8FN");
+				 break;*/
 			case "moniqi_gba"://"GBA " + getGameText(R.string.moniqi) + "\nMy Boy!":
 				showOtherDownloadDialog("gba", game_name);
 				break;

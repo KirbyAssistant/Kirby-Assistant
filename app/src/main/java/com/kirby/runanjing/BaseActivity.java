@@ -1,21 +1,17 @@
 package com.kirby.runanjing;
 
-import android.os.*;
-import android.support.v7.app.*;
-import com.jaeger.library.*;
-import com.kirby.runanjing.untils.*;
-import android.util.*;
-import cn.bmob.v3.*;
-import android.transition.Transition;
-import android.transition.TransitionInflater;
-import android.view.Window;
-import android.content.Intent;
-import android.app.ActivityOptions;
-import android.view.*;
-import com.bumptech.glide.request.*;
 import android.content.*;
 import android.content.res.*;
+import android.os.*;
+import android.support.v7.app.*;
+import android.transition.*;
+import android.util.*;
+import android.view.*;
+import cn.bmob.v3.*;
+import com.jaeger.library.*;
+import com.umeng.analytics.*;
 import java.util.*;
+import com.kirby.runanjing.untils.*;
 
 public class BaseActivity extends AppCompatActivity
 {
@@ -24,19 +20,21 @@ public class BaseActivity extends AppCompatActivity
 	{
 		//View view = this.getWindow().getDecorView();   //getDecorView 获得window最顶层的View
 		//view.setBackgroundDrawable(this.getResources().getDrawable(R.drawable.ic_foreground_image_hk));
+		ActManager.addActivity(this);
 		getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
 		Transition explode = TransitionInflater.from(this).inflateTransition(R.transition.explode);
-		Transition slide = TransitionInflater.from(this).inflateTransition(R.transition.slide);
+		Transition slide_in = TransitionInflater.from(this).inflateTransition(R.transition.slide_in);
+		Transition slide_out = TransitionInflater.from(this).inflateTransition(R.transition.slide_out);
 		Transition fade = TransitionInflater.from(this).inflateTransition(R.transition.fade);
-		getWindow().setEnterTransition(explode); //首次进入显示的动画
-        getWindow().setExitTransition(slide); //启动一个新Activity,当前页的退出动画
-		getWindow().setReturnTransition(slide); //调用 finishAfterTransition() 退出时，当前页退出的动画
-        getWindow().setReenterTransition(explode); //重新进入的动画。即第二次进入，可以和首次进入不一样。
+		getWindow().setEnterTransition(slide_in); //首次进入显示的动画
+        getWindow().setExitTransition(slide_out); //启动一个新Activity,当前页的退出动画
+		getWindow().setReturnTransition(slide_out); //调用 finishAfterTransition() 退出时，当前页退出的动画
+        getWindow().setReenterTransition(fade); //重新进入的动画。即第二次进入，可以和首次进入不一样。
 		super.onCreate(savedInstanceState);
 		setLanguage();
 		Bmob.initialize(this, "e39c2e15ca40b358b0dcc933236c1165");
+		MobclickAgent.setScenarioType(getApplicationContext(),MobclickAgent.EScenarioType.E_UM_NORMAL);
 	}
-	
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
@@ -83,4 +81,15 @@ public class BaseActivity extends AppCompatActivity
         }
         resources.updateConfiguration(configuration, displayMetrics);
     }
+	@Override
+	public void onResume() {
+		super.onResume();
+		MobclickAgent.onResume(this);
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		MobclickAgent.onPause(this);
+	}
 }

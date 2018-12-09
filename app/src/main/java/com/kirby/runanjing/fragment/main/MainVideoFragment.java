@@ -16,12 +16,17 @@ import com.kirby.runanjing.bmob.*;
 import com.scwang.smartrefresh.layout.api.*;
 import com.scwang.smartrefresh.layout.listener.*;
 import java.util.*;
+import android.widget.*;
+import android.view.animation.*;
+import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.helper.*;
+import com.kirby.runanjing.customui.*;
 
 public class MainVideoFragment extends Fragment 
 {
 	private View view;
 	private MainActivity m;
-	private RecyclerView re;
+	private StaggeredGridRecyclerView re;
 	private VideoAdapter adapter;
 	private RefreshLayout 刷新;
 	private List<Video> videolist = new ArrayList<>();
@@ -38,7 +43,7 @@ public class MainVideoFragment extends Fragment
 	private void initVideo(View view)
 	{
 		//设置显示视频的列表
-		re = (RecyclerView)view.findViewById(R.id.视频);
+		re = (StaggeredGridRecyclerView)view.findViewById(R.id.视频);
 		GridLayoutManager layoutManager=new GridLayoutManager(getActivity(), 2);
 		re.setLayoutManager(layoutManager);
 		adapter = new VideoAdapter(videolist);	
@@ -75,7 +80,7 @@ public class MainVideoFragment extends Fragment
 					}
 					else
 					{
-						Log.e("bmob", "" + e);
+						Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
 						刷新.finishRefresh();
 					}
 				}
@@ -102,6 +107,11 @@ public class MainVideoFragment extends Fragment
 						videolist.add(video);
 						//设置适配器
 						re.setAdapter(adapter);
+						LayoutAnimationController controller = LayoutAnimationHelper.makeLayoutAnimationController();
+						ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.视频);
+						viewGroup.setLayoutAnimation(controller);
+						viewGroup.scheduleLayoutAnimation();
+						playLayoutAnimation(re,LayoutAnimationHelper.getAnimationSetFromBottom(),false);
 					}			
 					//刷新回调
 					刷新.finishRefresh();
@@ -109,4 +119,19 @@ public class MainVideoFragment extends Fragment
 			}
 		}
 	};
+	/**
+     * 播放RecyclerView动画
+     *
+     * @param animation
+     * @param isReverse
+     */
+    public void playLayoutAnimation(RecyclerView mRecyclerView,Animation animation, boolean isReverse) {
+        GridLayoutAnimationController controller = new GridLayoutAnimationController(animation);
+        controller.setColumnDelay(0.2f);
+        controller.setRowDelay(0.3f);
+        controller.setOrder(isReverse ? LayoutAnimationController.ORDER_REVERSE : LayoutAnimationController.ORDER_NORMAL);
+        mRecyclerView.setLayoutAnimation(controller);
+        mRecyclerView.getAdapter().notifyDataSetChanged();
+        mRecyclerView.scheduleLayoutAnimation();
+    }
 }

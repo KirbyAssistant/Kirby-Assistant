@@ -4,7 +4,7 @@
     <PreferenceCategory android:title="@string/x_title">
         <Preference
             android:key="version"
-			android:summary="0.4"
+			android:summary="未来·炫动-1.0"
             android:title="@string/version" />
 		<Preference	
 			android:key="setLanguage"

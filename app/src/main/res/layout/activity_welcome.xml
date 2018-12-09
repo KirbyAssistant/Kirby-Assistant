@@ -1,27 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:paddingBottom="32dp">
 
-	<ImageView
-		android:src="@drawable/ic_foreground_image_ma"
-		android:layout_height="158dp"
-		android:layout_width="158dp"
+	<com.kirby.runanjing.customui.RippleLayout
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentRight="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:clipChildren="false"
 		android:layout_centerHorizontal="true"
-		android:id="@+id/welcomeImageView1"
-		android:layout_gravity="center"/>
-	
-	<com.hanks.htextview.scale.ScaleTextView
+		android:layout_gravity="center"
+		app:rippleColor="?attr/colorPrimary"
+		app:rippleType="stroke"
+		app:strokeWidth="4dp"
+		app:startRadius="20dp"
+		app:endRadius="200dp"
+		app:duration="2000"
+		android:id="@+id/content">
+
+		<ImageView
+			android:src="@drawable/ic_foreground_image_ma"
+			android:layout_height="158dp"
+			android:layout_width="158dp"
+			android:layout_centerInParent="true"
+			android:id="@+id/welcomeImageView1"/>
+
+	</com.kirby.runanjing.customui.RippleLayout>
+
+	<com.hanks.htextview.evaporate.EvaporateTextView
 		android:id="@+id/textview"
 		android:layout_width="match_parent"
 		android:layout_height="100dp"
 		android:gravity="center_horizontal"
 		android:paddingTop="8dp"
 		android:textSize="25sp"
-		android:layout_below="@id/welcomeImageView1"
+		android:layout_below="@id/content"
 		android:layout_gravity="bottom|center_horizontal"/>
 
 </FrameLayout>
-

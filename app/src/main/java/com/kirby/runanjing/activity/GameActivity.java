@@ -1,20 +1,19 @@
 package com.kirby.runanjing.activity;
 
 import android.content.*;
+import android.net.*;
 import android.os.*;
+import android.support.v7.app.*;
 import android.support.v7.widget.*;
+import android.view.*;
 import android.widget.*;
-import com.github.anzewei.parallaxbacklayout.*;
+import com.bumptech.glide.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.untils.*;
 
 import android.support.v7.widget.Toolbar;
-import com.kirby.runanjing.R;
-import com.bumptech.glide.*;
-import android.net.*;
-import android.support.v7.app.*;
-import android.view.View.*;
-import android.view.*;
+import android.graphics.*;
+import android.graphics.drawable.*;
 
 public class GameActivity extends BaseActivity
 {
@@ -29,12 +28,12 @@ public class GameActivity extends BaseActivity
 		setSupportActionBar(toolbar);
 		Intent game=getIntent();
 		final String game_name=game.getStringExtra("game_name");
-		String game_img_url=game.getStringExtra("game_img");
+		final String game_img_url=game.getStringExtra("game_img");
 		final String game_pos=game.getStringExtra("game_pos");
 		getSupportActionBar().setTitle(game_name);
-		//Toast.makeText(this,game_name,Toast.LENGTH_SHORT).show();
-		ImageView game_img=(ImageView)findViewById(R.id.game_img);
+	    ImageView game_img=(ImageView)findViewById(R.id.game_img);
 		TextView game_js=(TextView)findViewById(R.id.game_js);
+		//game_layout.setBackground(new BitmapDrawable(FastBlurUtil.GetUrlBitmap(game_img_url,8)));
 		Button download_button=(Button)findViewById(R.id.download_button);
 		Glide
 			.with(this)
@@ -43,7 +42,6 @@ public class GameActivity extends BaseActivity
 			//.placeholder(R.drawable.ic_kirby_download)
 			//.error(R.drawable.ic_kirby_load_fail)
 			.into(game_img);
-			
 		download_button.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View p1)

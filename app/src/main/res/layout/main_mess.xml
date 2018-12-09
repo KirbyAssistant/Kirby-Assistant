@@ -4,18 +4,21 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:orientation="vertical">
+	android:orientation="vertical"
+	android:id="@+id/root_view">
 
 	<com.scwang.smartrefresh.layout.SmartRefreshLayout
 		android:id="@+id/刷新"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		app:srlDragRate="0.7"
+		app:srlHeaderMaxDragRate="1.3"
 		app:srlPrimaryColor="?attr/colorPrimary"
 		app:srlAccentColor="@android:color/white"
 		app:srlEnableHeaderTranslationContent="true"
-		app:srlEnableLoadmore="true">
+		app:srlEnableLoadMore="true">
 
-		<com.scwang.smartrefresh.header.BezierCircleHeader
+		<com.scwang.smartrefresh.header.DeliveryHeader
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"/>
 
@@ -26,15 +29,30 @@
 
 	</com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-	<android.support.design.widget.FloatingActionButton
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:src="@drawable/ic_kirby_plus"
+	<com.kirby.runanjing.customui.RippleLayout
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentRight="true"
-		android:id="@+id/FAB_编辑"
-		android:layout_margin="16dp"
-		android:visibility="gone"/>
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:clipChildren="false"
+		app:rippleColor="?attr/colorPrimary"
+		app:rippleType="stroke"
+		app:strokeWidth="2dp"
+		app:startRadius="8dp"
+		app:endRadius="40dp"
+		app:duration="2000"
+		android:id="@+id/content">
+
+		<android.support.design.widget.FloatingActionButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/ic_kirby_plus"
+			android:id="@+id/FAB_编辑"
+			android:layout_margin="16dp"
+			android:visibility="gone"
+			android:padding="16dp"/>
+
+	</com.kirby.runanjing.customui.RippleLayout>
 
 </RelativeLayout>
 

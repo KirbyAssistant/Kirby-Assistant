@@ -1,6 +1,9 @@
 package com.kirby.runanjing.activity;
+import android.content.*;
+import android.content.pm.*;
 import android.os.*;
 import android.support.v7.widget.*;
+import android.view.*;
 import android.widget.*;
 import com.github.anzewei.parallaxbacklayout.*;
 import com.kirby.runanjing.*;
@@ -8,15 +11,14 @@ import com.kirby.runanjing.untils.*;
 
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
-import android.content.*;
-import android.content.pm.*;
-import android.view.*;
 
 @ParallaxBack
 public class SwitchIconActivity extends BaseActivity
 {
 
 	private Toolbar toolbar;
+
+	private Handler mHandler = new Handler();
 
 	private ComponentName HkComponent;
 
@@ -53,7 +55,6 @@ public class SwitchIconActivity extends BaseActivity
 			});
 		//拿到当前activity注册的组件名称
         componentName = getComponentName();
-
         //拿到我们注册的MainActivity组件
         HkComponent = new ComponentName(getBaseContext(), "com.kirby.runanjing.activity.Launcher");  //拿到默认的组件
         //拿到我注册的别名test组件
@@ -61,22 +62,26 @@ public class SwitchIconActivity extends BaseActivity
         packageManager = getApplicationContext().getPackageManager();
     }
 
-    public void changeIconToMa() {
+    public void changeIconToMa()
+	{
         disableComponent(HkComponent);
         enableComponent(MaComponent);
-		Toast.makeText(this,getResources().getString(R.string.sw_icon_finish),Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, getResources().getString(R.string.sw_icon_finish), Toast.LENGTH_SHORT).show();
 		SharedPreferences.Editor y=getSharedPreferences("icon", 0).edit();
 		y.putString("icon_ver", "ma");
 		y.apply();
+		closeApp();
     }
 
-    public void changeIconToHk() {
+    public void changeIconToHk()
+	{
         enableComponent(HkComponent);
         disableComponent(MaComponent);
-		Toast.makeText(this,getResources().getString(R.string.sw_icon_finish),Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, getResources().getString(R.string.sw_icon_finish), Toast.LENGTH_SHORT).show();
 		SharedPreferences.Editor y=getSharedPreferences("icon", 0).edit();
 		y.putString("icon_ver", "hk");
 		y.apply();
+		closeApp();
     }
 
     /**
@@ -84,9 +89,11 @@ public class SwitchIconActivity extends BaseActivity
      *
      * @param componentName
      */
-    private void enableComponent(ComponentName componentName) {
+    private void enableComponent(ComponentName componentName)
+	{
         int state = packageManager.getComponentEnabledSetting(componentName);
-        if (state == PackageManager.COMPONENT_ENABLED_STATE_ENABLED) {
+        if (state == PackageManager.COMPONENT_ENABLED_STATE_ENABLED)
+		{
             //已经启用
             return;
         }
@@ -100,9 +107,11 @@ public class SwitchIconActivity extends BaseActivity
      *
      * @param componentName
      */
-    private void disableComponent(ComponentName componentName) {
+    private void disableComponent(ComponentName componentName)
+	{
         int state = packageManager.getComponentEnabledSetting(componentName);
-        if (state == PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
+        if (state == PackageManager.COMPONENT_ENABLED_STATE_DISABLED)
+		{
             //已经禁用
             return;
         }
@@ -110,4 +119,17 @@ public class SwitchIconActivity extends BaseActivity
 												  PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
 												  PackageManager.DONT_KILL_APP);
     }
+
+	private void closeApp()
+	{
+		mHandler.postDelayed(new Runnable() {
+				@Override
+				public void run()
+				{
+					ActManager.AppExit(SwitchIconActivity.this);
+				}
+			}
+			, 2000);
+	}
+
 }

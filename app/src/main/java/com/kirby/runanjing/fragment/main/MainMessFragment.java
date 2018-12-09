@@ -9,6 +9,8 @@ import android.support.v7.widget.*;
 import android.text.*;
 import android.util.*;
 import android.view.*;
+import android.view.animation.*;
+import android.view.inputmethod.*;
 import android.widget.*;
 import cn.bmob.v3.*;
 import cn.bmob.v3.exception.*;
@@ -18,15 +20,15 @@ import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.adapter.*;
 import com.kirby.runanjing.bean.*;
 import com.kirby.runanjing.bmob.*;
+import com.kirby.runanjing.helper.*;
+import com.othershe.nicedialog.*;
 import com.scwang.smartrefresh.layout.api.*;
 import com.scwang.smartrefresh.layout.listener.*;
 import java.util.*;
 
 import android.support.v4.app.Fragment;
 import com.kirby.runanjing.R;
-import android.view.inputmethod.*;
-import com.othershe.nicedialog.*;
-import android.view.animation.*;
+import com.kirby.runanjing.customui.*;
 
 public class MainMessFragment extends Fragment
 {
@@ -39,7 +41,9 @@ public class MainMessFragment extends Fragment
 	private View view;
 	private MainActivity m;
 	private int messItem;
-	private EditText edit_编辑;  
+	private EditText edit_编辑;
+
+	private RippleLayout rippleBackground;  
 	//private BottomDialog mess_dia;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -58,18 +62,22 @@ public class MainMessFragment extends Fragment
 		GridLayoutManager layoutManager=new GridLayoutManager(getActivity(), 1);
 		re.setLayoutManager(layoutManager);
 		adapter = new MessageAdapter(messlist,getActivity(),getActivity().getSupportFragmentManager());	
+		//律动动画
+	    rippleBackground=(RippleLayout)view.findViewById(R.id.content);
 		//刷新数据
 		刷新 = (RefreshLayout)view.findViewById(R.id.刷新);
 		刷新.setOnRefreshListener(new OnRefreshListener(){
 				@Override
 				public void onRefresh(RefreshLayout re)
 				{
+					edit_mess_button.setVisibility(View.GONE);
+					rippleBackground.stopRippleAnimation();
 					getMessage();
 				}
 			});
-		刷新.setOnLoadmoreListener(new OnLoadmoreListener(){
+		刷新.setOnLoadMoreListener(new OnLoadMoreListener(){
 				@Override
-				public void onLoadmore(RefreshLayout re)
+				public void onLoadMore(RefreshLayout re)
 				{
 					getMoreMessage();
 				}
@@ -182,6 +190,7 @@ public class MainMessFragment extends Fragment
 						edit_mess_button.setVisibility(View.VISIBLE);
 						ScaleAnimation mess_fab_anim = (ScaleAnimation) AnimationUtils.loadAnimation(getActivity(), R.transition.mess_fab);
 						edit_mess_button.startAnimation(mess_fab_anim);
+						rippleBackground.startRippleAnimation();
 					}
 					else
 					{
@@ -214,7 +223,7 @@ public class MainMessFragment extends Fragment
 					else
 					{
 						Log.e("bmob", "" + e);
-						刷新.finishLoadmore();
+						刷新.finishLoadMore();
 					}
 				}
 			});
@@ -253,6 +262,11 @@ public class MainMessFragment extends Fragment
 						messlist.add(mess);
 						//设置适配器
 						re.setAdapter(adapter);
+						LayoutAnimationController controller = LayoutAnimationHelper.makeLayoutAnimationController();
+						ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.留言);
+						viewGroup.setLayoutAnimation(controller);
+						viewGroup.scheduleLayoutAnimation();
+						playLayoutAnimation(re,LayoutAnimationHelper.getAnimationSetFromBottom(),false);
 					}			
 					//刷新回调
 					刷新.finishRefresh();
@@ -297,7 +311,7 @@ public class MainMessFragment extends Fragment
 						re.getAdapter().notifyItemChanged(messItem);
 					}			
 					//刷新回调
-					刷新.finishLoadmore();
+					刷新.finishLoadMore();
 					break;
 			}
 		}
@@ -325,4 +339,18 @@ public class MainMessFragment extends Fragment
 			// TODO: Implement this method
 		}
 	};
+	/**
+     * 播放RecyclerView动画
+     *
+     * @param animation
+     * @param isReverse
+     */
+    public void playLayoutAnimation(RecyclerView mRecyclerView,Animation animation, boolean isReverse) {
+        LayoutAnimationController controller = new LayoutAnimationController(animation);
+		controller.setDelay(0.1f);
+        controller.setOrder(isReverse ? LayoutAnimationController.ORDER_REVERSE : LayoutAnimationController.ORDER_NORMAL);
+        mRecyclerView.setLayoutAnimation(controller);
+        mRecyclerView.getAdapter().notifyDataSetChanged();
+        mRecyclerView.scheduleLayoutAnimation();
+    }
 }

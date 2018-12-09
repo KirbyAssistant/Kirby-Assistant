@@ -10,6 +10,8 @@ import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.adapter.*;
 import com.kirby.runanjing.bean.*;
 import java.util.*;
+import com.kirby.runanjing.helper.*;
+import android.view.animation.*;
 
 public class MainGameFragment extends Fragment
 {
@@ -92,6 +94,11 @@ public class MainGameFragment extends Fragment
 		tj_game.setLayoutManager(tj_game_m);
 		adapter4 =new TjGameAdapter(tjgamelist);
 		tj_game.setAdapter(adapter4);*/
+		LayoutAnimationController controller = LayoutAnimationHelper.makeLayoutAnimationController();
+		ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.root_view);
+        viewGroup.setLayoutAnimation(controller);
+        viewGroup.scheduleLayoutAnimation();
+		playLayoutAnimation(r,LayoutAnimationHelper.getAnimationSetFromBottom(),false);
 		init();
 		init2();
 		init3();
@@ -164,6 +171,20 @@ public class MainGameFragment extends Fragment
 			jszgamelist.add(tj_game[ind++]);
 		}
 	}
+	/**
+     * 播放RecyclerView动画
+     *
+     * @param animation
+     * @param isReverse
+     */
+    public void playLayoutAnimation(RecyclerView mRecyclerView,Animation animation, boolean isReverse) {
+        LayoutAnimationController controller = new LayoutAnimationController(animation);
+        controller.setDelay(0.1f);
+        controller.setOrder(isReverse ? LayoutAnimationController.ORDER_REVERSE : LayoutAnimationController.ORDER_NORMAL);
+        mRecyclerView.setLayoutAnimation(controller);
+        mRecyclerView.getAdapter().notifyDataSetChanged();
+        mRecyclerView.scheduleLayoutAnimation();
+    }
 	//viewpager适配器
 	class MyPagerAdapter extends PagerAdapter
 	{

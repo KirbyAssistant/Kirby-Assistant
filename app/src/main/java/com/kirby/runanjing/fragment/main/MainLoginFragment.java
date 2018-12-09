@@ -6,6 +6,7 @@ import android.support.v4.app.*;
 import android.support.v7.app.*;
 import android.support.v7.widget.*;
 import android.view.*;
+import android.view.animation.*;
 import android.widget.*;
 import cn.bmob.v3.*;
 import cn.bmob.v3.exception.*;
@@ -13,10 +14,11 @@ import cn.bmob.v3.listener.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bmob.*;
+import com.kirby.runanjing.untils.*;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.helper.*;
 
 public class MainLoginFragment extends Fragment
 {
@@ -204,5 +206,22 @@ public class MainLoginFragment extends Fragment
 						});
 				}
 			});
+			
+		LayoutAnimationController controller = LayoutAnimationHelper.makeLayoutAnimationController();
+		ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.root_view);
+		viewGroup.setLayoutAnimation(controller);
+		viewGroup.scheduleLayoutAnimation();
+		playLayoutAnimation(LayoutAnimationHelper.getAnimationSetFromBottom(),false);
 }
+	/**
+     * 播放RecyclerView动画
+     *
+     * @param animation
+     * @param isReverse
+     */
+    public void playLayoutAnimation(Animation animation, boolean isReverse) {
+        LayoutAnimationController controller = new LayoutAnimationController(animation);
+        controller.setDelay(0.1f);
+        controller.setOrder(isReverse ? LayoutAnimationController.ORDER_REVERSE : LayoutAnimationController.ORDER_NORMAL);
+    }
 }
