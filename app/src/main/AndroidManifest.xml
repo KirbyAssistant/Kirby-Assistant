@@ -40,7 +40,6 @@
 		<activity
 			android:name=".activity.MainActivity"
 			android:label="Kirby Assistant"/>
-		<activity android:name=".activity.KirbyIntroActivity"/>
 		<activity android:name=".activity.KirbyWebActivity"/>
 		<activity android:name=".activity.HeadActivity"/>
 		<activity
