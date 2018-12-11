@@ -4,19 +4,23 @@
     <PreferenceCategory android:title="@string/x_title">
         <Preference
             android:key="version"
-			android:summary="未来·炫动-1.0"
-            android:title="@string/version" />
+			android:summary="未来·炫动-1.1"
+            android:title="@string/version"
+			android:icon="@drawable/ic_ka_version"/>
 		<Preference	
 			android:key="setLanguage"
-			android:title="@string/language" />
+			android:title="@string/language" 
+			android:icon="@drawable/ic_sw_language"/>
         <Preference
             android:key="star"
             android:summary="@string/star2"
-            android:title="@string/star1" />
+            android:title="@string/star1" 
+			android:icon="@drawable/ic_kirby_star"/>
 		<Preference
             android:key="help1"
             android:summary="@string/help2"
-            android:title="@string/help1" />
+            android:title="@string/help1" 
+			android:icon="@drawable/ic_kirby_qq"/>
 		<Preference
             android:key="help2"
             android:summary="@string/help4"
@@ -30,7 +34,8 @@
             android:title="@string/me1" />
 		<Preference
             android:key="github"
-            android:title="@string/github" />
+            android:title="@string/github" 
+			android:icon="@drawable/ic_github"/>
 	</PreferenceCategory>
 </PreferenceScreen>
 

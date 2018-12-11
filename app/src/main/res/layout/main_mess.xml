@@ -46,8 +46,8 @@
 		<android.support.design.widget.FloatingActionButton
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:src="@drawable/ic_kirby_plus"
 			android:id="@+id/FAB_编辑"
+			android:src="@drawable/ic_kirby_editmess"
 			android:layout_margin="16dp"
 			android:visibility="gone"
 			android:padding="16dp"/>
