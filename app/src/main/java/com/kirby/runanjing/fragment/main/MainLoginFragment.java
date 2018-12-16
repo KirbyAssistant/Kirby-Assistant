@@ -14,13 +14,14 @@ import cn.bmob.v3.listener.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bmob.*;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.utils.*;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import com.kirby.runanjing.helper.*;
+import com.kirby.runanjing.base.*;
 
-public class MainLoginFragment extends Fragment
+public class MainLoginFragment extends BaseFragment
 {
 	private View view;
 	private MainActivity m;

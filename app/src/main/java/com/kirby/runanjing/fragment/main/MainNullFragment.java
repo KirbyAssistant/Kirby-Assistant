@@ -4,8 +4,9 @@ import android.os.*;
 import android.support.v4.app.*;
 import android.view.*;
 import com.kirby.runanjing.*;
+import com.kirby.runanjing.base.*;
 
-public class MainNullFragment extends Fragment
+public class MainNullFragment extends BaseFragment
 {
 	private View view;
 	@Override

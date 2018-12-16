@@ -17,9 +17,12 @@ allprojects {
         jcenter()
 		google()
 		mavenCentral()
-		maven { url 'https://dl.bintray.com/umsdk/release' }
-		maven { url 'https://jitpack.io'} 
-	 maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
-    maven{url "https://dl.bintray.com/tencentqcloudterminal/maven"}  
+	maven { 	
+		url 'https://dl.bintray.com/umsdk/release' 
+		url 'https://jitpack.io'
+		url "https://raw.github.com/bmob/bmob-android-sdk/master" 
+		url "https://dl.bintray.com/tencentqcloudterminal/maven"
+		url "https://maven.google.com"
+		}  
 	}
  }

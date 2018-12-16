@@ -12,8 +12,10 @@ import com.kirby.runanjing.bean.*;
 import java.util.*;
 import com.kirby.runanjing.helper.*;
 import android.view.animation.*;
+import android.widget.*;
+import com.kirby.runanjing.base.*;
 
-public class MainGameFragment extends Fragment
+public class MainGameFragment extends BaseFragment
 {
 	private ViewPager mViewPager;
 	private TabLayout mTabLayout;

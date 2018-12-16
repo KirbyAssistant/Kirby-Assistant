@@ -1,4 +1,4 @@
-package com.kirby.runanjing.untils;
+package com.kirby.runanjing.utils;
 
 
 import android.content.*;
@@ -58,7 +58,7 @@ public class Theme
 				context.setTheme(R.style.KirbyTheme);
 				break;
 			case 11:
-				context.setTheme(R.style.DarkTheme);
+				context.setTheme(R.style.WhiteTheme);
 				break;
 		}
 	}

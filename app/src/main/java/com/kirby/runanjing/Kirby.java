@@ -14,11 +14,14 @@ import com.bumptech.glide.request.*;
 import com.github.anzewei.parallaxbacklayout.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.utils.*;
 
 import com.kirby.runanjing.R;
 import com.umeng.commonsdk.*;
 import com.umeng.analytics.*;
+import android.widget.*;
+import com.kirby.runanjing.dialog.*;
+import android.support.v4.app.*;
 public class Kirby extends Application
 {
 	private static Kirby instance;
@@ -55,11 +58,12 @@ public class Kirby extends Application
 				@Override
 				public void run()
 				{
-					Intent crash_=new Intent(Kirby.this, KirbyCrashActivity.class);
-					crash_.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-					crash_.putExtra("crash",crash);
-					startActivity(crash_);	
-					android.os.Process.killProcess(android.os.Process.myPid());  
+					FragmentActivity getCrashActivity=ActManager.currentFragmentActivity();
+					CrashDialog.newInstance("1", crash)
+						.setTheme(R.style.NiceDialogStyle)
+					    .setMargin(0)
+						.setShowBottom(true)   
+						.show(getCrashActivity.getSupportFragmentManager());
 				}
 			});
 	}

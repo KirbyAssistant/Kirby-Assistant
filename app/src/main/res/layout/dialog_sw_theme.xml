@@ -4,8 +4,10 @@
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
     android:horizontalSpacing="20dp"
+	android:columnWidth="90dp"
     android:listSelector="@android:color/transparent"
-    android:numColumns="4"
+    android:numColumns="auto_fit"
     android:orientation="vertical"
     android:padding="24dp"
+	android:stretchMode="columnWidth"
     android:verticalSpacing="20dp" />

@@ -14,10 +14,11 @@ import com.bumptech.glide.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.bmob.*;
 import com.kirby.runanjing.fragment.main.*;
-import com.othershe.nicedialog.*;
 import java.util.*;
 
 import com.kirby.runanjing.R;
+import com.shehuan.nicedialog.*;
+import com.kirby.runanjing.utils.*;
 
 public class MessDialog extends BaseNiceDialog
 {
@@ -49,6 +50,18 @@ public class MessDialog extends BaseNiceDialog
 		dialog.setArguments(bundle);
 		return dialog;
 	}
+
+	@Override
+    public int initTheme()
+	{
+        return theme;
+    }
+
+	public MessDialog setTheme(@StyleRes int theme)
+	{
+        this.theme = theme;
+        return this;
+    }
 
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState)
@@ -132,7 +145,7 @@ public class MessDialog extends BaseNiceDialog
 										break;
 									case R.id.mess_edit:
 										NiceDialog.init()
-											.setLayoutId(R.layout.filter_sample_view)     //设置dialog布局文件
+											.setLayoutId(R.layout.dialog_editmess)     //设置dialog布局文件
 											.setConvertListener(new ViewConvertListener() {
 												private EditText edit_编辑;     //进行相关View操作的回调
 												@Override

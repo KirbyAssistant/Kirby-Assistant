@@ -33,7 +33,7 @@
 	<string name="mess_del">Delete this chat</string>
 	<string name="mess_edit">Edit this chat</string>
 	
-	
+	<string name="load_fail">Failed to load, please refresh and try again</string>
 	
 	<string name="permissionandprivacy_title">Permission＆Privacy policy</string>
 	<string name="permissionandprivacy_cnntent">Permission description: \n

@@ -9,7 +9,7 @@ import android.widget.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 
-public  class AboutPreferenceFragment extends PreferenceFragment
+public class AboutPreferenceFragment extends PreferenceFragment
 {
 	@Override
 	public void onCreate(Bundle savedInstanceState)

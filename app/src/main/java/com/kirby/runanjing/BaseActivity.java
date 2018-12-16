@@ -11,7 +11,7 @@ import cn.bmob.v3.*;
 import com.jaeger.library.*;
 import com.umeng.analytics.*;
 import java.util.*;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.utils.*;
 
 public class BaseActivity extends AppCompatActivity
 {

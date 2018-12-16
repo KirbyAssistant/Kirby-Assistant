@@ -57,7 +57,8 @@ dependencies {
 	//状态栏变色
 	compile 'com.jaeger.statusbarutil:library:1.4.0'
     //fab动画
-    compile 'com.github.SheHuan:NiceDialog:1.1.6'
+	//compile 'me.shaohui:bottomdialog:1.1.9'
+    compile 'com.github.SheHuan:NiceDialog:1.1.9'
 	//compile 'com.android.support:multidex:1.0.0'
 	compile 'com.android.support:design:25.3.1'
 	compile 'com.android.support:support-v4:25.3.1'

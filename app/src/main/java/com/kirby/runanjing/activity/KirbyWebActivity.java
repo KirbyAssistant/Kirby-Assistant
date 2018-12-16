@@ -5,7 +5,7 @@ import android.webkit.*;
 import android.widget.*;
 
 import com.kirby.runanjing.*;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.utils.*;
 
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;

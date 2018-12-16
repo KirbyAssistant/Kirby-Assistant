@@ -2,17 +2,16 @@ package com.kirby.runanjing.adapter;
 import android.app.*;
 import android.content.*;
 import android.support.v4.app.*;
-import android.support.v4.util.*;
 import android.support.v7.widget.*;
 import android.view.*;
 import android.widget.*;
 import com.kirby.runanjing.*;
-import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bean.*;
 import com.kirby.runanjing.dialog.*;
 import java.util.*;
 
 import android.support.v4.app.FragmentManager;
+import com.kirby.runanjing.utils.*;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder>
 {
@@ -64,7 +63,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 				public void onClick(View v) {
 					int position = holder.getAdapterPosition();
 					Mess mess = mMesslist.get(position);			
-					MessDialog.newInstance("1",mess.getId(),mess.getFullMessage(),mess.getName(),mess.getTime())
+					MessDialog.newInstance("0",mess.getId(),mess.getFullMessage(),mess.getName(),mess.getTime())
+					.setTheme(R.style.NiceDialogStyle)
 					.setMargin(0)
 					.setShowBottom(true)   
 					.show(mFragmentManager);

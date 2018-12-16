@@ -12,5 +12,5 @@
 	<color name="bluegreytheme">#607D8B</color>
 	<color name="yellowtheme">#FFEB3B</color>
 	<color name="kirbytheme">#ee749d</color>
-	<color name="darktheme">#000000</color>
+	<color name="whitetheme">#999999</color>
 </resources>

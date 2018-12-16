@@ -18,7 +18,7 @@ import cn.bmob.v3.listener.*;
 import com.bumptech.glide.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.bmob.*;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.utils.*;
 //import com.yalantis.ucrop.*;
 import java.io.*;
 

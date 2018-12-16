@@ -50,7 +50,7 @@
 				android:text="Small Text"
 				android:id="@+id/user_id"
 				android:layout_below="@id/user_name"
-				android:textColor="#C6C6C6"
+				android:textColor="?color_text_pressed"
 				android:layout_centerHorizontal="true"/>
 
 			<TextView
@@ -60,7 +60,7 @@
 				android:text="Small Text"
 				android:layout_below="@id/user_id"
 				android:id="@+id/user_data"
-				android:textColor="#C6C6C6"
+				android:textColor="?color_text_pressed"
 				android:layout_centerHorizontal="true"/>
 
 			<TextView
@@ -68,7 +68,7 @@
 				android:layout_height="wrap_content"
 				android:textAppearance="?android:attr/textAppearanceSmall"
 				android:text="Small Text"
-				android:textColor="#C6C6C6"
+				android:textColor="?color_text_pressed"
 				android:layout_centerHorizontal="true"
 				android:layout_below="@id/user_data"
 				android:id="@+id/user_email"

@@ -7,7 +7,7 @@ import com.kirby.runanjing.R;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bean.*;
 import java.util.*;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.utils.*;
 import android.app.*;
 import android.support.v4.util.*;
 import cn.bmob.v3.b.*;

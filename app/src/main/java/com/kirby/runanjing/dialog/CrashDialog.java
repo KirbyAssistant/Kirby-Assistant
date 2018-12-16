@@ -1,38 +1,67 @@
-package com.kirby.runanjing.activity;
-
-
+package com.kirby.runanjing.dialog;
 import android.content.*;
 import android.os.*;
-import android.support.v7.widget.*;
+import android.support.annotation.*;
 import android.text.*;
 import android.view.*;
 import android.widget.*;
 import com.kirby.runanjing.*;
-import com.kirby.runanjing.*;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.activity.*;
+import com.kirby.runanjing.utils.*;
+import com.shehuan.nicedialog.*;
 
-import android.support.v7.widget.Toolbar;
+import android.content.ClipboardManager;
+import com.kirby.runanjing.R;
+import com.umeng.analytics.*;
 
-public class KirbyCrashActivity extends BaseActivity
+public class CrashDialog extends BaseNiceDialog
 {
-    private Throwable crash_;
+
+	private Throwable crash;
 
 	private PhoneUtil phoneInfo;
+	public static CrashDialog newInstance(String type,Throwable crash)
+	{
+		Bundle bundle = new Bundle();
+		bundle.putSerializable("crash",crash);
+		CrashDialog dialog = new CrashDialog();
+		dialog.setArguments(bundle);
+		return dialog;
+	}
+
 	@Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    public int initTheme() {
+        return theme;
+    }
+
+	public CrashDialog setTheme(@StyleRes int theme) {
+        this.theme = theme;
+        return this;
+    }
+	
+	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
-        Theme.setClassTheme(this);
-		setContentView(R.layout.activity_error);
-		Toolbar toolbar=(Toolbar)findViewById(R.id.标题栏);
-		setSupportActionBar(toolbar);
-		//Toast.makeText(this,getResources().getString(R.string.bug_report),Toast.LENGTH_SHORT).show();
-		Intent crash=getIntent();
-        crash_=(Throwable) crash.getSerializableExtra("crash");
-		phoneInfo = new PhoneUtil(this);
-		final TextView crashText=(TextView)findViewById(R.id.crashText);
-		Button email=(Button)findViewById(R.id.email);
-	  
+		Bundle bundle = getArguments();
+		 crash=(Throwable) bundle.getSerializable("crash");
+	}
+
+	@Override
+	public int intLayoutId()
+	{
+		return R.layout.dialog_crash;
+	}
+
+	@Override
+	public void convertView(ViewHolder holder, final BaseNiceDialog mess_dialog)
+	{
+		MobclickAgent.reportError(getActivity(), crash);
+		phoneInfo = new PhoneUtil(mess_dialog.getActivity());
+		
+		final TextView crashText=(TextView)holder.getView(R.id.crashText);
+		Button copy=(Button)holder.getView(R.id.copy);
+		
 		crashText.append("手机品牌:");
         crashText.append(Html.fromHtml("<font color=\"#E51C23\">" + phoneInfo.getBrand() + "</font>"));
         crashText.append("\n");
@@ -48,11 +77,11 @@ public class KirbyCrashActivity extends BaseActivity
         crashText.append("软件版本:");
         crashText.append(Html.fromHtml("<font color=\"#E51C23\">" + phoneInfo.getAppVersion() + "</font>"));
         crashText.append("\n");
-		
+
 		crashText.append("错误信息: ");
-        crashText.append(Html.fromHtml("<font color=\"#E51C23\">" + crash_.getMessage() + "</font>"));
+        crashText.append(Html.fromHtml("<font color=\"#E51C23\">" + crash.getMessage() + "</font>"));
         crashText.append("\n");
-        for (StackTraceElement stackTraceElement : crash_.getStackTrace())
+        for (StackTraceElement stackTraceElement : crash.getStackTrace())
 		{
             String className = stackTraceElement.getClassName();
             String methodName = stackTraceElement.getMethodName();
@@ -69,17 +98,15 @@ public class KirbyCrashActivity extends BaseActivity
             crashText.append(")");
             crashText.append("\n");
         }
-		email.setOnClickListener(new View.OnClickListener(){
+		
+		copy.setOnClickListener(new View.OnClickListener(){
 
 				@Override
 				public void onClick(View p1)
 				{
-					Intent email=new Intent(Intent.ACTION_SENDTO); 
-					email.putExtra(android.content.Intent.EXTRA_EMAIL,new String[] {"nihaocun@163.com"});
-					email.putExtra(android.content.Intent.EXTRA_SUBJECT, "Kirby Assistant Bug反馈"); 
-					email.putExtra(android.content.Intent.EXTRA_TEXT, crashText.getText()); 
-					email.setType("plain/text");  
-					startActivity(Intent.createChooser(email, "Mail Chooser"));  
+					ClipboardManager cm = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+					cm.setText(crashText.getText());
+					Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.copy_success),Toast.LENGTH_SHORT).show();
 				}
 			});
 	}

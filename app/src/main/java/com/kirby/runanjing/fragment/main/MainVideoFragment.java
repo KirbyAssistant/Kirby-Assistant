@@ -18,11 +18,12 @@ import com.scwang.smartrefresh.layout.listener.*;
 import java.util.*;
 import android.widget.*;
 import android.view.animation.*;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.utils.*;
 import com.kirby.runanjing.helper.*;
 import com.kirby.runanjing.customui.*;
+import com.kirby.runanjing.base.*;
 
-public class MainVideoFragment extends Fragment 
+public class MainVideoFragment extends BaseFragment 
 {
 	private View view;
 	private MainActivity m;

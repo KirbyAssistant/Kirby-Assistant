@@ -5,7 +5,7 @@
 	android:layout_height="wrap_content"
 	android:layout_width="match_parent"
 	android:layout_margin="8dp"
-	android:background="#ffffff"
+	android:background="?color_bkg_main"
 	android:id="@+id/messageitemRelativeLayout1">
 
 	<TextView
@@ -14,7 +14,7 @@
 		android:text="用户名"
 		android:id="@+id/用户名"
 		android:textSize="16sp"
-		android:textColor="#000000"
+		android:textColor="?color_text"
 		android:layout_marginTop="8dp"
 		android:layout_marginLeft="8dp"
 		android:transitionName="userName"/>
@@ -25,8 +25,8 @@
 		android:text="时间"
 		android:layout_margin="8dp"
 		android:id="@+id/时间"
-		android:textSize="10sp"
-		android:textColor="#C5c5c5"
+		android:textSize="12sp"
+		android:textColor="?color_text_pressed"
 		android:layout_below="@id/用户名"
 		android:transitionName="time"/>
 
@@ -40,7 +40,8 @@
 		android:layout_marginLeft="8dp"
 		android:layout_marginTop="8dp"
 		android:layout_marginBottom="8dp"
-		android:transitionName="mess"/>
+		android:transitionName="mess"
+		android:textColor="?color_text"/>
 
 	<TextView
 		android:layout_height="wrap_content"

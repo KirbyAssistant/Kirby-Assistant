@@ -1,4 +1,4 @@
-package com.kirby.runanjing.untils;
+package com.kirby.runanjing.utils;
 import android.content.Intent;
 import android.content.Context;
 import android.app.ActivityOptions;

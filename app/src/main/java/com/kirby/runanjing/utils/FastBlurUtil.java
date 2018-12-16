@@ -1,4 +1,4 @@
-package com.kirby.runanjing.untils;
+package com.kirby.runanjing.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

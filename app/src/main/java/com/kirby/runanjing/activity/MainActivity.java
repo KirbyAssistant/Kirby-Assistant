@@ -22,7 +22,7 @@ import com.kirby.runanjing.adapter.*;
 import com.kirby.runanjing.bmob.*;
 import com.kirby.runanjing.fragment.main.*;
 import com.kirby.runanjing.helper.*;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.utils.*;
 import java.io.*;
 import java.util.*;
 
@@ -40,7 +40,6 @@ import com.umeng.analytics.*;
  */
 public class MainActivity extends BaseActivity
 {
-	private DrawerLayout drawerLayout;
 	private MyUser u;
 	private Toolbar toolbar;
 	private Context gameContext;
@@ -335,7 +334,8 @@ public class MainActivity extends BaseActivity
 		{
 			if ((System.currentTimeMillis() - exitTime) > 2000)
 			{
-				Toast.makeText(getApplicationContext(), getResources().getString(R.string.two_back), Toast.LENGTH_SHORT).show();
+				Snackbar.make(toolbar,R.string.two_back,Snackbar.LENGTH_SHORT).show();
+				//Toast.makeText(getApplicationContext(), getResources().getString(R.string.two_back), Toast.LENGTH_SHORT).show();
 				exitTime = System.currentTimeMillis();
 			}
 			else
@@ -352,9 +352,6 @@ public class MainActivity extends BaseActivity
 	{
 		switch (item.getItemId())
 		{
-			case android.R.id.home:
-				drawerLayout.openDrawer(GravityCompat.START);
-				break;
 			case R.id.theme:
 				/**
 				 *用于显示主题列表
@@ -376,12 +373,12 @@ public class MainActivity extends BaseActivity
 					R.drawable.bluegreytheme,
 					R.drawable.yellowtheme,
 					R.drawable.kirbytheme,
-					R.drawable.darktheme
+					R.drawable.whitetheme
 				};
 				List<Integer> list = Arrays.asList(res);
 				ColorListAdapter adapter = new ColorListAdapter(MainActivity.this, list);
 				adapter.setCheckItem(itemSelected);
-				GridView gridView = (GridView) LayoutInflater.from(MainActivity.this).inflate(R.layout.colors_panel_layout, null);
+				GridView gridView = (GridView) LayoutInflater.from(MainActivity.this).inflate(R.layout.dialog_sw_theme, null);
 				gridView.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
 				gridView.setCacheColorHint(0);
 				gridView.setAdapter(adapter);

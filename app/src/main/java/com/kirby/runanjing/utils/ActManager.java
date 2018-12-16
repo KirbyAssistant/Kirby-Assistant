@@ -1,11 +1,11 @@
-package com.kirby.runanjing.untils;
+package com.kirby.runanjing.utils;
 import android.app.*;
 import android.content.*;
 import java.util.*;
+import android.support.v4.app.*;
 
 public class ActManager
 {
-
     private static Stack<Activity> activityStack;
     private static ActManager instance;
 
@@ -46,6 +46,17 @@ public class ActManager
     }
 
     /**
+     * 获取当前FragmentActivity（堆栈中最后一个压入的）
+     *
+     * @return
+     */
+    public static FragmentActivity currentFragmentActivity()
+	{
+        FragmentActivity fragmentActivity = (FragmentActivity) activityStack.lastElement();
+        return fragmentActivity;
+    }
+	
+	/**
      * 获取当前Activity（堆栈中最后一个压入的）
      *
      * @return

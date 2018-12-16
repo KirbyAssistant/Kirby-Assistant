@@ -5,7 +5,7 @@ import android.support.v7.widget.*;
 import com.github.anzewei.parallaxbacklayout.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.fragment.preference.*;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.utils.*;
 
 import com.kirby.runanjing.R;
 

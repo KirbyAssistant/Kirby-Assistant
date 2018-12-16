@@ -10,7 +10,7 @@ import com.github.anzewei.parallaxbacklayout.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.adapter.*;
 import com.kirby.runanjing.bean.*;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.utils.*;
 import java.util.*;
 
 import android.support.v7.widget.Toolbar;

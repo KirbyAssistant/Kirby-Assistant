@@ -26,16 +26,16 @@
 	
 	<string name="permissionandprivacy_title">权限和隐私政策</string>
 	<string name="permissionandprivacy_cnntent">權限說明:\n
-		Kirby Assistant申請了壹些運行時權限和普通權限，關於這些權限申請的說明，請看下文:\n
+		Kirby Assistant 申請了壹些運行時權限和普通權限，關於這些權限申請的說明，請看下文:\n
 		網絡訪問權限:用於獲取遊戲封面圖，查看攻略視頻封操作\n
 		存儲讀寫權限:用於下載模擬器文件以及更換用戶頭像\n
 		請求訪問安裝包權限:用於下載模擬器文件完畢後進行跳轉安裝\n
 		防止手機休眠:服務商要求必須申請的權限，否則無法使用服務商提供的服務\n
 		讀取日誌:用於程序崩潰後，定位崩潰信息的操作\n
-		如果您不同意上述權限可以不賦予相關權限或者退出Kirby Assistant\n
+		如果您不同意上述權限可以不賦予相關權限或者退出 Kirby Assistant\n
 		\n\n\n
 		隱私政策:\n
-		Kirby Assistant僅使用了服務商提供的數據服務功能，也就是用戶登錄註冊，閑聊發送獲取，視頻封面獲取，遊戲封面獲取，模擬器文件下載等操作。
+		Kirby Assistant 僅使用了服務商提供的數據服務功能，也就是用戶登錄註冊，閑聊發送獲取，視頻封面獲取，遊戲封面獲取，模擬器文件下載等操作。
 		當程序崩潰時會收集崩潰信息，可能包括:手機型號、系統版本、程序版本等信息，這些信息不會上傳，您需要手動發送給我，而且這些信息不會包括您的私人數據。
 	</string>
 	<string name="permissionandprivacy_agree">同意</string>
@@ -52,6 +52,7 @@
 	<string name="mess_del">刪除此閑聊</string>
 	<string name="mess_edit">編輯此閑聊</string>
 	
+	<string name="load_fail">加載失敗，請刷新重試</string>
 	
 	<string name="user_title">用護信息</string>
 	<string name="head_upload">上傳頭像中</string>

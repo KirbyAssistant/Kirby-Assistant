@@ -21,7 +21,7 @@ import com.bumptech.glide.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.bmob.*;
-import com.kirby.runanjing.untils.*;
+import com.kirby.runanjing.utils.*;
 import java.io.*;
 import java.net.*;
 
@@ -31,7 +31,8 @@ import com.kirby.runanjing.R;
 import com.umeng.analytics.*;
 import android.view.animation.*;
 import com.kirby.runanjing.helper.*;
-public class MainUserFragment extends Fragment
+import com.kirby.runanjing.base.*;
+public class MainUserFragment extends BaseFragment
 {
 	private LocalReceiver localReceiver;
     private LocalBroadcastManager localBroadcastManager;

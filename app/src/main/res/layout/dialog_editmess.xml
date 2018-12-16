@@ -5,8 +5,8 @@
 	android:layout_width="wrap_content"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
-	android:topLeftRadius="10dp"   
-	android:topRightRadius="10dp"   >
+	android:topLeftRadius="10dp"
+	android:topRightRadius="10dp">
 
 	<RelativeLayout
 		xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -34,8 +34,8 @@
 			android:text="@string/edit_some"
 			android:layout_centerHorizontal="true"
 			android:layout_alignParentTop="true"
-			android:textSize="18sp"
-			android:textColor="#FFC5C5C5"/>
+			android:textSize="20sp"
+			android:textColor="?color_text"/>
 
 		<EditText
 			android:layout_below="@id/发送"
@@ -44,9 +44,9 @@
 			android:hint="@string/edit_ny"
 			android:id="@+id/内容_编辑"
 			android:maxEms="1000"
-			android:background="@null"
-			android:textColorHint="#FFC5C5C5"
-			android:textColor="#FF000000"/>
+			android:textColorHint="?color_text_hint"
+			android:textColor="?color_text"
+			android:background="@null"/>
 
 	</RelativeLayout>
 
