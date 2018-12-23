@@ -24,6 +24,7 @@ import java.io.*;
 
 import com.kirby.runanjing.R;
 import com.yalantis.ucrop.*;
+import com.kirby.runanjing.base.*;
 
 public class HeadActivity extends BaseActivity
 {

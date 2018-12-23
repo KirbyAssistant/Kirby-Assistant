@@ -3,7 +3,6 @@ import android.content.Intent;
 import android.content.Context;
 import android.app.ActivityOptions;
 import android.app.Activity;
-import com.kirby.runanjing.BaseActivity;
 
 public class IntentUtil
 {

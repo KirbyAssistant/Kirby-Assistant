@@ -8,15 +8,14 @@
 	android:id="@+id/root_view">
 
 	<com.scwang.smartrefresh.layout.SmartRefreshLayout
-		android:id="@+id/刷新"
+		android:id="@+id/refresh"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		app:srlDragRate="0.7"
         app:srlHeaderMaxDragRate="1.3"
 		app:srlPrimaryColor="?attr/colorPrimary"
 		app:srlAccentColor="@android:color/white"
-		app:srlEnableHeaderTranslationContent="true"
-		app:srlEnableLoadMore="true">
+		app:srlEnableHeaderTranslationContent="true">
 		
 		<com.scwang.smartrefresh.header.DeliveryHeader
 			android:layout_width="match_parent"
@@ -29,5 +28,15 @@
 
 	</com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Large Text"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_centerInParent="true"
+		android:id="@+id/video_loadfail_text"
+		android:textColor="?color_text_pressed"
+		android:visibility="gone"/>
+	
 </RelativeLayout>
 

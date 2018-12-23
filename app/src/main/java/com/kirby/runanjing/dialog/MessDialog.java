@@ -269,8 +269,8 @@ public class MessDialog extends BaseNiceDialog
 								//.apply(Kirby.getGlideRequestOptions())
 								.asBitmap()
 								.fitCenter()
-								.placeholder(R.drawable.ic_kirby_download)
-								.error(R.drawable.ic_kirby_load_fail)
+								.placeholder(R.drawable.buletheme)
+								.error(R.drawable.buletheme)
 								.into(userHeadImage);
 						}
 						catch (Exception e)

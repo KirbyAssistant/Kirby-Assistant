@@ -28,7 +28,6 @@ public class Kirby extends Application
 	public void onCreate()
 	{
         super.onCreate();
-		Theme.setClassTheme(this);
 		registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
 	    CaptureCrash.init(new CaptureCrash.CrashHandler() {
 				@Override
@@ -39,6 +38,8 @@ public class Kirby extends Application
 				}
 			});
 		UMConfigure.init(this,"5c000429b465f56fdb0005ba", "CoolApk",UMConfigure.DEVICE_TYPE_PHONE, null);
+		//UMConfigure.setLogEnabled(true);//测试模式
+		MobclickAgent.openActivityDurationTrack(false);
     }
 	/*public static RequestOptions getGlideRequestOptions()
 	{

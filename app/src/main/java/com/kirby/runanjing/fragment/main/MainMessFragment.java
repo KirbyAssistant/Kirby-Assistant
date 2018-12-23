@@ -37,7 +37,7 @@ public class MainMessFragment extends BaseFragment
 	private List<Mess> messlist = new ArrayList<>();
 	private MessageAdapter adapter;
 	private RecyclerView re;
-	private RefreshLayout 刷新;
+	private RefreshLayout refresh;
 	private String name;
 	private FloatingActionButton edit_mess_button;
 	private View view;
@@ -55,7 +55,7 @@ public class MainMessFragment extends BaseFragment
         view = inflater.inflate(R.layout.main_mess, container, false);
 		m = (MainActivity)getActivity();
 		initMess(view);
-		刷新.autoRefresh();
+		refresh.autoRefresh();
 		return view;
 	}
 	
@@ -69,19 +69,19 @@ public class MainMessFragment extends BaseFragment
 		adapter = new MessageAdapter(messlist,getActivity(),getActivity().getSupportFragmentManager());	
 		//律动动画
 	    rippleBackground=(RippleLayout)view.findViewById(R.id.content);
-		//刷新数据
-		刷新 = (RefreshLayout)view.findViewById(R.id.刷新);
-		刷新.setOnRefreshListener(new OnRefreshListener(){
+		//refresh数据
+		refresh = (RefreshLayout)view.findViewById(R.id.refresh);
+		refresh.setOnRefreshListener(new OnRefreshListener(){
 				@Override
 				public void onRefresh(RefreshLayout re)
 				{
+					refresh.setEnableLoadMore(false);
 					edit_mess_button.setVisibility(View.GONE);
-					mess_load_fail.setVisibility(View.GONE);
 					rippleBackground.stopRippleAnimation();
 					getMessage();
 				}
 			});
-		刷新.setOnLoadMoreListener(new OnLoadMoreListener(){
+		refresh.setOnLoadMoreListener(new OnLoadMoreListener(){
 				@Override
 				public void onLoadMore(RefreshLayout re)
 				{
@@ -117,6 +117,8 @@ public class MainMessFragment extends BaseFragment
 				{
 					if (e == null)
 					{
+						refresh.setEnableLoadMore(true);
+						mess_load_fail.setVisibility(View.GONE);
 						Message message = messHandler.obtainMessage();
 						message.what = 0;
 						//以消息为载体
@@ -133,7 +135,7 @@ public class MainMessFragment extends BaseFragment
 					{
 						mess_load_fail.setVisibility(View.VISIBLE);
 						mess_load_fail.setText(getActivity().getResources().getString(R.string.load_fail)+e.getMessage());
-						刷新.finishRefresh();
+						refresh.finishRefresh();
 					}
 				}
 			});
@@ -161,7 +163,7 @@ public class MainMessFragment extends BaseFragment
 					else
 					{
 						Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
-						刷新.finishLoadMore();
+						refresh.finishLoadMore();
 					}
 				}
 			});
@@ -206,8 +208,8 @@ public class MainMessFragment extends BaseFragment
 						viewGroup.scheduleLayoutAnimation();
 						playLayoutAnimation(re,LayoutAnimationHelper.getAnimationSetFromBottom(),false);
 					}			
-					//刷新回调
-					刷新.finishRefresh();
+					//refresh回调
+					refresh.finishRefresh();
 					break;
 			}
 		}
@@ -248,8 +250,8 @@ public class MainMessFragment extends BaseFragment
 						messlist.add(mess);
 						re.getAdapter().notifyItemChanged(messItem);
 					}			
-					//刷新回调
-					刷新.finishLoadMore();
+					//refresh回调
+					refresh.finishLoadMore();
 					break;
 			}
 		}

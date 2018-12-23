@@ -1,4 +1,4 @@
-package com.kirby.runanjing;
+package com.kirby.runanjing.base;
 
 import android.content.*;
 import android.content.res.*;
@@ -27,27 +27,30 @@ public class BaseActivity extends AppCompatActivity
 		Transition slide_out = TransitionInflater.from(this).inflateTransition(R.transition.slide_out);
 		Transition fade = TransitionInflater.from(this).inflateTransition(R.transition.fade);
 		getWindow().setEnterTransition(slide_in); //首次进入显示的动画
-        getWindow().setExitTransition(slide_out); //启动一个新Activity,当前页的退出动画
+		getWindow().setExitTransition(slide_out); //启动一个新Activity,当前页的退出动画
 		getWindow().setReturnTransition(slide_out); //调用 finishAfterTransition() 退出时，当前页退出的动画
-        getWindow().setReenterTransition(fade); //重新进入的动画。即第二次进入，可以和首次进入不一样。
+		getWindow().setReenterTransition(fade); //重新进入的动画。即第二次进入，可以和首次进入不一样。
 		super.onCreate(savedInstanceState);
 		setLanguage();
 		Bmob.initialize(this, "e39c2e15ca40b358b0dcc933236c1165");
-		MobclickAgent.setScenarioType(getApplicationContext(),MobclickAgent.EScenarioType.E_UM_NORMAL);
+		MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
 	}
     @Override
-    public void setContentView(int layoutResID) {
+    public void setContentView(int layoutResID)
+	{
         super.setContentView(layoutResID);
-        setStatusBar();
+        setStatusBar(getDarkColorPrimary());
     }
 
-    protected void setStatusBar() {
-		StatusBarUtil.setColor(this, getDarkColorPrimary(),0);
-		getWindow().setNavigationBarColor(getDarkColorPrimary());
+    public void setStatusBar(int color)
+	{
+		StatusBarUtil.setColor(this, color, 0);
+		getWindow().setNavigationBarColor(color);
     }
-	public int getDarkColorPrimary(){
+	public int getDarkColorPrimary()
+	{
 		TypedValue typedValue = new  TypedValue();
-		getTheme().resolveAttribute(R.attr.colorPrimaryDark,typedValue,true);
+		getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
 		return typedValue.data;
 	}
 	private void setLanguage()
@@ -82,14 +85,18 @@ public class BaseActivity extends AppCompatActivity
         resources.updateConfiguration(configuration, displayMetrics);
     }
 	@Override
-	public void onResume() {
+	public void onResume()
+	{
 		super.onResume();
+		MobclickAgent.onPageStart(this.getClass().getName());
 		MobclickAgent.onResume(this);
 	}
 
 	@Override
-	public void onPause() {
+	public void onPause()
+	{
 		super.onPause();
+		MobclickAgent.onPageEnd(this.getClass().getName());
 		MobclickAgent.onPause(this);
 	}
 }

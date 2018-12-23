@@ -18,7 +18,7 @@
 				android:padding="8dp">
 
 				<ImageView
-					android:clickable="true"
+					android:background="@anim/ripple"
 					android:src="@drawable/ic_kirby_close"
 					android:layout_width="32dp"
 					android:layout_height="32dp"
@@ -28,7 +28,7 @@
 					android:layout_marginStart="8dp"/>
 
 				<ImageView
-					android:clickable="true"
+					android:background="@anim/ripple"
 					android:src="@drawable/ic_kirby_menu_vertical"
 					android:layout_width="32dp"
 					android:layout_height="32dp"
@@ -43,13 +43,13 @@
 				android:layout_width="match_parent"
 				android:layout_below="@id/messdia_close">
 
-				<de.hdodenhof.circleimageview.CircleImageView
+				<com.kirby.runanjing.customui.CircleImageView
 					android:layout_height="64dp"
 					android:layout_width="64dp"
-					android:src="@drawable/kirbytheme"
 					android:id="@+id/user_head"
 					android:layout_marginTop="16dp"
-					android:layout_marginLeft="16dp"/>
+					android:layout_marginLeft="16dp"
+					android:background="@drawable/buletheme"/>
 
 				<TextView
 					android:layout_height="wrap_content"

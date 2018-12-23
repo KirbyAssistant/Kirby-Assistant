@@ -14,6 +14,7 @@ import com.kirby.runanjing.utils.*;
 import android.support.v7.widget.Toolbar;
 import android.graphics.*;
 import android.graphics.drawable.*;
+import com.kirby.runanjing.base.*;
 
 public class GameActivity extends BaseActivity
 {

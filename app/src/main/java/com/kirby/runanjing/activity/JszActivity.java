@@ -15,6 +15,7 @@ import java.util.*;
 
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
+import com.kirby.runanjing.base.*;
 
 @ParallaxBack
 public class JszActivity extends BaseActivity
@@ -33,6 +34,7 @@ public class JszActivity extends BaseActivity
 		//配置toolbar
 		final Toolbar toolbar=(Toolbar)findViewById(R.id.标题栏);
 		setSupportActionBar(toolbar);
+		getSupportActionBar().setTitle(R.string.jsz_title);
 		//设置List的适配器
 		JszAdapter adapter=new JszAdapter(JszActivity.this, R.layout.item_jsz, list);
 		ListView listview=(ListView)findViewById(R.id.jsz_listview);

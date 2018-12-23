@@ -11,6 +11,7 @@ import com.kirby.runanjing.utils.*;
 import java.util.*;
 
 import com.kirby.runanjing.R;
+import com.kirby.runanjing.base.*;
 
 
 public class GameListActivity extends BaseActivity
@@ -26,6 +27,7 @@ public class GameListActivity extends BaseActivity
 		//配置toolbar
 		Toolbar toolbar=(Toolbar)findViewById(R.id.标题栏);
 		setSupportActionBar(toolbar);
+		getSupportActionBar().setTitle(R.string.game_title);
 		//配置列表
 		RecyclerView r=(RecyclerView)findViewById(R.id.主机列表);
 		GridLayoutManager layoutManager=new GridLayoutManager(this, 1);

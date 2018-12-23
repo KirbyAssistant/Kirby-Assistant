@@ -29,31 +29,35 @@ public class MainVideoFragment extends BaseFragment
 	private MainActivity m;
 	private StaggeredGridRecyclerView re;
 	private VideoAdapter adapter;
-	private RefreshLayout 刷新;
+	private RefreshLayout refresh;
 	private List<Video> videolist = new ArrayList<>();
+
+	private TextView video_load_fail;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
         view = inflater.inflate(R.layout.main_video, container, false);
 		m = (MainActivity)getActivity();
 		initVideo(view);
-		刷新.autoRefresh();
+		refresh.autoRefresh();
 		return view;
 	}
 
 	private void initVideo(View view)
 	{
+		video_load_fail = (TextView)view.findViewById(R.id.video_loadfail_text);
 		//设置显示视频的列表
 		re = (StaggeredGridRecyclerView)view.findViewById(R.id.视频);
 		GridLayoutManager layoutManager=new GridLayoutManager(getActivity(), 2);
 		re.setLayoutManager(layoutManager);
 		adapter = new VideoAdapter(videolist);	
-		//刷新数据
-		刷新 = (RefreshLayout)view.findViewById(R.id.刷新);
-		刷新.setOnRefreshListener(new OnRefreshListener(){
+		//refresh数据
+		refresh = (RefreshLayout)view.findViewById(R.id.refresh);
+		refresh.setOnRefreshListener(new OnRefreshListener(){
 				@Override
 				public void onRefresh(RefreshLayout re)
 				{
+					refresh.setEnableLoadMore(false);
 					getVideo();
 				}
 			});
@@ -72,6 +76,8 @@ public class MainVideoFragment extends BaseFragment
 				{
 					if (e == null)
 					{
+						refresh.setEnableLoadMore(true);
+						video_load_fail.setVisibility(View.GONE);
 						Message video = videoHandler.obtainMessage();
 						video.what = 0;
 						//以消息为载体
@@ -81,8 +87,10 @@ public class MainVideoFragment extends BaseFragment
 					}
 					else
 					{
+						video_load_fail.setVisibility(View.VISIBLE);
+						video_load_fail.setText(getActivity().getResources().getString(R.string.load_fail)+e.getMessage());
 						Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
-						刷新.finishRefresh();
+						refresh.finishRefresh();
 					}
 				}
 			});
@@ -114,8 +122,8 @@ public class MainVideoFragment extends BaseFragment
 						viewGroup.scheduleLayoutAnimation();
 						playLayoutAnimation(re,LayoutAnimationHelper.getAnimationSetFromBottom(),false);
 					}			
-					//刷新回调
-					刷新.finishRefresh();
+					//refresh回调
+					refresh.finishRefresh();
 					break;
 			}
 		}

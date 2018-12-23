@@ -150,16 +150,17 @@
 	
 	<string name="x_title">信息</string>
 	<string name="version">版本</string>
-	<string name="star1">评分</string>
-	<string name="star2">期待你的五分好评</string>
-	<string name="help1">帮助</string>
-	<string name="help2">常见问题汇总</string>
-	<string name="help3">反馈</string>
-	<string name="help4">更详细的帮助？点我进入QQ群</string>
+	<string name="star_title">评分</string>
+	<string name="star_message">期待你的五分好评</string>
+	<string name="help_title">帮助</string>
+	<string name="help_message">常见问题汇总</string>
+	<string name="feedback_title">反馈</string>
+	<string name="qq_group">更详细的帮助？点我进入QQ群</string>
 	<string name="kfz_title">开发者</string>
 	<string name="me1">酷安</string>
 	<string name="me2">\@汝南京</string>
 	<string name="github">在Github查看这个项目</string>
+	<string name="gitlab">在Gitlab查看这个项目</string>
 	
 	<string name="register">注册</string>
 	<string name="register_success">注册成功</string>

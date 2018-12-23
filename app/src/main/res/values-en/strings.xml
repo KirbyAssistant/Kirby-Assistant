@@ -10,7 +10,7 @@
 	<string name="video_title">Video</string>
 	<string name="jsz_title">Cheat Code</string>
 	<string name="ziyuan">Resources</string>
-	<string name="talk">chat</string>
+	<string name="talk">Chat</string>
 	<string name="login_title">Login/Register</string>
 	<string name="game">Games</string>
 	<string name="welcome_to">Not just games</string>
@@ -134,7 +134,7 @@
 	<string name="copy_success">The text has been copied</string>
 	
 	<string name="intro_welcome_title">Welcome</string>
-	<string name="intro_welcome_text">It Is An App You Can Get Kirby Games Resource, And It Is FREE.</string><!-- Kirby能给斜体吗，英语中专用名词没有专名号用斜体代替-->
+	<string name="intro_welcome_text">It is an app you can get Kirby games resource, and it is FREE.</string><!-- Kirby能给斜体吗，英语中专用名词没有专名号用斜体代替-->
 	<string name="intro_user_title">Account</string>
 	<string name="intro_user_text">Kirby Assistant Have Users System, You Can Login Your Account If You Have Registered Before,Or Register\nOf Course,You Can Also Do It Whenever You Use This App.</string>
 	<string name="intro_finish_title">Done</string>
@@ -146,17 +146,18 @@
 	<string name="intro_icon_text">The Kirby Asssistant has two icons that you can switch between later in the menu</string>
 
 	<string name="x_title">Information</string>
-	<string name="version">Edition</string>
-	<string name="star1">Gtade</string>
-	<string name="star2">Hope You Give Me FIVE STAR!</string>
-	<string name="help1">Help</string>
-	<string name="help2">FAQ</string>
-	<string name="help3">Feedback</string>
-	<string name="help4">More Detailed Help？Pass The Button To Go To Me Tencent QQ Group</string>
-	<string name="kfz_title">developer</string>
+	<string name="version">Version</string>
+	<string name="star_title">Gtade</string>
+	<string name="star_message">Hope You Give Me FIVE STAR!</string>
+	<string name="help_title">Help</string>
+	<string name="help_message">FAQ</string>
+	<string name="feedback">Feedback</string>
+	<string name="qq_group">More Detailed Help？Pass The Button To Go To Me Tencent QQ Group</string>
+	<string name="kfz_title">Developer</string>
 	<string name="me1">Coolapk</string>
 	<string name="me2">\@汝南京</string>
 	<string name="github">Browsing The Program In Github.</string>
+	<string name="gitlab">Browsing The Program In Gitlab.</string>
 	
 	<string name="register">Register</string>
 	<string name="register_success">Register Successfully</string>

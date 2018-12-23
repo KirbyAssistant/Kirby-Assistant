@@ -8,6 +8,7 @@ import com.kirby.runanjing.fragment.preference.*;
 import com.kirby.runanjing.utils.*;
 
 import com.kirby.runanjing.R;
+import com.kirby.runanjing.base.*;
 
 @ParallaxBack
 public class AboutActivity extends BaseActivity
@@ -20,6 +21,7 @@ public class AboutActivity extends BaseActivity
 		setContentView(R.layout.activity_about);
 		Toolbar toolbar=(Toolbar)findViewById(R.id.标题栏);
 		setSupportActionBar(toolbar);
+		getSupportActionBar().setTitle(R.string.about_title);
 		getFragmentManager().beginTransaction().replace(R.id.about_fragment, new AboutPreferenceFragment()).commit();
 	}
 }

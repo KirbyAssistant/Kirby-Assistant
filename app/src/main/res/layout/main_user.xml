@@ -25,11 +25,11 @@
 				android:scaleType="centerCrop"
 				android:id="@+id/mo_user_head"/>
 
-			<de.hdodenhof.circleimageview.CircleImageView
+			<com.kirby.runanjing.customui.CircleImageView
 				android:layout_height="80dp"
 				android:layout_width="80dp"
 				android:id="@+id/user_head"
-				android:src="@drawable/kirbytheme"
+				android:background="@drawable/buletheme"
 				android:layout_centerHorizontal="true"
 				android:transitionName="userHead"
 				android:layout_marginTop="10dp"/>

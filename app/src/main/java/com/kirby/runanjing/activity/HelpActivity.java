@@ -10,6 +10,7 @@ import com.kirby.runanjing.utils.*;
 
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
+import com.kirby.runanjing.base.*;
 
 @ParallaxBack
 public class HelpActivity extends BaseActivity
@@ -22,6 +23,7 @@ public class HelpActivity extends BaseActivity
 		setContentView(R.layout.activity_help);
 		Toolbar toolbar=(Toolbar)findViewById(R.id.标题栏);
 		setSupportActionBar(toolbar);
+		getSupportActionBar().setTitle(R.string.help_title);
 		TextView helpText=(TextView)findViewById(R.id.helpText);
 		StringBuilder help=new StringBuilder();
 		help.append("感谢您使用Kirby Assistant，这是一个针对如何在手机上玩星之卡比而开发的软件，您可以在这里轻松下载到很多经典的星之卡比游戏，同时我们也准备了可以运行游戏的模拟器软件，可以方便的运行游戏文件。如果你喜欢该软件，可以到酷安给我们一个五星好评，或者用支付宝/微信小小的支持一下我们。你们的支持是我制作软件的最大动力！\n");

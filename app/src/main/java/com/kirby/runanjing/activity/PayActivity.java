@@ -16,6 +16,7 @@ import com.kirby.runanjing.R;
 import android.net.*;
 import java.io.*;
 import android.graphics.*;
+import com.kirby.runanjing.base.*;
 
 @ParallaxBack
 public class PayActivity extends BaseActivity
@@ -48,7 +49,8 @@ public class PayActivity extends BaseActivity
 		setContentView(R.layout.activity_pay);
 		Toolbar toolbar=(Toolbar)findViewById(R.id.标题栏);
 		setSupportActionBar(toolbar);
-      //  btAlipayCustom = ((Button) findViewById(R.id.bt_alipay));
+		getSupportActionBar().setTitle(R.string.pay_title);
+		//  btAlipayCustom = ((Button) findViewById(R.id.bt_alipay));
         btAlipayUserInput = ((Button) findViewById(R.id.bt_alipay_user_input));
 		btAlipayHongbao = ((Button) findViewById(R.id.bt_alipay_hongbao));
 		wechat=((Button)findViewById(R.id.wechat));

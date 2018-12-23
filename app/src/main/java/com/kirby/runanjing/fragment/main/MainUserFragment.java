@@ -13,6 +13,7 @@ import android.support.v7.app.*;
 import android.support.v7.widget.*;
 import android.text.*;
 import android.view.*;
+import android.view.animation.*;
 import android.widget.*;
 import cn.bmob.v3.*;
 import cn.bmob.v3.exception.*;
@@ -20,18 +21,16 @@ import cn.bmob.v3.listener.*;
 import com.bumptech.glide.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.activity.*;
+import com.kirby.runanjing.base.*;
 import com.kirby.runanjing.bmob.*;
+import com.kirby.runanjing.helper.*;
 import com.kirby.runanjing.utils.*;
+import com.umeng.analytics.*;
 import java.io.*;
 import java.net.*;
 
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import com.kirby.runanjing.R;
-import com.umeng.analytics.*;
-import android.view.animation.*;
-import com.kirby.runanjing.helper.*;
-import com.kirby.runanjing.base.*;
 public class MainUserFragment extends BaseFragment
 {
 	private LocalReceiver localReceiver;
@@ -118,9 +117,8 @@ public class MainUserFragment extends BaseFragment
 					.load(u.getUserHead().getFileUrl())
 					//.apply(Kirby.getGlideRequestOptions())
 					.asBitmap()
+					.placeholder(R.drawable.buletheme)
 					.fitCenter()
-					.placeholder(R.drawable.ic_kirby_download)
-					.error(R.drawable.ic_kirby_load_fail)
 					.into(userHead);	
 
 				new Thread(new Runnable() {
@@ -191,12 +189,12 @@ public class MainUserFragment extends BaseFragment
 					}
 				}
 			});
-			
+
 		LayoutAnimationController controller = LayoutAnimationHelper.makeLayoutAnimationController();
 		ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.root_view);
 		viewGroup.setLayoutAnimation(controller);
 		viewGroup.scheduleLayoutAnimation();
-		playLayoutAnimation(LayoutAnimationHelper.getAnimationSetFromBottom(),false);
+		playLayoutAnimation(LayoutAnimationHelper.getAnimationSetFromBottom(), false);
 	}
 
 	private void userEditEmail()
@@ -230,45 +228,48 @@ public class MainUserFragment extends BaseFragment
 					}
 					else
 					{
-						if (Email.checkEmail(edit_原邮箱)==false||Email.checkEmail(edit_新邮箱)==false){
+						if (Email.checkEmail(edit_原邮箱) == false || Email.checkEmail(edit_新邮箱) == false)
+						{
 							changeEmailProgress.dismiss();
 							Toast.makeText(getActivity(), R.string.email_fail, Toast.LENGTH_SHORT).show();
-						}else{
-						if (email.equals(edit_原邮箱))
-						{
-							MyUser 邮箱=new MyUser();
-							邮箱.setEmail(edit_新邮箱);
-							邮箱.update(id, new UpdateListener() {
-
-									@Override
-									public void done(BmobException e)
-									{
-										if (e == null)
-										{
-											changeEmailProgress.dismiss();
-											Toast.makeText(getActivity(), R.string.edit_true, Toast.LENGTH_SHORT).show();
-											u.logOut();
-											//finish();
-											m.open();
-										}
-										else
-										{
-											changeEmailProgress.dismiss();
-											Toast.makeText(getActivity(), R.string.edit_false + e.getMessage(), Toast.LENGTH_SHORT).show();
-										}
-									}
-
-								});
 						}
 						else
 						{
-							Toast.makeText(getActivity(), R.string.change_email_false, Toast.LENGTH_SHORT).show();
+							if (email.equals(edit_原邮箱))
+							{
+								MyUser 邮箱=new MyUser();
+								邮箱.setEmail(edit_新邮箱);
+								邮箱.update(id, new UpdateListener() {
+
+										@Override
+										public void done(BmobException e)
+										{
+											if (e == null)
+											{
+												changeEmailProgress.dismiss();
+												Toast.makeText(getActivity(), R.string.edit_true, Toast.LENGTH_SHORT).show();
+												u.logOut();
+												//finish();
+												m.open();
+											}
+											else
+											{
+												changeEmailProgress.dismiss();
+												Toast.makeText(getActivity(), R.string.edit_false + e.getMessage(), Toast.LENGTH_SHORT).show();
+											}
+										}
+
+									});
+							}
+							else
+							{
+								Toast.makeText(getActivity(), R.string.change_email_false, Toast.LENGTH_SHORT).show();
+							}
 						}
 					}
 				}
 			}
-		}
-	)					
+		)					
 			.setNegativeButton(R.string.dia_cancel, null)
 			.show();
 	}
@@ -390,7 +391,8 @@ public class MainUserFragment extends BaseFragment
      * @param animation
      * @param isReverse
      */
-    public void playLayoutAnimation(Animation animation, boolean isReverse) {
+    public void playLayoutAnimation(Animation animation, boolean isReverse)
+	{
         LayoutAnimationController controller = new LayoutAnimationController(animation);
         controller.setDelay(0.1f);
         controller.setOrder(isReverse ? LayoutAnimationController.ORDER_REVERSE : LayoutAnimationController.ORDER_NORMAL);

@@ -9,7 +9,7 @@ android {
         minSdkVersion 21
 	    targetSdkVersion 28
         versionCode 22
-        versionName "未来·炫动-1.1"
+        versionName "未来·炫动-1.2"
 		multiDexEnabled true
         multiDexKeepProguard file('multiDexKeep.pro') 
 		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
@@ -36,7 +36,7 @@ dependencies {
 	//compile 'com.tencent.qcloud:cosxml:5.4.8'
 	//compile 'jp.wasabeef:recyclerview-animators:3.0.0'
 	//图片圆形
-	compile 'de.hdodenhof:circleimageview:2.2.0'
+	//compile 'de.hdodenhof:circleimageview:2.2.0'
 	//图片加载
 	compile "com.github.bumptech.glide:glide:3.6.1"
 	//compile 'com.github.bumptech.glide:compiler:4.7.1'
@@ -59,7 +59,7 @@ dependencies {
     //fab动画
 	//compile 'me.shaohui:bottomdialog:1.1.9'
     compile 'com.github.SheHuan:NiceDialog:1.1.9'
-	//compile 'com.android.support:multidex:1.0.0'
+	//compile 'com.android.support:multidex:1.0.2'
 	compile 'com.android.support:design:25.3.1'
 	compile 'com.android.support:support-v4:25.3.1'
 	compile 'com.android.support:recyclerview-v7:25.3.1'

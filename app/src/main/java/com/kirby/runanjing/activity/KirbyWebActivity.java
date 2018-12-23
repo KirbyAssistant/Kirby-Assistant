@@ -10,6 +10,7 @@ import com.kirby.runanjing.utils.*;
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
 import android.graphics.*;
+import com.kirby.runanjing.base.*;
 
 public class KirbyWebActivity extends BaseActivity
 {

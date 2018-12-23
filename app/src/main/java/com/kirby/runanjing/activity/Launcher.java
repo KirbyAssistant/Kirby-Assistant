@@ -14,6 +14,8 @@ import android.widget.*;
 import android.graphics.*;
 import android.view.animation.*;
 import com.kirby.runanjing.customui.*;
+import com.kirby.runanjing.base.*;
+import android.support.v4.view.*;
 
 /**
  *类类型:Activity
@@ -21,54 +23,79 @@ import com.kirby.runanjing.customui.*;
  *进入看到的第一个Activity
  *用于显示加载动画
  */
-public class Launcher extends AppCompatActivity
+public class Launcher extends BaseActivity
 {
 
 	private Handler mHandler = new Handler();
-
 	private HTextView welcome;
-
 	private ImageView icon;
+	
+	public static final int STARTUP_DELAY = 300;
+    public static final int ANIM_ITEM_DURATION = 1000;
+    public static final int ITEM_DELAY = 300;
 
-	private RippleLayout rippleBackground;
-
+    private boolean animationStarted = false;
 	@Override
     protected void onCreate(Bundle savedInstanceState)
     {
 		//隐藏状态栏
-       /* getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-							 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);*/
+		/* getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+		 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		 getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);*/
 		Window window = this.getWindow();
 		//添加Flag把状态栏设为可绘制模式
 		window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-			//取消设置Window半透明的Flag
-			window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-			//设置状态栏为透明
-			window.setStatusBarColor(Color.TRANSPARENT);
-			//设置window的状态栏不可见
-			window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-		Theme.setClassTheme(this);
+		//取消设置Window半透明的Flag
+		window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+		//设置状态栏为透明
+		window.setStatusBarColor(Color.TRANSPARENT);
+		//设置window的状态栏不可见
+		window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 		super.onCreate(savedInstanceState);
-		setLanguage();
 		setContentView(R.layout.activity_welcome);
-		icon=(ImageView)findViewById(R.id.welcomeImageView1);
-		rippleBackground=(RippleLayout)findViewById(R.id.content);
-		SharedPreferences preferences = getSharedPreferences("icon", 0);
-        String icon_ver = preferences.getString("icon_ver", "hk");
-		if(icon_ver.equals("hk")){
-			icon.setImageDrawable(getResources().getDrawable(R.drawable.ic_foreground_image_hk));
-		}else{
-			icon.setImageDrawable(getResources().getDrawable(R.drawable.ic_foreground_image_ma));
-		}
+		icon = (ImageView)findViewById(R.id.welcomeImageView1);
+	}
+	/**
+	 *方法名:getColorPrumary
+	 *不需要传入参数
+	 *用于或许主题指定颜色
+	 */
+	public int getColorPrimary()
+	{
+		TypedValue typedValue = new  TypedValue();
+		getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
+		return typedValue.data;
+	}
+	@Override
+    public void onWindowFocusChanged(boolean hasFocus)
+	{
+
+        if (!hasFocus || animationStarted)
+		{
+            return;
+        }
+
+        animate();
+
+        super.onWindowFocusChanged(hasFocus);
+    }
+
+    private void animate()
+	{
+        ImageView logoImageView = (ImageView) findViewById(R.id.welcomeImageView1);
+
+        ViewCompat.animate(logoImageView)
+            .translationY(-250)
+            .setStartDelay(STARTUP_DELAY)
+            .setDuration(ANIM_ITEM_DURATION).setInterpolator(
+			new DecelerateInterpolator(1.2f)).start();
+
 		welcome = (HTextView)findViewById(R.id.textview);
-		welcome.setTextColor(getColorPrimary());
 		welcome.animateText("Kirby Assistant");
 		mHandler.postDelayed(new Runnable() {
 				@Override
 				public void run()
 				{
-					rippleBackground.startRippleAnimation();
 					welcome.animateText(getResources().getString(R.string.welcome_to));
 				}
 			}
@@ -82,56 +109,10 @@ public class Launcher extends AppCompatActivity
 					intent.setClass(Launcher.this, MainActivity.class);
 					startActivity(intent);
 					finish();
-					overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+					overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 				}
             }
 			, 2500);
 	}
-	/**
-	 *方法名:setLanguage
-	 *不需要传入参数
-	 *用于设置语言
-	 */
-	private void setLanguage()
-	{
-
-        //读取SharedPreferences数据，默认选中第一项
-        SharedPreferences preferences = getSharedPreferences("setting", 0);
-        String language = preferences.getString("language", "auto");
-
-        //根据读取到的数据，进行设置
-        Resources resources = getResources();
-        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-        Configuration configuration = resources.getConfiguration();
-
-        switch (language)
-		{
-            case "auto":
-                configuration.setLocale(Locale.getDefault());
-                break;
-            case "zh_cn":
-                configuration.setLocale(Locale.CHINA);
-                break;
-			case "zh_tw":
-                configuration.setLocale(Locale.TAIWAN);
-                break;
-			case "en":
-                configuration.setLocale(Locale.ENGLISH);
-                break;
-            default:
-                break;
-        }
-        resources.updateConfiguration(configuration, displayMetrics);
-    }
-	/**
-	 *方法名:getColorPrumary
-	 *不需要传入参数
-	 *用于或许主题指定颜色
-	 */
-	public int getColorPrimary()
-	{
-		TypedValue typedValue = new  TypedValue();
-		getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
-		return typedValue.data;
-	}
 }
+

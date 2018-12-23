@@ -148,16 +148,17 @@
 	
 	<string name="x_title">信息</string>
 	<string name="version">版本</string>
-	<string name="star1">評分</string>
-	<string name="star2">期待妳的五分好評</string>
-	<string name="help1">幫助</string>
-	<string name="help2">常見問題匯總</string>
-	<string name="help3">反饋</string>
-	<string name="help4">更詳細的幫助？點我進入QQ群</string>
+	<string name="star_title">評分</string>
+	<string name="star_message">期待妳的五分好評</string>
+	<string name="help_title">幫助</string>
+	<string name="help_meaasge">常見問題匯總</string>
+	<string name="feedback">反饋</string>
+	<string name="qq_group">更詳細的幫助？點我進入QQ群</string>
 	<string name="kfz_title">開發者</string>
 	<string name="me1">酷安</string>
 	<string name="me2">\@汝南京</string>
 	<string name="github">在Github查看這個項目</string>
+	<string name="gitlab">在Gitlab查看這個項目</string>
 	
 	<string name="register">註冊</string>
 	<string name="register_success">註冊成功</string>

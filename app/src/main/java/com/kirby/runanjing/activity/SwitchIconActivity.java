@@ -11,6 +11,7 @@ import com.kirby.runanjing.utils.*;
 
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.R;
+import com.kirby.runanjing.base.*;
 
 @ParallaxBack
 public class SwitchIconActivity extends BaseActivity
@@ -35,6 +36,7 @@ public class SwitchIconActivity extends BaseActivity
 		setContentView(R.layout.activity_sw_icon);
 		Toolbar toolbar=(Toolbar)findViewById(R.id.标题栏);
 		setSupportActionBar(toolbar);
+		getSupportActionBar().setTitle(R.string.switch_icon);
 		Button sw_hk=(Button)findViewById(R.id.sw_hk);
 		Button sw_ma=(Button)findViewById(R.id.sw_ma);
 		sw_hk.setOnClickListener(new View.OnClickListener(){
