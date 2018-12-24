@@ -8,7 +8,7 @@ android {
         applicationId "com.kirby.runanjing"
         minSdkVersion 21
 	    targetSdkVersion 28
-        versionCode 22
+        versionCode 23
         versionName "未来·炫动-1.2"
 		multiDexEnabled true
         multiDexKeepProguard file('multiDexKeep.pro') 
