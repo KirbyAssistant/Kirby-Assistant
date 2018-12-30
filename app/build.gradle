@@ -8,8 +8,8 @@ android {
         applicationId "com.kirby.runanjing"
         minSdkVersion 21
 	    targetSdkVersion 28
-        versionCode 24
-        versionName "未来·炫动-1.2.1"
+        versionCode 25
+        versionName "未来·炫动-1.2.2"
 		multiDexEnabled true
         multiDexKeepProguard file('multiDexKeep.pro') 
 		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
@@ -23,7 +23,6 @@ android {
     }
 }
 dependencies {
-	//compile project(':nicedialog')
 	compile fileTree(dir: 'libs', include: ['*.jar'])
 	//友盟统计
 	compile  'com.umeng.umsdk:analytics:7.5.4'
@@ -47,18 +46,13 @@ dependencies {
 	//多样的下拉刷新
 	compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-16'
     compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-16'
-    //启动界面文字
-	compile "com.hanks:htextview-base:0.1.2"   
-	compile "com.hanks:htextview-evaporate:0.1.2"  
-   	//bmob
+    //bmob
 	compile 'cn.bmob.android:bmob-sdk:3.6.5'
 	//滑动返回
 	compile 'com.github.anzewei:parallaxbacklayout:1.1.6'
 	//状态栏变色
 	compile 'com.jaeger.statusbarutil:library:1.4.0'
-    //fab动画
-    //compile 'com.github.SheHuan:NiceDialog:1.1.9'
-	//compile 'com.android.support:multidex:1.0.2'
+    //compile 'com.android.support:multidex:1.0.2'
 	compile 'com.android.support:design:25.3.1'
 	compile 'com.android.support:support-v4:2'
 	compile 'com.android.support:recyclerview-v7:25.3.1'

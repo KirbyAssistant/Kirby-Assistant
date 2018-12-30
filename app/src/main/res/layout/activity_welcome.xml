@@ -14,7 +14,7 @@
 		android:id="@+id/welcomeImageView1"
 		android:layout_gravity="center"/>
 
-	<com.hanks.htextview.evaporate.EvaporateTextView
+	<TextView
 		android:id="@+id/textview"
 		android:layout_width="match_parent"
 		android:layout_height="100dp"

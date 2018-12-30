@@ -314,7 +314,7 @@ public class MainActivity extends BaseActivity
 	public void open()
 	{
 		Intent intent = getIntent();
-		overridePendingTransition(R.transition.explode, android.R.anim.fade_out);//假装没退出过...
+		overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);//假装没退出过...
 		intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 		finish();
 	    startActivity(intent);

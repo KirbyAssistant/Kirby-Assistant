@@ -5,7 +5,6 @@ import android.os.*;
 import android.support.v7.app.*;
 import android.util.*;
 import android.view.*;
-import com.hanks.htextview.base.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.utils.*;
 import java.util.*;
@@ -16,6 +15,7 @@ import com.kirby.runanjing.customui.*;
 import com.kirby.runanjing.base.*;
 import android.support.v4.view.*;
 import com.kirby.runanjing.main.*;
+import android.animation.*;
 
 /**
  *类类型:Activity
@@ -27,7 +27,7 @@ public class Launcher extends BaseActivity
 {
 
 	private Handler mHandler = new Handler();
-	private HTextView welcome;
+	private TextView welcome;
 	private ImageView icon;
 	
 	public static final int STARTUP_DELAY = 300;
@@ -38,10 +38,6 @@ public class Launcher extends BaseActivity
 	@Override
     protected void onCreate(Bundle savedInstanceState)
     {
-		//隐藏状态栏
-		/* getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-		 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		 getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);*/
 		Window window = this.getWindow();
 		//添加Flag把状态栏设为可绘制模式
 		window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -90,29 +86,24 @@ public class Launcher extends BaseActivity
             .setDuration(ANIM_ITEM_DURATION).setInterpolator(
 			new DecelerateInterpolator(1.2f)).start();
 
-		welcome = (HTextView)findViewById(R.id.textview);
-		welcome.animateText("Kirby Assistant");
+		welcome = (TextView)findViewById(R.id.textview);
+		welcome.setText(R.string.app_name);
+		ObjectAnimator animator = ObjectAnimator.ofFloat(welcome, "alpha", 0f, 1f);
+        animator.setDuration(700);
+        animator.start();
 		mHandler.postDelayed(new Runnable() {
 				@Override
 				public void run()
 				{
-					welcome.animateText(getResources().getString(R.string.welcome_to));
-				}
-			}
-			, 1250);
-		mHandler.postDelayed(new Runnable() {
-				@Override
-				public void run()
-				{
-					//跳转
 					Intent intent=new Intent(Launcher.this, MainActivity.class);
 					intent.setClass(Launcher.this, MainActivity.class);
 					startActivity(intent);
 					finish();
-					overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+					overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);			
+					//welcome.setText(getResources().getString(R.string.welcome_to));
 				}
-            }
-			, 2500);
+			}
+			, 1000);
 	}
 }
 

@@ -23,7 +23,6 @@ import android.support.v4.app.*;
 import com.kirby.runanjing.crash.*;
 public class Kirby extends Application
 {
-	private static Kirby instance;
 	public void onCreate()
 	{
         super.onCreate();
