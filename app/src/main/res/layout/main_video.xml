@@ -24,7 +24,7 @@
 		<com.kirby.runanjing.customui.StaggeredGridRecyclerView
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:id="@+id/视频"/>
+			android:id="@+id/video_list"/>
 
 	</com.scwang.smartrefresh.layout.SmartRefreshLayout>
 

@@ -66,7 +66,7 @@
 							android:textSize="16sp"
 							android:hint="@string/login_user"
 							android:textColor="?attr/colorPrimary"
-							android:id="@+id/登录_用户名"
+							android:id="@+id/login_username"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
 							android:inputType="textPersonName"
@@ -94,7 +94,7 @@
 							android:textSize="16sp"
 							android:hint="@string/login_password"
 							android:textColor="?attr/colorPrimary"
-							android:id="@+id/登录_密码"
+							android:id="@+id/login_passworld"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
 							android:inputType="textPassword"
@@ -112,7 +112,7 @@
 					android:layout_height="wrap_content">
 
 					<Button
-						android:id="@+id/登录"
+						android:id="@+id/login_btn"
 						android:background="@drawable/bt_shape"
 						android:stateListAnimator="@drawable/state_list_animator_z"
 						android:layout_width="150dp"
@@ -183,7 +183,7 @@
 							android:textSize="16sp"
 							android:hint="@string/register_username"
 							android:textColor="?attr/colorPrimary"
-							android:id="@+id/注册_用户名"
+							android:id="@+id/register_username"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
 							android:inputType="text"
@@ -211,7 +211,7 @@
 							android:textSize="16sp"
 							android:hint="@string/register_email"
 							android:textColor="?attr/colorPrimary"
-							android:id="@+id/邮箱"
+							android:id="@+id/register_email"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
 							android:inputType="textEmailAddress"
@@ -240,7 +240,7 @@
 							android:textSize="16sp"
 							android:hint="@string/register_password"
 							android:textColor="?attr/colorPrimary"
-							android:id="@+id/注册_密码"
+							android:id="@+id/register_password"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
 							android:inputType="textPassword"
@@ -268,7 +268,7 @@
 							android:textSize="16sp"
 							android:hint="@string/register_password_again"
 							android:textColor="?attr/colorPrimary"
-							android:id="@+id/重复密码"
+							android:id="@+id/register_password_again"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
 							android:inputType="textPassword"
@@ -286,7 +286,7 @@
 					android:layout_height="wrap_content">
 
 					<Button
-						android:id="@+id/注册"
+						android:id="@+id/register_btn"
 						android:background="@drawable/bt_shape"
 						android:stateListAnimator="@drawable/state_list_animator_z"
 						android:layout_width="150dp"

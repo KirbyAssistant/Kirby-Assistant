@@ -10,13 +10,13 @@
 	<string name="help_title">帮助</string>
 	<string name="mess_title">详情</string>
 	<string name="video_title">视频</string>
-	<string name="jsz_title">金手指</string>
+	<string name="cheatCode_title">金手指</string>
 	<string name="ziyuan">资源</string>
 	<string name="talk">闲聊</string>
 	<string name="login_title">登录/注册</string>
 	<string name="game">游戏</string>
 	<string name="welcome_to">不仅有游戏</string>
-	<string name="moniqi">模拟器</string>
+	<string name="emulators">模拟器</string>
 	<string name="not_login">没有登陆</string>
 	<string name="language">语言设置</string>
 	<string name="crash_title">出错了</string>
@@ -73,18 +73,18 @@
 	<string name="not_have_user">没有账号？点我</string>
 	<string name="have_user">已有账号？点我</string>
 	
-	<string name="change_email">修改邮箱</string>
-	<string name="change_email_hint">修改邮箱（成功后需要重新登录）</string>
-	<string name="change_email_false">邮箱验证失败</string>
-	<string name="change_email_old">请输入原来的邮箱</string>
-	<string name="change_email_new">请输入新的邮箱</string>
-	<string name="change_password_old">请输入原密码</string>
-	<string name="change_password_new">请输入新密码</string>
-	<string name="change_password_new_again">请再输入一次新密码</string>
+	<string name="modification_email">修改邮箱</string>
+	<string name="modification_email_hint">修改邮箱（成功后需要重新登录）</string>
+	<string name="modification_email_false">邮箱验证失败</string>
+	<string name="modification_email_old">请输入原来的邮箱</string>
+	<string name="modification_email_new">请输入新的邮箱</string>
+	<string name="modification_password_old">请输入原密码</string>
+	<string name="modification_password_new">请输入新密码</string>
+	<string name="modification_password_new_again">请再输入一次新密码</string>
 	<string name="password">两次输入的密码不同</string>
-	<string name="change_password">修改密码</string>
-	<string name="change_password_hint">修改密码（成功后需要重新登录）</string>
-	<string name="change_password_false">出错</string>
+	<string name="modification_password">修改密码</string>
+	<string name="modification_password_hint">修改密码（成功后需要重新登录）</string>
+	<string name="modification_password_false">出错</string>
 	
 	
 	<string name="is_null">不能为空</string>

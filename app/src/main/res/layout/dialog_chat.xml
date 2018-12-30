@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="?color_bkg_main">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<RelativeLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="48dp"
+				android:padding="8dp">
+
+				<ImageView
+					android:background="@anim/ripple"
+					android:src="@drawable/ic_kirby_close"
+					android:layout_width="32dp"
+					android:layout_height="32dp"
+					android:layout_centerVertical="true"
+					android:layout_alignParentEnd="true"
+					android:id="@+id/chatdia_close"
+					android:layout_marginStart="8dp"/>
+
+				<ImageView
+					android:background="@anim/ripple"
+					android:src="@drawable/ic_kirby_menu_vertical"
+					android:layout_width="32dp"
+					android:layout_height="32dp"
+					android:layout_toLeftOf="@id/chatdia_close"
+					android:layout_centerVertical="true"
+					android:id="@+id/chat_menu"/>
+
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_height="match_parent"
+				android:layout_width="match_parent"
+				android:layout_below="@id/chatdia_close">
+
+				<com.kirby.runanjing.customui.CircleImageView
+					android:layout_height="64dp"
+					android:layout_width="64dp"
+					android:id="@+id/user_head"
+					android:layout_marginTop="16dp"
+					android:layout_marginLeft="16dp"
+					android:background="@drawable/buletheme"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:layout_width="wrap_content"
+					android:text="Medium Text"
+					android:id="@+id/userName"
+					android:textColor="?color_text"
+					android:transitionName="userName"
+					android:layout_toRightOf="@id/user_head"
+					android:layout_marginTop="16dp"
+					android:layout_marginLeft="16dp"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:layout_width="wrap_content"
+					android:text="Small Text"
+					android:layout_below="@id/userName"
+					android:id="@+id/time"
+					android:textColor="?color_text_pressed"
+					android:transitionName="timr"
+					android:layout_marginBottom="18dp"
+					android:layout_toRightOf="@id/user_head"
+					android:layout_marginLeft="16dp"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:layout_width="wrap_content"
+					android:text="Medium Text"
+					android:layout_below="@id/user_head"
+					android:id="@+id/mess"
+					android:transitionName="mess"
+					android:textColor="?color_text"
+					android:layout_marginLeft="16dp"
+					android:layout_marginTop="16dp"/>
+
+			</RelativeLayout>
+
+		</RelativeLayout>
+
+	</ScrollView>
+
+</RelativeLayout>
+

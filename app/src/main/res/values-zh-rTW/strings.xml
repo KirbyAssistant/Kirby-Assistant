@@ -10,13 +10,13 @@
 	<string name="help_title">幫助</string>
 	<string name="mess_title">詳情</string>
 	<string name="video_title">視頻</string>
-	<string name="jsz_title">金手指</string>
+	<string name="cheatCode_title">金手指</string>
 	<string name="ziyuan">資源</string>
 	<string name="talk">閑聊</string>
 	<string name="login_title">登錄/註冊</string>
 	<string name="game">遊戲</string>
 	<string name="welcome_to">不僅有遊戲</string>
-	<string name="moniqi">模擬器</string>
+	<string name="emulators">模擬器</string>
 	<string name="not_login">沒有登錄</string>
 	<string name="language">語言設置</string>
 	<string name="crash_title">出錯了</string>
@@ -72,18 +72,18 @@
 	<string name="not_have_user">沒有賬號？點我</string>
 	<string name="have_user">已有賬號？點我</string>
 	
-	<string name="change_email">修改郵箱</string>
-	<string name="change_email_hint">修改郵箱（成功後需要重新登錄）</string>
-	<string name="change_email_false">郵箱驗證失敗</string>
-	<string name="change_email_old">請輸入原來的郵箱</string>
-	<string name="change_email_new">請輸入新的郵箱</string>
-	<string name="change_password_old">請輸入原密碼</string>
-	<string name="change_password_new">請輸入新密碼</string>
-	<string name="change_password_new_again">請再輸入壹次新密碼</string>
+	<string name="modification_email">修改郵箱</string>
+	<string name="modification_email_hint">修改郵箱（成功後需要重新登錄）</string>
+	<string name="modification_email_false">郵箱驗證失敗</string>
+	<string name="modification_email_old">請輸入原來的郵箱</string>
+	<string name="modification_email_new">請輸入新的郵箱</string>
+	<string name="modification_password_old">請輸入原密碼</string>
+	<string name="modification_password_new">請輸入新密碼</string>
+	<string name="modification_password_new_again">請再輸入壹次新密碼</string>
 	<string name="password">兩次輸入的密碼不同</string>
-	<string name="change_password">修改密碼</string>
-	<string name="change_password_hint">修改密碼（成功後需要重新登錄）</string>
-	<string name="change_password_false">出錯</string>
+	<string name="modification_password">修改密碼</string>
+	<string name="modification_password_hint">修改密碼（成功後需要重新登錄）</string>
+	<string name="modification_password_false">出錯</string>
 	
 	<string name="is_null">不能為空</string>
 	<string name="edit_true">修改成功</string>

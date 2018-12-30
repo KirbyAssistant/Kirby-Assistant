@@ -4,7 +4,7 @@
     <PreferenceCategory android:title="@string/x_title">
         <Preference
             android:key="version"
-			android:summary="未来·炫动-1.2(23)(com.kirby.runanjing)"
+			android:summary="未来·炫动-1.2.1(24)(com.kirby.runanjing)"
             android:title="@string/version"
 			android:icon="@drawable/ic_ka_version"/>
 		<Preference	

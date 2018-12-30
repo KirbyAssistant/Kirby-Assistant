@@ -18,7 +18,7 @@
 		android:networkSecurityConfig="@xml/network_security_config"
 		android:theme="@style/BuleTheme">
 		<activity
-			android:name=".activity.Launcher"
+			android:name=".launcher.Launcher"
 			android:label="@string/app_name"
 			android:theme="@style/LauncherLoading">
 			<intent-filter>
@@ -27,30 +27,28 @@
 			</intent-filter>
 		</activity>
 		<activity-alias
-			android:name=".activity.OtherLauncher"
+			android:name=".launcher.OtherLauncher"
 			android:enabled="false"
 			android:icon="@mipmap/ic_launcher_ma"
 			android:label="@string/app_name"
 			android:screenOrientation="landscape"
-			android:targetActivity=".activity.Launcher">
+			android:targetActivity=".launcher.Launcher">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity-alias>
 		<activity
-			android:name=".activity.MainActivity"
+			android:name=".main.MainActivity"
 			android:label="Kirby Assistant"/>
-		<activity android:name=".activity.KirbyWebActivity"/>
-		<activity android:name=".activity.HeadActivity"/>
-		<activity android:name=".activity.PayActivity"/>
-		<activity android:name=".activity.UserActivity"/>
-		<activity android:name=".activity.GameListActivity"/>
-		<activity android:name=".activity.GameActivity"/>
-		<activity android:name=".activity.SwitchIconActivity"/>
-		<activity android:name=".activity.AboutActivity"/>
-		<activity android:name=".activity.JszActivity"/>
-		<activity android:name=".activity.HelpActivity"/>
+		<activity android:name=".me.user.userhead.HeadActivity"/>
+		<activity android:name=".main.donate.PayActivity"/>
+		<activity android:name=".resources.game.GameListActivity"/>
+		<activity android:name=".resources.game.GameActivity"/>
+		<activity android:name=".main.swic.SwitchIconActivity"/>
+		<activity android:name=".about.AboutActivity"/>
+		<activity android:name=".resoutces.cheatcode.CheatCodeActivity"/>
+		<activity android:name=".help.HelpActivity"/>
 		<activity
 			android:name="com.yalantis.ucrop.UCropActivity"
 			android:screenOrientation="portrait"

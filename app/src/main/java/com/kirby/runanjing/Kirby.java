@@ -13,15 +13,14 @@ import android.os.*;
 import com.bumptech.glide.request.*;
 import com.github.anzewei.parallaxbacklayout.*;
 import com.kirby.runanjing.*;
-import com.kirby.runanjing.activity.*;
 import com.kirby.runanjing.utils.*;
 
 import com.kirby.runanjing.R;
 import com.umeng.commonsdk.*;
 import com.umeng.analytics.*;
 import android.widget.*;
-import com.kirby.runanjing.dialog.*;
 import android.support.v4.app.*;
+import com.kirby.runanjing.crash.*;
 public class Kirby extends Application
 {
 	private static Kirby instance;
@@ -61,7 +60,7 @@ public class Kirby extends Application
 				{
 					FragmentActivity getCrashActivity=ActManager.currentFragmentActivity();
 					CrashDialog.newInstance("1", crash)
-						.setTheme(R.style.NiceDialogStyle)
+						.setTheme(R.style.BottomDialogStyle)
 					    .setMargin(0)
 						.setShowBottom(true)   
 						.show(getCrashActivity.getSupportFragmentManager());
