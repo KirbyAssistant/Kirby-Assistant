@@ -50,7 +50,7 @@ public class MainChatFragment extends BaseFragment
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-        view = inflater.inflate(R.layout.main_mess, container, false);
+        view = inflater.inflate(R.layout.main_chat, container, false);
 		m = (MainActivity)getActivity();
 		initMess(view);
 		refresh.autoRefresh();
