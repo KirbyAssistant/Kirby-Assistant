@@ -23,7 +23,7 @@ import android.animation.*;
  *进入看到的第一个Activity
  *用于显示加载动画
  */
-public class Launcher extends BaseActivity
+public class Launcher extends AppCompatActivity
 {
 
 	private Handler mHandler = new Handler();
@@ -50,43 +50,21 @@ public class Launcher extends BaseActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_welcome);
 		icon = (ImageView)findViewById(R.id.welcomeImageView1);
+		animate();
 	}
-	/**
-	 *方法名:getColorPrumary
-	 *不需要传入参数
-	 *用于或许主题指定颜色
-	 */
-	public int getColorPrimary()
-	{
-		TypedValue typedValue = new  TypedValue();
-		getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
-		return typedValue.data;
-	}
-	@Override
+	/*@Override
     public void onWindowFocusChanged(boolean hasFocus)
 	{
-
         if (!hasFocus || animationStarted)
 		{
             return;
         }
-
-        animate();
-
         super.onWindowFocusChanged(hasFocus);
-    }
+    }*/
 
     private void animate()
 	{
-        ImageView logoImageView = (ImageView) findViewById(R.id.welcomeImageView1);
-
-        ViewCompat.animate(logoImageView)
-            .translationY(-250)
-            .setStartDelay(STARTUP_DELAY)
-            .setDuration(ANIM_ITEM_DURATION).setInterpolator(
-			new DecelerateInterpolator(1.2f)).start();
-
-		welcome = (TextView)findViewById(R.id.textview);
+     	welcome = (TextView)findViewById(R.id.textview);
 		welcome.setText(R.string.app_name);
 		ObjectAnimator animator = ObjectAnimator.ofFloat(welcome, "alpha", 0f, 1f);
         animator.setDuration(700);

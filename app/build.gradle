@@ -23,6 +23,7 @@ android {
     }
 }
 dependencies {
+	compile 'com.android.support:multidex-instrumentation:+'
 	compile fileTree(dir: 'libs', include: ['*.jar'])
 	//友盟统计
 	compile  'com.umeng.umsdk:analytics:7.5.4'
@@ -52,7 +53,7 @@ dependencies {
 	compile 'com.github.anzewei:parallaxbacklayout:1.1.6'
 	//状态栏变色
 	compile 'com.jaeger.statusbarutil:library:1.4.0'
-    //compile 'com.android.support:multidex:1.0.2'
+   // compile 'com.android.support:multidex:1.0.2'
 	compile 'com.android.support:design:25.3.1'
 	compile 'com.android.support:support-v4:2'
 	compile 'com.android.support:recyclerview-v7:25.3.1'
