@@ -17,11 +17,15 @@ import com.kirby.runanjing.bean.*;
 import com.kirby.runanjing.bmob.*;
 import com.kirby.runanjing.bottomdialog.*;
 import com.kirby.runanjing.bottomdialog.*;
+import com.kirby.runanjing.utils.*;
+import android.net.*;
 
 public class EditChatDialog extends BaseBottomDialog
 {
 
 	private EditText chat_editview;
+
+	private BmobUser u;
 
 	public static EditChatDialog newInstance(String type)
 	{
@@ -60,7 +64,7 @@ public class EditChatDialog extends BaseBottomDialog
 	@Override
 	public void convertView(ViewHolder holder, final BaseBottomDialog edit_chat_dialog)
 	{
-		final BmobUser u = BmobUser.getCurrentUser(BmobUser.class);
+		 u = BmobUser.getCurrentUser(BmobUser.class);
 		SharedPreferences chat_share=getActivity().getSharedPreferences("string", 0);
 		String chat= chat_share.getString("Chat", null);
 		chat_editview = (EditText)holder.getView(R.id.chat_editview);
@@ -86,45 +90,93 @@ public class EditChatDialog extends BaseBottomDialog
 				{
 					//获取字符串转化为string数据
 					//EditText 内容=(EditText)v.findViewById(R.id.内容_编辑);
-					String str_chat = chat_editview.getText().toString();
+					final String str_chat = chat_editview.getText().toString();
 					//判断是否为空
 					if (str_chat.isEmpty())
 					{
 						Toast.makeText(getContext(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
 					}
 					else
-					{			
-						final ProgressDialog progressDialog = new ProgressDialog(getActivity());
-						progressDialog.setMessage(getResources().getString(R.string.mess_upload));
-						progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-						progressDialog.show();
-						//自定义MessBmob发送留言
-						BmobChat chat = new BmobChat();
-						chat.setChat(str_chat);
-						chat.setNickname(u.getUsername());
-						chat.setUser(BmobUser.getCurrentUser(BmobKirbyAssistantUser.class));
-						chat.save(new SaveListener<String>() {
-								@Override
-								public void done(String objectId, BmobException e)
+					{
+						if (CheckTextUtil.isHaveTerribleWord(str_chat))
+						{
+							AlertDialog.Builder dialog = new
+								AlertDialog.Builder(getActivity())
+								.setTitle("需要帮助吗？")
+								.setMessage("这个世界虽然不完美\n我们仍可以治愈自己\n以下电话全国可拨(24小时)\n010-82951332")
+								.setPositiveButton("坚持发送", new
+								DialogInterface.OnClickListener()
 								{
-									progressDialog.dismiss();
-									if (e == null)
-									{		
+									@Override
+									public void onClick(DialogInterface dialog, int which)
+									{
+										sendChat(str_chat,edit_chat_dialog);
+									}
+								}
+							)
+								.setNegativeButton("寻求帮助", new
+								DialogInterface.OnClickListener()
+								{
+									@Override
+									public void onClick(DialogInterface dialog, int which)
+									{
+										Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("tel:010-82951332"));
+										getActivity().startActivity(intent);
+									}
+								})
+								.setNeutralButton("离开", new DialogInterface.OnClickListener()
+								{
+									@Override
+									public void onClick(DialogInterface dialog, int which)
+									{
+										edit_chat_dialog.dismiss();
 										SharedPreferences y=getActivity().getSharedPreferences("string", 0);
 										SharedPreferences.Editor edit=y.edit();
 										edit.putString("Chat", "");
 										edit.apply();
-										edit_chat_dialog.dismiss();
-										MainChatFragment main_chat=(MainChatFragment)edit_chat_dialog.getActivity().getSupportFragmentManager().findFragmentById(R.id.main_fragment);
-										main_chat.getChat();
-										Toast.makeText(getActivity(), getResources().getString(R.string.mess_true) + objectId, Toast.LENGTH_SHORT).show();
-									}
-									else
-									{
-										Toast.makeText(getActivity(), getResources().getString(R.string.mess_false) + e.getMessage(), Toast.LENGTH_SHORT).show();
 									}
 								}
-							});
+							);
+							dialog.show();
+						}
+						else
+						{
+							sendChat(str_chat,edit_chat_dialog);
+						}
+					}
+				}
+			});
+	}
+	private void sendChat(String str_chat,final BaseBottomDialog edit_chat_dialog)
+	{
+		final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+		progressDialog.setMessage(getResources().getString(R.string.mess_upload));
+		progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+		progressDialog.show();
+		//自定义MessBmob发送留言
+		BmobChat chat = new BmobChat();
+		chat.setChat(str_chat);
+		chat.setNickname(u.getUsername());
+		chat.setUser(BmobUser.getCurrentUser(BmobKirbyAssistantUser.class));
+		chat.save(new SaveListener<String>() {
+				@Override
+				public void done(String objectId, BmobException e)
+				{
+					progressDialog.dismiss();
+					if (e == null)
+					{		
+						SharedPreferences y=getActivity().getSharedPreferences("string", 0);
+						SharedPreferences.Editor edit=y.edit();
+						edit.putString("Chat", "");
+						edit.apply();
+						edit_chat_dialog.dismiss();
+						MainChatFragment main_chat=(MainChatFragment)edit_chat_dialog.getActivity().getSupportFragmentManager().findFragmentById(R.id.main_fragment);
+						main_chat.getChat();
+						Toast.makeText(getActivity(), getResources().getString(R.string.mess_true) + objectId, Toast.LENGTH_SHORT).show();
+					}
+					else
+					{
+						Toast.makeText(getActivity(), getResources().getString(R.string.mess_false) + e.getMessage(), Toast.LENGTH_SHORT).show();
 					}
 				}
 			});

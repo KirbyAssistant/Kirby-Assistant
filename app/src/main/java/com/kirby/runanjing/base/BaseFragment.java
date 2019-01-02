@@ -1,8 +1,9 @@
 package com.kirby.runanjing.base;
-import android.support.v4.app.*;
+
 import com.umeng.analytics.*;
 import android.widget.*;
 import com.kirby.runanjing.utils.*;
+import android.support.v4.app.*;
 
 public class BaseFragment extends Fragment
 {

@@ -31,7 +31,6 @@ public class BaseActivity extends AppCompatActivity
 		getWindow().setReturnTransition(slide_out); //调用 finishAfterTransition() 退出时，当前页退出的动画
 		getWindow().setReenterTransition(fade); //重新进入的动画。即第二次进入，可以和首次进入不一样。
 		super.onCreate(savedInstanceState);
-		setLanguage();
 		Bmob.initialize(this, "e39c2e15ca40b358b0dcc933236c1165");
 		MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
 	}
@@ -53,37 +52,7 @@ public class BaseActivity extends AppCompatActivity
 		getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
 		return typedValue.data;
 	}
-	private void setLanguage()
-	{
-
-        //读取SharedPreferences数据，默认选中第一项
-        SharedPreferences preferences = getSharedPreferences("setting", 0);
-        String language = preferences.getString("language", "auto");
-
-        //根据读取到的数据，进行设置
-        Resources resources = getResources();
-        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-        Configuration configuration = resources.getConfiguration();
-
-        switch (language)
-		{
-            case "auto":
-                configuration.setLocale(Locale.getDefault());
-                break;
-            case "zh_cn":
-                configuration.setLocale(Locale.CHINA);
-                break;
-			case "zh_tw":
-                configuration.setLocale(Locale.TAIWAN);
-                break;
-			case "en":
-                configuration.setLocale(Locale.ENGLISH);
-                break;
-            default:
-                break;
-        }
-        resources.updateConfiguration(configuration, displayMetrics);
-    }
+	
 	@Override
 	public void onResume()
 	{
