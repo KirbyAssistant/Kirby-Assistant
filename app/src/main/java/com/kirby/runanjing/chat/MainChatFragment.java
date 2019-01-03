@@ -28,6 +28,7 @@ import com.kirby.runanjing.R;
 import com.kirby.runanjing.customui.*;
 import com.kirby.runanjing.base.*;
 import com.kirby.runanjing.main.*;
+import com.kirby.runanjing.utils.*;
 
 
 public class MainChatFragment extends BaseFragment
@@ -87,8 +88,7 @@ public class MainChatFragment extends BaseFragment
 				}
 			});
 		//使用BmobUser类获取部分用户数据
-		final BmobUser u = BmobUser.getCurrentUser(BmobUser.class);
-		name = u.getUsername();
+		name = UserUtil.getCurrentUser().getUsername();
 		edit_mess_button = (FloatingActionButton)view.findViewById(R.id.fab_chat_edit);
 		edit_mess_button.setOnClickListener(new View.OnClickListener(){			
 				@Override

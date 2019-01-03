@@ -38,7 +38,6 @@ public class MainUserFragment extends BaseFragment
     private LocalBroadcastManager localBroadcastManager;
 	private View view;
 	private MainActivity m;
-	private BmobKirbyAssistantUser u;
 	private ImageView userHead;
 	private String name;
 	private String email;
@@ -57,7 +56,6 @@ public class MainUserFragment extends BaseFragment
 	{
         view = inflater.inflate(R.layout.main_user, container, false);
 		m = (MainActivity)getActivity();
-		u = BmobUser.getCurrentUser(BmobKirbyAssistantUser.class);
 		initUser(view);
 		return view;
 	}
@@ -70,9 +68,9 @@ public class MainUserFragment extends BaseFragment
 		localReceiver = new LocalReceiver();
         //注册本地广播监听器
         localBroadcastManager.registerReceiver(localReceiver, intentFilter);
-		name = u.getUsername();
-		email = u.getEmail();
-		id = u.getObjectId();
+		name = UserUtil.getCurrentUser().getUsername();
+		email = UserUtil.getCurrentUser().getEmail();
+		id = UserUtil.getCurrentUser().getObjectId();
 		TextView userName=(TextView)view.findViewById(R.id.user_name);
 		TextView userId=(TextView)view.findViewById(R.id.user_id);
 		TextView userTime=(TextView)view.findViewById(R.id.user_data);
@@ -102,7 +100,7 @@ public class MainUserFragment extends BaseFragment
 				@Override
 				public void onClick(View p1)
 				{
-					u.logOut();
+					UserUtil.getCurrentUser().logOut();
 					MobclickAgent.onProfileSignOff();
 					m.open();
 				}
@@ -111,11 +109,11 @@ public class MainUserFragment extends BaseFragment
 		mo_userHead = (ImageView)view.findViewById(R.id.mo_user_head);
 		try
 		{
-			if (u.getUserHead().getFileUrl() != null)
+			if (UserUtil.getCurrentUser().getUserHead().getFileUrl() != null)
 			{
 				Glide
 					.with(getContext())
-					.load(u.getUserHead().getFileUrl())
+					.load(UserUtil.getCurrentUser().getUserHead().getFileUrl())
 					//.apply(Kirby.getGlideRequestOptions())
 					.asBitmap()
 					.placeholder(R.drawable.buletheme)
@@ -125,7 +123,7 @@ public class MainUserFragment extends BaseFragment
 				new Thread(new Runnable() {
 
 						String pattern="5";
-						String url=u.getUserHead().getFileUrl();
+						String url=UserUtil.getCurrentUser().getUserHead().getFileUrl();
 						@Override
 						public void run()
 						{
@@ -166,10 +164,10 @@ public class MainUserFragment extends BaseFragment
 		}
 		catch (Exception e)
 		{}
-		userName.setText(u.getUsername());
-		userId.setText("id:" + u.getObjectId());
-		userTime.setText(getActivity().getResources().getString(R.string.register_time) + ":" + u.getCreatedAt());
-		userEmail.setText(getActivity().getResources().getString(R.string.user_email) + ":" + u.getEmail());
+		userName.setText(UserUtil.getCurrentUser().getUsername());
+		userId.setText("id:" + UserUtil.getCurrentUser().getObjectId());
+		userTime.setText(getActivity().getResources().getString(R.string.register_time) + ":" + UserUtil.getCurrentUser().getCreatedAt());
+		userEmail.setText(getActivity().getResources().getString(R.string.user_email) + ":" + UserUtil.getCurrentUser().getEmail());
 		userHead.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View p1)
@@ -229,7 +227,7 @@ public class MainUserFragment extends BaseFragment
 					}
 					else
 					{
-						if (Email.checkEmail(str_modification_email_old) == false || Email.checkEmail(str_modification_email_new) == false)
+						if (EmailUtil.checkEmail(str_modification_email_old) == false || EmailUtil.checkEmail(str_modification_email_new) == false)
 						{
 							modificationEmailProgress.dismiss();
 							Toast.makeText(getActivity(), R.string.email_fail, Toast.LENGTH_SHORT).show();
@@ -249,7 +247,7 @@ public class MainUserFragment extends BaseFragment
 											{
 												modificationEmailProgress.dismiss();
 												Toast.makeText(getActivity(), R.string.edit_true, Toast.LENGTH_SHORT).show();
-												u.logOut();
+												UserUtil.getCurrentUser().logOut();
 												//finish();
 												m.open();
 											}
@@ -320,7 +318,7 @@ public class MainUserFragment extends BaseFragment
 										{
 											changepasswordProgress.dismiss();
 											Toast.makeText(getActivity(), R.string.edit_true, Toast.LENGTH_SHORT).show();
-											u.logOut();
+											UserUtil.getCurrentUser().logOut();
 											//finish();
 											m.open();
 										}

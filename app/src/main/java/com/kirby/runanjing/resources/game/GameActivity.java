@@ -22,7 +22,7 @@ public class GameActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState)
     {
 		super.onCreate(savedInstanceState);
-        Theme.setClassTheme(this);
+        ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_game);
 		//配置toolbar
 		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);

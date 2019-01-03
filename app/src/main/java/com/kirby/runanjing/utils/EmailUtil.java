@@ -1,7 +1,7 @@
 package com.kirby.runanjing.utils;
 import java.util.regex.*;
 
-public class Email
+public class EmailUtil
 {
 	public static boolean checkEmail(String email){
 		boolean flag = false;

@@ -37,8 +37,6 @@ public class ChatDialog extends BaseBottomDialog
 
 	private FragmentActivity mActivity;
 
-	private BmobKirbyAssistantUser u;
-
 	public static ChatDialog newInstance(String type, String id, String mess, String username, String time)
 	{
 		Bundle bundle = new Bundle();
@@ -74,7 +72,6 @@ public class ChatDialog extends BaseBottomDialog
 		s_mess = bundle.getString("mess");
 		s_username = bundle.getString("username");
 		s_time = bundle.getString("time");
-		u = BmobUser.getCurrentUser(BmobKirbyAssistantUser.class);
 	}
 
 	@Override
@@ -102,7 +99,7 @@ public class ChatDialog extends BaseBottomDialog
 				public void onClick(View p1)
 				{
 					PopupMenu pop = new PopupMenu(mess_dialog.getActivity(), mess_menu);
-					if (u.getUsername().equals(s_username))
+					if (UserUtil.getCurrentUser().getUsername().equals(s_username))
 					{
 						pop.getMenuInflater().inflate(R.menu.mess_menu_ex, pop.getMenu());
 					}
@@ -145,71 +142,10 @@ public class ChatDialog extends BaseBottomDialog
 											});
 										break;
 									case R.id.mess_edit:
-										BottomDialog.init()
-											.setLayoutId(R.layout.dialog_editchat)     //设置dialog布局文件
-											.setConvertListener(new ViewConvertListener() {
-												private EditText chat_editview;     //进行相关View操作的回调
-												@Override
-												public void convertView(ViewHolder v, final BaseBottomDialog dialog)
-												{
-													chat_editview = (EditText)v.getView(R.id.chat_editview);
-													chat_editview.setText(s_mess);
-													chat_editview.post(new Runnable() {
-															@Override
-															public void run()
-															{
-																InputMethodManager imm =
-																	(InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-																imm.showSoftInput(chat_editview, 0);
-															}
-														});
-													ImageView chat_send=v.getView(R.id.chat_send);
-													chat_send.setOnClickListener(new View.OnClickListener() {
-
-															@Override
-															public void onClick(View v)
-															{
-																String str_chat = chat_editview.getText().toString();
-																//判断是否为空
-																if (str_chat.isEmpty())
-																{
-																	Toast.makeText(getContext(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
-																}
-																else
-																{			
-																	final ProgressDialog progressDialog = new ProgressDialog(getActivity());
-																	progressDialog.setMessage(getResources().getString(R.string.mess_upload));
-																	progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-																	progressDialog.show();
-																	BmobChat bmob_chat=new BmobChat();
-																	bmob_chat.setChat(str_chat);
-																	bmob_chat.update(id, new UpdateListener(){
-																			@Override
-																			public void done(BmobException e)
-																			{
-																				progressDialog.dismiss();
-																				if (e == null)
-																				{
-																					dialog.dismiss();
-																					mess_dialog.dismiss();
-																					MainChatFragment main_mess=(MainChatFragment)dialog.getActivity().getSupportFragmentManager().findFragmentById(R.id.main_fragment);
-																					main_mess.getChat();
-																					Toast.makeText(getActivity(), getResources().getString(R.string.mess_edit_success), Toast.LENGTH_SHORT).show();
-																				}
-																				else
-																				{
-																					Toast.makeText(getActivity(), getResources().getString(R.string.mess_edit_fail) + e.getMessage(), Toast.LENGTH_SHORT).show();
-																				}
-																			}
-
-																		});
-																}
-															}
-														});
-												}
-											})
-											.setDimAmount(0.5f)     //调节灰色背景透明度[0-1]，默认0.5f
-											.setShowBottom(true)     //是否在底部显示dialog，默认flase
+										EditChatDialog.newInstance("0")
+											.setTheme(R.style.BottomDialogStyle)
+											.setMargin(0)
+											.setShowBottom(true)
 											.show(getActivity().getSupportFragmentManager());
 										break;
 								}

@@ -21,7 +21,7 @@ public class GameListActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState)
     {
 		super.onCreate(savedInstanceState);
-        Theme.setClassTheme(this);
+        ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_gamelist);
 		//配置toolbar
 		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);

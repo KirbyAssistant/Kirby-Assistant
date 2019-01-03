@@ -29,7 +29,6 @@ import com.kirby.runanjing.base.*;
 public class HeadActivity extends BaseActivity
 {
 	private LocalBroadcastManager localBroadcastManager;
-	private BmobKirbyAssistantUser u;
 	public static final int TAKE_PHOTO = 1;
 	public static final int CHOOSE_PHOTO = 2;
 	private ImageView userHead;
@@ -40,20 +39,19 @@ public class HeadActivity extends BaseActivity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		Theme.setClassTheme(this);
+		ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_head);
 		localBroadcastManager = localBroadcastManager.getInstance(this);
-		u = BmobUser.getCurrentUser(BmobKirbyAssistantUser.class);
 		userHead = (ImageView)findViewById(R.id.user_head);
 		Button choose_photo=(Button)findViewById(R.id.choose_photo);
 		Button take_photo = (Button)findViewById(R.id.take_photo);	
 		try
 		{
-			if (u.getUserHead().getFileUrl() != null)
+			if (UserUtil.getCurrentUser().getUserHead().getFileUrl() != null)
 			{
 				Glide
 					.with(this)
-					.load(u.getUserHead().getFileUrl())
+					.load(UserUtil.getCurrentUser().getUserHead().getFileUrl())
 					.into(userHead);
 			}
 		}
@@ -192,7 +190,7 @@ public class HeadActivity extends BaseActivity
 								{
 									BmobKirbyAssistantUser newUser = new BmobKirbyAssistantUser();
 									newUser.setUserHead(headFile);
-									newUser.update(u.getObjectId(), new UpdateListener() {
+									newUser.update(UserUtil.getCurrentUser().getObjectId(), new UpdateListener() {
 											@Override
 											public void done(BmobException e)
 											{
@@ -226,7 +224,7 @@ public class HeadActivity extends BaseActivity
 	{
         Uri uri_crop = Uri.parse(path);
         //裁剪后保存到文件中
-        Uri destinationUri = Uri.fromFile(new File(HeadActivity.this.getExternalCacheDir(), u.getUsername() + ".jpg"));
+        Uri destinationUri = Uri.fromFile(new File(HeadActivity.this.getExternalCacheDir(), UserUtil.getCurrentUser().getUsername() + ".jpg"));
         UCrop uCrop = UCrop.of(uri_crop, destinationUri);
         UCrop.Options options = new UCrop.Options();
         //设置裁剪图片可操作的手势

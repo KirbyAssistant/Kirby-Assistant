@@ -27,7 +27,7 @@ public class CheatCodeActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-		Theme.setClassTheme(this);
+		ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_cheatcode);
 		//配置toolbar
 		final Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);

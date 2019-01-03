@@ -22,11 +22,8 @@ import android.net.*;
 
 public class EditChatDialog extends BaseBottomDialog
 {
-
 	private EditText chat_editview;
-
-	private BmobUser u;
-
+	
 	public static EditChatDialog newInstance(String type)
 	{
 		Bundle bundle = new Bundle();
@@ -64,7 +61,6 @@ public class EditChatDialog extends BaseBottomDialog
 	@Override
 	public void convertView(ViewHolder holder, final BaseBottomDialog edit_chat_dialog)
 	{
-		 u = BmobUser.getCurrentUser(BmobUser.class);
 		SharedPreferences chat_share=getActivity().getSharedPreferences("string", 0);
 		String chat= chat_share.getString("Chat", null);
 		chat_editview = (EditText)holder.getView(R.id.chat_editview);
@@ -104,6 +100,7 @@ public class EditChatDialog extends BaseBottomDialog
 								AlertDialog.Builder(getActivity())
 								.setTitle("需要帮助吗？")
 								.setMessage("这个世界虽然不完美\n我们仍可以治愈自己\n以下电话全国可拨(24小时)\n010-82951332")
+								.setCancelable(false)
 								.setPositiveButton("坚持发送", new
 								DialogInterface.OnClickListener()
 								{
@@ -156,7 +153,7 @@ public class EditChatDialog extends BaseBottomDialog
 		//自定义MessBmob发送留言
 		BmobChat chat = new BmobChat();
 		chat.setChat(str_chat);
-		chat.setNickname(u.getUsername());
+		chat.setNickname(UserUtil.getCurrentUser().getUsername());
 		chat.setUser(BmobUser.getCurrentUser(BmobKirbyAssistantUser.class));
 		chat.save(new SaveListener<String>() {
 				@Override

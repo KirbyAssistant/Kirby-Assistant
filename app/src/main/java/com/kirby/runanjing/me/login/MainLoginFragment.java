@@ -145,7 +145,7 @@ public class MainLoginFragment extends BaseFragment
 								}
 								else
 								{
-									if(Email.checkEmail(str_email)==false){
+									if(EmailUtil.checkEmail(str_email)==false){
 										registerProgress.dismiss();
 										Toast.makeText(getActivity(), R.string.email_fail, Toast.LENGTH_SHORT).show();							
 									}else{

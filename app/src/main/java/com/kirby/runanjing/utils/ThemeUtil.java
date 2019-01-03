@@ -4,7 +4,7 @@ package com.kirby.runanjing.utils;
 import android.content.*;
 import com.kirby.runanjing.*;
 
-public class Theme
+public class ThemeUtil
 {
 	private static SharedPreferences.Editor edit;
 	private static String FILE_NAME="theme";

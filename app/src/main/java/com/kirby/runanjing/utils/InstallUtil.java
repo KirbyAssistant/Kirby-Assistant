@@ -7,7 +7,7 @@ import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import java.io.File;
 
-public class Install
+public class InstallUtil
 {
 	public static void installApk(Context context, String apkPath) {
 		if (context == null || TextUtils.isEmpty(apkPath)) {

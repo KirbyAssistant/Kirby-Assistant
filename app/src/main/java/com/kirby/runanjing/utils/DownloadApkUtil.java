@@ -66,7 +66,7 @@ public class DownloadApkUtil
 					{
 						progressDialog.dismiss();
 						Toast.makeText(context, context.getResources().getString(R.string.download_success) + savePath, Toast.LENGTH_SHORT).show();
-						Install.installApk(context, savePath);
+						InstallUtil.installApk(context, savePath);
 					}
 					else
 					{

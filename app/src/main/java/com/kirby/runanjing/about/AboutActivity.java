@@ -16,7 +16,7 @@ public class AboutActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState)
     {
 		super.onCreate(savedInstanceState);
-        Theme.setClassTheme(this);
+        ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_about);
 		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);

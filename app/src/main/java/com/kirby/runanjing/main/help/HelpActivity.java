@@ -19,7 +19,7 @@ public class HelpActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState)
     {
 		super.onCreate(savedInstanceState);
-        Theme.setClassTheme(this);
+        ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_help);
 		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);

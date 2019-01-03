@@ -40,7 +40,6 @@ import com.kirby.runanjing.me.login.*;
  */
 public class MainActivity extends BaseActivity
 {
-	private BmobUser u;
 	private Toolbar toolbar;
 	private Context gameContext;
 	private ProgressDialog progressDialog;
@@ -50,7 +49,7 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-		Theme.setClassTheme(this);
+		ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_main);
 		//跳转GameListActivity要用的数据
 		setApply();	
@@ -60,17 +59,15 @@ public class MainActivity extends BaseActivity
 		getSupportActionBar().setTitle(R.string.app_name);
 		toolbar.setSubtitle(R.string.ziyuan);
 		replaceFragment(new MainGameFragment());
-		//使用BmobUser类获取部分用户数据
-		u = BmobUser.getCurrentUser(BmobUser.class);
-		//thePay();
+	    //thePay();
 		bottomBar();
 		//initTencentCloud();
 		permissionAndPrivacy();
 
 		//友盟统计
-		if (u != null)
+		if (UserUtil.getCurrentUser()!= null)
 		{
-			MobclickAgent.onProfileSignIn(u.getUsername());
+			MobclickAgent.onProfileSignIn(UserUtil.getCurrentUser().getUsername());
 		}
 	}
 
@@ -142,7 +139,7 @@ public class MainActivity extends BaseActivity
 							if (toolbar.getSubtitle() != getResources().getString(R.string.talk))
 							{
 								toolbar.setSubtitle(R.string.talk);
-								if (null == u)
+								if (null == UserUtil.getCurrentUser())
 								{
 									replaceFragment(new MainNullFragment());
 								}
@@ -153,7 +150,7 @@ public class MainActivity extends BaseActivity
 							}
 							break;
 						case R.id.me:
-							if (null == u)
+							if (null == UserUtil.getCurrentUser())
 							{
 								if (toolbar.getSubtitle() != getResources().getString(R.string.login_title))
 								{
@@ -163,10 +160,10 @@ public class MainActivity extends BaseActivity
 							}
 							else
 							{
-								if (toolbar.getSubtitle() != u.getUsername())
+								if (toolbar.getSubtitle() != UserUtil.getCurrentUser().getUsername())
 								{
 									replaceFragment(new MainUserFragment());
-									toolbar.setSubtitle(u.getUsername());
+									toolbar.setSubtitle(UserUtil.getCurrentUser().getUsername());
 								}
 							}
 							break;
@@ -300,7 +297,7 @@ public class MainActivity extends BaseActivity
 	 */
 	public void setCustomTheme(int i)
 	{
-		Theme.setTheme(MainActivity.this, i);
+		ThemeUtil.setTheme(MainActivity.this, i);
 		SharedPreferences.Editor y=getSharedPreferences("customtheme", 0).edit();
 		y.putInt("id", i);
 		y.apply();
