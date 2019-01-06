@@ -17,7 +17,7 @@
 		app:srlAccentColor="@android:color/white"
 		app:srlEnableHeaderTranslationContent="true">
 
-		<com.scwang.smartrefresh.header.DeliveryHeader
+		<com.scwang.smartrefresh.header.TaurusHeader
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"/>
 
@@ -34,6 +34,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:clipChildren="false"
+		android:padding="16dp"
 		app:rippleColor="?attr/colorPrimary"
 		app:rippleType="stroke"
 		app:strokeWidth="2dp"
@@ -46,8 +47,8 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:id="@+id/fab_chat_edit"
+			android:layout_centerInParent="true"
 			android:src="@drawable/ic_kirby_editchat"
-			android:layout_margin="16dp"
 			android:visibility="gone"
 			android:padding="16dp"/>
 

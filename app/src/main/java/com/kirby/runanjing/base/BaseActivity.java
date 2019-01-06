@@ -15,6 +15,8 @@ import com.kirby.runanjing.utils.*;
 
 public class BaseActivity extends AppCompatActivity
 {
+
+	private String WINDOW_HIERARCHY_TAG="window_save";
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -31,6 +33,7 @@ public class BaseActivity extends AppCompatActivity
 		getWindow().setReturnTransition(slide_out); //调用 finishAfterTransition() 退出时，当前页退出的动画
 		getWindow().setReenterTransition(fade); //重新进入的动画。即第二次进入，可以和首次进入不一样。
 		super.onCreate(savedInstanceState);
+		LanguageUtil.setLanguage();
 		Bmob.initialize(this, "e39c2e15ca40b358b0dcc933236c1165");
 		MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
 	}
@@ -52,7 +55,27 @@ public class BaseActivity extends AppCompatActivity
 		getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
 		return typedValue.data;
 	}
-	
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState)
+	{
+		// TODO: Implement this method	
+		super.onSaveInstanceState(outState);	
+		outState.putBundle(WINDOW_HIERARCHY_TAG, getWindow().saveHierarchyState());
+	}
+	protected void onRestoreInstanceState(Bundle savedInstanceState)
+
+	{
+		if (getWindow() != null)	
+		{
+			Bundle windowState = savedInstanceState.getBundle(WINDOW_HIERARCHY_TAG);
+			if (windowState != null)
+			{
+				getWindow().restoreHierarchyState(windowState);	
+			}
+		}
+	}
+
 	@Override
 	public void onResume()
 	{

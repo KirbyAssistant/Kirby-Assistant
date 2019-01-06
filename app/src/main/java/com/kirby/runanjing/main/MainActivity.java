@@ -70,7 +70,7 @@ public class MainActivity extends BaseActivity
 			MobclickAgent.onProfileSignIn(UserUtil.getCurrentUser().getUsername());
 		}
 	}
-
+	
 	private void permissionAndPrivacy()
 	{
 		SharedPreferences preferences = getSharedPreferences("boolean", 0);
@@ -470,67 +470,6 @@ public class MainActivity extends BaseActivity
 				break;
 		}
 	}
-	/*public void downloadEmulatorsApk(final String game_name)
-	{
-		progressDialog = new ProgressDialog(gameContext);
-		progressDialog.setMessage(gameContext.getString(R.string.link_bmob));
-		progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-		progressDialog.setMax(100);
-		progressDialog.show();
-		BmobQuery<BmobEmulatorsDBHelper> query = new BmobQuery<BmobEmulatorsDBHelper>();
-        query.addWhereEqualTo("name", game_name);
-        query.findObjects(new FindListener<BmobEmulatorsDBHelper>(){
-				private BmobFile emulatorsApk;
-				@Override
-				public void done(List<BmobEmulatorsDBHelper> p1, BmobException p2)
-				{
-					if (p2 == null)
-					{
-						for (BmobEmulatorsDBHelper apk: p1)
-						{
-							emulatorsApk = apk.getApk();
-						}
-						emulatorsFileDownload(emulatorsApk, game_name);		
-					}
-					else
-					{
-						progressDialog.dismiss();
-						Toast.makeText(gameContext, gameContext.getString(R.string.link_fail) + p2, Toast.LENGTH_SHORT).show();
-					}
-				}
-			});
-	}
-	private void emulatorsFileDownload(BmobFile emulatorsApk, final String game_name)
-	{
-		File saveFile = new File("/storage/emulated/0/Android/data/com.kirby.runanjing/files/" + emulatorsApk.getFilename());
-		emulatorsApk.download(saveFile, new DownloadFileListener() {
-				@Override
-				public void onStart()
-				{
-					progressDialog.setMessage(gameContext.getString(R.string.downloading) + game_name);
-				}
-				@Override
-				public void done(String savePath, BmobException e)
-				{
-					if (e == null)
-					{
-						progressDialog.dismiss();
-						Toast.makeText(gameContext, gameContext.getString(R.string.download_success) + savePath, Toast.LENGTH_SHORT).show();
-						Install.installApk(gameContext, savePath);
-					}
-					else
-					{
-						progressDialog.dismiss();
-						Toast.makeText(gameContext, gameContext.getString(R.string.download_fail) + e.getMessage() , Toast.LENGTH_SHORT).show();
-					}
-				}
-				@Override
-				public void onProgress(Integer value, long newworkSpeed)
-				{
-					progressDialog.setProgress(value);
-				}
-			});
-	}*/
 	private void showOtherDownloadDialog(final String downloadName, String game_name)
 	{
 		AlertDialog.Builder dialog = new
@@ -547,5 +486,64 @@ public class MainActivity extends BaseActivity
 				}			
 			}
 		);dialog.show();
+	}
+	@Override
+	protected void onSaveInstanceState(Bundle outState)
+	{
+		// TODO: Implement this method
+		super.onSaveInstanceState(outState);	
+		outState.putBundle("windows_save", getWindow().saveHierarchyState());
+		outState.putCharSequence("fragment", toolbar.getSubtitle());
+	}
+	protected void onRestoreInstanceState(Bundle savedInstanceState)
+	{
+		if (getWindow() != null)	
+		{
+			Bundle windowState = savedInstanceState.getBundle("windows_save");
+			if (windowState != null)
+			{
+				getWindow().restoreHierarchyState(windowState);	
+			}
+		}
+		CharSequence fragment_cheak=savedInstanceState.getCharSequence("fragment");
+		if (fragment_cheak.equals(getResources().getString(R.string.ziyuan)))
+		{
+			toolbar.setSubtitle(R.string.ziyuan);
+			replaceFragment(new MainGameFragment());
+		}
+		if (fragment_cheak.equals( getResources().getString(R.string.video_title)))
+		{
+			toolbar.setSubtitle(R.string.video_title);
+			replaceFragment(new MainVideoFragment());
+		}
+		if (fragment_cheak.equals( getResources().getString(R.string.talk)))
+		{
+			toolbar.setSubtitle(R.string.talk);
+			if (null == UserUtil.getCurrentUser())
+			{
+				replaceFragment(new MainNullFragment());
+			}
+			else
+			{
+				replaceFragment(new MainChatFragment());
+			}
+		}
+		if (null == UserUtil.getCurrentUser())
+		{
+			if (fragment_cheak.equals( getResources().getString(R.string.login_title)))
+			{
+				replaceFragment(new MainLoginFragment());
+				toolbar.setSubtitle(R.string.login_title);
+			}
+		}
+		else
+		{
+			if (fragment_cheak.equals( UserUtil.getCurrentUser().getUsername()))
+			{
+				replaceFragment(new MainUserFragment());
+				toolbar.setSubtitle(UserUtil.getCurrentUser().getUsername());
+			}
+		}
+		
 	}
 }

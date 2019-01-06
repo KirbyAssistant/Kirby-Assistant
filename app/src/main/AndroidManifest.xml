@@ -45,6 +45,7 @@
 		<activity android:name=".main.donate.PayActivity"/>
 		<activity android:name=".resources.game.GameListActivity"/>
 		<activity android:name=".resources.game.GameActivity"/>
+		<activity android:name=".resources.cheatcode.CheatCodeActivity"/>
 		<activity android:name=".main.swic.SwitchIconActivity"/>
 		<activity android:name=".about.AboutActivity"/>
 		<activity android:name=".resoutces.cheatcode.CheatCodeActivity"/>
