@@ -52,8 +52,7 @@ public class DownloadApkUtil
 	}
 	private static void appFileDownload(BmobFile emulatorsApk, final String app_name,final Context context)
 	{
-		File saveFile = new File("/storage/emulated/0/Android/data/com.kirby.runanjing/files/" + emulatorsApk.getFilename());
-		emulatorsApk.download(saveFile, new DownloadFileListener() {
+		emulatorsApk.download(new DownloadFileListener() {
 				@Override
 				public void onStart()
 				{

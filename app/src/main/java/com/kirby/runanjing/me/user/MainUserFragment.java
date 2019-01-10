@@ -172,21 +172,13 @@ public class MainUserFragment extends BaseFragment
 				@Override
 				public void onClick(View p1)
 				{
-					if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
-					{
-						ActivityCompat.requestPermissions(getActivity(), new String[]{ Manifest.permission. WRITE_EXTERNAL_STORAGE }, 1);
-					}
-					else
-					{
 						Pair<View, String> userHeadPair=new Pair<View,String>(userHead, "userHead");
 						Pair<View, String> cardPair= new Pair<View,String>(card, "card");
-						Pair<View, String> editEmailPair= new Pair<View,String>(edit_email, "email");
-						Pair<View, String> editPassPair= new Pair<View,String>(edit_password, "pass");
+						Pair<View, String> editPassPair= new Pair<View,String>(user_logout, "pass");
 						Intent intent = new Intent(getActivity(), HeadActivity.class);			
-						ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), userHeadPair, cardPair, editEmailPair, editPassPair);
+						ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), userHeadPair, cardPair, editPassPair);
 						startActivityForResult(intent, 3, options.toBundle());
 					}
-				}
 			});
 
 		LayoutAnimationController controller = LayoutAnimationHelper.makeLayoutAnimationController();

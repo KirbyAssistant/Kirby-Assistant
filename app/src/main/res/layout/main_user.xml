@@ -84,7 +84,6 @@
 		app:elevation="5dp"
 		app:cardCornerRadius="4dp"
 		android:transitionName="card"
-		android:id="@+id/cardview"
 		android:layout_margin="5dp">
 
 		<LinearLayout

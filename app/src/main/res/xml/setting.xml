@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
 	xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="@string/x_title">
+ 
+	<PreferenceCategory >
+		
         <Preference
             android:key="version"
-			android:summary="未来·炫动-1.2.3(26)(com.kirby.runanjing)"
+			android:summary="未来·炫动-1.2.4(27)(com.kirby.runanjing)"
             android:title="@string/version"
-			android:icon="@drawable/ic_ka_version"/>
+			android:icon="@mipmap/ic_launcher_hk"/>
+		
+	</PreferenceCategory>
+
+<PreferenceCategory>
+	
 		<Preference	
 			android:key="setLanguage"
 			android:title="@string/language" 
 			android:icon="@drawable/ic_sw_language"/>
+		
+</PreferenceCategory>
+
+<PreferenceCategory>
+	
         <Preference
             android:key="star"
             android:summary="@string/star_message"
@@ -25,9 +37,11 @@
             android:key="help2"
             android:summary="@string/qq_group"
             android:title="@string/feedback_title" />
+		
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/kfz_title">
+		
 		<Preference
             android:key="me"
 			android:summary="@string/me2"
@@ -36,10 +50,8 @@
             android:key="github"
             android:title="@string/github" 
 			android:icon="@drawable/ic_github"/>
-		<Preference
-            android:key="gitlab"
-            android:title="@string/gitlab" 
-			android:icon="@drawable/ic_gitlab"/>
+		
 	</PreferenceCategory>
+	
 </PreferenceScreen>
 

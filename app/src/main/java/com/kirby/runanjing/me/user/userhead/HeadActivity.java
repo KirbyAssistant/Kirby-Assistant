@@ -25,15 +25,15 @@ import java.io.*;
 import com.kirby.runanjing.R;
 import com.yalantis.ucrop.*;
 import com.kirby.runanjing.base.*;
+import android.*;
+import android.support.v4.app.*;
+import android.support.annotation.*;
 
 public class HeadActivity extends BaseActivity
 {
 	private LocalBroadcastManager localBroadcastManager;
-	public static final int TAKE_PHOTO = 1;
-	public static final int CHOOSE_PHOTO = 2;
+	public static final int CHOOSE_PHOTO = 1;
 	private ImageView userHead;
-
-	private Uri imageUri;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -44,7 +44,6 @@ public class HeadActivity extends BaseActivity
 		localBroadcastManager = localBroadcastManager.getInstance(this);
 		userHead = (ImageView)findViewById(R.id.user_head);
 		Button choose_photo=(Button)findViewById(R.id.choose_photo);
-		Button take_photo = (Button)findViewById(R.id.take_photo);	
 		try
 		{
 			if (UserUtil.getCurrentUser().getUserHead().getFileUrl() != null)
@@ -57,51 +56,20 @@ public class HeadActivity extends BaseActivity
 		}
 		catch (Exception e)
 		{}
-		take_photo.setOnClickListener(new View.OnClickListener(){
-				@Override
-				public void onClick(View p1)
-				{
-					takePhoto();
-					//Toast.makeText(HeadActivity.this,"未开放",Toast.LENGTH_LONG).show();
-				}			
-			});
 		choose_photo.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View p1)
 				{
-					choosePhoto();
+					if (ContextCompat.checkSelfPermission(HeadActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+					{
+						ActivityCompat.requestPermissions(HeadActivity.this, new String[]{ Manifest.permission. WRITE_EXTERNAL_STORAGE }, 1);
+					}
+					else
+					{
+						choosePhoto();
+					}
 				}
 			});
-	}
-	private void takePhoto()
-	{
-		// 创建File对象，用于存储拍照后的图片
-		File outputImage = new File(getExternalCacheDir()+"output.jpg");
-		try
-		{
-			if (outputImage.exists())
-			{
-				outputImage.delete();
-			}
-			outputImage.createNewFile();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-		if (Build.VERSION.SDK_INT < 24)
-		{
-			imageUri = Uri.fromFile(outputImage);
-		}
-		else
-		{
-			imageUri = FileProvider.getUriForFile(this, "com.kirby.runanjing.fileprovider", outputImage);
-		}
-		// 启动相机程序
-		Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-		intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-		startActivityForResult(intent, TAKE_PHOTO);
-
 	}
 	private void choosePhoto()
 	{
@@ -110,69 +78,19 @@ public class HeadActivity extends BaseActivity
 	    intent.setType("image/*");
 		startActivityForResult(intent, CHOOSE_PHOTO);
     }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
-	{
-        switch (requestCode)
-		{
-            case 1:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-				{
-                    choosePhoto();
-                }
-                break;
-            default:
-        }
-    }
 	@Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
         switch (requestCode)
 		{
-			case TAKE_PHOTO:
-                    try
-					{
-						String path = "file://" + getExternalCacheDir() + "output.jpg";
-						//启动裁剪界面，配置裁剪参数
-						startUcrop(path);
-                    }
-					catch (Exception e)
-					{
-                        e.printStackTrace();
-                }
-				break;
             case CHOOSE_PHOTO:
-                if (resultCode == RESULT_OK)
+				if (resultCode == RESULT_OK)
 				{
-					try
-					{
-						if (data != null)
-						{
-							Uri uri = data.getData();
-							if (!TextUtils.isEmpty(uri.getAuthority()))
-							{
-								Cursor cursor = getContentResolver().query(uri, new String[]{MediaStore.Images.Media.DATA}, null, null, null);
-								if (null == cursor)
-								{
-									return;
-								}
-								cursor.moveToFirst();
-								//拿到了照片的path
-								String path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
-								cursor.close();
-								path = "file://" + path;
-								//启动裁剪界面，配置裁剪参数
-								startUcrop(path);
-							}
-						}
-					}
-					catch (Exception e)
-					{
-						e.printStackTrace();
-					}
+					startUcrop(data.getData());
 				}
+				//    getImagePathOpenUcrop(resultCode,data);
 				break;
+
 			case UCrop.REQUEST_CROP:
 				try
 				{
@@ -220,12 +138,11 @@ public class HeadActivity extends BaseActivity
 				break;
 		}
 	}
-	private void startUcrop(String path)
+	private void startUcrop(Uri uri)
 	{
-        Uri uri_crop = Uri.parse(path);
         //裁剪后保存到文件中
-        Uri destinationUri = Uri.fromFile(new File(HeadActivity.this.getExternalCacheDir(), UserUtil.getCurrentUser().getUsername() + ".jpg"));
-        UCrop uCrop = UCrop.of(uri_crop, destinationUri);
+        Uri destinationUri = Uri.fromFile(new File(HeadActivity.this.getCacheDir(), UserUtil.getCurrentUser().getUsername() + ".jpg"));
+        UCrop uCrop = UCrop.of(uri, destinationUri);
         UCrop.Options options = new UCrop.Options();
         //设置裁剪图片可操作的手势
         options.setAllowedGestures(UCropActivity.SCALE, UCropActivity.ROTATE, UCropActivity.ALL);
@@ -248,5 +165,52 @@ public class HeadActivity extends BaseActivity
 		{
             Toast.makeText(this, "failed to get image", Toast.LENGTH_SHORT).show();
         }
+    }
+	@Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults)
+	{
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1)
+		{
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+			{
+				if (grantResults != null && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+				{
+					choosePhoto();
+				}
+				else
+				{
+					Toast.makeText(this, "权限被拒绝了", Toast.LENGTH_SHORT).show();
+				}
+
+				if (!shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE))
+				{
+                    AskForPermission();
+                }
+            }
+        }
+    }
+	private void AskForPermission()
+	{
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Need Permission!");
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which)
+				{
+
+				}
+			});
+        builder.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which)
+				{
+					Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+					intent.setData(Uri.parse("package:" + getPackageName())); // 根据包名打开对应的设置界面
+					startActivity(intent);
+				}
+			});
+        builder.create().show();
     }
 }

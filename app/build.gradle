@@ -8,8 +8,8 @@ android {
         applicationId "com.kirby.runanjing"
         minSdkVersion 21
 	    targetSdkVersion 28
-        versionCode 26
-        versionName "未来·炫动-1.2.3"
+        versionCode 27
+        versionName "未来·炫动-1.2.4"
 		multiDexEnabled true
         multiDexKeepProguard file('multiDexKeep.pro') 
 		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
@@ -25,6 +25,8 @@ android {
 dependencies {
 	compile 'com.android.support:multidex-instrumentation:+'
 	compile fileTree(dir: 'libs', include: ['*.jar'])
+	//绿色守护
+	compile 'com.oasisfeng.condom:library:2.2.0'
 	//友盟统计
 	compile  'com.umeng.umsdk:analytics:7.5.4'
     compile  'com.umeng.umsdk:common:1.5.4'

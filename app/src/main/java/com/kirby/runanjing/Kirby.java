@@ -22,6 +22,7 @@ import com.umeng.analytics.*;
 import android.widget.*;
 import android.support.v4.app.*;
 import com.kirby.runanjing.crash.*;
+import com.oasisfeng.condom.*;
 public class Kirby extends Application
 {
 	public void onCreate()
@@ -36,7 +37,7 @@ public class Kirby extends Application
 					toCrashActivity(e);
 				}
 			});
-		UMConfigure.init(this,"5c000429b465f56fdb0005ba", "CoolApk",UMConfigure.DEVICE_TYPE_PHONE, null);
+		UMConfigure.init(CondomContext.wrap(this, "Umeng"),"5c000429b465f56fdb0005ba", "CoolApk",UMConfigure.DEVICE_TYPE_PHONE, null);
 		//UMConfigure.setLogEnabled(true);//测试模式
 		MobclickAgent.openActivityDurationTrack(false);
     }

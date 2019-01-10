@@ -1,4 +1,4 @@
-package com.kirby.runanjing.about;
+package com.kirby.runanjing.setting;
 
 import android.content.*;
 import android.net.*;
@@ -10,13 +10,13 @@ import com.kirby.runanjing.*;
 import com.kirby.runanjing.launcher.*;
 import com.kirby.runanjing.main.help.*;
 
-public class AboutPreferenceFragment extends PreferenceFragment
+public class SettingPreferenceFragment extends PreferenceFragment
 {
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		addPreferencesFromResource(R.xml.about);	
+		addPreferencesFromResource(R.xml.setting);	
 	}
 	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference)

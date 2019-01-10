@@ -14,6 +14,7 @@
 		android:layout_width="wrap_content"
 		android:layout_gravity="center_horizontal"
 		android:transitionName="userHead"/>
+
 	<android.support.v7.widget.CardView
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
@@ -29,25 +30,16 @@
 			android:layout_height="wrap_content">
 
 			<Button
-				android:layout_width="wrap_content"
-				style="?android:attr/buttonBarButtonStyle"
-				android:layout_height="wrap_content"
-				android:text="@string/talk_photo"
-				android:layout_weight="5"
-				android:id="@+id/take_photo"
-				android:transitionName="email"/>
-
-			<Button
-				android:layout_width="wrap_content"
+				android:layout_width="match_parent"
 				style="?android:attr/buttonBarButtonStyle"
 				android:layout_height="wrap_content"
 				android:text="@string/choose_photo"
-				android:layout_weight="5"
 				android:id="@+id/choose_photo"
 				android:transitionName="pass"/>
 
 		</LinearLayout>
 
 	</android.support.v7.widget.CardView>
+
 </LinearLayout>
 

@@ -30,7 +30,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
-import com.kirby.runanjing.about.*;
+import com.kirby.runanjing.setting.*;
 import com.kirby.runanjing.me.login.*;
 /**
  *类类型:Activity
@@ -399,7 +399,7 @@ public class MainActivity extends BaseActivity
 				break;
 			case R.id.about:
 				//跳转AboutActivity
-				Intent about=new Intent(MainActivity.this, AboutActivity.class);
+				Intent about=new Intent(MainActivity.this, SettingActivity.class);
 				IntentUtil.startActivityWithAnim(about, MainActivity.this);
 				break;
 			case R.id.app:

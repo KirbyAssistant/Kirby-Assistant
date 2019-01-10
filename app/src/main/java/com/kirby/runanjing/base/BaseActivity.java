@@ -12,6 +12,7 @@ import com.jaeger.library.*;
 import com.umeng.analytics.*;
 import java.util.*;
 import com.kirby.runanjing.utils.*;
+import com.oasisfeng.condom.*;
 
 public class BaseActivity extends AppCompatActivity
 {
@@ -34,7 +35,7 @@ public class BaseActivity extends AppCompatActivity
 		getWindow().setReenterTransition(fade); //重新进入的动画。即第二次进入，可以和首次进入不一样。
 		super.onCreate(savedInstanceState);
 		LanguageUtil.setLanguage();
-		Bmob.initialize(this, "e39c2e15ca40b358b0dcc933236c1165");
+		Bmob.initialize(CondomContext.wrap(this, "Bmob"), "e39c2e15ca40b358b0dcc933236c1165");
 		MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
 	}
     @Override
