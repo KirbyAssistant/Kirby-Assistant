@@ -6,6 +6,7 @@
 	<string name="tj_title">推薦</string>
 	<string name="wiki_title">百科</string>
 	<string name="switch_icon">切換圖標</string>
+	<string name="setting_title">設置</string>
 	<string name="about_title">關於</string>
 	<string name="help_title">幫助</string>
 	<string name="mess_title">詳情</string>
@@ -40,6 +41,8 @@
 	</string>
 	<string name="permissionandprivacy_agree">同意</string>
 	<string name="permissionandprivacy_disagree">不同意</string>
+	<string name="permission_refuse">權限被拒絕</string>
+	<string name="permission_need">Kirby Assistant需要權限</string>
 	
 	<string name="mess_upload">發送中</string>
 	<string name="mess_true">發送成功:</string>

@@ -6,6 +6,7 @@
 	<string name="tj_title">推荐</string>
 	<string name="wiki_title">百科</string>
 	<string name="switch_icon">切换图标</string>
+	<string name="setting_title">设置</string>
 	<string name="about_title">关于</string>
 	<string name="help_title">帮助</string>
 	<string name="mess_title">详情</string>
@@ -28,7 +29,7 @@
 	<string name="permissionandprivacy_cnntent">权限说明:\n
 		Kirby Assistant 申请了一些运行时权限和普通权限，关于这些权限申请的说明，请看下文:\n
 		网络访问权限:用于获取游戏封面图，查看攻略视频封操作\n
-		存储读写权限:用于下载模拟器文件以及更换用户头像\n
+		存储读写权限:用于更换用户头像\n
 		请求访问安装包权限:用于下载模拟器文件完毕后进行跳转安装\n
 		防止手机休眠:服务商要求必须申请的权限，否则无法使用服务商提供的服务\n
 		读取日志:用于程序崩溃后，定位崩溃信息的操作\n
@@ -40,7 +41,8 @@
 		</string>
 	<string name="permissionandprivacy_agree">同意</string>
 	<string name="permissionandprivacy_disagree">不同意</string>
-	
+	<string name="permission_refuse">权限被拒绝</string>
+	<string name="permission_need">Kirby Assistant需要权限</string>
 	
 	<string name="mess_upload">发送中</string>
 	<string name="mess_true">发送成功:</string>

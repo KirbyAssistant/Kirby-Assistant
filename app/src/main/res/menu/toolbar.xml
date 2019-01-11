@@ -6,8 +6,8 @@
         android:title="@string/theme_title"
 		app:showAsAction="always"/>
 	<item
-        android:id="@+id/about"
-        android:title="@string/about_title"
+        android:id="@+id/setting"
+        android:title="@string/setting_title"
 		app:showAsAction="never"/>
 	<item
         android:id="@+id/app"
@@ -16,9 +16,5 @@
 	<item
         android:id="@+id/pay"
         android:title="@string/pay_title"
-		app:showAsAction="never"/>
-	<item
-        android:id="@+id/switch_icon"
-        android:title="@string/switch_icon"
 		app:showAsAction="never"/>
 </menu>

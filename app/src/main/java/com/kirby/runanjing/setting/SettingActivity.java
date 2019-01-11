@@ -20,7 +20,7 @@ public class SettingActivity extends BaseActivity
 		setContentView(R.layout.activity_setting);
 		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-		getSupportActionBar().setTitle(R.string.about_title);
+		getSupportActionBar().setTitle(R.string.setting_title);
 		getFragmentManager().beginTransaction().replace(R.id.about_fragment, new SettingPreferenceFragment()).commit();
 	}
 }

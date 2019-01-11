@@ -397,10 +397,9 @@ public class MainActivity extends BaseActivity
 
 				);
 				break;
-			case R.id.about:
-				//跳转AboutActivity
-				Intent about=new Intent(MainActivity.this, SettingActivity.class);
-				IntentUtil.startActivityWithAnim(about, MainActivity.this);
+			case R.id.setting:
+				Intent setting=new Intent(MainActivity.this, SettingActivity.class);
+				IntentUtil.startActivityWithAnim(setting, MainActivity.this);
 				break;
 			case R.id.app:
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -424,10 +423,6 @@ public class MainActivity extends BaseActivity
 			case R.id.pay:
 				Intent pay=new Intent(MainActivity.this, PayActivity.class);
 				IntentUtil.startActivityWithAnim(pay, MainActivity.this);
-				break;
-			case R.id.switch_icon:
-				Intent sw_icon=new Intent(MainActivity.this, SwitchIconActivity.class);
-				IntentUtil.startActivityWithAnim(sw_icon, MainActivity.this);
 				break;
 			default:
 		}

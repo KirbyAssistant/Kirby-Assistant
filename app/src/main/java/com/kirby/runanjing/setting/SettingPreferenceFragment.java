@@ -9,6 +9,8 @@ import android.widget.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.launcher.*;
 import com.kirby.runanjing.main.help.*;
+import com.kirby.runanjing.utils.*;
+import com.kirby.runanjing.main.swic.*;
 
 public class SettingPreferenceFragment extends PreferenceFragment
 {
@@ -28,6 +30,7 @@ public class SettingPreferenceFragment extends PreferenceFragment
 				{
 					Intent star=new Intent("android.intent.action.VIEW");
 					star .setData(Uri.parse("market://details?id=com.kirby.runanjing"));
+					star.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 					star .setPackage("com.coolapk.market");
 					getActivity().startActivity(star);
 				}
@@ -45,26 +48,26 @@ public class SettingPreferenceFragment extends PreferenceFragment
 						@Override
 						public void onClick(DialogInterface dialog, int i)
 						{
-							SharedPreferences lan=getContext().getSharedPreferences("setting",0);
+							SharedPreferences lan=getContext().getSharedPreferences("setting", 0);
 							SharedPreferences.Editor edit=lan.edit();
-							edit.putInt("language_i",i);
+							edit.putInt("language_i", i);
 							edit.apply();
 							switch (i)
 							{
 								case 0:
-									edit.putString("language","auto" );
+									edit.putString("language", "auto");
 									edit.apply();
 									break;
 								case 1:
-									edit.putString("language","zh_cn" );
+									edit.putString("language", "zh_cn");
 									edit.apply();
 									break;
 								case 2:
-									edit.putString("language","zh_tw" );
+									edit.putString("language", "zh_tw");
 									edit.apply();
 									break;
 								case 3:
-									edit.putString("language","en" );
+									edit.putString("language", "en");
 									edit.apply();
 									break;
 							}
@@ -86,20 +89,28 @@ public class SettingPreferenceFragment extends PreferenceFragment
 				String key="6j76WE8N9l378jnsWzmmUDv5HohOteHu";
 				joinQQGroup(key);
 				break;
-			case "WeChat":
-				Intent WeChat=new Intent("android.intent.action.VIEW");
-				WeChat .setData(Uri.parse("https://github.com/nihaocun/pay/blob/master/WX.png"));
-				getActivity().startActivity(WeChat);
-				break;
-			case "Alibaba":
-				/*Intent Alibaba=new Intent("android.intent.action.VIEW");
-				Alibaba .setData(Uri.parse("https://github.com/nihaocun/pay/blob/master/ZFB.jpg"));
-				getActivity().startActivity(Alibaba);*/
+			case "swIcon":
+				Intent setting=new Intent(getActivity(), SwitchIconActivity.class);
+				IntentUtil.startActivityWithAnim(setting, getActivity());
 				break;
 			case "github":
 				Intent github=new Intent("android.intent.action.VIEW");
 				github.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant"));
 				getActivity().startActivity(github);
+				break;
+			case "me":
+				try
+				{
+					Intent me=new Intent("android.intent.action.VIEW");
+					me .setData(Uri.parse("http://www.coolapk.com/u/651880"));
+					me.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					me .setPackage("com.coolapk.market");
+					getActivity().startActivity(me);
+				}
+				catch (Exception e)
+				{
+					Toast.makeText(getActivity(), getActivity().getString(R.string.not_install_CoolApk), Toast.LENGTH_SHORT).show();
+				}		
 				break;
 		}
 		return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -109,6 +120,7 @@ public class SettingPreferenceFragment extends PreferenceFragment
 	{
 		Intent intent = new Intent();
 		intent.setData(Uri.parse("mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D" + key));
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		// 此Flag可根据具体产品需要自定义，如设置，则在加群界面按返回，返回手Q主界面，不设置，按返回会返回到呼起产品界面    //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 		try
 		{

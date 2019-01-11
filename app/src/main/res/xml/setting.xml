@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
 	xmlns:android="http://schemas.android.com/apk/res/android">
- 
-	<PreferenceCategory >
 		
         <Preference
             android:key="version"
-			android:summary="未来·炫动-1.2.4(27)(com.kirby.runanjing)"
+			android:summary="未来·炫动-1.2.4 (build 27) (com.kirby.runanjing)"
             android:title="@string/version"
 			android:icon="@mipmap/ic_launcher_hk"/>
-		
-	</PreferenceCategory>
 
-<PreferenceCategory>
+<PreferenceCategory android:title="@string/setting_title">
 	
 		<Preference	
 			android:key="setLanguage"
-			android:title="@string/language" 
-			android:icon="@drawable/ic_sw_language"/>
+			android:title="@string/language" />
+		
+	<Preference	
+		android:key="swIcon"
+		android:title="@string/switch_icon" />
 		
 </PreferenceCategory>
 
-<PreferenceCategory>
+<PreferenceCategory android:title="@string/about_title">
 	
         <Preference
             android:key="star"
             android:summary="@string/star_message"
-            android:title="@string/star_title" 
-			android:icon="@drawable/ic_kirby_star"/>
+            android:title="@string/star_title" />
 		<Preference
             android:key="help1"
             android:summary="@string/help_message"
-            android:title="@string/help_title" 
-			android:icon="@drawable/ic_kirby_qq"/>
+            android:title="@string/help_title" />
 		<Preference
             android:key="help2"
             android:summary="@string/qq_group"
@@ -48,8 +45,7 @@
             android:title="@string/me1" />
 		<Preference
             android:key="github"
-            android:title="@string/github" 
-			android:icon="@drawable/ic_github"/>
+            android:title="@string/github" />
 		
 	</PreferenceCategory>
 	

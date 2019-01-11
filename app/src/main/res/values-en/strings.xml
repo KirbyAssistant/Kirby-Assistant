@@ -3,6 +3,7 @@
     <string name="app_name">Kirby Assistant</string>
 	
 	<string name="game_title">Now is</string>
+	<string name="setting_title">Setting</string>
 	<string name="about_title">About</string>
 	<string name="help_title">Help</string>
 	<string name="switch_icon">Switch ICON</string>
@@ -39,7 +40,7 @@
 	<string name="permissionandprivacy_cnntent">Permission description: \n
 		Kirby Assistant has applied for some runtime permissions and normal permissions. For a description of these permission requests, please see below:\n
 		Network access: used to get the game cover map, view the Raiders video seal operation \n
-		Storage read and write permissions: used to download the emulator file and replace the user avatar\n
+		Storage read and write permissions: used to replace the user avatar\n
 		Request access to the installation package permissions: used to download the emulator file after the jump installation \n
 		Prevent the phone from sleeping: the service provider requires permission to apply, otherwise the service provided by the service provider cannot be used.
 		Read log: operation for locating crash information after program crash\n
@@ -51,6 +52,8 @@
 	</string>
 	<string name="permissionandprivacy_agree">Agree</string>
 	<string name="permissionandprivacy_disagree">Disagree</string>
+	<string name="permission_refuse">Permission denied</string>
+	<string name="permission_need">Kirby Assistant need permission </string>
 	
 	<string name="user_title">User Information</string>
 	<string name="head_upload">Uploading</string>

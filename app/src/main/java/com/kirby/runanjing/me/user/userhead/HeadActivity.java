@@ -181,7 +181,7 @@ public class HeadActivity extends BaseActivity
 				}
 				else
 				{
-					Toast.makeText(this, "权限被拒绝了", Toast.LENGTH_SHORT).show();
+					Toast.makeText(this, R.string.permission_refuse, Toast.LENGTH_SHORT).show();
 				}
 
 				if (!shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE))
@@ -194,15 +194,10 @@ public class HeadActivity extends BaseActivity
 	private void AskForPermission()
 	{
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Need Permission!");
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which)
-				{
-
-				}
-			});
-        builder.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+        builder.setTitle(getResources().getString(R.string.permission_need)+":"+"WRITE_EXTERNAL_STORAGE");
+		builder.setCancelable(false);
+        builder.setNegativeButton(R.string.dia_cancel, null);
+        builder.setPositiveButton(R.string.dia_yes, new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which)
 				{
