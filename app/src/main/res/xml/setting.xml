@@ -56,6 +56,11 @@
 			android:summary="@string/translation_tw_message"
             android:title="@string/translation_tw_title" />
 		
+		<Preference
+            android:key="draw_icon"
+			android:summary="@string/draw_icon_message"
+            android:title="@string/draw_icon_title" />
+		
 		</PreferenceCategory>
 	
 </PreferenceScreen>

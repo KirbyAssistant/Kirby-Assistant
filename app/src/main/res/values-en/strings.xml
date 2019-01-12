@@ -162,7 +162,9 @@
 	<string name="gitlab">Browsing The Program In Gitlab.</string>
 	<string name="contributor_title">Contributor</string>
 	<string name="translation_tw_title">Traditional Chinese translator</string>
-	<string name="translation_tw_message">CoolApk\@long2007\nGithub\@longxk2017</string>
+	<string name="translation_tw_message">Github\@longxk2017</string>
+	<string name="draw_icon_title">Draw ICON</string>
+	<string name="draw_icon_message">CoolApk\@hk流星</string>
 	
 	<string name="register">Register</string>
 	<string name="register_success">Register Successfully</string>

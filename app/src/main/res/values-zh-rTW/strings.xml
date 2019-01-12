@@ -163,7 +163,9 @@
 	<string name="gitlab">在Gitlab查看這個項目</string>
 	<string name="contributor_title">貢獻者</string>
 	<string name="translation_tw_title">繁體中文翻譯</string>
-	<string name="translation_tw_message">酷安\@long2007\nGithub\@longxk2017</string>
+	<string name="translation_tw_message">Github\@longxk2017</string>
+	<string name="draw_icon_title">图标绘制</string>
+	<string name="draw_icon_message">酷安\@hk流星</string>
 	
 	<string name="register">註冊</string>
 	<string name="register_success">註冊成功</string>
