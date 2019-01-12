@@ -17,7 +17,8 @@
 
 		<RelativeLayout
 			android:layout_height="wrap_content"
-			android:layout_width="match_parent">
+			android:layout_width="match_parent"
+		    android:id="@+id/change_userhead"	>
 
 			<ImageView
 				android:layout_width="match_parent"
@@ -30,6 +31,7 @@
 				android:layout_width="80dp"
 				android:id="@+id/user_head"
 				android:background="@drawable/buletheme"
+				android:src="@drawable/buletheme"
 				android:layout_centerHorizontal="true"
 				android:transitionName="userHead"
 				android:layout_marginTop="10dp"/>

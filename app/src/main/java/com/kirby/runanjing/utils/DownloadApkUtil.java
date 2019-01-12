@@ -18,7 +18,7 @@ public class DownloadApkUtil
 {
 
 	private static ProgressDialog progressDialog;
-	public static void downloadappApk(final String app_name,final Context context)
+	public static void downloadappApk(final String app_name, final Context context)
 	{
 		progressDialog = new ProgressDialog(context);
 		progressDialog.setMessage(context.getResources().getString(R.string.link_bmob));
@@ -40,19 +40,27 @@ public class DownloadApkUtil
 						{
 							emulatorsApk = apk.getApk();
 						}
-						appFileDownload(emulatorsApk, app_name,context);
+						if (isfFiileIsExists(context.getExternalCacheDir() + "/bmob/" + emulatorsApk.getFilename()))
+						{
+							InstallUtil.installApk(context, context.getExternalCacheDir() + "/bmob/" + emulatorsApk.getFilename());
+							progressDialog.dismiss();
+						}
+						else
+						{
+							appFileDownload(emulatorsApk, app_name, context);
+						}
 					}
 					else
 					{
 						progressDialog.dismiss();
-						Toast.makeText(context,context.getResources().getString(R.string.link_fail) + p2, Toast.LENGTH_SHORT).show();
+						Toast.makeText(context, context.getResources().getString(R.string.link_fail) + p2, Toast.LENGTH_SHORT).show();
 					}
 				}
 			});
 	}
-	private static void appFileDownload(BmobFile emulatorsApk, final String app_name,final Context context)
+	private static void appFileDownload(BmobFile emulatorsApk, final String app_name, final Context context)
 	{
-		emulatorsApk.download(new DownloadFileListener() {
+		emulatorsApk.download(new File(context.getExternalCacheDir() + "/bmob/" + emulatorsApk.getFilename()),new DownloadFileListener() {
 				@Override
 				public void onStart()
 				{
@@ -80,4 +88,24 @@ public class DownloadApkUtil
 				}
 			});
 	}
+	//判断文件是否存在  
+    public static boolean isfFiileIsExists(String strFile)  
+    {  
+        try  
+        {  
+            File f=new File(strFile);  
+            if (!f.exists())  
+            {  
+				return false;  
+            }  
+
+        }  
+        catch (Exception e)  
+        {  
+            return false;  
+        }  
+
+        return true;  
+    } 
+
 }

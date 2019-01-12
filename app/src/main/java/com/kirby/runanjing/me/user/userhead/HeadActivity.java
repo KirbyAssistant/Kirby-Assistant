@@ -33,7 +33,10 @@ public class HeadActivity extends BaseActivity
 {
 	private LocalBroadcastManager localBroadcastManager;
 	public static final int CHOOSE_PHOTO = 1;
+	public static final int CROP= 0;
 	private ImageView userHead;
+
+	private Bitmap imageBitmap;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -60,14 +63,7 @@ public class HeadActivity extends BaseActivity
 				@Override
 				public void onClick(View p1)
 				{
-					if (ContextCompat.checkSelfPermission(HeadActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
-					{
-						ActivityCompat.requestPermissions(HeadActivity.this, new String[]{ Manifest.permission. WRITE_EXTERNAL_STORAGE }, 1);
-					}
-					else
-					{
-						choosePhoto();
-					}
+					choosePhoto();
 				}
 			});
 	}
@@ -86,76 +82,77 @@ public class HeadActivity extends BaseActivity
             case CHOOSE_PHOTO:
 				if (resultCode == RESULT_OK)
 				{
-					startUcrop(data.getData());
+					//startUcrop(data.getData());
+					CropImageDialog.newInstance(data.getData())
+						.setTheme(R.style.BottomDialogStyle)
+					    .setMargin(0)
+						.setShowBottom(true)   
+						.show(ActManager.currentFragmentActivity().getSupportFragmentManager());
 				}
 				//    getImagePathOpenUcrop(resultCode,data);
-				break;
-
-			case UCrop.REQUEST_CROP:
-				try
-				{
-					final Uri croppedFileUri = UCrop.getOutput(data);
-					final ProgressDialog progressDialog = new ProgressDialog(this);
-					progressDialog.setMessage(getResources().getString(R.string.head_upload));
-					progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-					progressDialog.show();
-					final BmobFile headFile=new BmobFile(new File(croppedFileUri.getPath()));
-					headFile.uploadblock(new UploadFileListener(){
-							@Override
-							public void done(BmobException e)
-							{
-								if (e == null)
-								{
-									BmobKirbyAssistantUser newUser = new BmobKirbyAssistantUser();
-									newUser.setUserHead(headFile);
-									newUser.update(UserUtil.getCurrentUser().getObjectId(), new UpdateListener() {
-											@Override
-											public void done(BmobException e)
-											{
-												if (e == null)
-												{
-													displayImage(croppedFileUri.getPath());
-												}
-												else
-												{
-													Toast.makeText(HeadActivity.this, R.string.edit_false + e.getMessage(), Toast.LENGTH_SHORT).show();
-												}
-												progressDialog.dismiss();
-											}
-										});	
-								}
-								else
-								{
-									Toast.makeText(HeadActivity.this, R.string.edit_false + e.getMessage(), Toast.LENGTH_SHORT).show();
-								}
-							}
-						});
-				}
-				catch (Exception e)
-				{}
 				break;
 			default:
 				break;
 		}
 	}
-	private void startUcrop(Uri uri)
+	public void cropImageOK()
 	{
-        //裁剪后保存到文件中
-        Uri destinationUri = Uri.fromFile(new File(HeadActivity.this.getCacheDir(), UserUtil.getCurrentUser().getUsername() + ".jpg"));
-        UCrop uCrop = UCrop.of(uri, destinationUri);
-        UCrop.Options options = new UCrop.Options();
-        //设置裁剪图片可操作的手势
-        options.setAllowedGestures(UCropActivity.SCALE, UCropActivity.ROTATE, UCropActivity.ALL);
-		uCrop.withOptions(options);
-		uCrop.withAspectRatio(1, 1);
-		uCrop.start(this);
-    }
-    private void displayImage(String imagePath)
+		SharedPreferences image=getSharedPreferences("string", 0);
+		final String image_str= image.getString("image_str", null);
+		Toast.makeText(this, image_str, Toast.LENGTH_SHORT).show();
+		try
+		{
+			final ProgressDialog progressDialog = new ProgressDialog(this);
+			progressDialog.setMessage(getResources().getString(R.string.head_upload));
+			progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+			progressDialog.show();
+			final BmobFile headFile=new BmobFile(new File(Uri.parse(image_str).getPath()));
+			headFile.uploadblock(new UploadFileListener(){
+					@Override
+					public void done(BmobException e)
+					{
+						if (e == null)
+						{
+							BmobKirbyAssistantUser newUser = new BmobKirbyAssistantUser();
+							newUser.setUserHead(headFile);
+							newUser.update(UserUtil.getCurrentUser().getObjectId(), new UpdateListener() {
+									@Override
+									public void done(BmobException e)
+									{
+										if (e == null)
+										{
+											displayImage(image_str);
+										}
+										else
+										{
+											Toast.makeText(HeadActivity.this, R.string.edit_false + e.getMessage(), Toast.LENGTH_SHORT).show();
+										}
+										progressDialog.dismiss();
+									}
+								});	
+						}
+						else
+						{
+							Toast.makeText(HeadActivity.this, R.string.edit_false + e.getMessage(), Toast.LENGTH_SHORT).show();
+						}
+					}
+				});
+		}
+		catch (Exception e)
+		{}
+	}
+    public void displayImage(String imagePath)
 	{
         if (imagePath != null)
 		{
-            Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
-            userHead.setImageBitmap(bitmap);
+			Uri imageUri = Uri.parse(imagePath);
+			try
+			{
+				 imageBitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+			}
+			catch (IOException e)
+			{}
+			userHead.setImageBitmap(imageBitmap);
 			Intent intent = new Intent("com.kirby.download.CHANGE_USERHEAD");
 			intent.putExtra("userHead", 1);
 			localBroadcastManager.sendBroadcast(intent);
@@ -165,47 +162,5 @@ public class HeadActivity extends BaseActivity
 		{
             Toast.makeText(this, "failed to get image", Toast.LENGTH_SHORT).show();
         }
-    }
-	@Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults)
-	{
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 1)
-		{
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-			{
-				if (grantResults != null && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-				{
-					choosePhoto();
-				}
-				else
-				{
-					Toast.makeText(this, R.string.permission_refuse, Toast.LENGTH_SHORT).show();
-				}
-
-				if (!shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE))
-				{
-                    AskForPermission();
-                }
-            }
-        }
-    }
-	private void AskForPermission()
-	{
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getResources().getString(R.string.permission_need)+":"+"WRITE_EXTERNAL_STORAGE");
-		builder.setCancelable(false);
-        builder.setNegativeButton(R.string.dia_cancel, null);
-        builder.setPositiveButton(R.string.dia_yes, new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which)
-				{
-					Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-					intent.setData(Uri.parse("package:" + getPackageName())); // 根据包名打开对应的设置界面
-					startActivity(intent);
-				}
-			});
-        builder.create().show();
     }
 }

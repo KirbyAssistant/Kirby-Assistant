@@ -51,6 +51,8 @@ public class MainUserFragment extends BaseFragment
 	private Button user_logout;
 
 	private ImageView mo_userHead;
+
+	private RelativeLayout changeUserHead;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
@@ -168,7 +170,8 @@ public class MainUserFragment extends BaseFragment
 		userId.setText("id:" + UserUtil.getCurrentUser().getObjectId());
 		userTime.setText(getActivity().getResources().getString(R.string.register_time) + ":" + UserUtil.getCurrentUser().getCreatedAt());
 		userEmail.setText(getActivity().getResources().getString(R.string.user_email) + ":" + UserUtil.getCurrentUser().getEmail());
-		userHead.setOnClickListener(new View.OnClickListener(){
+		changeUserHead=(RelativeLayout)view.findViewById(R.id.change_userhead);
+		changeUserHead.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View p1)
 				{

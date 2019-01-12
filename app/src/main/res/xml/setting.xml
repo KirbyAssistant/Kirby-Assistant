@@ -49,5 +49,14 @@
 		
 	</PreferenceCategory>
 	
+	<PreferenceCategory android:title="@string/contributor_title">
+		
+		<Preference
+            android:key="translation_tw"
+			android:summary="@string/translation_tw_message"
+            android:title="@string/translation_tw_title" />
+		
+		</PreferenceCategory>
+	
 </PreferenceScreen>
 

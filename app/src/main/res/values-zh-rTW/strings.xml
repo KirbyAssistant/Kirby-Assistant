@@ -27,13 +27,12 @@
 	
 	<string name="permissionandprivacy_title">权限和隐私政策</string>
 	<string name="permissionandprivacy_cnntent">權限說明:\n
-		Kirby Assistant 申請了壹些運行時權限和普通權限，關於這些權限申請的說明，請看下文:\n
-		網絡訪問權限:用於獲取遊戲封面圖，查看攻略視頻封操作\n
-		存儲讀寫權限:用於下載模擬器文件以及更換用戶頭像\n
+		Kirby Assistant 申請了一些運行時權限和普通權限，關於這些權限申請的說明，請看下文:\n
+		網絡訪問權限:用於獲取遊戲封面圖，查看攻略視頻封面操作\n
 		請求訪問安裝包權限:用於下載模擬器文件完畢後進行跳轉安裝\n
 		防止手機休眠:服務商要求必須申請的權限，否則無法使用服務商提供的服務\n
 		讀取日誌:用於程序崩潰後，定位崩潰信息的操作\n
-		如果您不同意上述權限可以不賦予相關權限或者退出 Kirby Assistant\n
+		如果您不同意上述權限可以不授予相關權限或者退出 Kirby Assistant\n
 		\n\n\n
 		隱私政策:\n
 		Kirby Assistant 僅使用了服務商提供的數據服務功能，也就是用戶登錄註冊，閑聊發送獲取，視頻封面獲取，遊戲封面獲取，模擬器文件下載等操作。
@@ -57,7 +56,7 @@
 	
 	<string name="load_fail">加載失敗，請刷新重試</string>
 	
-	<string name="user_title">用護信息</string>
+	<string name="user_title">用戶信息</string>
 	<string name="head_upload">上傳頭像中</string>
 	
 	<string name="copy">複製</string>
@@ -68,7 +67,7 @@
 	
 	<string name="sw_icon_finish">圖標已經切換完畢了，稍後桌面會刷新並顯示新的圖標</string>
 	
-	<string name="user_name">用護名</string>
+	<string name="user_name">用戶名</string>
 	<string name="user_email">郵箱</string>
 	<string name="talk_photo">拍照</string>
 	<string name="choose_photo">選擇圖片</string>
@@ -130,7 +129,7 @@
 	<string name="no_login">未登錄，無法使用</string>
 	
 	<string name="login">登錄</string>
-	<string name="login_user">用護名/郵箱</string>
+	<string name="login_user">用戶名/郵箱</string>
 	<string name="login_password">密碼</string>
 	<string name="login_success">登錄成功</string>
 	<string name="login_fail">登錄失敗</string>
@@ -139,8 +138,8 @@
 	
 	<string name="intro_welcome_title">歡迎</string>
 	<string name="intro_welcome_text">這是壹個可以讓妳免費獲取到星之卡比遊戲資源的應用程序</string>
-	<string name="intro_user_title">帳護</string>
-	<string name="intro_user_text">Kirby Assistant擁有用護系統，妳可以登錄妳之前註冊的帳號或者註冊新帳號\n當然，妳也可以在進入程序之後登錄或註冊</string>
+	<string name="intro_user_title">帳戶</string>
+	<string name="intro_user_text">Kirby Assistant擁有用戶系統，妳可以登錄妳之前註冊的帳號或者註冊新帳號\n當然，妳也可以在進入程序之後登錄或註冊</string>
 	<string name="intro_finish_title">完成</string>
 	<string name="intro_finish_text">該程序的配置已經自動完成了\n祝妳使用愉快</string>
 	<string name="intro_permission_title">權限</string>
@@ -162,11 +161,14 @@
 	<string name="me2">\@汝南京</string>
 	<string name="github">在Github查看這個項目</string>
 	<string name="gitlab">在Gitlab查看這個項目</string>
+	<string name="contributor_title">貢獻者</string>
+	<string name="translation_tw_title">繁體中文翻譯</string>
+	<string name="translation_tw_message">酷安\@long2007\nGithub\@longxk2017</string>
 	
 	<string name="register">註冊</string>
 	<string name="register_success">註冊成功</string>
 	<string name="register_fail">註冊失敗</string>
-	<string name="register_username">用護名（註冊以後不可更改）</string>
+	<string name="register_username">用戶名（註冊以後不可更改）</string>
 	<string name="register_email">郵箱（用於找回密碼）</string>
 	<string name="register_password">密碼（支持數字和字母）</string>
 	<string name="register_password_again">請再次輸入密碼</string>
