@@ -81,6 +81,11 @@ public class SettingPreferenceFragment extends PreferenceFragment
 					}).create();
 				dialog.show();
 				break;
+			case "greenapps":
+				Intent greenapps=new Intent("android.intent.action.VIEW");
+				greenapps.setData(Uri.parse("https://green-android.org/"));
+				getActivity().startActivity(greenapps);
+				break;
 			case "help1":
 				Intent help=new Intent(getActivity(), HelpActivity.class);
 				getActivity().startActivity(help);

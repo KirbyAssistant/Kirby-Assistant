@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
 	xmlns:android="http://schemas.android.com/apk/res/android">
-		
-        <Preference
-            android:key="version"
-			android:summary="未来·炫动-1.2.4 (build 27) (com.kirby.runanjing)"
-            android:title="@string/version"
-			android:icon="@mipmap/ic_launcher_hk"/>
 
-<PreferenceCategory android:title="@string/setting_title">
-	
+	<Preference
+		android:key="version"
+		android:summary="未来·炫动-1.2.5 (build 28) (com.kirby.runanjing)"
+		android:title="@string/version"
+		android:icon="@mipmap/ic_launcher_hk"/>
+
+	<PreferenceCategory android:title="@string/setting_title">
+
 		<Preference	
 			android:key="setLanguage"
 			android:title="@string/language" />
-		
-	<Preference	
-		android:key="swIcon"
-		android:title="@string/switch_icon" />
-		
-</PreferenceCategory>
 
-<PreferenceCategory android:title="@string/about_title">
-	
+		<Preference	
+			android:key="swIcon"
+			android:title="@string/switch_icon" />
+
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/about_title">
+
+	    <Preference
+			android:key="greenapps"
+			android:summary="@string/greenapps_message"
+			android:title="@string/greenapps_title" />
+
         <Preference
             android:key="star"
             android:summary="@string/star_message"
@@ -34,11 +39,11 @@
             android:key="help2"
             android:summary="@string/qq_group"
             android:title="@string/feedback_title" />
-		
+
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/kfz_title">
-		
+
 		<Preference
             android:key="me"
 			android:summary="@string/me2"
@@ -46,22 +51,22 @@
 		<Preference
             android:key="github"
             android:title="@string/github" />
-		
+
 	</PreferenceCategory>
-	
+
 	<PreferenceCategory android:title="@string/contributor_title">
-		
+
 		<Preference
             android:key="translation_tw"
 			android:summary="@string/translation_tw_message"
             android:title="@string/translation_tw_title" />
-		
+
 		<Preference
             android:key="draw_icon"
 			android:summary="@string/draw_icon_message"
             android:title="@string/draw_icon_title" />
-		
-		</PreferenceCategory>
-	
+
+	</PreferenceCategory>
+
 </PreferenceScreen>
 

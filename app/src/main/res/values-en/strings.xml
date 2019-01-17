@@ -165,6 +165,8 @@
 	<string name="translation_tw_message">Github\@longxk2017</string>
 	<string name="draw_icon_title">Draw ICON</string>
 	<string name="draw_icon_message">CoolApk\@hk流星</string>
+	<string name="greenapps_title">Green Apps for Android</string>
+	<string name="greeapps_message">Kirby Assistant Comply to “Convention of Green Apps for Android”, certified)\nClick to visit Green Apps for Android official website</string>
 	
 	<string name="register">Register</string>
 	<string name="register_success">Register Successfully</string>

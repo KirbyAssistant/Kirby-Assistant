@@ -167,6 +167,8 @@
 	<string name="translation_tw_message">Github\@longxk2017</string>
 	<string name="draw_icon_title">图标绘制</string>
 	<string name="draw_icon_message">酷安\@hk流星</string>
+	<string name="greenapps_title">Android 绿色应用公约</string>
+	<string name="greenapps_message">Kirby Assistant 遵循绿色应用公约，并通过认证\n点击访问 Android 绿色应用公约官网</string>
 	
 	<string name="register">注册</string>
 	<string name="register_success">注册成功</string>

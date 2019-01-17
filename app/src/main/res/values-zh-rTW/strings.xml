@@ -10,33 +10,33 @@
 	<string name="about_title">關於</string>
 	<string name="help_title">幫助</string>
 	<string name="mess_title">詳情</string>
-	<string name="video_title">視頻</string>
+	<string name="video_title">視訊</string>
 	<string name="cheatCode_title">金手指</string>
 	<string name="ziyuan">資源</string>
 	<string name="talk">閑聊</string>
-	<string name="login_title">登錄/註冊</string>
+	<string name="login_title">登入/註冊</string>
 	<string name="game">遊戲</string>
 	<string name="welcome_to">不僅有遊戲</string>
 	<string name="emulators">模擬器</string>
-	<string name="not_login">沒有登錄</string>
+	<string name="not_login">沒有登入</string>
 	<string name="language">語言設置</string>
 	<string name="crash_title">出錯了</string>
-	<string name="egg">这里是彩蛋</string>
-	<string name="bug_report">Bug已經上傳</string>
-	<string name="two_back">請再按一次退出程式</string>
+	<string name="egg">這裡是彩蛋</string>
+	<string name="bug_report">bug已上傳</string>
+	<string name="two_back">再按一次返回鍵即可退出</string>
 	
-	<string name="permissionandprivacy_title">权限和隐私政策</string>
+	<string name="permissionandprivacy_title">權限和隱私政策</string>
 	<string name="permissionandprivacy_cnntent">權限說明:\n
-		Kirby Assistant 申請了一些運行時權限和普通權限，關於這些權限申請的說明，請看下文:\n
-		網絡訪問權限:用於獲取遊戲封面圖，查看攻略視頻封面操作\n
-		請求訪問安裝包權限:用於下載模擬器文件完畢後進行跳轉安裝\n
-		防止手機休眠:服務商要求必須申請的權限，否則無法使用服務商提供的服務\n
-		讀取日誌:用於程序崩潰後，定位崩潰信息的操作\n
+		Kirby Assistant 申請了一些運行時權限和普通權限，關於這些權限申請的說明，請看下文：\n
+		網路訪問權限：用於獲取遊戲封面圖，查看攻略視訊封面操作\n
+		請求訪問安裝包權限：用於下載模擬器文件完畢後進行跳轉安裝\n
+		防止手機休眠：服務商要求必須申請的權限，否則無法使用服務商提供的服務\n
+		讀取日誌:用於程式崩潰後，定位崩潰信息的操作\n
 		如果您不同意上述權限可以不授予相關權限或者退出 Kirby Assistant\n
 		\n\n\n
-		隱私政策:\n
-		Kirby Assistant 僅使用了服務商提供的數據服務功能，也就是用戶登錄註冊，閑聊發送獲取，視頻封面獲取，遊戲封面獲取，模擬器文件下載等操作。
-		當程序崩潰時會收集崩潰信息，可能包括:手機型號、系統版本、程序版本等信息，這些信息不會上傳，您需要手動發送給我，而且這些信息不會包括您的私人數據。
+		隱私政策：\n
+		Kirby Assistant 僅使用了服務商提供的數據服務功能，也就是用戶登錄註冊，閑聊發送獲取，視訊封面獲取，遊戲封面獲取，模擬器文件下載等操作。
+		當程式崩潰時會收集崩潰信息，可能包括：手機型號、系統版本、程式版本等信息，這些信息不會上傳，您需要手動發送給我，而且這些信息不會包括您的私人數據。
 	</string>
 	<string name="permissionandprivacy_agree">同意</string>
 	<string name="permissionandprivacy_disagree">不同意</string>
@@ -44,22 +44,22 @@
 	<string name="permission_need">Kirby Assistant需要權限</string>
 	
 	<string name="mess_upload">發送中</string>
-	<string name="mess_true">發送成功:</string>
-	<string name="mess_false">發送失敗:</string>
+	<string name="mess_true">發送成功：</string>
+	<string name="mess_false">發送失敗：</string>
 	<string name="mess_del_success">閑聊刪除成功</string>
 	<string name="mess_del_fail">閑聊刪除失敗:</string>
 	<string name="mess_edit_success">閑聊編輯成功</string>
 	<string name="mess_edit_fail">閑聊編輯失敗:</string>
-	<string name="mess_copy">複製內容</string>
+	<string name="mess_copy">拷貝內容</string>
 	<string name="mess_del">刪除此閑聊</string>
 	<string name="mess_edit">編輯此閑聊</string>
 	
-	<string name="load_fail">加載失敗，請刷新重試</string>
+	<string name="load_fail">載入失敗，請刷新重試</string>
 	
 	<string name="user_title">用戶信息</string>
-	<string name="head_upload">上傳頭像中</string>
+	<string name="head_upload">頭像上傳中</string>
 	
-	<string name="copy">複製</string>
+	<string name="copy">拷貝</string>
 	<string name="email">郵件發送</string>
 	
 	<string name="check_me">點我</string>
@@ -71,27 +71,27 @@
 	<string name="user_email">郵箱</string>
 	<string name="talk_photo">拍照</string>
 	<string name="choose_photo">選擇圖片</string>
-	<string name="not_have_user">沒有賬號？點我</string>
-	<string name="have_user">已有賬號？點我</string>
+	<string name="not_have_user">沒有帳戶？點我</string>
+	<string name="have_user">已有帳戶？點我</string>
 	
 	<string name="modification_email">修改郵箱</string>
-	<string name="modification_email_hint">修改郵箱（成功後需要重新登錄）</string>
+	<string name="modification_email_hint">修改郵箱（生效後需要重新登入）</string>
 	<string name="modification_email_false">郵箱驗證失敗</string>
 	<string name="modification_email_old">請輸入原來的郵箱</string>
 	<string name="modification_email_new">請輸入新的郵箱</string>
 	<string name="modification_password_old">請輸入原密碼</string>
 	<string name="modification_password_new">請輸入新密碼</string>
-	<string name="modification_password_new_again">請再輸入壹次新密碼</string>
-	<string name="password">兩次輸入的密碼不同</string>
+	<string name="modification_password_new_again">請再輸入新密碼</string>
+	<string name="password">兩次輸入的密碼不相同</string>
 	<string name="modification_password">修改密碼</string>
-	<string name="modification_password_hint">修改密碼（成功後需要重新登錄）</string>
+	<string name="modification_password_hint">修改密碼（生效後需要重新登錄）</string>
 	<string name="modification_password_false">出錯</string>
 	
 	<string name="is_null">不能為空</string>
 	<string name="edit_true">修改成功</string>
-	<string name="edit_false">修改失敗:</string>
+	<string name="edit_false">修改失敗：</string>
 	
-	<string name="user_logout">帳號登出</string>
+	<string name="user_logout">帳戶登出</string>
 	<string name="logout_true">登出成功</string>
 	<string name="register_time">註冊於</string>
 	
@@ -99,26 +99,26 @@
 	
 	<string name="web_loading">載入中</string>
 	
-	<string name="hello">妳好:</string>
+	<string name="hello">你好：</string>
 	
 	<string name="look_more">查看更多</string>
 	<string name="edit_some">寫點什麼吧｡ӧ◡ӧ｡</string>	
 	<string name="look_funk">看什麼看(ﾉ｀⊿´)ﾉ</string>
 	<string name="edit_ny">內容(1000字)</string>
 	
-	<string name="game_name">請選擇您需要的語言版本</string>
-	<string name="game_name1">[限定]僅存在美版</string>
-	<string name="game_name2">[限定]僅存在日版</string>
+	<string name="game_name">請選擇您需要的語言</string>
+	<string name="game_name1">[限定] 僅存在美版</string>
+	<string name="game_name2">[限定] 僅存在日版</string>
 	
 	<string name="tj_app">推薦APP</string>
-	<string name="app_ZArchiver">方便好用的解壓工具</string>
+	<string name="app_ZArchiver">方便好用的壓縮工具</string>
 	
 	<string name="downloading">下載中</string>
-	<string name="download_success">下載成功，保存路徑:</string>
-	<string name="download_fail">下載失敗:</string>
-	<string name="link_bmob">連接服務器中</string>
-	<string name="link_fail">連接服務器失敗</string>
-	<string name="download_dia_mess">咱只給妳簡體漢化版</string>
+	<string name="download_success">下載成功，保存路徑：</string>
+	<string name="download_fail">下載失敗：</string>
+	<string name="link_bmob">連接伺服器中</string>
+	<string name="link_fail">連接伺服失敗</string>
+	<string name="download_dia_mess">咱只給你簡體漢化版</string>
 	
 	<string name="jp">日版</string>
 	<string name="us">美版</string>
@@ -126,32 +126,32 @@
 	<string name="nu"></string>
 	
 	<string name="not_install_CoolApk">未安裝酷安</string>
-	<string name="no_login">未登錄，無法使用</string>
+	<string name="no_login">未登入，無法使用</string>
 	
-	<string name="login">登錄</string>
+	<string name="login">登入</string>
 	<string name="login_user">用戶名/郵箱</string>
 	<string name="login_password">密碼</string>
-	<string name="login_success">登錄成功</string>
-	<string name="login_fail">登錄失敗</string>
+	<string name="login_success">登入成功</string>
+	<string name="login_fail">登入失敗</string>
 	
 	<string name="copy_success">文本已複製</string>
 	
 	<string name="intro_welcome_title">歡迎</string>
-	<string name="intro_welcome_text">這是壹個可以讓妳免費獲取到星之卡比遊戲資源的應用程序</string>
+	<string name="intro_welcome_text">這是一個可以讓你免費獲取到星之卡比遊戲資源的應用程式</string>
 	<string name="intro_user_title">帳戶</string>
-	<string name="intro_user_text">Kirby Assistant擁有用戶系統，妳可以登錄妳之前註冊的帳號或者註冊新帳號\n當然，妳也可以在進入程序之後登錄或註冊</string>
+	<string name="intro_user_text">Kirby Assistant擁有用戶系統，你可以登錄你之前註冊的帳戶或者註冊新帳戶\n當然，你也可以在進入程式之後登入或註冊</string>
 	<string name="intro_finish_title">完成</string>
-	<string name="intro_finish_text">該程序的配置已經自動完成了\n祝妳使用愉快</string>
+	<string name="intro_finish_text">該程式的配置已經自動完成了\n祝你使用愉快</string>
 	<string name="intro_permission_title">權限</string>
 	<string name="intro_permission_text">Kirby Assistant需要以下權限請授予</string>
 	<string name="intro_permission_sd">"SD卡讀寫權限"</string>
 	<string name="intro_icon_title">圖標</string>
-	<string name="intro_icon_text">Kirby Asssistant擁有兩個圖標，你可以稍後在菜單切換</string>
+	<string name="intro_icon_text">Kirby Asssistant擁有兩個圖標，你可以稍後在菜單中切換</string>
 	
-	<string name="x_title">信息</string>
+	<string name="x_title">訊息</string>
 	<string name="version">版本</string>
 	<string name="star_title">評分</string>
-	<string name="star_message">期待妳的五分好評</string>
+	<string name="star_message">期待你的五分好評</string>
 	<string name="help_title">幫助</string>
 	<string name="help_meaasge">常見問題匯總</string>
 	<string name="feedback">反饋</string>
@@ -164,8 +164,12 @@
 	<string name="contributor_title">貢獻者</string>
 	<string name="translation_tw_title">繁體中文翻譯</string>
 	<string name="translation_tw_message">Github\@longxk2017</string>
-	<string name="draw_icon_title">图标绘制</string>
+	<string name="draw_icon_title">圖標繪製</string>
 	<string name="draw_icon_message">酷安\@hk流星</string>
+	<string name="greenapps_title">Android 綠色應用公約</string>
+	<string name="greenps_message">Kirby Assistant 遵循綠色應用公約，並通過認證\點擊訪問 Android 綠色應用公約官網</string>
+	
+	
 	
 	<string name="register">註冊</string>
 	<string name="register_success">註冊成功</string>
@@ -181,8 +185,8 @@
 	<string name="dia_yes">確定</string>
 	<string name="dia_cancel">關閉</string>
 	
-	<string name="bj">背景:</string>
-	<string name="js">介紹:</string>
+	<string name="bj">背景：</string>
+	<string name="js">介紹：</string>
 
 	<string name="gb_x1_bj">暫無</string>
 	<string name="gb_x1_js">HAL研究所在1992年時面臨破產危機，櫻井政博當時設計了一個叫Popopo的小角色，
