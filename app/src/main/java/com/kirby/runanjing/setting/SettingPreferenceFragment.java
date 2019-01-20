@@ -87,8 +87,23 @@ public class SettingPreferenceFragment extends PreferenceFragment
 				getActivity().startActivity(greenapps);
 				break;
 			case "help1":
-				Intent help=new Intent(getActivity(), HelpActivity.class);
-				getActivity().startActivity(help);
+				Intent faq=new Intent("android.intent.action.VIEW");
+				switch (LanguageUtil.getLanguage())
+				{
+					case "zh-CN":
+						faq.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant-FAQ/blob/master/FAQ_zh_CN"));
+						break;
+					case "zh-TW":
+						faq.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant-FAQ/blob/master/FAQ_zh_TW"));
+						break;
+					case "en":
+						faq.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant-FAQ/blob/master/FAQ_en"));
+						break;
+					default:
+						faq.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant-FAQ/blob/master/FAQ_en"));
+						break;
+				}
+				getActivity().startActivity(faq);
 				break;
 			case "help2":
 				String key="6j76WE8N9l378jnsWzmmUDv5HohOteHu";

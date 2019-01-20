@@ -32,6 +32,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import com.kirby.runanjing.setting.*;
 import com.kirby.runanjing.me.login.*;
+import com.kirby.runanjing.bmob.*;
+import cn.bmob.v3.listener.*;
+import cn.bmob.v3.exception.*;
 /**
  *类类型:Activity
  *类名称:MainActivity
@@ -59,18 +62,16 @@ public class MainActivity extends BaseActivity
 		getSupportActionBar().setTitle(R.string.app_name);
 		toolbar.setSubtitle(R.string.ziyuan);
 		replaceFragment(new MainGameFragment());
-	    //thePay();
-		bottomBar();
+	    bottomBar();
 		//initTencentCloud();
 		permissionAndPrivacy();
-
+		CheckUpdateUtil.checkUpdate(toolbar,this);
 		//友盟统计
-		if (UserUtil.getCurrentUser()!= null)
+		if (UserUtil.getCurrentUser() != null)
 		{
 			MobclickAgent.onProfileSignIn(UserUtil.getCurrentUser().getUsername());
 		}
 	}
-	
 	private void permissionAndPrivacy()
 	{
 		SharedPreferences preferences = getSharedPreferences("boolean", 0);
@@ -81,7 +82,7 @@ public class MainActivity extends BaseActivity
 				.setTitle(R.string.permissionandprivacy_title)
 				.setMessage(R.string.permissionandprivacy_cnntent)
 				.setCancelable(false)
-				.setPositiveButton(getResources().getString(R.string.permissionandprivacy_agree), new
+				.setPositiveButton(getResources().getString(R.string.dia_agree), new
 				DialogInterface.OnClickListener()
 				{
 					@Override
@@ -93,7 +94,7 @@ public class MainActivity extends BaseActivity
 					}
 				}
 			)
-				.setNeutralButton(getResources().getString(R.string.permissionandprivacy_disagree), new DialogInterface.OnClickListener()
+				.setNeutralButton(getResources().getString(R.string.dia_disagree), new DialogInterface.OnClickListener()
 				{
 					@Override
 					public void onClick(DialogInterface dialog, int which)
@@ -171,60 +172,6 @@ public class MainActivity extends BaseActivity
 					return true;
 				}
 			});
-	}
-	/**
-	 *方法名:thePay
-	 *不需要传入参数
-	 *用于判断是否显示捐赠
-	 */
-	private void thePay()
-	{
-		SharedPreferences 状态=getSharedPreferences("boolean", 0);
-		boolean 状态_ = 状态.getBoolean("thefirst_main", false);
-		if (状态_ == false)
-		{
-			int pay_code=(int)(1 + Math.random() * (10 - 1 + 1));
-			if (pay_code == 1 || pay_code == 3 || pay_code == 7 || pay_code == 10)
-			{
-				showPay();
-			}
-		}
-	}
-	/**
-	 *方法名:showPay
-	 *不需要传入参数
-	 *用于显示捐赠窗口以及逻辑
-	 */
-	private void showPay()
-	{
-		AlertDialog.Builder dialog = new
-			AlertDialog.Builder(this)
-			.setTitle("捐赠")
-			.setMessage("你好，我是Kirby Assistant的开发者,感谢你使用我开发的app\n这个app从开发到服务器一直都是我自费的，作为一个学生，实在是坚持不住。所以，请求各位大佬投喂，或者点击免费捐赠也可以的哦，谢谢٩(๑•◡-๑)۶")
-			.setPositiveButton("捐赠", new
-			DialogInterface.OnClickListener()
-			{
-				@Override
-				public void onClick(DialogInterface dialog, int which)
-				{
-					Intent pay=new Intent(MainActivity.this, PayActivity.class);
-					IntentUtil.startActivityWithAnim(pay, MainActivity.this);
-				}
-			}
-		)
-			.setNegativeButton("取消", null)
-			.setNeutralButton("不再提醒", new DialogInterface.OnClickListener()
-			{
-				@Override
-				public void onClick(DialogInterface dialog, int which)
-				{
-					SharedPreferences.Editor t=getSharedPreferences("boolean", 0).edit();
-					t.putBoolean("thefirst_main", true);
-					t.apply();
-				}
-			}
-		);
-		dialog.show();
 	}
 
 	/*private void initTencentCloud()
@@ -333,7 +280,6 @@ public class MainActivity extends BaseActivity
 			if ((System.currentTimeMillis() - exitTime) > 2000)
 			{
 				Snackbar.make(toolbar, R.string.two_back, Snackbar.LENGTH_SHORT).show();
-				//Toast.makeText(getApplicationContext(), getResources().getString(R.string.two_back), Toast.LENGTH_SHORT).show();
 				exitTime = System.currentTimeMillis();
 			}
 			else
@@ -412,7 +358,7 @@ public class MainActivity extends BaseActivity
 							switch (i)
 							{
 								case 0:
-									DownloadApkUtil.downloadappApk("ZArchiver",MainActivity.this);
+									DownloadApkUtil.downloadappApk("ZArchiver", MainActivity.this);
 									break;
 							}
 						}
@@ -436,7 +382,7 @@ public class MainActivity extends BaseActivity
 	 *主要用于查询模拟器和推荐应用链接
 	 *调用了方法:appFileDownload
 	 */
-	
+
 	public void theDownload(Context con, String game_name, String position)
 	{
 		gameContext = con;
@@ -477,7 +423,7 @@ public class MainActivity extends BaseActivity
 				@Override
 				public void onClick(DialogInterface dialog, int which)
 				{
-					DownloadApkUtil.downloadappApk(downloadName,gameContext);
+					DownloadApkUtil.downloadappApk(downloadName, gameContext);
 				}			
 			}
 		);dialog.show();
@@ -506,12 +452,12 @@ public class MainActivity extends BaseActivity
 			toolbar.setSubtitle(R.string.ziyuan);
 			replaceFragment(new MainGameFragment());
 		}
-		if (fragment_cheak.equals( getResources().getString(R.string.video_title)))
+		if (fragment_cheak.equals(getResources().getString(R.string.video_title)))
 		{
 			toolbar.setSubtitle(R.string.video_title);
 			replaceFragment(new MainVideoFragment());
 		}
-		if (fragment_cheak.equals( getResources().getString(R.string.talk)))
+		if (fragment_cheak.equals(getResources().getString(R.string.talk)))
 		{
 			toolbar.setSubtitle(R.string.talk);
 			if (null == UserUtil.getCurrentUser())
@@ -525,7 +471,7 @@ public class MainActivity extends BaseActivity
 		}
 		if (null == UserUtil.getCurrentUser())
 		{
-			if (fragment_cheak.equals( getResources().getString(R.string.login_title)))
+			if (fragment_cheak.equals(getResources().getString(R.string.login_title)))
 			{
 				replaceFragment(new MainLoginFragment());
 				toolbar.setSubtitle(R.string.login_title);
@@ -533,12 +479,12 @@ public class MainActivity extends BaseActivity
 		}
 		else
 		{
-			if (fragment_cheak.equals( UserUtil.getCurrentUser().getUsername()))
+			if (fragment_cheak.equals(UserUtil.getCurrentUser().getUsername()))
 			{
 				replaceFragment(new MainUserFragment());
 				toolbar.setSubtitle(UserUtil.getCurrentUser().getUsername());
 			}
 		}
-		
+
 	}
 }

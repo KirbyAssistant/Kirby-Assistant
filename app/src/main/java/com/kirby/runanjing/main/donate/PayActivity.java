@@ -56,38 +56,6 @@ public class PayActivity extends BaseActivity
 		wechat=((Button)findViewById(R.id.wechat));
 		paypal=((Button)findViewById(R.id.paypal));
 		qq=((Button)findViewById(R.id.qq));
-		//radioGroup = ((RadioGroup) findViewById(R.id.radio_group));
-      /*  radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-				@Override
-				public void onCheckedChanged(RadioGroup group, @IdRes int checkedId)
-				{
-					RadioButton checkedRadioButton = (RadioButton) group.findViewById(checkedId);
-					String text = checkedRadioButton.getText().toString().trim();
-					currentMoney = Integer.valueOf(text.replace("元", "").trim());
-					btAlipayCustom.setText("支付宝捐赠(" + currentMoney + "元)");
-				}
-			});
-        radioGroup.getChildAt(0).performClick();*/
-	/*	btAlipayCustom.setOnClickListener(new View.OnClickListener(){
-
-				@Override
-				public void onClick(View p1)
-				{
-					// 自定义价格
-					if (currentMoney == 1)
-					{
-						donateAlipay(Donate_1);
-					}
-					else if (currentMoney == 3)
-					{
-						donateAlipay(Donate_3);
-					}
-					else if (currentMoney == 7)
-					{
-						donateAlipay(Donate_7);
-					}
-				}
-			});*/
 		btAlipayUserInput.setOnClickListener(new View.OnClickListener(){
 
 				@Override
@@ -120,7 +88,7 @@ public class PayActivity extends BaseActivity
 					startActivity(web);  
 				}
 			});
-		paypal.setOnClickListener(new View.OnClickListener(){
+		qq.setOnClickListener(new View.OnClickListener(){
 
 				@Override
 				public void onClick(View p1)

@@ -4,7 +4,7 @@
 
 	<Preference
 		android:key="version"
-		android:summary="未来·炫动-1.2.5 (build 28) (com.kirby.runanjing)"
+		android:summary="未来·炫动-1.2.6 (build 29) (com.kirby.runanjing)"
 		android:title="@string/version"
 		android:icon="@mipmap/ic_launcher_hk"/>
 
@@ -62,9 +62,19 @@
             android:title="@string/translation_tw_title" />
 
 		<Preference
+            android:key="translation_en"
+			android:summary="@string/translation_en_message"
+            android:title="@string/translation_en_title" />
+		
+		<Preference
             android:key="draw_icon"
 			android:summary="@string/draw_icon_message"
             android:title="@string/draw_icon_title" />
+		
+		<Preference
+            android:key="writer_help_faq"
+			android:summary="@string/writer_help_faq_message"
+            android:title="@string/writer_help_faq_title" />
 
 	</PreferenceCategory>
 

@@ -38,10 +38,8 @@
 		Kirby Assistant 仅使用了服务商提供的数据服务功能，也就是用户登录注册，闲聊发送获取，视频封面获取，游戏封面获取，模拟器文件下载等操作。
 		当程序崩溃时会收集崩溃信息，可能包括:手机型号、系统版本、程序版本等信息，这些信息不会上传，您需要手动发送给我，而且这些信息不会包括您的私人数据。
 		</string>
-	<string name="permissionandprivacy_agree">同意</string>
-	<string name="permissionandprivacy_disagree">不同意</string>
-	<string name="permission_refuse">权限被拒绝</string>
-	<string name="permission_need">Kirby Assistant需要权限</string>
+	
+	<string name="find_new_version">发现新版本</string>
 	
 	<string name="mess_upload">发送中</string>
 	<string name="mess_true">发送成功:</string>
@@ -121,11 +119,6 @@
 	<string name="link_fail">连接服务器失败</string>
 	<string name="download_dia_mess">咱只给你汉化版</string>
 	
-	<string name="jp">日版</string>
-	<string name="us">美版</string>
-	<string name="zh">汉化</string>
-	<string name="nu"></string>
-	
 	<string name="not_install_CoolApk">未安装酷安</string>
 	<string name="no_login">未登录，无法使用</string>
 	
@@ -165,8 +158,12 @@
 	<string name="contributor_title">贡献者</string>
 	<string name="translation_tw_title">繁体中文翻译</string>
 	<string name="translation_tw_message">Github\@longxk2017</string>
+	<string name="translation_en_title">英语翻译</string>
+	<string name="translation_en_message">百度贴吧\@难难难550</string>
 	<string name="draw_icon_title">图标绘制</string>
 	<string name="draw_icon_message">酷安\@hk流星</string>
+	<string name="writer_help_faq_title">FAQ 编写</string>
+	<string name="writer_help_faq_message">酷安\@塔林狐</string>
 	<string name="greenapps_title">Android 绿色应用公约</string>
 	<string name="greenapps_message">Kirby Assistant 遵循绿色应用公约，并通过认证\n点击访问 Android 绿色应用公约官网</string>
 	
@@ -183,6 +180,12 @@
 	<string name="dia_download">下载</string>
 	<string name="dia_yes">确定</string>
 	<string name="dia_cancel">关闭</string>
+	<string name="dia_jp">日版</string>
+	<string name="dia_us">美版</string>
+	<string name="dia_zh">汉化</string>
+	<string name="dia_nu"></string>
+	<string name="dia_agree">同意</string>
+	<string name="dia_disagree">不同意</string>
 	
 	<string name="bj">背景:</string>
 	<string name="js">介绍:</string>

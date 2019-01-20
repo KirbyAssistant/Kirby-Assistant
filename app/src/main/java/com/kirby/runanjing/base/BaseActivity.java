@@ -1,7 +1,5 @@
 package com.kirby.runanjing.base;
 
-import android.content.*;
-import android.content.res.*;
 import android.os.*;
 import android.support.v7.app.*;
 import android.transition.*;
@@ -9,10 +7,11 @@ import android.util.*;
 import android.view.*;
 import cn.bmob.v3.*;
 import com.jaeger.library.*;
-import com.umeng.analytics.*;
-import java.util.*;
+import com.jaeger.library.R.*;
 import com.kirby.runanjing.utils.*;
 import com.oasisfeng.condom.*;
+import com.umeng.analytics.*;
+import com.kirby.runanjing.R;
 
 public class BaseActivity extends AppCompatActivity
 {

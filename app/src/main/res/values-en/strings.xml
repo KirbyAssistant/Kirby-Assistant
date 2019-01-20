@@ -49,10 +49,8 @@
 		Kirby Assistant only uses the data service functions provided by the service provider, that is, user login registration, chat delivery, video cover acquisition, game cover acquisition, simulator file download and other operations.
 		Crash information will be collected when the program crashes, which may include: phone model, system version, program version, etc., this information will not be uploaded, you need to send it to me manually, and this information will not include your private data.
 	</string>
-	<string name="permissionandprivacy_agree">Agree</string>
-	<string name="permissionandprivacy_disagree">Disagree</string>
-	<string name="permission_refuse">Permission denied</string>
-	<string name="permission_need">Kirby Assistant need permission </string>
+	
+	<string name="find_new_version">Find a new version</string>
 	
 	<string name="user_title">User Information</string>
 	<string name="head_upload">Uploading</string>
@@ -119,11 +117,6 @@
 	<string name="link_fail">Link Server Unsuccessfully</string>
 	<string name="download_dia_mess">ONLY Chinesize Version</string>
 	
-	<string name="jp">Japanese Version</string>
-	<string name="us">North America Version</string>
-	<string name="zh">Chinesize Versiom</string>
-	<string name="nu"></string>
-	
 	<string name="not_install_CoolApk">Not Installed Coolapk</string>
 	<string name="no_login">Not logged in,unable to use</string>
 	
@@ -163,10 +156,14 @@
 	<string name="contributor_title">Contributor</string>
 	<string name="translation_tw_title">Traditional Chinese translator</string>
 	<string name="translation_tw_message">Github\@longxk2017</string>
+	<string name="translation_en_title">English translator</string>
+	<string name="translation_en_message">Baidu Tieba\@难难难550</string>
 	<string name="draw_icon_title">Draw ICON</string>
 	<string name="draw_icon_message">CoolApk\@hk流星</string>
+	<string name="writer_help_faq_title">FAQ Writer</string>
+	<string name="writer_help_faq_message">CoolApk\@塔林狐</string>
 	<string name="greenapps_title">Green Apps for Android</string>
-	<string name="greeapps_message">Kirby Assistant Comply to “Convention of Green Apps for Android”, certified)\nClick to visit Green Apps for Android official website</string>
+	<string name="greenapps_message">Kirby Assistant Comply to “Convention of Green Apps for Android”, certified)\nClick to visit Green Apps for Android official website</string>
 	
 	<string name="register">Register</string>
 	<string name="register_success">Register Successfully</string>
@@ -181,4 +178,10 @@
 	<string name="dia_download">Download</string>
 	<string name="dia_yes">OK</string>
 	<string name="dia_cancel">Close</string>
+	<string name="dia_jp">Japanese Version</string>
+	<string name="dia_us">North America Version</string>
+	<string name="dia_zh">Chinesize Versiom</string>
+	<string name="dia_nu"></string>
+	<string name="dia_agree">Agree</string>
+	<string name="dia_disagree">Disagree</string>
 </resources>

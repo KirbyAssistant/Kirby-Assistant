@@ -38,10 +38,8 @@
 		Kirby Assistant 僅使用了服務商提供的數據服務功能，也就是用戶登錄註冊，閑聊發送獲取，視訊封面獲取，遊戲封面獲取，模擬器文件下載等操作。
 		當程式崩潰時會收集崩潰信息，可能包括：手機型號、系統版本、程式版本等信息，這些信息不會上傳，您需要手動發送給我，而且這些信息不會包括您的私人數據。
 	</string>
-	<string name="permissionandprivacy_agree">同意</string>
-	<string name="permissionandprivacy_disagree">不同意</string>
-	<string name="permission_refuse">權限被拒絕</string>
-	<string name="permission_need">Kirby Assistant需要權限</string>
+
+	<string name="find_new_version">發現新版本</string>
 	
 	<string name="mess_upload">發送中</string>
 	<string name="mess_true">發送成功：</string>
@@ -120,11 +118,6 @@
 	<string name="link_fail">連接伺服失敗</string>
 	<string name="download_dia_mess">咱只給你簡體漢化版</string>
 	
-	<string name="jp">日版</string>
-	<string name="us">美版</string>
-	<string name="zh">簡體漢化</string>
-	<string name="nu"></string>
-	
 	<string name="not_install_CoolApk">未安裝酷安</string>
 	<string name="no_login">未登入，無法使用</string>
 	
@@ -164,11 +157,14 @@
 	<string name="contributor_title">貢獻者</string>
 	<string name="translation_tw_title">繁體中文翻譯</string>
 	<string name="translation_tw_message">Github\@longxk2017</string>
+	<string name="translation_en_title">英語翻譯</string>
+	<string name="translation_en_message">百度貼吧\@难难难550</string>
 	<string name="draw_icon_title">圖標繪製</string>
 	<string name="draw_icon_message">酷安\@hk流星</string>
+	<string name="writer_help_faq_title">FAQ 編寫</string>
+	<string name="writer_help_faq_message">酷安\@塔林狐</string>
 	<string name="greenapps_title">Android 綠色應用公約</string>
 	<string name="greenps_message">Kirby Assistant 遵循綠色應用公約，並通過認證\點擊訪問 Android 綠色應用公約官網</string>
-	
 	
 	
 	<string name="register">註冊</string>
@@ -184,6 +180,12 @@
 	<string name="dia_download">下載</string>
 	<string name="dia_yes">確定</string>
 	<string name="dia_cancel">關閉</string>
+	<string name="dia_jp">日版</string>
+	<string name="dia_us">美版</string>
+	<string name="dia_zh">簡體漢化</string>
+	<string name="dia_nu"></string>
+	<string name="dia_agree">同意</string>
+	<string name="dia_disagree">不同意</string>
 	
 	<string name="bj">背景：</string>
 	<string name="js">介紹：</string>

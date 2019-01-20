@@ -8,22 +8,21 @@ android {
         applicationId "com.kirby.runanjing"
         minSdkVersion 21
 	    targetSdkVersion 28
-        versionCode 28
-        versionName "未来·炫动-1.2.5"
+        versionCode 29
+        versionName "未来·炫动-1.2.6"
 		multiDexEnabled true
         multiDexKeepProguard file('multiDexKeep.pro') 
 		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
   }
     buildTypes {
         release {
-            minifyEnabled true
-			shrinkResources true
+            minifyEnabled false
+			shrinkResources false
             proguardFiles getDefaultPrguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 dependencies {
-	compile 'com.android.support:multidex-instrumentation:+'
 	compile fileTree(dir: 'libs', include: ['*.jar'])
 	//绿色守护
 	compile 'com.oasisfeng.condom:library:2.2.0'

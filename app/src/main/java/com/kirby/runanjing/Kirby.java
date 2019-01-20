@@ -6,7 +6,7 @@
 //Hi 2019
 package com.kirby.runanjing;
 
-import android.support.multidex.*;
+//import android.support.multidex.*;
 
 import android.app.*;
 import android.content.*;
@@ -48,11 +48,11 @@ public class Kirby extends Application
 			.error(R.drawable.ic_kirby_load_fail);
 		return requ;
 	}*/
-	@Override
+	/*@Override
 	protected void attachBaseContext(Context base) {
 		super.attachBaseContext(base);
 		MultiDex.install(this);
-	}
+	}*/
     public void toCrashActivity(final Throwable crash)
 	{
         new Handler(Looper.getMainLooper()).post(new Runnable() {
