@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Kirby Assistant</string>
+	<string name="simple_mode_app_name">Kirby Assistant·Simple Mode</string>
 	
 	<string name="game_title">Now is</string>
 	<string name="setting_title">Setting</string>
 	<string name="about_title">About</string>
 	<string name="help_title">Help</string>
-	<string name="switch_icon">Switch ICON</string>
 	<string name="mess_title">Details</string>
 	<string name="video_title">Video</string>
 	<string name="cheatCode_title">Cheat Code</string>
@@ -51,6 +51,7 @@
 	</string>
 	
 	<string name="find_new_version">Find a new version</string>
+	<string name="view_new_version">View</string>
 	
 	<string name="user_title">User Information</string>
 	<string name="head_upload">Uploading</string>
@@ -143,9 +144,10 @@
 	<string name="x_title">Information</string>
 	<string name="version">Version</string>
 	<string name="star_title">Gtade</string>
+	<string name="simple_mode">Simple Mode</string>
 	<string name="star_message">Hope You Give Me FIVE STAR!</string>
-	<string name="help_title">Help</string>
-	<string name="help_message">FAQ</string>
+	<string name="faq_title">Help</string>
+	<string name="faq_message">FAQ</string>
 	<string name="feedback">Feedback</string>
 	<string name="qq_group">More Detailed Help？Pass The Button To Go To Me Tencent QQ Group</string>
 	<string name="kfz_title">Developer</string>
@@ -157,13 +159,20 @@
 	<string name="translation_tw_title">Traditional Chinese translator</string>
 	<string name="translation_tw_message">Github\@longxk2017</string>
 	<string name="translation_en_title">English translator</string>
-	<string name="translation_en_message">Baidu Tieba\@难难难550</string>
+	<string name="translation_en_message">Baidu Tieba\@难难难550\n\Baidu Tieba@光之耀西</string>
 	<string name="draw_icon_title">Draw ICON</string>
-	<string name="draw_icon_message">CoolApk\@hk流星</string>
+	<string name="draw_icon_message">CoolApk\@hk流星\nCoolApk\@Markuss</string>
+	<string name="video_author_title">Video author</string>
+	<string name="video_author_message">Baidu Tieba\@gf5f65d</string>
 	<string name="writer_help_faq_title">FAQ Writer</string>
 	<string name="writer_help_faq_message">CoolApk\@塔林狐</string>
 	<string name="greenapps_title">Green Apps for Android</string>
 	<string name="greenapps_message">Kirby Assistant Comply to “Convention of Green Apps for Android”, certified)\nClick to visit Green Apps for Android official website</string>
+	
+	<string name="simple_mode_is_enable">Simple Mode is enabled</string>
+	<string name="simple_mode_is_disable">Simple Mode is disable</string>
+	<string name="simple_mode_to_enable">When Simple Mode is enabled, the application is reactivated and the [Chat] and [Me] functions are disable.\n All animation effects are disable\n and theme functions are disable</string>
+	<string name="simple_mode_to_disable">When Simple Mode is disable, the application is reactivated and the [Chat] and [Me] functions are enable.\n All animation effects are enable\n and theme functions are enable</string>
 	
 	<string name="register">Register</string>
 	<string name="register_success">Register Successfully</string>
@@ -177,7 +186,11 @@
 	
 	<string name="dia_download">Download</string>
 	<string name="dia_yes">OK</string>
-	<string name="dia_cancel">Close</string>
+	<string name="dia_enable">Enable</string>
+	<string name="dia_disable">Disable</string>
+	<string name="dia_open">Open</string>
+	<string name="dia_close">Close</string>
+	<string name="dia_cancel">Cancel</string>
 	<string name="dia_jp">Japanese Version</string>
 	<string name="dia_us">North America Version</string>
 	<string name="dia_zh">Chinesize Versiom</string>

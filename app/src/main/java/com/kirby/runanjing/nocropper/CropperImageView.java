@@ -12,9 +12,6 @@ import android.view.*;
 import android.widget.*;
 import com.kirby.runanjing.*;
 
-/**
- * Created by Jay Rambhia on 10/29/2015.
- */
 public class CropperImageView extends ImageView {
 
     private static final String TAG = "CropperImageView";

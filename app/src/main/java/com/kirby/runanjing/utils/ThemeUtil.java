@@ -12,18 +12,26 @@ public class ThemeUtil
 	{
 		SharedPreferences theme = context.getSharedPreferences(FILE_NAME, 0);
 		int themeId=theme.getInt("themeId", 0);
-		Theme(context, themeId);
+		if (CheckSimpleModeUtil.isSimpleMode())
+		{
+			Theme(context, 0);
+		}
+		else
+		{
+			Theme(context, themeId);
+		}
 	}
 	public static void setTheme(Context context, int i)
 	{
 		SharedPreferences theme = context.getSharedPreferences(FILE_NAME, 0);
-		edit=theme.edit();
+		edit = theme.edit();
 		edit.putInt("themeId", i);
 		edit.apply();
 	}
 	private static void Theme(Context context, int themeId)
 	{
-		switch(themeId){
+		switch (themeId)
+		{
 			case 0:
 				context.setTheme(R.style.BuleTheme);
 				break;

@@ -4,9 +4,9 @@
 
 	<Preference
 		android:key="version"
-		android:summary="未来·炫动-1.2.6 (build 29) (com.kirby.runanjing)"
+		android:summary="未来·炫动-1.2.7 (build 30) (com.kirby.runanjing)"
 		android:title="@string/version"
-		android:icon="@mipmap/ic_launcher_hk"/>
+		android:icon="@mipmap/ic_launcher"/>
 
 	<PreferenceCategory android:title="@string/setting_title">
 
@@ -14,10 +14,10 @@
 			android:key="setLanguage"
 			android:title="@string/language" />
 
-		<Preference	
-			android:key="swIcon"
-			android:title="@string/switch_icon" />
-
+		<Preference 
+			android:key="simple"
+			android:title="@string/simple_mode"/>
+		
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/about_title">
@@ -32,11 +32,11 @@
             android:summary="@string/star_message"
             android:title="@string/star_title" />
 		<Preference
-            android:key="help1"
-            android:summary="@string/help_message"
-            android:title="@string/help_title" />
+            android:key="faq"
+            android:summary="@string/faq_message"
+            android:title="@string/faq_title" />
 		<Preference
-            android:key="help2"
+            android:key="qq_group"
             android:summary="@string/qq_group"
             android:title="@string/feedback_title" />
 
@@ -70,6 +70,11 @@
             android:key="draw_icon"
 			android:summary="@string/draw_icon_message"
             android:title="@string/draw_icon_title" />
+		
+		<Preference
+            android:key="video_author"
+			android:summary="@string/video_author_message"
+            android:title="@string/video_author_title" />
 		
 		<Preference
             android:key="writer_help_faq"

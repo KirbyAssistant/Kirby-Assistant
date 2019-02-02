@@ -4,9 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 
-/**
- * Created by Jay Rambhia on 11/2/2015.
- */
 public class BitmapUtils {
 
     public static Bitmap getCroppedBitmap(Bitmap bitmap, CropInfo cropInfo) throws OutOfMemoryError, IllegalArgumentException {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Kirby Assistant</string>
+	<string name="simple_mode_app_name">Kirby Assistant·極簡模式</string>
 	
 	<string name="game_title">當前是</string>
 	<string name="tj_title">推薦</string>
 	<string name="wiki_title">百科</string>
-	<string name="switch_icon">切換圖標</string>
 	<string name="setting_title">設置</string>
 	<string name="about_title">關於</string>
 	<string name="help_title">幫助</string>
@@ -40,6 +40,7 @@
 	</string>
 
 	<string name="find_new_version">發現新版本</string>
+	<string name="view_new_version">查看</string>
 	
 	<string name="mess_upload">發送中</string>
 	<string name="mess_true">發送成功：</string>
@@ -144,9 +145,10 @@
 	<string name="x_title">訊息</string>
 	<string name="version">版本</string>
 	<string name="star_title">評分</string>
+	<string name="simple_mode">極簡模式</string>
 	<string name="star_message">期待你的五分好評</string>
-	<string name="help_title">幫助</string>
-	<string name="help_meaasge">常見問題匯總</string>
+	<string name="faq_title">幫助</string>
+	<string name="faq_message">常見問題匯總</string>
 	<string name="feedback">反饋</string>
 	<string name="qq_group">更詳細的幫助？點我進入QQ群</string>
 	<string name="kfz_title">開發者</string>
@@ -158,15 +160,20 @@
 	<string name="translation_tw_title">繁體中文翻譯</string>
 	<string name="translation_tw_message">Github\@longxk2017</string>
 	<string name="translation_en_title">英語翻譯</string>
-	<string name="translation_en_message">百度貼吧\@难难难550</string>
+	<string name="translation_en_message">百度貼吧\@难难难550\n\百度貼吧@光之耀西</string>
 	<string name="draw_icon_title">圖標繪製</string>
-	<string name="draw_icon_message">酷安\@hk流星</string>
+	<string name="draw_icon_message">酷安\@hk流星\n酷安\@Markuss</string>
+	<string name="video_author_title">視訊作者</string>
+	<string name="video_author_message">百度貼吧\@gf5f65d</string>
 	<string name="writer_help_faq_title">FAQ 編寫</string>
 	<string name="writer_help_faq_message">酷安\@塔林狐</string>
 	<string name="greenapps_title">Android 綠色應用公約</string>
 	<string name="greenps_message">Kirby Assistant 遵循綠色應用公約，並通過認證\點擊訪問 Android 綠色應用公約官網</string>
 	
-	
+	<string name="simple_mode_is_enable">已啟用極簡模式</string>
+	<string name="simple_mode_is_disable">已禁用極簡模式</string>
+	<string name="simple_mode_to_enable">啟用極簡模式後會重新進入應用並且禁用[閒聊]和[我]功能\n禁用所有動畫特效\n禁用主題功能</string>
+	<string name="simple_mode_to_disable">禁用極簡模式後會重新進入應用並且啟用[閒聊]和[我]功能\n啟用所有動畫特效\n啟用主題功能</string>
 	<string name="register">註冊</string>
 	<string name="register_success">註冊成功</string>
 	<string name="register_fail">註冊失敗</string>
@@ -179,7 +186,11 @@
 	
 	<string name="dia_download">下載</string>
 	<string name="dia_yes">確定</string>
-	<string name="dia_cancel">關閉</string>
+	<string name="dia_enable">啟用</string>
+	<string name="dia_disable">禁用</string>
+	<string name="dia_open">打開</string>
+	<string name="dia_close">關閉</string>
+	<string name="dia_cancel">取消</string>
 	<string name="dia_jp">日版</string>
 	<string name="dia_us">美版</string>
 	<string name="dia_zh">簡體漢化</string>
@@ -194,7 +205,7 @@
 	<string name="gb_x1_js">HAL研究所在1992年時面臨破產危機，櫻井政博當時設計了一個叫Popopo的小角色，
 		但因為不少人的喜歡，就準備成為準備在GB（Gameboy）平臺發行的Twinkle Popo的主角，
 		隨著後來主角被改名為卡比，最後遊戲定名為《星之卡比》，於1992年4月27日在日本發行。
-		\n遊戲定義為“初級者適用”，不走當時動作遊戲追求難度的路線，讓每個玩家都可以輕松通關，受到了玩家的極大歡迎。
+		\n遊戲定義為"初級者適用"，不走當時動作遊戲追求難度的路線，讓每個玩家都可以輕松通關，受到了玩家的極大歡迎。
 		除此以外，《星之卡比》還塑造了系列全勤獎的小兵角色瓦豆魯迪、很容易成為第一關大Boss的風語大樹，
 		屢敗屢戰的獨眼雲，還有可以視為搞笑角色的最終Boss帝帝帝大王，與適合給挑戰者遊玩的Extra模式，
 		為將來的百分比完成度設定打下了良好的基礎。在當時GB遊戲普遍質量不算高的情況下，卡比脫穎而出，
@@ -223,7 +234,7 @@
 		卡比為了奪回大家愉快的午睡時間，開始了他的冒險。</string>
 	<string name="fc_mzq_js">1993年，在第一作的成功之後，任天堂本社也對卡比多加關註，
 		宮本茂等人也參與了續作的制作。1993年3月23日，在當時基本退役的FC（Family Computer）
-		平臺上發行了《星之卡比：夢之泉物語》，遊戲定義為“初級者與上級者通用”。
+		平臺上發行了《星之卡比：夢之泉物語》，遊戲定義為"初級者與上級者通用"。
 		\n卡比在本作中正式擁有了粉色的外觀，並且本作給卡比系列定義了吞入敵人可以復制能力的設定，
 		這個設定也用於之後所有的正作與部分非正作中。遊戲中一共20多種能力，各種能力都各具特色，
 		由於遊戲簡單，所以根本不需要去考慮能力的平衡性，能力本身的表現力反而成了主題。這讓玩家想碰到
@@ -253,11 +264,11 @@
 	<string name="sfc_kss_bj">暫無</string>
 	<string name="sfc_kss_js">櫻井政博的團隊在SFC（Super Family Computer）
 		平臺上開發全新的卡比新作----《星之卡比超級豪華版》，於1996年3月21日發售。
-		\n本作由若幹小遊戲組成，為接近初代遊戲劇情的“沐浴春風”，自由關卡式的“白之翼
-		銀翼刀鋒”，充滿收集要素，並且有多個往返門的“洞窟大作戰”，充滿搞笑氣息，
-		BGM成為知名鬼畜素材的“沖擊！美食賽跑”，擁有時間限制，破壞哈爾巴德戰艦的
-		“魅塔騎士的逆襲”，和不通過吞入敵人，而直接通過獲得超級復制之源獲得能力並收集許願星的
-		“向銀河許願”，此外還有挑戰全遊戲大Boss的“格鬥王之道”。這些創意影響了未來的《任天堂明星大亂鬥》
+		\n本作由若幹小遊戲組成，為接近初代遊戲劇情的"沐浴春風"，自由關卡式的"白之翼
+		銀翼刀鋒"，充滿收集要素，並且有多個往返門的"洞窟大作戰"，充滿搞笑氣息，
+		BGM成為知名鬼畜素材的"沖擊！美食賽跑"，擁有時間限制，破壞哈爾巴德戰艦的
+		"魅塔騎士的逆襲"，和不通過吞入敵人，而直接通過獲得超級復制之源獲得能力並收集許願星的
+		"向銀河許願"，此外還有挑戰全遊戲大Boss的"格鬥王之道"。這些創意影響了未來的《任天堂明星大亂鬥》
 		和《星之卡比鏡之大迷宮》。\n本作能力方面也有多種改動，如增加了格鬥家、忍者這些對操作有要求的能力，
 		滿足了不少男性格鬥玩家的喜好，每種能力用各自的帽子展現，增加了復制能力的個性，
 		除單發復制能力外的復制能力擁有多種攻擊招式。各種改動讓不少新玩家也開始喜歡這個粉球角色。
@@ -292,7 +303,7 @@
 	<string name="gba_jm_js">
 		2004年4月15日，《星之卡比：鏡之大迷宮》在GBA平臺上發行。本作品由HAL研究所、
 		Flagship工作室和Dimps聯合開發，而櫻井政博是高級顧問。本作學習了《超級豪華》
-		裏“洞窟大作戰”的往返門設定，遊戲世界是由各個鏡子作為傳送門的大迷宮，讓本作的世界脫離線性關卡，
+		裏"洞窟大作戰"的往返門設定，遊戲世界是由各個鏡子作為傳送門的大迷宮，讓本作的世界脫離線性關卡，
 		變得有立體感。最終boss戰要去各個區域獲得次元之鏡的碎片，復原鏡子後才可進入挑戰。
 		\n本作的能力既有那種有多種攻擊方式的，也有攻擊方式單一的，
 		同時也加入了遊戲完成後可隨意使用的終戰能力Master（萬能劍）。

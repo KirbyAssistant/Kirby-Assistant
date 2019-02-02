@@ -10,7 +10,7 @@
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 	<application
 		android:name=".Kirby"
-		android:icon="@mipmap/ic_launcher_hk"
+		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
 		android:networkSecurityConfig="@xml/network_security_config"
 		android:theme="@style/BuleTheme">
@@ -23,18 +23,6 @@
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
-		<activity-alias
-			android:name=".launcher.OtherLauncher"
-			android:enabled="false"
-			android:icon="@mipmap/ic_launcher_ma"
-			android:label="@string/app_name"
-			android:screenOrientation="landscape"
-			android:targetActivity=".launcher.Launcher">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN"/>
-				<category android:name="android.intent.category.LAUNCHER"/>
-			</intent-filter>
-		</activity-alias>
 		<activity
 			android:name=".main.MainActivity"
 			android:label="Kirby Assistant"/>
@@ -46,11 +34,6 @@
 		<activity android:name=".main.swic.SwitchIconActivity"/>
 		<activity android:name=".setting.SettingActivity"/>
 		<activity android:name=".resoutces.cheatcode.CheatCodeActivity"/>
-		<activity android:name=".help.HelpActivity"/>
-		<activity
-			android:name="com.yalantis.ucrop.UCropActivity"
-			android:screenOrientation="portrait"
-			android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 		<provider
 			android:name="android.support.v4.content.FileProvider"
 			android:authorities="com.kirby.runanjing.fileprovider"

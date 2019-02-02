@@ -9,9 +9,6 @@ import android.util.*;
 import android.view.*;
 import com.kirby.runanjing.*;
 
-/**
- * Created by Jay Rambhia on 11/4/2015.
- */
 public class CropperGridView extends View {
 
     private static final String TAG = "CropperGridView";

@@ -119,7 +119,7 @@ public class MainVideoFragment extends BaseFragment
 						ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.video_list);
 						viewGroup.setLayoutAnimation(controller);
 						viewGroup.scheduleLayoutAnimation();
-						playLayoutAnimation(re,LayoutAnimationHelper.getAnimationSetFromBottom(),false);
+						PlayAnimUtil.playLayoutAnimationWithGridLayout(re,LayoutAnimationHelper.getAnimationSetFromBottom(),false);
 					}			
 					//refresh回调
 					refresh.finishRefresh();
@@ -127,19 +127,5 @@ public class MainVideoFragment extends BaseFragment
 			}
 		}
 	};
-	/**
-     * 播放RecyclerView动画
-     *
-     * @param animation
-     * @param isReverse
-     */
-    public void playLayoutAnimation(RecyclerView mRecyclerView,Animation animation, boolean isReverse) {
-        GridLayoutAnimationController controller = new GridLayoutAnimationController(animation);
-        controller.setColumnDelay(0.2f);
-        controller.setRowDelay(0.3f);
-        controller.setOrder(isReverse ? LayoutAnimationController.ORDER_REVERSE : LayoutAnimationController.ORDER_NORMAL);
-        mRecyclerView.setLayoutAnimation(controller);
-        mRecyclerView.getAdapter().notifyDataSetChanged();
-        mRecyclerView.scheduleLayoutAnimation();
-    }
+	
 }

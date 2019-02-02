@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Kirby Assistant</string>
+	<string name="simple_mode_app_name">Kirby Assistant·极简模式</string>
 	
 	<string name="game_title">当前是</string>
 	<string name="tj_title">推荐</string>
 	<string name="wiki_title">百科</string>
-	<string name="switch_icon">切换图标</string>
 	<string name="setting_title">设置</string>
 	<string name="about_title">关于</string>
 	<string name="help_title">帮助</string>
@@ -40,6 +40,7 @@
 		</string>
 	
 	<string name="find_new_version">发现新版本</string>
+	<string name="view_new_version">查看</string>
 	
 	<string name="mess_upload">发送中</string>
 	<string name="mess_true">发送成功:</string>
@@ -145,9 +146,10 @@
 	<string name="x_title">信息</string>
 	<string name="version">版本</string>
 	<string name="star_title">评分</string>
+	<string name="simple_mode">极简模式</string>
 	<string name="star_message">期待你的五分好评</string>
-	<string name="help_title">帮助</string>
-	<string name="help_message">常见问题汇总</string>
+	<string name="faq_title">帮助</string>
+	<string name="faq_message">常见问题汇总</string>
 	<string name="feedback_title">反馈</string>
 	<string name="qq_group">更详细的帮助？点我进入QQ群</string>
 	<string name="kfz_title">开发者</string>
@@ -159,13 +161,20 @@
 	<string name="translation_tw_title">繁体中文翻译</string>
 	<string name="translation_tw_message">Github\@longxk2017</string>
 	<string name="translation_en_title">英语翻译</string>
-	<string name="translation_en_message">百度贴吧\@难难难550</string>
+	<string name="translation_en_message">百度贴吧\@难难难550\n\百度贴吧@光之耀西</string>
 	<string name="draw_icon_title">图标绘制</string>
-	<string name="draw_icon_message">酷安\@hk流星</string>
+	<string name="draw_icon_message">酷安\@hk流星\n酷安\@Markuss</string>
+	<string name="video_author_title">视频作者</string>
+	<string name="video_author_message">百度贴吧\@gf5f65d</string>
 	<string name="writer_help_faq_title">FAQ 编写</string>
 	<string name="writer_help_faq_message">酷安\@塔林狐</string>
 	<string name="greenapps_title">Android 绿色应用公约</string>
 	<string name="greenapps_message">Kirby Assistant 遵循绿色应用公约，并通过认证\n点击访问 Android 绿色应用公约官网</string>
+	
+	<string name="simple_mode_is_enable">已启用极简模式</string>
+	<string name="simple_mode_is_disable">已禁用极简模式</string>
+	<string name="simple_mode_to_enable">启用极简模式后会重新进入应用并且禁用[闲聊]和[我]功能\n禁用所有动画特效\n禁用主题功能</string>
+	<string name="simple_mode_to_disable">禁用极简模式后会重新进入应用并且启用[闲聊]和[我]功能\n启用所有动画特效\n启用主题功能</string>
 	
 	<string name="register">注册</string>
 	<string name="register_success">注册成功</string>
@@ -179,7 +188,11 @@
 	
 	<string name="dia_download">下载</string>
 	<string name="dia_yes">确定</string>
-	<string name="dia_cancel">关闭</string>
+	<string name="dia_enable">启用</string>
+	<string name="dia_disable">禁用</string>
+	<string name="dia_open">打开</string>
+	<string name="dia_close">关闭</string>
+	<string name="dia_cancel">取消</string>
 	<string name="dia_jp">日版</string>
 	<string name="dia_us">美版</string>
 	<string name="dia_zh">汉化</string>

@@ -9,9 +9,6 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-/**
- * Created by Jay Rambhia on 11/4/2015.
- */
 public class CropperView extends FrameLayout {
 
     private static final String TAG = "CropperView";

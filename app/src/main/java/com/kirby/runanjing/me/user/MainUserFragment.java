@@ -34,7 +34,7 @@ import com.kirby.runanjing.main.*;
 import com.kirby.runanjing.me.user.userhead.*;
 public class MainUserFragment extends BaseFragment
 {
-	private LocalReceiver localReceiver;
+	private ChangeUserHeadLocalReceiver localReceiver;
     private LocalBroadcastManager localBroadcastManager;
 	private View view;
 	private MainActivity m;
@@ -67,7 +67,7 @@ public class MainUserFragment extends BaseFragment
 		localBroadcastManager = localBroadcastManager.getInstance(getContext());
 		intentFilter = new IntentFilter();
 		intentFilter.addAction("com.kirby.download.CHANGE_USERHEAD");
-		localReceiver = new LocalReceiver();
+		localReceiver = new ChangeUserHeadLocalReceiver();
         //注册本地广播监听器
         localBroadcastManager.registerReceiver(localReceiver, intentFilter);
 		name = UserUtil.getCurrentUser().getUsername();
@@ -188,7 +188,7 @@ public class MainUserFragment extends BaseFragment
 		ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.root_view);
 		viewGroup.setLayoutAnimation(controller);
 		viewGroup.scheduleLayoutAnimation();
-		playLayoutAnimation(LayoutAnimationHelper.getAnimationSetFromBottom(), false);
+		PlayAnimUtil.playLayoutAnimation(LayoutAnimationHelper.getAnimationSetFromBottom(), false);
 	}
 
 	private void userEditEmail()
@@ -336,7 +336,7 @@ public class MainUserFragment extends BaseFragment
 			.setNegativeButton(R.string.dia_cancel, null)
 			.show();
 	}
-	private class LocalReceiver extends BroadcastReceiver
+	private class ChangeUserHeadLocalReceiver extends BroadcastReceiver
 	{
         @Override
         public void onReceive(Context context, Intent intent)
@@ -379,16 +379,4 @@ public class MainUserFragment extends BaseFragment
 			return null;
 		}
 	}
-	/**
-     * 播放RecyclerView动画
-     *
-     * @param animation
-     * @param isReverse
-     */
-    public void playLayoutAnimation(Animation animation, boolean isReverse)
-	{
-        LayoutAnimationController controller = new LayoutAnimationController(animation);
-        controller.setDelay(0.1f);
-        controller.setOrder(isReverse ? LayoutAnimationController.ORDER_REVERSE : LayoutAnimationController.ORDER_NORMAL);
-    }
 }

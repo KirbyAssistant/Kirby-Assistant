@@ -4,13 +4,13 @@ import android.content.*;
 import android.net.*;
 import android.os.*;
 import android.preference.*;
+import android.support.design.widget.*;
 import android.support.v7.app.*;
+import android.view.*;
 import android.widget.*;
 import com.kirby.runanjing.*;
 import com.kirby.runanjing.launcher.*;
-import com.kirby.runanjing.main.help.*;
 import com.kirby.runanjing.utils.*;
-import com.kirby.runanjing.main.swic.*;
 
 public class SettingPreferenceFragment extends PreferenceFragment
 {
@@ -81,37 +81,87 @@ public class SettingPreferenceFragment extends PreferenceFragment
 					}).create();
 				dialog.show();
 				break;
+			case "simple":
+				if (CheckSimpleModeUtil.isSimpleMode())
+				{
+					AlertDialog.Builder simple_mode_disable_dialog=new AlertDialog.Builder(getActivity())
+						.setTitle(R.string.simple_mode_is_enable)
+						.setMessage(R.string.simple_mode_to_disable)
+						.setPositiveButton(getResources().getString(R.string.dia_disable), new
+						DialogInterface.OnClickListener()
+						{
+							@Override
+							public void onClick(DialogInterface dialog, int which)
+							{
+								SharedPreferences geek_shared=getActivity().getSharedPreferences("setting", 0);
+								SharedPreferences.Editor geek_shared_edit=geek_shared.edit();
+								geek_shared_edit.putBoolean("simple_mode", false);
+								geek_shared_edit.apply();
+								geek_shared_edit.commit();
+								Intent intent = new Intent(getActivity(), Launcher.class);
+								intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+								getActivity().startActivity(intent);
+								android.os.Process.killProcess(android.os.Process.myPid()); 
+							}
+						}
+					)
+						.setNegativeButton(getResources().getString(R.string.dia_cancel), null);
+					simple_mode_disable_dialog.show();
+				}
+				else
+				{
+					AlertDialog.Builder simple_mode_enable_dialog=new AlertDialog.Builder(getActivity())
+						.setTitle(R.string.simple_mode_is_disable)
+						.setMessage(R.string.simple_mode_to_enable)
+						.setPositiveButton(getResources().getString(R.string.dia_enable), new
+						DialogInterface.OnClickListener()
+						{
+							@Override
+							public void onClick(DialogInterface dialog, int which)
+							{
+								SharedPreferences geek_shared=getActivity().getSharedPreferences("setting", 0);
+								SharedPreferences.Editor geek_shared_edit=geek_shared.edit();
+								geek_shared_edit.putBoolean("simple_mode", true);
+								geek_shared_edit.apply();
+								geek_shared_edit.commit();
+								Intent intent = new Intent(getActivity(), Launcher.class);
+								intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+								getActivity().startActivity(intent);
+								android.os.Process.killProcess(android.os.Process.myPid()); 
+							}
+						}
+					)
+						.setNegativeButton(getResources().getString(R.string.dia_cancel), null);
+					simple_mode_enable_dialog.show();
+				}
+				break;
 			case "greenapps":
 				Intent greenapps=new Intent("android.intent.action.VIEW");
 				greenapps.setData(Uri.parse("https://green-android.org/"));
 				getActivity().startActivity(greenapps);
 				break;
-			case "help1":
+			case "faq":
 				Intent faq=new Intent("android.intent.action.VIEW");
 				switch (LanguageUtil.getLanguage())
 				{
 					case "zh-CN":
-						faq.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant-FAQ/blob/master/FAQ_zh_CN"));
+						faq.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant-FAQ/blob/master/FAQ_zh_CN.md"));
 						break;
 					case "zh-TW":
-						faq.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant-FAQ/blob/master/FAQ_zh_TW"));
+						faq.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant-FAQ/blob/master/FAQ_zh_TW.md"));
 						break;
 					case "en":
-						faq.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant-FAQ/blob/master/FAQ_en"));
+						faq.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant-FAQ/blob/master/FAQ_en.md"));
 						break;
 					default:
-						faq.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant-FAQ/blob/master/FAQ_en"));
+						faq.setData(Uri.parse("https://github.com/nihaocun/Kirby-Assistant-FAQ/blob/master/FAQ_en.md"));
 						break;
 				}
 				getActivity().startActivity(faq);
 				break;
-			case "help2":
+			case "qq_group":
 				String key="6j76WE8N9l378jnsWzmmUDv5HohOteHu";
 				joinQQGroup(key);
-				break;
-			case "swIcon":
-				Intent setting=new Intent(getActivity(), SwitchIconActivity.class);
-				IntentUtil.startActivityWithAnim(setting, getActivity());
 				break;
 			case "github":
 				Intent github=new Intent("android.intent.action.VIEW");

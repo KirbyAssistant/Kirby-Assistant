@@ -1,7 +1,7 @@
 Kirby-Assistant
 =======
 [简体中文](/README_EN.md)|English  
-![Kirby Assistant](/ic_launcher_hk.png "Kirby Assistant")    
+![Kirby Assistant](/ic_launcher.png "Kirby Assistant")    
 Not just games
 
 Download

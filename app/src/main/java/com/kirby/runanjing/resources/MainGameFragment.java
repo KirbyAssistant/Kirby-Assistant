@@ -15,6 +15,7 @@ import com.kirby.runanjing.base.*;
 import com.kirby.runanjing.resources.game.*;
 import com.kirby.runanjing.main.*;
 import com.kirby.runanjing.resources.*;
+import com.kirby.runanjing.utils.*;
 
 public class MainGameFragment extends BaseFragment
 {
@@ -101,7 +102,7 @@ public class MainGameFragment extends BaseFragment
 		ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.root_view);
         viewGroup.setLayoutAnimation(controller);
         viewGroup.scheduleLayoutAnimation();
-		playLayoutAnimation(r,LayoutAnimationHelper.getAnimationSetFromBottom(),false);
+		PlayAnimUtil.playLayoutAnimationWithRecyclerView(r,LayoutAnimationHelper.getAnimationSetFromBottom(),false);
 		init();
 		init2();
 		init3();
@@ -174,20 +175,6 @@ public class MainGameFragment extends BaseFragment
 			cheatCodeGamelist.add(tj_game[ind++]);
 		}
 	}
-	/**
-     * 播放RecyclerView动画
-     *
-     * @param animation
-     * @param isReverse
-     */
-    public void playLayoutAnimation(RecyclerView mRecyclerView,Animation animation, boolean isReverse) {
-        LayoutAnimationController controller = new LayoutAnimationController(animation);
-        controller.setDelay(0.1f);
-        controller.setOrder(isReverse ? LayoutAnimationController.ORDER_REVERSE : LayoutAnimationController.ORDER_NORMAL);
-        mRecyclerView.setLayoutAnimation(controller);
-        mRecyclerView.getAdapter().notifyDataSetChanged();
-        mRecyclerView.scheduleLayoutAnimation();
-    }
 	//viewpager适配器
 	class MyPagerAdapter extends PagerAdapter
 	{

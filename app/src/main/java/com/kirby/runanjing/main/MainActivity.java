@@ -16,7 +16,6 @@ import com.kirby.runanjing.base.*;
 import com.kirby.runanjing.chat.*;
 import com.kirby.runanjing.helper.*;
 import com.kirby.runanjing.main.donate.*;
-import com.kirby.runanjing.main.swic.*;
 import com.kirby.runanjing.main.theme.*;
 import com.kirby.runanjing.me.user.*;
 import com.kirby.runanjing.resources.*;
@@ -35,6 +34,8 @@ import com.kirby.runanjing.me.login.*;
 import com.kirby.runanjing.bmob.*;
 import cn.bmob.v3.listener.*;
 import cn.bmob.v3.exception.*;
+import com.kirby.runanjing.main.MainActivity.*;
+import android.support.v4.content.*;
 /**
  *类类型:Activity
  *类名称:MainActivity
@@ -46,6 +47,8 @@ public class MainActivity extends BaseActivity
 	private Toolbar toolbar;
 	private Context gameContext;
 	private ProgressDialog progressDialog;
+
+	private IntentFilter intentFilter;
 
 	//private CosXmlService cosXmlService;
 	@Override
@@ -59,13 +62,20 @@ public class MainActivity extends BaseActivity
 		//配置toolbar
 		toolbar = (Toolbar)findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-		getSupportActionBar().setTitle(R.string.app_name);
+		if (CheckSimpleModeUtil.isSimpleMode())
+		{
+			getSupportActionBar().setTitle(R.string.simple_mode_app_name);
+		}
+		else
+		{
+			getSupportActionBar().setTitle(R.string.app_name);
+		}
 		toolbar.setSubtitle(R.string.ziyuan);
 		replaceFragment(new MainGameFragment());
 	    bottomBar();
 		//initTencentCloud();
 		permissionAndPrivacy();
-		CheckUpdateUtil.checkUpdate(toolbar,this);
+		CheckUpdateUtil.checkUpdate(toolbar, this);
 		//友盟统计
 		if (UserUtil.getCurrentUser() != null)
 		{
@@ -114,7 +124,12 @@ public class MainActivity extends BaseActivity
 	 */
 	private void bottomBar()
 	{
-		BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
+	    BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
+		if (CheckSimpleModeUtil.isSimpleMode())
+		{
+			bottomNavigationView.getMenu().removeItem(R.id.talk);
+			bottomNavigationView.getMenu().removeItem(R.id.me);
+		}
 		BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 		bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 				@Override
@@ -210,7 +225,10 @@ public class MainActivity extends BaseActivity
 	{
 		FragmentManager fragmentManager=getSupportFragmentManager();
 		FragmentTransaction transaction=fragmentManager.beginTransaction();
-		transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+		if (CheckSimpleModeUtil.isSimpleMode() == false)
+		{
+			transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+		}
 		transaction.replace(R.id.main_fragment, fragment);
 		transaction.commit();
 	}
@@ -267,6 +285,10 @@ public class MainActivity extends BaseActivity
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
         getMenuInflater().inflate(R.menu.toolbar, menu);
+		if (CheckSimpleModeUtil.isSimpleMode())
+		{
+			menu.removeItem(R.id.theme);
+		}
         return true;
     }
 	//按两次退出
@@ -486,5 +508,12 @@ public class MainActivity extends BaseActivity
 			}
 		}
 
+	}
+
+	@Override
+	public void onResume()
+	{
+		bottomBar();
+		super.onResume();
 	}
 }

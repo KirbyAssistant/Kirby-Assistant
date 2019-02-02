@@ -1,7 +1,7 @@
 Kirby-Assistant
 =======
 简体中文|[English](/README_EN.md)  
-![Kirby Assistant](/ic_launcher_hk.png "Kirby Assistant")    
+![Kirby Assistant](/ic_launcher.png "Kirby Assistant")    
 不仅有游戏
 
 下载

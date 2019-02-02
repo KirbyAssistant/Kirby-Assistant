@@ -7,6 +7,6 @@
         <bitmap
             android:gravity="center"
 			
-            android:src="@drawable/ic_foreground_image_hk"/>
+            android:src="@drawable/ic_foreground_image"/>
     </item>
 </layer-list>

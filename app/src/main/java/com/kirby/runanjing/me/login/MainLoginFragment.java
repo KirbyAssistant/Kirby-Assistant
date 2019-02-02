@@ -212,17 +212,6 @@ public class MainLoginFragment extends BaseFragment
 		ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.root_view);
 		viewGroup.setLayoutAnimation(controller);
 		viewGroup.scheduleLayoutAnimation();
-		playLayoutAnimation(LayoutAnimationHelper.getAnimationSetFromBottom(),false);
+		PlayAnimUtil.playLayoutAnimation(LayoutAnimationHelper.getAnimationSetFromBottom(),false);
 }
-	/**
-     * 播放RecyclerView动画
-     *
-     * @param animation
-     * @param isReverse
-     */
-    public void playLayoutAnimation(Animation animation, boolean isReverse) {
-        LayoutAnimationController controller = new LayoutAnimationController(animation);
-        controller.setDelay(0.1f);
-        controller.setOrder(isReverse ? LayoutAnimationController.ORDER_REVERSE : LayoutAnimationController.ORDER_NORMAL);
-    }
 }
