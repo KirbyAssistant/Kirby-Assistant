@@ -78,6 +78,7 @@
 	<string name="modification_email_false">郵箱驗證失敗</string>
 	<string name="modification_email_old">請輸入原來的郵箱</string>
 	<string name="modification_email_new">請輸入新的郵箱</string>
+    <string name="modification_email_new_again">請再輸入新的郵箱</string>
 	<string name="modification_password_old">請輸入原密碼</string>
 	<string name="modification_password_new">請輸入新密碼</string>
 	<string name="modification_password_new_again">請再輸入新密碼</string>
@@ -149,7 +150,7 @@
 	<string name="star_message">期待你的五分好評</string>
 	<string name="faq_title">幫助</string>
 	<string name="faq_message">常見問題匯總</string>
-	<string name="feedback">反饋</string>
+    <string name="feedback_title">反饋</string>
 	<string name="qq_group">更詳細的幫助？點我進入QQ群</string>
 	<string name="kfz_title">開發者</string>
 	<string name="me1">酷安</string>
@@ -160,15 +161,15 @@
 	<string name="translation_tw_title">繁體中文翻譯</string>
 	<string name="translation_tw_message">Github\@longxk2017</string>
 	<string name="translation_en_title">英語翻譯</string>
-	<string name="translation_en_message">百度貼吧\@难难难550\n\百度貼吧@光之耀西</string>
+	<string name="translation_en_message">百度貼吧\@难难难550\n百度貼吧\@光之耀西</string>
 	<string name="draw_icon_title">圖標繪製</string>
-	<string name="draw_icon_message">酷安\@hk流星\n酷安\@Markuss</string>
+	<string name="draw_icon_message">酷安\@hk流星\n酷安\@Markuss\n百度貼吧\@★☆小伊布☆★</string>
 	<string name="video_author_title">視訊作者</string>
 	<string name="video_author_message">百度貼吧\@gf5f65d</string>
 	<string name="writer_help_faq_title">FAQ 編寫</string>
 	<string name="writer_help_faq_message">酷安\@塔林狐</string>
 	<string name="greenapps_title">Android 綠色應用公約</string>
-	<string name="greenps_message">Kirby Assistant 遵循綠色應用公約，並通過認證\點擊訪問 Android 綠色應用公約官網</string>
+	<string name="greenapps_message">Kirby Assistant 遵循綠色應用公約，並通過認證\點擊訪問 Android 綠色應用公約官網</string>
 	
 	<string name="simple_mode_is_enable">已啟用極簡模式</string>
 	<string name="simple_mode_is_disable">已禁用極簡模式</string>

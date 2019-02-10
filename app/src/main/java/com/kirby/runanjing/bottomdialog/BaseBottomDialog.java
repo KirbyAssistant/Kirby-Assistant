@@ -108,18 +108,18 @@ public abstract class BaseBottomDialog extends DialogFragment {
 
             //设置dialog宽度
             if (width == 0) {
-                lp.width = BottomDialogUtils.getScreenWidth(getContext()) - 2 * BottomDialogUtils.dp2px(getContext(), margin);
+                lp.width = BottomDialogUtils.getScreenWidth(getActivity()) - 2 * BottomDialogUtils.dp2px(getActivity(), margin);
             } else if (width == -1) {
                 lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
             } else {
-                lp.width = BottomDialogUtils.dp2px(getContext(), width);
+                lp.width = BottomDialogUtils.dp2px(getActivity(), width);
             }
 
             //设置dialog高度
             if (height == 0) {
                 lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
             } else {
-                lp.height = BottomDialogUtils.dp2px(getContext(), height);
+                lp.height = BottomDialogUtils.dp2px(getActivity(), height);
             }
 
             //设置dialog进入、退出的动画

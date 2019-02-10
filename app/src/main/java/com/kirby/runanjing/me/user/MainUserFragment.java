@@ -1,6 +1,5 @@
 package com.kirby.runanjing.me.user;
 
-import android.*;
 import android.app.*;
 import android.content.*;
 import android.content.pm.*;
@@ -64,7 +63,7 @@ public class MainUserFragment extends BaseFragment
 
 	private void initUser(View view)
 	{
-		localBroadcastManager = localBroadcastManager.getInstance(getContext());
+		localBroadcastManager = localBroadcastManager.getInstance(getActivity());
 		intentFilter = new IntentFilter();
 		intentFilter.addAction("com.kirby.download.CHANGE_USERHEAD");
 		localReceiver = new ChangeUserHeadLocalReceiver();
@@ -114,7 +113,7 @@ public class MainUserFragment extends BaseFragment
 			if (UserUtil.getCurrentUser().getUserHead().getFileUrl() != null)
 			{
 				Glide
-					.with(getContext())
+					.with(getActivity())
 					.load(UserUtil.getCurrentUser().getUserHead().getFileUrl())
 					//.apply(Kirby.getGlideRequestOptions())
 					.asBitmap()
@@ -180,7 +179,8 @@ public class MainUserFragment extends BaseFragment
 						Pair<View, String> editPassPair= new Pair<View,String>(user_logout, "pass");
 						Intent intent = new Intent(getActivity(), HeadActivity.class);			
 						ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), userHeadPair, cardPair, editPassPair);
-						startActivityForResult(intent, 3, options.toBundle());
+						
+						//startActivityForResult(intent, 3, options.toBundle());
 					}
 			});
 

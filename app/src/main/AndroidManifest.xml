@@ -31,11 +31,10 @@
 		<activity android:name=".resources.game.GameListActivity"/>
 		<activity android:name=".resources.game.GameActivity"/>
 		<activity android:name=".resources.cheatcode.CheatCodeActivity"/>
-		<activity android:name=".main.swic.SwitchIconActivity"/>
 		<activity android:name=".setting.SettingActivity"/>
 		<activity android:name=".resoutces.cheatcode.CheatCodeActivity"/>
 		<provider
-			android:name="android.support.v4.content.FileProvider"
+			android:name="com.kirby.runanjing.KirbyFileProvider"
 			android:authorities="com.kirby.runanjing.fileprovider"
 			android:exported="false"
 			android:grantUriPermissions="true">

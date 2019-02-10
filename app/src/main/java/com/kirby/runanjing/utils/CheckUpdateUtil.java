@@ -18,6 +18,7 @@ public class CheckUpdateUtil
 	{
 		BmobQuery<BmobCheckUpdate>  findCheckupdate=new BmobQuery<BmobCheckUpdate>();
 		findCheckupdate.setLimit(1);
+		findCheckupdate.order("-createdAt");//时间降序排列
 		findCheckupdate.findObjects(new FindListener<BmobCheckUpdate>(){
 				private int versionCode;
 				private String versionName;

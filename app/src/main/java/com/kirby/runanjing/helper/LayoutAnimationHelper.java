@@ -57,7 +57,6 @@ public class LayoutAnimationHelper
         animationSet.addAnimation(translateX1);
         animationSet.addAnimation(translateX2);
         animationSet.addAnimation(translateX3);
-        //animationSet.addAnimation(alphaAnimation);
         animationSet.setDuration(600);
 
         return animationSet;

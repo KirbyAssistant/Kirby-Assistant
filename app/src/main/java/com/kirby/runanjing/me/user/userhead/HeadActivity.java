@@ -22,10 +22,7 @@ import com.kirby.runanjing.utils.*;
 //import com.yalantis.ucrop.*;
 import java.io.*;
 
-import com.kirby.runanjing.R;
-import com.yalantis.ucrop.*;
 import com.kirby.runanjing.base.*;
-import android.*;
 import android.support.v4.app.*;
 import android.support.annotation.*;
 

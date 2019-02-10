@@ -9,6 +9,7 @@ public class Chat
 	private String time;
 	private String chat_full;
 	private boolean show_all;
+	
 	public Chat(String id,String name,String userHead  ,String chat, String time,String chat_full,boolean show_all)
 	{
 		this.id = id;

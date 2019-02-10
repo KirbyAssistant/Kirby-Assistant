@@ -66,13 +66,12 @@
 	
 	<string name="user_name">User Name</string>
 	<string name="user_email">E-mail</string>
-	<string name="take_photo">Take a picture</string>
 	<string name="choose_photo">Choose a picture</string>
 	<string name="not_have_user">No account number? Click me</string>
 	<string name="have_user">Existing account? Click me</string>
 	<string name="modification_email_old">Please Enter Your Original Email Address</string>
 	<string name="modification_email_new">Please Enter New Email Address</string>
-	<string name="modification_email_new_again">Please Enter Your Original Password</string>
+    <string name="modification_email_new_again">Please Enter New Email Address Again</string>
 	<string name="modification_password_old">Please Enter Old Password</string>
 	<string name="modification_password_new">Please Enter New Password</string>
 	<string name="modification_password_new_again">Please Enter New Password Again</string>
@@ -148,7 +147,7 @@
 	<string name="star_message">Hope You Give Me FIVE STAR!</string>
 	<string name="faq_title">Help</string>
 	<string name="faq_message">FAQ</string>
-	<string name="feedback">Feedback</string>
+   <string name="feedback_title">Feedback</string>
 	<string name="qq_group">More Detailed Help？Pass The Button To Go To Me Tencent QQ Group</string>
 	<string name="kfz_title">Developer</string>
 	<string name="me1">Coolapk</string>
@@ -159,9 +158,9 @@
 	<string name="translation_tw_title">Traditional Chinese translator</string>
 	<string name="translation_tw_message">Github\@longxk2017</string>
 	<string name="translation_en_title">English translator</string>
-	<string name="translation_en_message">Baidu Tieba\@难难难550\n\Baidu Tieba@光之耀西</string>
+	<string name="translation_en_message">Baidu Tieba\@难难难550\nBaidu Tieba\@光之耀西</string>
 	<string name="draw_icon_title">Draw ICON</string>
-	<string name="draw_icon_message">CoolApk\@hk流星\nCoolApk\@Markuss</string>
+	<string name="draw_icon_message">CoolApk\@hk流星\nCoolApk\@Markuss\nBaidu Tieba\@★☆小伊布☆★</string>
 	<string name="video_author_title">Video author</string>
 	<string name="video_author_message">Baidu Tieba\@gf5f65d</string>
 	<string name="writer_help_faq_title">FAQ Writer</string>

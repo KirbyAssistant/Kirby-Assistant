@@ -5,6 +5,7 @@ public class Console
 	private String name;
 	private String imageUrl;
 	private String funk;
+	
 	public Console(String name, String imageUrl,String funk)
 	{
 		this.name = name;

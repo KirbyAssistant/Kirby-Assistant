@@ -17,7 +17,7 @@
 #}
 
 #代码混淆压缩比，在0~7之间，默认为5，一般不做修改
--optimizationpasses 5
+-optimizationpasses 1
 
 #混合时不使用大小写混合，混合后的类名为小写
 -dontusemixedcaseclassnames
@@ -62,6 +62,7 @@
 
 #保留support下的所有类及其内部类
 -keep class android.support.** {*;}
+-keep class android.support.v4.content.FileProvider
 
 #保留R下面的资源
 -keep class **.R$* {*;}
@@ -118,7 +119,51 @@
     public *** is*();
 }
 
-#rxjava
+#绿色守护相关
+-dontwarn com.oasisfeng.condom.CondomContext$CondomContentResolver
+-dontwarn com.oasisfeng.condom.ContentResolverWrapper
+-dontwarn com.oasisfeng.condom.PackageManagerWrapper
+-dontwarn com.oasisfeng.condom.PseudoContextWrapper
+-dontwarn com.oasisfeng.condom.kit.NullDeviceIdKit$CondomTelephonyManager
+-keep class com.oasisfeng.condom.**
+
+#glide
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public class * extends com.bumptech.glide.module.AppGlideModule
+-keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
+  **[] $VALUES;
+  public *;
+}
+#滑动返回parallaxbacklayout
+-keep public enum com.github.anzewei.parallaxbacklayout.ParallaxBack$** {
+    **[] $VALUES;
+    public *;
+}
+
+-ignorewarnings
+
+-keepattributes Signature,*Annotation*
+
+# keep BmobSDK
+-dontwarn cn.bmob.v3.**
+-keep class cn.bmob.v3.** {*;}
+
+# 确保JavaBean不被混淆-否则gson将无法将数据解析成具体对象
+-keep class * extends cn.bmob.v3.BmobObject {
+    *;
+}
+-keep class com.kirby.runanjing.bean.Chat{*;}
+-keep class com.kirby.runanjing.bean.CheatCode{*;}
+-keep class com.kirby.runanjing.bean.Console{*;}
+-keep class com.kirby.runanjing.bean.Video{*;}
+
+# keep okhttp3、okio
+-dontwarn okhttp3.**
+-keep class okhttp3.** { *;}
+-keep interface okhttp3.** { *; }
+-dontwarn okio.**
+
+# keep rx
 -dontwarn sun.misc.**
 -keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
  long producerIndex;
@@ -129,4 +174,29 @@
 }
 -keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
  rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+
+# 如果你需要兼容6.0系统，请不要混淆org.apache.http.legacy.jar
+-dontwarn android.net.compatibility.**
+-dontwarn android.net.http.**
+-dontwarn com.android.internal.http.multipart.**
+-dontwarn org.apache.commons.**
+-dontwarn org.apache.http.**
+-keep class android.net.compatibility.**{*;}
+-keep class android.net.http.**{*;}
+-keep class com.android.internal.http.multipart.**{*;}
+-keep class org.apache.commons.**{*;}
+-keep class org.apache.http.**{*;}
+
+#umeng
+-keep class com.umeng.** {*;}
+-keepclassmembers class * {
+   public <init> (org.json.JSONObject);
+}
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+-keep public class com.kirby.runanjing.R$*{
+public static final int *;
 }

@@ -1,23 +1,23 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.1.1"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.2"
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.kirby.runanjing"
         minSdkVersion 21
 	    targetSdkVersion 28
-        versionCode 30
-        versionName "未来·炫动-1.2.7"
-		multiDexEnabled true
+        versionCode 31
+        versionName "未来·炫动-1.2.8"
+		multiDexEnabled false
         multiDexKeepProguard file('multiDexKeep.pro') 
 		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
   }
     buildTypes {
         release {
-            minifyEnabled false
-			shrinkResources false
+            minifyEnabled true
+			shrinkResources true
             proguardFiles getDefaultPrguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -25,10 +25,10 @@ android {
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
 	//绿色守护
-	compile 'com.oasisfeng.condom:library:2.2.0'
+	implementation 'com.oasisfeng.condom:library:2.2.0'
 	//友盟统计
-	compile  'com.umeng.umsdk:analytics:7.5.4'
-    compile  'com.umeng.umsdk:common:1.5.4'
+	implementation  'com.umeng.umsdk:analytics:7.5.4'
+    implementation  'com.umeng.umsdk:common:1.5.4'
 	//web服务
 	//compile 'com.just.agentweb:agentweb:4.0.2' 
 	//compile 'com.liulishuo.okdownload:okdownload:1.0.4'
@@ -37,25 +37,25 @@ dependencies {
 	//compile 'com.tencent.qcloud:cosxml:5.4.8'
 	//compile 'jp.wasabeef:recyclerview-animators:3.0.0'
 	//图片加载
-	compile "com.github.bumptech.glide:glide:3.6.1"
+	implementation "com.github.bumptech.glide:glide:3.6.1"
 	//compile 'com.github.bumptech.glide:compiler:4.7.1'
     //图片剪裁
 	//compile 'com.github.yalantis:ucrop:2.2.1'
 	//支付服务-支付宝
-	compile 'com.github.didikee:AndroidDonate:0.1.0'
+	implementation 'com.github.didikee:AndroidDonate:0.1.0'
 	//多样的下拉刷新
-	compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-16'
-    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-16'
+	implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-16'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-16'
     //bmob
-	compile 'cn.bmob.android:bmob-sdk:3.6.5'
+	implementation 'cn.bmob.android:bmob-sdk:3.6.5'
 	//滑动返回
-	compile 'com.github.anzewei:parallaxbacklayout:1.1.6'
+	implementation 'com.github.anzewei:parallaxbacklayout:1.1.6'
 	//状态栏变色
-	compile 'com.jaeger.statusbarutil:library:1.4.0'
-   // compile 'com.android.support:multidex:1.0.2'
-	compile 'com.android.support:design:25.3.1'
-	compile 'com.android.support:support-v4:2'
-	compile 'com.android.support:recyclerview-v7:25.3.1'
-	compile 'com.android.support:cardview-v7:25.3.1'
+	implementation 'com.jaeger.statusbarutil:library:1.4.0'
+    implementation 'com.android.support:appcompat-v7'
+	implementation 'com.android.support:design:25.3.1'
+	implementation 'com.android.support:support-v4:25.3.1'
+	implementation 'com.android.support:recyclerview-v7:25.3.1'
+	implementation 'com.android.support:cardview-v7:25.3.1'
 }
 

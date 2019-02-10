@@ -21,14 +21,13 @@ public class BaseActivity extends AppCompatActivity
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		//View view = this.getWindow().getDecorView();   //getDecorView 获得window最顶层的View
-		//view.setBackgroundDrawable(this.getResources().getDrawable(R.drawable.ic_foreground_image_hk));
-		ActManager.addActivity(this);
+	    ActManager.addActivity(this);
 		getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
 		Transition explode = TransitionInflater.from(this).inflateTransition(R.transition.explode);
 		Transition slide_in = TransitionInflater.from(this).inflateTransition(R.transition.slide_in);
 		Transition slide_out = TransitionInflater.from(this).inflateTransition(R.transition.slide_out);
 		Transition fade = TransitionInflater.from(this).inflateTransition(R.transition.fade);
+	//极简模式检测
 		if (CheckSimpleModeUtil.isSimpleMode() == false)
 		{
 			getWindow().setEnterTransition(slide_in); //首次进入显示的动画

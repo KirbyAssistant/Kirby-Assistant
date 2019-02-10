@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
     <string name="app_name">Kirby Assistant</string>
 	<string name="simple_mode_app_name">Kirby Assistant·极简模式</string>
 	
@@ -78,6 +78,7 @@
 	<string name="modification_email_false">邮箱验证失败</string>
 	<string name="modification_email_old">请输入原来的邮箱</string>
 	<string name="modification_email_new">请输入新的邮箱</string>
+   <string name="modification_email_new_again">请再输入一次新的邮箱</string>
 	<string name="modification_password_old">请输入原密码</string>
 	<string name="modification_password_new">请输入新密码</string>
 	<string name="modification_password_new_again">请再输入一次新密码</string>
@@ -161,9 +162,9 @@
 	<string name="translation_tw_title">繁体中文翻译</string>
 	<string name="translation_tw_message">Github\@longxk2017</string>
 	<string name="translation_en_title">英语翻译</string>
-	<string name="translation_en_message">百度贴吧\@难难难550\n\百度贴吧@光之耀西</string>
+	<string name="translation_en_message">百度贴吧\@难难难550\n百度贴吧\@光之耀西</string>
 	<string name="draw_icon_title">图标绘制</string>
-	<string name="draw_icon_message">酷安\@hk流星\n酷安\@Markuss</string>
+	<string name="draw_icon_message">酷安\@hk流星\n酷安\@Markuss\n百度贴吧\@★☆小伊布☆★</string>
 	<string name="video_author_title">视频作者</string>
 	<string name="video_author_message">百度贴吧\@gf5f65d</string>
 	<string name="writer_help_faq_title">FAQ 编写</string>

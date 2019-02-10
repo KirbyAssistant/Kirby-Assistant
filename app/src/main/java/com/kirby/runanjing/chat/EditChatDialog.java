@@ -90,7 +90,7 @@ public class EditChatDialog extends BaseBottomDialog
 					//判断是否为空
 					if (str_chat.isEmpty())
 					{
-						Toast.makeText(getContext(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
+						Toast.makeText(getActivity(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
 					}
 					else
 					{
@@ -189,7 +189,7 @@ public class EditChatDialog extends BaseBottomDialog
 		@Override
 		public void onTextChanged(CharSequence p1, int p2, int p3, int p4)
 		{
-			SharedPreferences y=getContext().getSharedPreferences("string", 0);
+			SharedPreferences y=getActivity().getSharedPreferences("string", 0);
 			SharedPreferences.Editor edit=y.edit();
 			edit.putString("Chat", chat_editview.getText().toString());
 			edit.apply();

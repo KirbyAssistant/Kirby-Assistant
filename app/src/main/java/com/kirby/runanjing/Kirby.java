@@ -6,8 +6,6 @@
 //Hi 2019
 package com.kirby.runanjing;
 
-//import android.support.multidex.*;
-
 import android.app.*;
 import android.content.*;
 import android.os.*;

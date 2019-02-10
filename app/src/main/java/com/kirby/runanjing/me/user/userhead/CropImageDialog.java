@@ -48,7 +48,7 @@ public class CropImageDialog extends BaseBottomDialog
 		imageUri = Uri.parse(bundle.getString("imageuri"));
 		try
 		{
-			imageBitmap = BitmapUriUtil.getBitmap(getContext(),imageUri);
+			imageBitmap = BitmapUriUtil.getBitmap(getActivity(),imageUri);
 		}
 		catch (IOException e)
 		{}
@@ -73,14 +73,14 @@ public class CropImageDialog extends BaseBottomDialog
 				public void onClick(View p1)
 				{
 					//Uri corpImageUri=
-					Uri corpImageUriNoCompress=BitmapUriUtil.bitmap2uri(getContext(), mCropImageView.getCroppedBitmap().getBitmap());
+					Uri corpImageUriNoCompress=BitmapUriUtil.bitmap2uri(getActivity(), mCropImageView.getCroppedBitmap().getBitmap());
 					try
 					{
-						corpImageUri = BitmapUriUtil.bitmap2uri(getContext(), BitmapUriUtil.getCompressBitmap(ActManager.currentActivity(), corpImageUriNoCompress));
+						corpImageUri = BitmapUriUtil.bitmap2uri(getActivity(), BitmapUriUtil.getCompressBitmap(ActManager.currentActivity(), corpImageUriNoCompress));
 					}
 					catch (IOException e)
 					{}
-					SharedPreferences y=getContext().getSharedPreferences("string", 0);
+					SharedPreferences y=getActivity().getSharedPreferences("string", 0);
 					SharedPreferences.Editor edit=y.edit();
 					edit.putString("image_str", corpImageUri.toString());
 					edit.apply();

@@ -11,7 +11,7 @@ import android.util.*;
 import android.view.*;
 import android.view.animation.*;
 import android.widget.*;
-import com.kirby.runanjing.*;
+import com.kirby.runanjing.R;
 
 public class RippleLayout extends RelativeLayout {
     public static final int DEFAULT_DURATION = 2000;
@@ -52,12 +52,12 @@ public class RippleLayout extends RelativeLayout {
         }
         //reading the attributes
         TypedArray attrValues = context.obtainStyledAttributes(attrs, R.styleable.RippleLayout);
-        int color = attrValues.getColor(R.styleable.RippleLayout_rippleColor, getResources().getColor(android.R.color.holo_blue_bright));
+        int color = attrValues.getColor(R.styleable.RippleLayout_rippleLayoutColor, getResources().getColor(android.R.color.holo_blue_bright));
         float startRadius = attrValues.getDimension(R.styleable.RippleLayout_startRadius, getMeasuredWidth());
         float endRadius = attrValues.getDimension(R.styleable.RippleLayout_endRadius, getMeasuredWidth() * 2);
         float strokeWidth = attrValues.getDimension(R.styleable.RippleLayout_strokeWidth, 4);
         int duration = attrValues.getInteger(R.styleable.RippleLayout_duration, DEFAULT_DURATION);
-        String rippleType = attrValues.getString(R.styleable.RippleLayout_rippleType);
+        String rippleType = attrValues.getString(R.styleable.RippleLayout_rippleLayoutType);
         if (TextUtils.isEmpty(rippleType)) {
             rippleType = RIPPLE_TYPE_FILL;
         }
