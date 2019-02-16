@@ -5,11 +5,11 @@ android {
     buildToolsVersion "28.0.2"
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
-        applicationId "com.kirby.runanjing"
+        applicationId "cn.endureblaze.ka"
         minSdkVersion 21
 	    targetSdkVersion 28
-        versionCode 31
-        versionName "未来·炫动-1.2.8"
+        versionCode 32
+        versionName "未来·炫动-1.2.9"
 		multiDexEnabled false
         multiDexKeepProguard file('multiDexKeep.pro') 
 		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
@@ -27,8 +27,8 @@ dependencies {
 	//绿色守护
 	implementation 'com.oasisfeng.condom:library:2.2.0'
 	//友盟统计
-	implementation  'com.umeng.umsdk:analytics:7.5.4'
-    implementation  'com.umeng.umsdk:common:1.5.4'
+	implementation  'com.umeng.umsdk:analytics:8.0.0'
+    implementation  'com.umeng.umsdk:common:2.0.0'
 	//web服务
 	//compile 'com.just.agentweb:agentweb:4.0.2' 
 	//compile 'com.liulishuo.okdownload:okdownload:1.0.4'
@@ -37,7 +37,7 @@ dependencies {
 	//compile 'com.tencent.qcloud:cosxml:5.4.8'
 	//compile 'jp.wasabeef:recyclerview-animators:3.0.0'
 	//图片加载
-	implementation "com.github.bumptech.glide:glide:3.6.1"
+	 implementation "com.github.bumptech.glide:glide:3.6.1"
 	//compile 'com.github.bumptech.glide:compiler:4.7.1'
     //图片剪裁
 	//compile 'com.github.yalantis:ucrop:2.2.1'

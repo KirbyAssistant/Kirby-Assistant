@@ -26,7 +26,7 @@
 				android:scaleType="centerCrop"
 				android:id="@+id/mo_user_head"/>
 
-			<com.kirby.runanjing.customui.CircleImageView
+			<cn.endureblaze.ka.customui.CircleImageView
 				android:layout_height="80dp"
 				android:layout_width="80dp"
 				android:id="@+id/user_head"

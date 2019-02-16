@@ -4,7 +4,7 @@
 
 	<Preference
 		android:key="version"
-		android:summary="未来·炫动-1.2.8 (build 31) (com.kirby.runanjing)"
+		android:summary="未来·炫动-1.2.9 (build 32) (cn.endureblaze.ka)"
 		android:title="@string/version"
 		android:icon="@mipmap/ic_launcher"/>
 

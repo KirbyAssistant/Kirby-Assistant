@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.kirby.runanjing">
+	package="cn.endureblaze.ka">
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.READ_LOGS"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -34,8 +34,8 @@
 		<activity android:name=".setting.SettingActivity"/>
 		<activity android:name=".resoutces.cheatcode.CheatCodeActivity"/>
 		<provider
-			android:name="com.kirby.runanjing.KirbyFileProvider"
-			android:authorities="com.kirby.runanjing.fileprovider"
+			android:name="cn.endureblaze.ka.KirbyFileProvider"
+			android:authorities="cn.endureblaze.ka.fileprovider"
 			android:exported="false"
 			android:grantUriPermissions="true">
 			<meta-data

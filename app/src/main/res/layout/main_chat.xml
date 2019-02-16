@@ -28,7 +28,7 @@
 
 	</com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-	<com.kirby.runanjing.customui.RippleLayout
+	<cn.endureblaze.ka.customui.RippleLayout
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentRight="true"
 		android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
 			android:visibility="gone"
 			android:padding="16dp"/>
 
-	</com.kirby.runanjing.customui.RippleLayout>
+	</cn.endureblaze.ka.customui.RippleLayout>
 
 	<TextView
 		android:layout_width="wrap_content"

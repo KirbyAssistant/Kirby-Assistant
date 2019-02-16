@@ -43,7 +43,7 @@
 				android:layout_width="match_parent"
 				android:layout_below="@id/chatdia_close">
 
-				<com.kirby.runanjing.customui.CircleImageView
+				<cn.endureblaze.ka.customui.CircleImageView
 					android:layout_height="64dp"
 					android:layout_width="64dp"
 					android:id="@+id/user_head"
