@@ -402,4 +402,10 @@
 		\n梅塔騎士外傳：那個炫酷的劍士再次出現了！打倒敵人收集能力 觸摸屏幕釋放技能 修行的旅途永不終止...（帶上一名隨從騎士 向著銀河盡頭的大彗星出發吧！）
 		\n幫手大師之路：卡比才不是唯一的英雄呢！我們幫手也是可以成為英雄的啦！我們會用一場全明星大戰證明的！（作為眾幫手之一擊敗13個對手吧！熟練掌握每一個幫手的技能！）
 	</string>
+
+	<string name="copyrights_warning_title">版權說明</string>
+	<string name="copyrights_warning_content">本程式中搜集的所有资源均來自於網路，未經版权方允許，仅供測試、學習之用並嚴禁用於任何商業用途。\n
+		如果您喜歡星之卡比系列遊戲，請支持正版！</string>
+	<string name="contributor_github_lxfly2000">Github@lxfly2000</string>
+	<string name="program_contributors">程式</string>
 </resources>

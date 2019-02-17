@@ -8,8 +8,8 @@ android {
         applicationId "cn.endureblaze.ka"
         minSdkVersion 21
 	    targetSdkVersion 28
-        versionCode 32
-        versionName "未来·炫动-1.2.9"
+        versionCode 33
+        versionName "未来·炫动-1.2.10"
 		multiDexEnabled false
         multiDexKeepProguard file('multiDexKeep.pro') 
 		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
@@ -18,12 +18,12 @@ android {
         release {
             minifyEnabled true
 			shrinkResources true
-            proguardFiles getDefaultPrguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 dependencies {
-	compile fileTree(dir: 'libs', include: ['*.jar'])
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
 	//绿色守护
 	implementation 'com.oasisfeng.condom:library:2.2.0'
 	//友盟统计

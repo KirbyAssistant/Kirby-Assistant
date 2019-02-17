@@ -6,11 +6,13 @@ import android.os.*;
 import android.preference.*;
 import android.support.design.widget.*;
 import android.support.v7.app.*;
+import android.util.Base64;
 import android.view.*;
 import android.widget.*;
 import cn.endureblaze.ka.*;
 import cn.endureblaze.ka.launcher.*;
 import cn.endureblaze.ka.utils.*;
+import com.lxfly2000.utilities.AndroidUtility;
 
 public class SettingPreferenceFragment extends PreferenceFragment
 {
@@ -18,7 +20,8 @@ public class SettingPreferenceFragment extends PreferenceFragment
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		addPreferencesFromResource(R.xml.setting);	
+		addPreferencesFromResource(R.xml.setting);
+		findPreference("version").setSummary(String.format("%s (Build %d) (%s)",BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE,BuildConfig.APPLICATION_ID));
 	}
 	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference)
@@ -48,7 +51,7 @@ public class SettingPreferenceFragment extends PreferenceFragment
 						@Override
 						public void onClick(DialogInterface dialog, int i)
 						{
-							SharedPreferences lan=getContext().getSharedPreferences("setting", 0);
+							SharedPreferences lan=getActivity().getSharedPreferences("setting", 0);
 							SharedPreferences.Editor edit=lan.edit();
 							edit.putInt("language_i", i);
 							edit.apply();
@@ -181,6 +184,9 @@ public class SettingPreferenceFragment extends PreferenceFragment
 				{
 					Toast.makeText(getActivity(), getActivity().getString(R.string.not_install_CoolApk), Toast.LENGTH_SHORT).show();
 				}		
+				break;
+			case "program_contributors_lxfly2000":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.contributor_github_lxfly2000_link),Base64.DEFAULT)));
 				break;
 		}
 		return super.onPreferenceTreeClick(preferenceScreen, preference);
