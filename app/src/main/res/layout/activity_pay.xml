@@ -38,7 +38,7 @@
 				android:layout_margin="4dp"
 				app:cardCornerRadius="4dp"
 				app:cardElevation="2dp"
-				android:id="@+id/activitypayCardView1">
+				android:id="@+id/alipay_card">
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -57,38 +57,9 @@
 						android:layout_height="wrap_content"
 						android:paddingBottom="8dp"
 						android:paddingTop="8dp"
-						android:text="支付宝"
+						android:text="@string/pay_alipay"
 						android:textSize="16sp"
 						android:layout_gravity="center_horizontal"/>
-
-					<!--RadioGroup
-						android:id="@+id/radio_group"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:orientation="horizontal">
-
-						<RadioButton
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="1元"/>
-
-						<RadioButton
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="3元"/>
-
-						<RadioButton
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="7元"/>
-
-					</RadioGroup>
-
-					<Button
-						android:id="@+id/bt_alipay"
-						android:layout_width="match_parent"
-						android:layout_height="48dp"
-						android:text="支付宝捐赠(0.5元)"/!-->
 
 					<Button
 						android:id="@+id/bt_alipay_user_input"
@@ -97,14 +68,6 @@
 						android:layout_marginBottom="8dp"
 						android:layout_marginTop="8dp"
 						android:text="@string/check_me"/>
-
-					<Button
-						android:id="@+id/bt_alipay_hongbao"
-						android:layout_width="match_parent"
-						android:layout_height="48dp"
-						android:layout_marginBottom="8dp"
-						android:layout_marginTop="8dp"
-						android:text="支付宝领取红包捐赠"/>
 
 				</LinearLayout>
 
@@ -116,8 +79,8 @@
 				android:layout_margin="4dp"
 				app:cardCornerRadius="4dp"
 				app:cardElevation="2dp"
-				android:layout_below="@id/activitypayCardView1"
-				android:id="@+id/activitypayCardView2">
+				android:layout_below="@id/alipay_card"
+				android:id="@+id/wechatpay_card">
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -136,15 +99,15 @@
 						android:layout_height="wrap_content"
 						android:paddingBottom="8dp"
 						android:paddingTop="8dp"
-						android:text="微信"
+						android:text="@string/pay_wechatpay"
 						android:textSize="16sp"
 						android:layout_gravity="center_horizontal"/>
 
-					<Button
-						android:layout_width="match_parent"
+					<ImageView
+						android:src="@drawable/wechat"
+						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="@string/check_me"
-						android:id="@+id/wechat"/>
+						android:layout_gravity="center_horizontal"/>
 
 				</LinearLayout>
 
@@ -156,8 +119,55 @@
 				android:layout_margin="4dp"
 				app:cardCornerRadius="4dp"
 				app:cardElevation="2dp"
-				android:layout_below="@id/activitypayCardView2"
-				android:id="@+id/activitypayCardView3">
+				android:layout_below="@id/wechatpay_card"
+				android:id="@+id/btc_card">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="12dp">
+
+					<ImageView
+						android:src="@drawable/ic_kirby_btc"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center_horizontal"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:paddingBottom="8dp"
+						android:paddingTop="8dp"
+						android:text="@string/pay_btc"
+						android:textSize="16sp"
+						android:layout_gravity="center_horizontal"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="13yQa3Q95hZJR3VvmaM3XNj39AQVMgkg8P"
+						android:textAppearance="?android:attr/textAppearanceMedium"
+						android:gravity="center_horizontal"/>
+
+					<Button
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/check_me"
+						android:id="@+id/btc"/>
+
+				</LinearLayout>
+
+			</android.support.v7.widget.CardView>
+
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="4dp"
+				app:cardCornerRadius="4dp"
+				app:cardElevation="2dp"
+				android:layout_below="@id/btc_card"
+				android:id="@+id/qqpay_card">
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -176,7 +186,7 @@
 						android:layout_height="wrap_content"
 						android:paddingBottom="8dp"
 						android:paddingTop="8dp"
-						android:text="QQ"
+						android:text="@string/pay_qqpay"
 						android:textSize="16sp"
 						android:layout_gravity="center_horizontal"/>
 
@@ -189,14 +199,14 @@
 				</LinearLayout>
 
 			</android.support.v7.widget.CardView>
-			
+
 			<android.support.v7.widget.CardView
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_margin="4dp"
 				app:cardCornerRadius="4dp"
 				app:cardElevation="2dp"
-				android:layout_below="@id/activitypayCardView3">
+				android:layout_below="@id/qqpay_card">
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -215,7 +225,7 @@
 						android:layout_height="wrap_content"
 						android:paddingBottom="8dp"
 						android:paddingTop="8dp"
-						android:text="PayPal"
+						android:text="@string/pay_paypal"
 						android:textSize="16sp"
 						android:layout_gravity="center_horizontal"/>
 

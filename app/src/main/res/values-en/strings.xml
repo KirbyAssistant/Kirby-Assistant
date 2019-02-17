@@ -34,6 +34,12 @@
 	<string name="mess_del">Delete this chat</string>
 	<string name="mess_edit">Edit this chat</string>
 	
+	<string name="pay_alipay">Alipay</string>
+	<string name="pay_wechatpay">WeChat</string>
+	<string name="pay_btc">Bitcoin</string>
+	<string name="pay_qqpay">QQ</string>
+	<string name="pay_paypal">PayPal</string>
+	
 	<string name="load_fail">Failed to load, please refresh and try again</string>
 	
 	<string name="permissionandprivacy_title">Permission＆Privacy policy</string>
