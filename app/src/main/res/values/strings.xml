@@ -165,16 +165,30 @@
 	<string name="github">在Github查看这个项目</string>
 	<string name="gitlab">在Gitlab查看这个项目</string>
 	<string name="contributor_title">贡献者</string>
+	<string name="program_title">程序特别贡献</string>
+	<string name="program_github_lxfly2000">Github@lxfly2000</string>
+	<string name="program_github_lxfly2000_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
 	<string name="translation_tw_title">繁体中文翻译</string>
-	<string name="translation_tw_message">Github\@longxk2017</string>
+	<string name="translation_tw_github_longxk2017">Github\@longxk2017</string>
+	<string name="translation_tw_github_longxk2017_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
 	<string name="translation_en_title">英语翻译</string>
-	<string name="translation_en_message">百度贴吧\@难难难550\n百度贴吧\@光之耀西</string>
+	<string name="translation_en_tieba_nannannan550">百度贴吧\@难难难550</string>
+	<string name="translation_en_tieba_nannannan550_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
+	<string name="translation_en_tieba_guangzhiyaoxi">百度贴吧\@光之耀西</string>
+	<string name="translation_en_tieba_guangzhiyaoxi_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
 	<string name="draw_icon_title">图标绘制</string>
-	<string name="draw_icon_message">酷安\@hk流星\n酷安\@Markuss\n百度贴吧\@★☆小伊布☆★</string>
+	<string name="draw_icon_coolapk_hkliuxing">酷安\@hk流星</string>
+	<string name="draw_icon_coolapk_hkliuxing_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
+	<string name="draw_icon_coolapk_markuss">酷安\@Markuss</string>
+	<string name="draw_icon_coolapk_markuss_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
+	<string name="draw_icon_tieba_xiaoyibu">百度贴吧\@★☆小伊布☆★</string>
+	<string name="draw_icon_tieba_xiaoyibu_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
 	<string name="video_author_title">视频作者</string>
-	<string name="video_author_message">百度贴吧\@gf5f65d</string>
+	<string name="video_author_bilibili_xige">哔哩哔哩动画\@虚影无华</string>
+	<string name="video_author_bilibili_xige_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
 	<string name="writer_help_faq_title">FAQ 编写</string>
-	<string name="writer_help_faq_message">酷安\@塔林狐</string>
+	<string name="writer_help_faq_coolapk_talinhu">酷安\@塔林狐</string>
+	<string name="writer_help_faq_coolapk_talinhu_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
 	<string name="greenapps_title">Android 绿色应用公约</string>
 	<string name="greenapps_message">Kirby Assistant 遵循绿色应用公约，并通过认证\n点击访问 Android 绿色应用公约官网</string>
 	
@@ -414,7 +428,4 @@
 	<string name="copyrights_warning_title">版权说明</string>
 	<string name="copyrights_warning_content">本程序中收集的所有资源均来自于网络，未经版权方授权，仅供测试、学习之用并严禁用于任何商业用途。\n
 	如果您喜欢星之卡比系列游戏，请支持正版！</string>
-	<string name="contributor_github_lxfly2000">Github@lxfly2000</string>
-	<string name="contributor_github_lxfly2000_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
-	<string name="program_contributors">程序</string>
 </resources>

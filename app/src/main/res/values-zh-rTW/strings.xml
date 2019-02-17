@@ -164,6 +164,8 @@
 	<string name="github">在Github查看這個項目</string>
 	<string name="gitlab">在Gitlab查看這個項目</string>
 	<string name="contributor_title">貢獻者</string>
+	<string name="program_contributors">程式</string>
+	<string name="contributor_github_lxfly2000">Github@lxfly2000</string>
 	<string name="translation_tw_title">繁體中文翻譯</string>
 	<string name="translation_tw_message">Github\@longxk2017</string>
 	<string name="translation_en_title">英語翻譯</string>
@@ -412,6 +414,4 @@
 	<string name="copyrights_warning_title">版權說明</string>
 	<string name="copyrights_warning_content">本程式中搜集的所有资源均來自於網路，未經版权方允許，仅供測試、學習之用並嚴禁用於任何商業用途。\n
 		如果您喜歡星之卡比系列遊戲，請支持正版！</string>
-	<string name="contributor_github_lxfly2000">Github@lxfly2000</string>
-	<string name="program_contributors">程式</string>
 </resources>

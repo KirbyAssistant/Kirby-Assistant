@@ -161,10 +161,13 @@
 	<string name="github">Browsing The Program In Github.</string>
 	<string name="gitlab">Browsing The Program In Gitlab.</string>
 	<string name="contributor_title">Contributor</string>
+	<string name="program_title">Special contribution of program</string>
+	<string name="program_github_lxfly2000">Github@lxfly2000</string>
 	<string name="translation_tw_title">Traditional Chinese translator</string>
-	<string name="translation_tw_message">Github\@longxk2017</string>
+	<string name="translation_tw_github_longxk2017">Github\@longxk2017</string>
 	<string name="translation_en_title">English translator</string>
-	<string name="translation_en_message">Baidu Tieba\@难难难550\nBaidu Tieba\@光之耀西</string>
+	<string name="translation_en_tieba_nannannan550">Baidu Tieba\@难难难550</string>
+	<string name="translation_en_tieba_guangzhiyaoxi">Baidu Tieba\@光之耀西</string>
 	<string name="draw_icon_title">Draw ICON</string>
 	<string name="draw_icon_message">CoolApk\@hk流星\nCoolApk\@Markuss\nBaidu Tieba\@★☆小伊布☆★</string>
 	<string name="video_author_title">Video author</string>
@@ -206,6 +209,4 @@
 	<string name="copyrights_warning_title">Copyrights Warning</string>
 	<string name="copyrights_warning_content">All resources provided by this application are collected from Internet. You are limited to use these data only for testing and studying purposes and may not use for commercial.\n
 	If you feel like the Kirby series, please support the official version.</string>
-	<string name="contributor_github_lxfly2000">Github@lxfly2000</string>
-	<string name="program_contributors">Program</string>
 </resources>

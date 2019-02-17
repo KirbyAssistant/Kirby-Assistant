@@ -21,7 +21,7 @@ public class SettingPreferenceFragment extends PreferenceFragment
 	{
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.setting);
-		findPreference("version").setSummary(String.format("%s (Build %d) (%s)",BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE,BuildConfig.APPLICATION_ID));
+		findPreference("version").setSummary(String.format("%s (Build %d) (%s)",AppUtil.getVersionName(getActivity()),AppUtil.getVersionCode(getActivity()),AppUtil.getPackageName(getActivity())));
 	}
 	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference)
