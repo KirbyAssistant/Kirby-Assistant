@@ -101,6 +101,7 @@ public class MainActivity extends BaseActivity
 						SharedPreferences.Editor t=getSharedPreferences("boolean", 0).edit();
 						t.putBoolean("permissionAndPrivacy", true);
 						t.apply();
+						copyrightsWarning();
 					}
 				}
 			)
@@ -114,6 +115,30 @@ public class MainActivity extends BaseActivity
 				}
 			);
 			permissionAndPrivacy_dialog.show();
+		}else{
+			copyrightsWarning();
+		}
+	}
+
+	private void copyrightsWarning(){
+		final SharedPreferences pref=getSharedPreferences("agreements",MODE_PRIVATE);
+		if(pref.getBoolean("agree_copyrights",false)==false){
+			new AlertDialog.Builder(this)
+					.setTitle(R.string.copyrights_warning_title)
+					.setMessage(R.string.copyrights_warning_content)
+					.setCancelable(false)
+					.setPositiveButton(R.string.dia_agree, new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialogInterface, int i) {
+							pref.edit().putBoolean("agree_copyrights",true).apply();
+						}
+					})
+					.setNeutralButton(R.string.dia_disagree, new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialogInterface, int i) {
+							finish();
+						}
+					}).show();
 		}
 	}
 	/**

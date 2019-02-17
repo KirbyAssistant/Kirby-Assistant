@@ -411,5 +411,10 @@
 		\n帮手大师之路：卡比才不是唯一的英雄呢！我们帮手也是可以成为英雄的啦！我们会用一场全明星大战证明的！（作为众帮手之一击败13个对手吧！熟练掌握每一个帮手的技能！）
 		</string>
 	
-	
+	<string name="copyrights_warning_title">版权说明</string>
+	<string name="copyrights_warning_content">本程序中收集的所有资源均来自于网络，未经版权方授权，仅供测试、学习之用并严禁用于任何商业用途。\n
+	如果您喜欢星之卡比系列游戏，请支持正版！</string>
+	<string name="contributor_github_lxfly2000">Github@lxfly2000</string>
+	<string name="contributor_github_lxfly2000_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
+	<string name="program_contributors">程序</string>
 </resources>

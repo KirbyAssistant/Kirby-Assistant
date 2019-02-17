@@ -202,4 +202,10 @@
 	<string name="dia_nu"></string>
 	<string name="dia_agree">Agree</string>
 	<string name="dia_disagree">Disagree</string>
+
+	<string name="copyrights_warning_title">Copyrights Warning</string>
+	<string name="copyrights_warning_content">All resources provided by this application are collected from Internet. You are limited to use these data only for testing and studying purposes and may not use for commercial.\n
+	If you feel like the Kirby series, please support the official version.</string>
+	<string name="contributor_github_lxfly2000">Github@lxfly2000</string>
+	<string name="program_contributors">Program</string>
 </resources>
