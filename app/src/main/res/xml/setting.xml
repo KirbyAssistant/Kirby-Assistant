@@ -4,7 +4,7 @@
 
 	<Preference
 		android:key="version"
-		android:summary="未来·炫动-1.2.9 (build 32) (cn.endureblaze.ka)"
+		android:summary="[!!!NOT FORMATTED!!!]"
 		android:title="@string/version"
 		android:icon="@mipmap/ic_launcher"/>
 
@@ -55,6 +55,11 @@
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/contributor_title">
+
+		<Preference
+				android:key="program_contributors_lxfly2000"
+				android:summary="@string/contributor_github_lxfly2000"
+				android:title="@string/program_contributors"/>
 
 		<Preference
             android:key="translation_tw"
