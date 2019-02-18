@@ -1,4 +1,4 @@
-package com.lxfly2000.utilities;
+package cn.endureblaze.ka.utils;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -18,14 +18,14 @@ public class AndroidUtility {
     public static boolean CheckPermissionWithFinishOnDenied(final Activity activity, String permission, String deniedMessage){
         if(activity.checkCallingOrSelfPermission(permission)!= PackageManager.PERMISSION_GRANTED){
             new AlertDialog.Builder(activity)
-                    .setMessage(deniedMessage)
-                    .setPositiveButton(android.R.string.ok,null)
-                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialogInterface) {
-                            activity.finish();
-                        }
-                    }).show();
+				.setMessage(deniedMessage)
+				.setPositiveButton(android.R.string.ok,null)
+				.setOnDismissListener(new DialogInterface.OnDismissListener() {
+					@Override
+					public void onDismiss(DialogInterface dialogInterface) {
+						activity.finish();
+					}
+				}).show();
             return false;
         }
         return true;
@@ -36,10 +36,10 @@ public class AndroidUtility {
     }
     public static void MessageBox(Context activity, String msg, String title){
         new AlertDialog.Builder(activity)
-                .setTitle(title)
-                .setMessage(msg)
-                .setPositiveButton(android.R.string.ok,null)
-                .show();
+			.setTitle(title)
+			.setMessage(msg)
+			.setPositiveButton(android.R.string.ok,null)
+			.show();
     }
 
     public static void OpenUri(Context ctx,String uriString)throws ActivityNotFoundException {

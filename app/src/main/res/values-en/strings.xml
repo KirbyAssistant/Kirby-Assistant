@@ -155,9 +155,11 @@
 	<string name="faq_message">FAQ</string>
    <string name="feedback_title">Feedback</string>
 	<string name="qq_group">More Detailed Help？Pass The Button To Go To Me Tencent QQ Group</string>
-	<string name="kfz_title">Developer</string>
-	<string name="me1">Coolapk</string>
-	<string name="me2">\@汝南京</string>
+	<string name="dev_title">Developer</string>
+	<string name="dev_coolapk">Coolapk\@汝南京</string>
+	<string name="dev_github">Github\@EnduerBlaze</string>
+	<string name="dev_weibo">Weibo\@汝南京</string>
+	<string name="dev_twitter">Twitter\@EndureBlaze</string>
 	<string name="github">Browsing The Program In Github.</string>
 	<string name="gitlab">Browsing The Program In Gitlab.</string>
 	<string name="contributor_title">Contributor</string>
@@ -169,11 +171,13 @@
 	<string name="translation_en_tieba_nannannan550">Baidu Tieba\@难难难550</string>
 	<string name="translation_en_tieba_guangzhiyaoxi">Baidu Tieba\@光之耀西</string>
 	<string name="draw_icon_title">Draw ICON</string>
-	<string name="draw_icon_message">CoolApk\@hk流星\nCoolApk\@Markuss\nBaidu Tieba\@★☆小伊布☆★</string>
+	<string name="draw_icon_coolapk_hkliuxing">CoolApk\@hk流星</string>
+	<string name="draw_icon_coolapk_markuss">CoolApk\@Markuss</string>
+	<string name="draw_icon_tieba_xiaoyibu">Baidu Tieba\@★☆小伊布☆★</string>
 	<string name="video_author_title">Video author</string>
-	<string name="video_author_message">Baidu Tieba\@gf5f65d</string>
+	<string name="video_author_bilibili_xige">Bilibili\@虚影无华</string>
 	<string name="writer_help_faq_title">FAQ Writer</string>
-	<string name="writer_help_faq_message">CoolApk\@塔林狐</string>
+	<string name="writer_help_faq_coolapk_talinhu">CoolApk\@塔林狐</string>
 	<string name="greenapps_title">Green Apps for Android</string>
 	<string name="greenapps_message">Kirby Assistant Comply to “Convention of Green Apps for Android”, certified)\nClick to visit Green Apps for Android official website</string>
 	

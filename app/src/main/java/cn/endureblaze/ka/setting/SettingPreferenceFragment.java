@@ -12,7 +12,6 @@ import android.widget.*;
 import cn.endureblaze.ka.*;
 import cn.endureblaze.ka.launcher.*;
 import cn.endureblaze.ka.utils.*;
-import com.lxfly2000.utilities.AndroidUtility;
 
 public class SettingPreferenceFragment extends PreferenceFragment
 {
@@ -171,22 +170,44 @@ public class SettingPreferenceFragment extends PreferenceFragment
 				github.setData(Uri.parse("https://github.com/EndureBlaze/Kirby-Assistant"));
 				getActivity().startActivity(github);
 				break;
-			case "me":
-				try
-				{
-					Intent me=new Intent("android.intent.action.VIEW");
-					me .setData(Uri.parse("http://www.coolapk.com/u/651880"));
-					me.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-					me .setPackage("com.coolapk.market");
-					getActivity().startActivity(me);
-				}
-				catch (Exception e)
-				{
-					Toast.makeText(getActivity(), getActivity().getString(R.string.not_install_CoolApk), Toast.LENGTH_SHORT).show();
-				}		
+			case "dev_coolapk":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.dev_coolapk_link),Base64.DEFAULT)));
 				break;
-			case "program_contributors_lxfly2000":
-				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.contributor_github_lxfly2000_link),Base64.DEFAULT)));
+			case "dev_github":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.dev_github_link),Base64.DEFAULT)));
+				break;
+			case "dev_weibo":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.dev_weibo_link),Base64.DEFAULT)));
+				break;
+			case "dev_twitter":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.dev_twitter_link),Base64.DEFAULT)));
+				break;
+			case "program_github_lxfly2000":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.program_github_lxfly2000_link),Base64.DEFAULT)));
+				break;
+			case "translation_tw_github_longxk2017":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.translation_tw_github_longxk2017_link),Base64.DEFAULT)));
+				break;
+			case "translation_en_tieba_nannannan550":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.translation_en_tieba_nannannan550_link),Base64.DEFAULT)));
+				break;
+			case "translation_en_tieba_guangzhiyaoxi":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.translation_en_tieba_guangzhiyaoxi_link),Base64.DEFAULT)));
+				break;
+			case "draw_icon_coolapk_hkliuxing":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.draw_icon_coolapk_hkliuxing_link),Base64.DEFAULT)));
+				break;
+			case "draw_icon_coolapk_markuss":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.draw_icon_coolapk_markuss_link),Base64.DEFAULT)));
+				break;
+			case "draw_icon_tieba_xiaoyibu":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.draw_icon_tieba_xiaoyibu_link),Base64.DEFAULT)));
+				break;
+			case "video_author_bilibili_xige":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.video_author_bilibili_xige_link),Base64.DEFAULT)));
+				break;
+			case "writer_help_faq_coolapk_talinhu":
+				AndroidUtility.OpenUri(getActivity().getBaseContext(),new String(Base64.decode(getString(R.string.writer_help_faq_coolapk_talinhu_link),Base64.DEFAULT)));
 				break;
 		}
 		return super.onPreferenceTreeClick(preferenceScreen, preference);
