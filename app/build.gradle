@@ -9,7 +9,7 @@ android {
         minSdkVersion 21
 	    targetSdkVersion 28
         versionCode 34
-        versionName "未来·炫动-1.2.11"
+        versionName "未来·炫动-1.3"
 		multiDexEnabled false
         multiDexKeepProguard file('multiDexKeep.pro') 
 		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
