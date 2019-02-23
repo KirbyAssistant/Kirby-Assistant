@@ -61,7 +61,7 @@ public class GameActivity extends BaseActivity
 							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKTD8EZ", "https://eyun.baidu.com/s/3gfwui2n", "");
 							break;
 						case "sfc_kss"://"星之卡比 超豪华版":
-							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3qXEc4Xm", "https://eyun.baidu.com/s/3dia_nu8IVpv", "");
+							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3qXEc4Xm", "https://eyun.baidu.com/s/3nu8IV", "");
 							break;
 						case "sfc_mhd"://"星之卡比 卡比梦幻都":
 							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3hsvCjfI", "https://eyun.baidu.com/s/3jHCmNps", "");
@@ -70,7 +70,7 @@ public class GameActivity extends BaseActivity
 							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_nu, R.string.dia_nu, "https://eyun.baidu.com/s/3qZr1yry", "", "");
 							break;
 						case "sfc_mfqp"://"[仅美国]星之卡比 卡比魔方气泡":
-							showDownloadDialog(game_name, R.string.game_name1, R.string.dia_us , R.string.dia_nu ,  R.string.dia_nu, "https://eyun.baidu.com/s/3eSudia_usSi", "", "");
+							showDownloadDialog(game_name, R.string.game_name1, R.string.dia_us , R.string.dia_nu ,  R.string.dia_nu, "https://eyun.baidu.com/s/3eSuusSi", "", "");
 							break;
 						case "sfc_bsxdx"://"[仅日本]星之卡比 卡比宝石星DX":
 							showDownloadDialog(game_name, R.string.game_name2, R.string.dia_jp, R.string.dia_nu, R.string.dia_nu, "https://eyun.baidu.com/s/3kVDhaS3", "", "");
@@ -115,10 +115,10 @@ public class GameActivity extends BaseActivity
 							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3i48QqMh", "https://eyun.baidu.com/s/3eSwv1DK", "");
 							break;
 						case "gbc_gg"://"星之卡比 滚滚卡比":
-							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKP9eav", "https://eyun.baidu.com/s/3dia_nuQZavJ", "");
+							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKP9eav", "https://eyun.baidu.com/s/3nuQZavJ", "");
 							break;
 						case "fc_mzq"://"星之卡比 梦之泉物语":
-							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKXFx8n", "https://eyun.baidu.com/s/3pKdia_zhpaF", "https://eyun.baidu.com/s/3i4HC8FN");
+							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKXFx8n", "https://eyun.baidu.com/s/3pKZHpaF", "https://eyun.baidu.com/s/3i4HC8FN");
 							break;
 					}
 				}
