@@ -28,6 +28,7 @@ import java.io.*;
 import java.net.*;
 
 import android.support.v7.app.AlertDialog;
+import android.view.View.*;
 public class MainUserFragment extends BaseFragment
 {
 	private ChangeUserHeadLocalReceiver localReceiver;
@@ -176,8 +177,7 @@ public class MainUserFragment extends BaseFragment
 						Pair<View, String> editPassPair= new Pair<View,String>(user_logout, "pass");
 						Intent intent = new Intent(getActivity(), HeadActivity.class);			
 						ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), userHeadPair, cardPair, editPassPair);
-						
-						//startActivityForResult(intent, 3, options.toBundle());
+						startActivityForResult(intent, 3, options.toBundle());
 					}
 			});
 
