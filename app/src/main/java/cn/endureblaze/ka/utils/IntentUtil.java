@@ -7,6 +7,7 @@ import android.app.Activity;
 public class IntentUtil
 {
 	public static void startActivityWithAnim(Intent intent,Activity activity){
-		activity.startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(activity).toBundle());
+		//activity.startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(activity).toBundle());
+		activity.startActivity(intent);
 	}
 }

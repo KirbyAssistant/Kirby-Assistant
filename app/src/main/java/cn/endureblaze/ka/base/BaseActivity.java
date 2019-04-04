@@ -22,20 +22,7 @@ public class BaseActivity extends AppCompatActivity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 	    ActManager.addActivity(this);
-		getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-		Transition explode = TransitionInflater.from(this).inflateTransition(R.transition.explode);
-		Transition slide_in = TransitionInflater.from(this).inflateTransition(R.transition.slide_in);
-		Transition slide_out = TransitionInflater.from(this).inflateTransition(R.transition.slide_out);
-		Transition fade = TransitionInflater.from(this).inflateTransition(R.transition.fade);
-	//极简模式检测
-		if (CheckSimpleModeUtil.isSimpleMode() == false)
-		{
-			getWindow().setEnterTransition(slide_in); //首次进入显示的动画
-			getWindow().setExitTransition(slide_out); //启动一个新Activity,当前页的退出动画
-			getWindow().setReturnTransition(slide_out); //调用 finishAfterTransition() 退出时，当前页退出的动画
-			getWindow().setReenterTransition(fade); //重新进入的动画。即第二次进入，可以和首次进入不一样。
-		}
-		super.onCreate(savedInstanceState);
+     	super.onCreate(savedInstanceState);
 		LanguageUtil.setLanguage();
 		Bmob.initialize(CondomContext.wrap(this, "Bmob"), "e39c2e15ca40b358b0dcc933236c1165");
 		MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
