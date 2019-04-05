@@ -16,7 +16,6 @@ import cn.endureblaze.ka.R;
 
 public class BaseActivity extends AppCompatActivity
 {
-
 	private String WINDOW_HIERARCHY_TAG="window_save";
 	@Override
 	protected void onCreate(Bundle savedInstanceState)

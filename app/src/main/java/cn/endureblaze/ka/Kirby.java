@@ -33,7 +33,6 @@ public class Kirby extends Application
 				}
 			});
 		UMConfigure.init(CondomContext.wrap(this, "Umeng"),"5c000429b465f56fdb0005ba", "CoolApk",UMConfigure.DEVICE_TYPE_PHONE, null);
-		//UMConfigure.setLogEnabled(true);//测试模式
 		MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
     }
 	/*public static RequestOptions getGlideRequestOptions()
