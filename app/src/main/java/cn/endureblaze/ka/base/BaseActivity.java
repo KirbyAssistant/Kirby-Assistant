@@ -8,7 +8,6 @@ import android.view.*;
 import cn.bmob.v3.*;
 import cn.endureblaze.ka.*;
 import cn.endureblaze.ka.utils.*;
-import com.jaeger.library.*;
 import com.oasisfeng.condom.*;
 import com.umeng.analytics.*;
 
@@ -35,7 +34,7 @@ public class BaseActivity extends AppCompatActivity
 
     public void setStatusBar(int color)
 	{
-		StatusBarUtil.setColor(this, color, 0);
+		getWindow().setStatusBarColor(color);
 		getWindow().setNavigationBarColor(color);
     }
 	public int getDarkColorPrimary()

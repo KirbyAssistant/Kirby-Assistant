@@ -1,7 +1,6 @@
 package cn.endureblaze.ka.main.donate;
 
 import android.content.*;
-import android.didikee.donate.*;
 import android.os.*;
 import android.support.annotation.*;
 import android.support.v7.widget.*;
@@ -93,10 +92,6 @@ public class PayActivity extends BaseActivity
     
 	private void donateAlipay(String payCode)
 	{
-        boolean hasInstalledAlipayClient = AlipayDonate.hasInstalledAlipayClient(PayActivity.this);
-        if (hasInstalledAlipayClient)
-		{
-            AlipayDonate.startAlipayClient(PayActivity.this, payCode);
-        }
+        PayUtil.Ailipay(payCode,PayActivity.this);
     }
 }
