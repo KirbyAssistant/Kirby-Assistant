@@ -18,7 +18,6 @@ import cn.bmob.v3.listener.*;
 import cn.endureblaze.ka.*;
 import cn.endureblaze.ka.bmob.*;
 import cn.endureblaze.ka.utils.*;
-//import com.yalantis.ucrop.*;
 import java.io.*;
 
 import cn.endureblaze.ka.base.*;
@@ -79,14 +78,12 @@ public class HeadActivity extends BaseActivity
             case CHOOSE_PHOTO:
 				if (resultCode == RESULT_OK)
 				{
-					//startUcrop(data.getData());
 					CropImageDialog.newInstance(data.getData())
 						.setTheme(R.style.BottomDialogStyle)
 					    .setMargin(0)
 						.setShowBottom(true)   
 						.show(ActManager.currentFragmentActivity().getSupportFragmentManager());
 				}
-				//    getImagePathOpenUcrop(resultCode,data);
 				break;
 			default:
 				break;
