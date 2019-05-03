@@ -28,7 +28,7 @@
 
 	<style name="BaseLightTheme" parent="Theme.AppCompat.Light.NoActionBar">		
 		<item name="android:windowBackground">@android:color/white</item>
-		<item name="color_bkg_main">#f1f1f1</item>
+		<item name="color_bkg_main">#FFF5F5F5</item>
         <item name="color_text">#000000</item>
         <item name="color_text_pressed">#80212121</item>
         <item name="color_text_hint">#40212121</item>

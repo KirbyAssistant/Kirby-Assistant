@@ -5,6 +5,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical"
+	android:background="?color_bkg_main"
 	android:id="@+id/root_view">
 
 	<RelativeLayout

@@ -169,7 +169,7 @@ public class EditChatDialog extends BaseBottomDialog
 						edit_chat_dialog.dismiss();
 						MainChatFragment main_chat=(MainChatFragment)edit_chat_dialog.getActivity().getSupportFragmentManager().findFragmentById(R.id.main_fragment);
 						main_chat.getChat();
-						Toast.makeText(getActivity(), getResources().getString(R.string.mess_true) + objectId, Toast.LENGTH_SHORT).show();
+						Toast.makeText(getActivity(), getResources().getString(R.string.mess_true), Toast.LENGTH_SHORT).show();
 					}
 					else
 					{
