@@ -94,7 +94,7 @@ public class MainChatFragment extends BaseFragment
 				@Override
 				public void onClick(View v)			
 				{
-					EditChatDialog.newInstance("0")
+					EditChatDialog.newInstance("0",null,ChatMode.CHAT_SEND_MODE)
 					.setTheme(R.style.BottomDialogStyle)
 					.setMargin(0)
 					.setShowBottom(true)

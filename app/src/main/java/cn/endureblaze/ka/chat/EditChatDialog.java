@@ -20,82 +20,79 @@ import cn.endureblaze.ka.bottomdialog.*;
 import cn.endureblaze.ka.utils.*;
 import android.net.*;
 
-public class EditChatDialog extends BaseBottomDialog
-{
+public class EditChatDialog extends BaseBottomDialog {
 	private EditText chat_editview;
-	
-	public static EditChatDialog newInstance(String type)
-	{
-		Bundle bundle = new Bundle();
 
+	private String str_chat;
+
+	private int mode;
+
+	public static EditChatDialog newInstance(String type, String chat,int mode) {
+		Bundle bundle = new Bundle();
+		bundle.putString("str_chat",chat);
+		bundle.putInt("mode",mode);
 		EditChatDialog dialog = new EditChatDialog();
 		dialog.setArguments(bundle);
 		return dialog;
 	}
 
 	@Override
-    public int initTheme()
-	{
+    public int initTheme() {
         return theme;
     }
 
-	public EditChatDialog setTheme(@StyleRes int theme)
-	{
+	public EditChatDialog setTheme(@StyleRes int theme) {
         this.theme = theme;
         return this;
     }
 
 	@Override
-	public void onCreate(@Nullable Bundle savedInstanceState)
-	{
+	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Bundle bundle = getArguments();
+	    str_chat = bundle.getString("str_chat");
+		mode=bundle.getInt("mode");
 	}
 
 	@Override
-	public int intLayoutId()
-	{
+	public int intLayoutId() {
 		return R.layout.dialog_editchat;
 	}
 
 	@Override
-	public void convertView(ViewHolder holder, final BaseBottomDialog edit_chat_dialog)
-	{
+	public void convertView(ViewHolder holder, final BaseBottomDialog edit_chat_dialog) {
 		SharedPreferences chat_share=getActivity().getSharedPreferences("string", 0);
 		String chat= chat_share.getString("Chat", null);
-		chat_editview = (EditText)holder.getView(R.id.chat_editview);
+	    chat_editview = (EditText)holder.getView(R.id.chat_editview);
 		chat_editview.post(new Runnable() {
 				@Override
-				public void run()
-				{
+				public void run() {
 					InputMethodManager imm =
 						(InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
 					imm.showSoftInput(chat_editview, 0);
 				}
 			});
 		chat_editview.addTextChangedListener(textWatcher);
-		if (chat != null)
-		{
+		
+		if (mode==ChatMode.CHAT_SEND_MODE&&chat != null) {
 			chat_editview.setText(chat);
+		}
+		if (mode==ChatMode.CHAR_EDIT_MODE&&str_chat != null) {
+				chat_editview.setText(str_chat);
 		}
 		ImageView chat_send=holder.getView(R.id.chat_send);
 		chat_send.setOnClickListener(new View.OnClickListener() {
 
 				@Override
-				public void onClick(View v)
-				{
+				public void onClick(View v) {
 					//获取字符串转化为string数据
 					//EditText 内容=(EditText)v.findViewById(R.id.内容_编辑);
 					final String str_chat = chat_editview.getText().toString();
 					//判断是否为空
-					if (str_chat.isEmpty())
-					{
+					if (str_chat.isEmpty()) {
 						Toast.makeText(getActivity(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
-					}
-					else
-					{
-						if (CheckTextUtil.isHaveTerribleWord(str_chat))
-						{
+					} else {
+						if (CheckTextUtil.isHaveTerribleWord(str_chat)) {
 							AlertDialog.Builder dialog = new
 								AlertDialog.Builder(getActivity())
 								.setTitle("需要帮助吗？")
@@ -105,9 +102,8 @@ public class EditChatDialog extends BaseBottomDialog
 								DialogInterface.OnClickListener()
 								{
 									@Override
-									public void onClick(DialogInterface dialog, int which)
-									{
-										sendChat(str_chat,edit_chat_dialog);
+									public void onClick(DialogInterface dialog, int which) {
+										sendChat(str_chat, edit_chat_dialog);
 									}
 								}
 							)
@@ -115,17 +111,15 @@ public class EditChatDialog extends BaseBottomDialog
 								DialogInterface.OnClickListener()
 								{
 									@Override
-									public void onClick(DialogInterface dialog, int which)
-									{
-										Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("tel:010-82951332"));
+									public void onClick(DialogInterface dialog, int which) {
+										Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-82951332"));
 										getActivity().startActivity(intent);
 									}
 								})
 								.setNeutralButton("离开", new DialogInterface.OnClickListener()
 								{
 									@Override
-									public void onClick(DialogInterface dialog, int which)
-									{
+									public void onClick(DialogInterface dialog, int which) {
 										edit_chat_dialog.dismiss();
 										SharedPreferences y=getActivity().getSharedPreferences("string", 0);
 										SharedPreferences.Editor edit=y.edit();
@@ -135,17 +129,14 @@ public class EditChatDialog extends BaseBottomDialog
 								}
 							);
 							dialog.show();
-						}
-						else
-						{
-							sendChat(str_chat,edit_chat_dialog);
+						} else {
+							sendChat(str_chat, edit_chat_dialog);
 						}
 					}
 				}
 			});
 	}
-	private void sendChat(String str_chat,final BaseBottomDialog edit_chat_dialog)
-	{
+	private void sendChat(String str_chat, final BaseBottomDialog edit_chat_dialog) {
 		final ProgressDialog progressDialog = new ProgressDialog(getActivity());
 		progressDialog.setMessage(getResources().getString(R.string.mess_upload));
 		progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -157,11 +148,9 @@ public class EditChatDialog extends BaseBottomDialog
 		chat.setUser(BmobUser.getCurrentUser(BmobKirbyAssistantUser.class));
 		chat.save(new SaveListener<String>() {
 				@Override
-				public void done(String objectId, BmobException e)
-				{
+				public void done(String objectId, BmobException e) {
 					progressDialog.dismiss();
-					if (e == null)
-					{		
+					if (e == null) {		
 						SharedPreferences y=getActivity().getSharedPreferences("string", 0);
 						SharedPreferences.Editor edit=y.edit();
 						edit.putString("Chat", "");
@@ -170,9 +159,7 @@ public class EditChatDialog extends BaseBottomDialog
 						MainChatFragment main_chat=(MainChatFragment)edit_chat_dialog.getActivity().getSupportFragmentManager().findFragmentById(R.id.main_fragment);
 						main_chat.getChat();
 						Toast.makeText(getActivity(), getResources().getString(R.string.mess_true), Toast.LENGTH_SHORT).show();
-					}
-					else
-					{
+					} else {
 						Toast.makeText(getActivity(), getResources().getString(R.string.mess_false) + e.getMessage(), Toast.LENGTH_SHORT).show();
 					}
 				}
@@ -181,14 +168,12 @@ public class EditChatDialog extends BaseBottomDialog
 	private TextWatcher textWatcher = new TextWatcher() {
 
 		@Override
-		public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4)
-		{
+		public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {
 
 		}
 
 		@Override
-		public void onTextChanged(CharSequence p1, int p2, int p3, int p4)
-		{
+		public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
 			SharedPreferences y=getActivity().getSharedPreferences("string", 0);
 			SharedPreferences.Editor edit=y.edit();
 			edit.putString("Chat", chat_editview.getText().toString());
@@ -196,8 +181,7 @@ public class EditChatDialog extends BaseBottomDialog
 		}
 
 		@Override
-		public void afterTextChanged(Editable p1)
-		{
+		public void afterTextChanged(Editable p1) {
 			// TODO: Implement this method
 		}
 	};

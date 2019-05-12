@@ -5,7 +5,7 @@
 	android:layout_height="wrap_content"
 	android:layout_width="match_parent"
 	android:layout_margin="8dp"
-	android:background="?color_bkg_main"
+	android:background="#ffffff"
 	android:id="@+id/chatitemRelativeLayout1">
 
 	<TextView
