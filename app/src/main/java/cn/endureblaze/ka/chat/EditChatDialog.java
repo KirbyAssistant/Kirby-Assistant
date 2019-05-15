@@ -27,10 +27,10 @@ public class EditChatDialog extends BaseBottomDialog {
 
 	private int mode;
 
-	public static EditChatDialog newInstance(String type, String chat,int mode) {
+	public static EditChatDialog newInstance(String type, String chat, int mode) {
 		Bundle bundle = new Bundle();
-		bundle.putString("str_chat",chat);
-		bundle.putInt("mode",mode);
+		bundle.putString("str_chat", chat);
+		bundle.putInt("mode", mode);
 		EditChatDialog dialog = new EditChatDialog();
 		dialog.setArguments(bundle);
 		return dialog;
@@ -51,7 +51,7 @@ public class EditChatDialog extends BaseBottomDialog {
 		super.onCreate(savedInstanceState);
 		Bundle bundle = getArguments();
 	    str_chat = bundle.getString("str_chat");
-		mode=bundle.getInt("mode");
+		mode = bundle.getInt("mode");
 	}
 
 	@Override
@@ -73,12 +73,12 @@ public class EditChatDialog extends BaseBottomDialog {
 				}
 			});
 		chat_editview.addTextChangedListener(textWatcher);
-		
-		if (mode==ChatMode.CHAT_SEND_MODE&&chat != null) {
+
+		if (mode == ChatMode.CHAT_SEND_MODE && chat != null) {
 			chat_editview.setText(chat);
 		}
-		if (mode==ChatMode.CHAR_EDIT_MODE&&str_chat != null) {
-				chat_editview.setText(str_chat);
+		if (mode == ChatMode.CHAT_EDIT_MODE && str_chat != null) {
+			chat_editview.setText(str_chat);
 		}
 		ImageView chat_send=holder.getView(R.id.chat_send);
 		chat_send.setOnClickListener(new View.OnClickListener() {
@@ -174,10 +174,12 @@ public class EditChatDialog extends BaseBottomDialog {
 
 		@Override
 		public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
-			SharedPreferences y=getActivity().getSharedPreferences("string", 0);
-			SharedPreferences.Editor edit=y.edit();
-			edit.putString("Chat", chat_editview.getText().toString());
-			edit.apply();
+			if (mode == ChatMode.CHAT_SEND_MODE) {
+				SharedPreferences y=getActivity().getSharedPreferences("string", 0);
+				SharedPreferences.Editor edit=y.edit();
+				edit.putString("Chat", chat_editview.getText().toString());
+				edit.apply();
+			}
 		}
 
 		@Override

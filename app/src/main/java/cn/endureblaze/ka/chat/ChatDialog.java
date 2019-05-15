@@ -142,7 +142,7 @@ public class ChatDialog extends BaseBottomDialog
 											});
 										break;
 									case R.id.mess_edit:
-										EditChatDialog.newInstance("0",s_mess,ChatMode.CHAR_EDIT_MODE)
+										EditChatDialog.newInstance("0",s_mess,ChatMode.CHAT_EDIT_MODE)
 											.setTheme(R.style.BottomDialogStyle)
 											.setMargin(0)
 											.setShowBottom(true)
