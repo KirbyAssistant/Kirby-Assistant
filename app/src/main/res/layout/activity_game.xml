@@ -23,91 +23,70 @@
 
 	</android.support.design.widget.AppBarLayout>
 
-	<RelativeLayout
-		android:layout_width="fill_parent"
+	<ScrollView
 		android:layout_height="wrap_content"
-		android:layout_below="@id/mainAppBarLayout1"
-		android:id="@+id/activitygameRelativeLayout1">
-
-		<android.support.v7.widget.CardView
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			app:elevation="5dp"
-			app:cardCornerRadius="4dp"
-			android:id="@+id/image_cardview"
-			android:transitionName="card"
-			android:layout_margin="24dp">
-
-			<ImageView
-				android:src="@android:drawable/ic_delete"
-				android:layout_width="160dp"
-				android:layout_height="160dp"
-				android:id="@+id/game_img"
-				android:transitionName="image"
-				android:layout_margin="8dp"/>
-
-		</android.support.v7.widget.CardView>
-
-		<android.support.v7.widget.CardView
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			app:elevation="5dp"
-			app:cardCornerRadius="4dp"
-			android:id="@+id/dl_cardview"
-			android:layout_alignParentEnd="true"
-			android:layout_toEndOf="@id/image_cardview"
-			android:layout_centerVertical="true"
-			android:layout_marginEnd="24dp">
-
-			<LinearLayout
-				android:layout_height="match_parent"
-				android:layout_width="match_parent"
-				android:orientation="vertical"
-				android:padding="4dp">
-
-				<Button
-					style="?android:attr/buttonBarButtonStyle"
-					android:layout_height="match_parent"
-					android:layout_width="match_parent"
-					android:text="@string/dia_download"
-					android:id="@+id/download_button"
-					android:transitionName="name"/>
-
-			</LinearLayout>
-
-		</android.support.v7.widget.CardView>
-
-	</RelativeLayout>
-
-	<android.support.v7.widget.CardView
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_below="@id/activitygameRelativeLayout1"
-		android:layout_margin="24dp">
+		android:layout_below="@id/mainAppBarLayout1">
 
-		<LinearLayout
-			android:layout_width="match_parent"
+		<RelativeLayout
+			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:orientation="vertical"
-			android:padding="4dp">
+			android:id="@+id/activitygameRelativeLayout1">
 
-			<ScrollView
+			<android.support.v7.widget.CardView
+				android:layout_height="168dp"
+				android:layout_width="match_parent"
+				app:elevation="5dp"
+				app:cardCornerRadius="4dp"
+				android:id="@+id/image_cardview"
+				android:transitionName="card"
+				android:layout_margin="4dp">
+
+				<ImageView
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:id="@+id/blur_game_img"
+					android:transitionName="image"/>
+
+				<ImageView
+					android:src="@android:drawable/ic_delete"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:id="@+id/game_img"
+					android:layout_gravity="center"
+					android:transitionName="image"
+					android:layout_margin="8dp"/>
+
+			</android.support.v7.widget.CardView>
+
+			<Button
 				android:layout_height="wrap_content"
 				android:layout_width="match_parent"
-				android:layout_marginTop="4dp">
+				android:text="@string/dia_download"
+				android:id="@+id/download_button"
+				android:transitionName="name"
+				android:textColor="#FFFFFFFF"
+				android:background="?attr/colorPrimary"
+				android:layout_below="@id/image_cardview"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginTop="8dp"
+				android:layout_marginBottom="4dp"/>
 
-				<TextView
-					android:layout_height="wrap_content"
-					android:layout_width="wrap_content"
-					android:text="Text"
-					android:id="@+id/game_js"
-					android:textSize="20sp"/>
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Text"
+				android:id="@+id/game_js"
+				android:textSize="20sp"
+				android:layout_below="@id/download_button"
+				android:layout_marginTop="8dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"/>
 
-			</ScrollView>
+		</RelativeLayout>
 
-		</LinearLayout>
-
-	</android.support.v7.widget.CardView>
+	</ScrollView>
 
 </RelativeLayout>
 

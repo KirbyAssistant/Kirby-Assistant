@@ -12,7 +12,8 @@
 	<ImageView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:id="@+id/blur_image"/>
+		android:id="@+id/blur_image"
+		android:transitionName="blur_image"/>
 
 	<LinearLayout
 		style="?android:attr/buttonBarButtonStyle"

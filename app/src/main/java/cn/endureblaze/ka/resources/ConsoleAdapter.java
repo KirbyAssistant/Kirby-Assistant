@@ -95,38 +95,7 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
 			.placeholder(R.drawable.ic_kirby_download)
 			.error(R.drawable.ic_kirby_load_fail)
 			.into(holder.consoleImage);		
-		try {
-			new Thread(new Runnable() {
-
-					String pattern="8";
-					@Override
-					public void run() {
-						Bitmap glideBitmap=GlideUtil.getGlideBitmap(mContext, co.getImageUrl());
-						int scaleRatio = 0;
-						if (TextUtils.isEmpty(pattern)) {
-							scaleRatio = 0;
-						} else if (scaleRatio < 0) {
-							scaleRatio = 10;
-						} else {
-							scaleRatio = Integer.parseInt(pattern);
-						}
-						//                        下面的这个方法必须在子线程中执行
-						final Bitmap blurBitmap2 = FastBlurUtil.toBlur(glideBitmap, scaleRatio);
-
-						//                   刷新ui必须在主线程中执行
-						try {
-							mActivity.runOnUiThread(new Runnable(){
-
-									@Override
-									public void run() {
-										holder.blurImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
-										//holder.blurImage.setImageBitmap(blurBitmap2);
-									}
-								});
-						} catch (Exception e) {}
-					}
-				}).start();
-		} catch (Exception e) {}
+		//GlideUtil.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"5");
 		}
     @Override
     public int getItemCount()

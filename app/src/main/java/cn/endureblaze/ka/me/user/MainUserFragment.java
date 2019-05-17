@@ -114,37 +114,7 @@ public class MainUserFragment extends BaseFragment {
 					.placeholder(R.drawable.buletheme)
 					.fitCenter()
 					.into(userHead);
-
-				new Thread(new Runnable() {
-
-						String pattern="5";
-						@Override
-						public void run() {
-							Bitmap glideBitmap=GlideUtil.getGlideBitmap(getActivity(), UserUtil.getCurrentUser().getUserHead().getFileUrl());
-							int scaleRatio = 0;
-							if (TextUtils.isEmpty(pattern)) {
-								scaleRatio = 0;
-							} else if (scaleRatio < 0) {
-								scaleRatio = 10;
-							} else {
-								scaleRatio = Integer.parseInt(pattern);
-							}
-							//                        下面的这个方法必须在子线程中执行
-							final Bitmap blurBitmap2 = FastBlurUtil.toBlur(glideBitmap, scaleRatio);
-
-							//                   刷新ui必须在主线程中执行
-							try {
-								getActivity().runOnUiThread(new Runnable(){
-
-										@Override
-										public void run() {
-											mo_userHead.setScaleType(ImageView.ScaleType.CENTER_CROP);
-											mo_userHead.setImageBitmap(blurBitmap2);
-										}
-									});
-							} catch (Exception e) {}
-						}
-					}).start();
+				GlideUtil.setBlurImageViaGlideCache(getActivity(),mo_userHead,UserUtil.getCurrentUser().getUserHead().getFileUrl(),"5");
 			}
 		} catch (Exception e) {}
 		userName.setText(UserUtil.getCurrentUser().getUsername());
