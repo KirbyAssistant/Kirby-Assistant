@@ -34,7 +34,7 @@ public class PlayAnimUtil
 		}
 	}
 	/**
-     * 播放RecyclerView动画
+     * 播放View动画
      *
      * @param animation
      * @param isReverse

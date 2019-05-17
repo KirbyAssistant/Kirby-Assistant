@@ -51,38 +51,11 @@ public class Launcher extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_welcome);
 		icon = (ImageView)findViewById(R.id.welcomeImageView1);
-		animate();
-	}
-	/*@Override
-	 public void onWindowFocusChanged(boolean hasFocus)
-	 {
-	 if (!hasFocus || animationStarted)
-	 {
-	 return;
-	 }
-	 super.onWindowFocusChanged(hasFocus);
-	 }*/
-
-    private void animate()
-	{
-		welcome = (TextView)findViewById(R.id.textview);
-		welcome.setText(R.string.app_name);
-		ObjectAnimator animator = ObjectAnimator.ofFloat(welcome, "alpha", 0f, 1f);
-        animator.setDuration(700);
-        animator.start();
-		mHandler.postDelayed(new Runnable() {
-				@Override
-				public void run()
-				{
-					Intent intent=new Intent(Launcher.this, MainActivity.class);
-					intent.setClass(Launcher.this, MainActivity.class);
-					startActivity(intent);
-					finish();
-					overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);			
-					//welcome.setText(getResources().getString(R.string.welcome_to));
-				}
-			}
-			, 1000);
+		Intent intent=new Intent(Launcher.this, MainActivity.class);
+		intent.setClass(Launcher.this, MainActivity.class);
+		startActivity(intent);
+		finish();
+		overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 	}
 }
 
