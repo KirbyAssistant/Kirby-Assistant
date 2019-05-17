@@ -1,18 +1,27 @@
 package cn.endureblaze.ka.resources;
-import android.app.*;
-import android.content.*;
-import android.support.v7.widget.*;
-import android.view.*;
-import android.widget.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.bean.*;
-import cn.endureblaze.ka.utils.*;
-import java.util.*;
-
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.resources.game.*;
-import cn.endureblaze.ka.main.*;
-import com.bumptech.glide.*;
+import cn.endureblaze.ka.bean.Console;
+import cn.endureblaze.ka.main.MainActivity;
+import cn.endureblaze.ka.resources.game.GameListActivity;
+import cn.endureblaze.ka.utils.FastBlurUtil;
+import cn.endureblaze.ka.utils.GlideUtil;
+import cn.endureblaze.ka.utils.IntentUtil;
+import com.bumptech.glide.Glide;
+import java.util.List;
 
 public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHolder>
 {
@@ -26,6 +35,8 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
 		CardView cardView;
         ImageView consoleImage;
         TextView consoleName;
+
+		private ImageView blurImage;
         public ViewHolder(View view)
 		{
             super(view);
@@ -33,6 +44,7 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
             cardView = (CardView) view.findViewById(R.id.cardview);
 			consoleImage = (ImageView) view.findViewById(R.id.console_image);
             consoleName = (TextView) view.findViewById(R.id.console_text);
+			blurImage = (ImageView) view.findViewById(R.id.blur_image);
         }
     }
 
@@ -70,9 +82,9 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position)
+    public void onBindViewHolder(final ViewHolder holder, int position)
 	{
-        Console co = mConsoleList.get(position);
+        final Console co = mConsoleList.get(position);
         holder.consoleName.setText(co.getName());
         Glide
 			.with(mContext)
@@ -83,6 +95,38 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
 			.placeholder(R.drawable.ic_kirby_download)
 			.error(R.drawable.ic_kirby_load_fail)
 			.into(holder.consoleImage);		
+		try {
+			new Thread(new Runnable() {
+
+					String pattern="8";
+					@Override
+					public void run() {
+						Bitmap glideBitmap=GlideUtil.getGlideBitmap(mContext, co.getImageUrl());
+						int scaleRatio = 0;
+						if (TextUtils.isEmpty(pattern)) {
+							scaleRatio = 0;
+						} else if (scaleRatio < 0) {
+							scaleRatio = 10;
+						} else {
+							scaleRatio = Integer.parseInt(pattern);
+						}
+						//                        下面的这个方法必须在子线程中执行
+						final Bitmap blurBitmap2 = FastBlurUtil.toBlur(glideBitmap, scaleRatio);
+
+						//                   刷新ui必须在主线程中执行
+						try {
+							mActivity.runOnUiThread(new Runnable(){
+
+									@Override
+									public void run() {
+										holder.blurImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+										//holder.blurImage.setImageBitmap(blurBitmap2);
+									}
+								});
+						} catch (Exception e) {}
+					}
+				}).start();
+		} catch (Exception e) {}
 		}
     @Override
     public int getItemCount()

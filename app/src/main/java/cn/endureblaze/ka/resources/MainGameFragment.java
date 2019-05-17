@@ -86,7 +86,7 @@ public class MainGameFragment extends BaseFragment
 		//模拟器列表配置
 		GridLayoutManager layoutManager2=new GridLayoutManager(getActivity(), 1);
 		r1.setLayoutManager(layoutManager2);
-		adapter1 = new EmulatorsAdapter(emulatorslist);
+		adapter1 = new EmulatorsAdapter(emulatorslist,getActivity());
 		r1.setAdapter(adapter1);
 		//金手指游戏列表配置
 		GridLayoutManager layoutManager3=new GridLayoutManager(getActivity(), 1);
