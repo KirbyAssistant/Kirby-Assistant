@@ -42,7 +42,7 @@
 			android:id="@+id/console_text"
 			android:layout_gravity="center|end"
 			android:transitionName="name"
-			android:background="#15000000"
+			android:background="#20000000"
 			android:textColor="#FFFFFFFF"
 			android:padding="4dp"/>
 
