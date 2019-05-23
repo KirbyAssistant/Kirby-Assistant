@@ -9,7 +9,7 @@
 	<string name="setting_title">設置</string>
 	<string name="about_title">關於</string>
 	<string name="help_title">幫助</string>
-	<string name="mess_title">詳情</string>
+	<string name="chat_title">詳情</string>
 	<string name="video_title">視訊</string>
 	<string name="cheatCode_title">金手指</string>
 	<string name="ziyuan">資源</string>
@@ -42,16 +42,17 @@
 	<string name="find_new_version">發現新版本</string>
 	<string name="view_new_version">查看</string>
 	
-	<string name="mess_upload">發送中</string>
-	<string name="mess_true">發送成功：</string>
-	<string name="mess_false">發送失敗：</string>
-	<string name="mess_del_success">閑聊刪除成功</string>
-	<string name="mess_del_fail">閑聊刪除失敗:</string>
-	<string name="mess_edit_success">閑聊編輯成功</string>
-	<string name="mess_edit_fail">閑聊編輯失敗:</string>
-	<string name="mess_copy">拷貝內容</string>
-	<string name="mess_del">刪除此閑聊</string>
-	<string name="mess_edit">編輯此閑聊</string>
+	<string name="chat_send">發送</string>
+	<string name="chat_upload">發送中</string>
+	<string name="chat_true">發送成功：</string>
+	<string name="chat_false">發送失敗：</string>
+	<string name="chat_del_success">閑聊刪除成功</string>
+	<string name="chat_del_fail">閑聊刪除失敗:</string>
+	<string name="chat_edit_success">閑聊編輯成功</string>
+	<string name="chat_edit_fail">閑聊編輯失敗:</string>
+	<string name="chat_copy">拷貝內容</string>
+	<string name="chat_del">刪除此閑聊</string>
+	<string name="chat_edit">編輯此閑聊</string>
 	
 	<string name="pay_alipay">支付寶</string>
 	<string name="pay_wechatpay">微信</string>

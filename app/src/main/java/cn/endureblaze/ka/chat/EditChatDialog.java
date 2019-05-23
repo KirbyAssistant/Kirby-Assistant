@@ -27,6 +27,8 @@ public class EditChatDialog extends BaseBottomDialog {
 
 	private int mode;
 
+	private TextView chat_send;
+
 	public static EditChatDialog newInstance(String type, String chat, int mode) {
 		Bundle bundle = new Bundle();
 		bundle.putString("str_chat", chat);
@@ -64,6 +66,7 @@ public class EditChatDialog extends BaseBottomDialog {
 		SharedPreferences chat_share=getActivity().getSharedPreferences("string", 0);
 		String chat= chat_share.getString("Chat", null);
 	    chat_editview = (EditText)holder.getView(R.id.chat_editview);
+		chat_editview.addTextChangedListener(textWatcher);
 		chat_editview.post(new Runnable() {
 				@Override
 				public void run() {
@@ -72,15 +75,14 @@ public class EditChatDialog extends BaseBottomDialog {
 					imm.showSoftInput(chat_editview, 0);
 				}
 			});
-		chat_editview.addTextChangedListener(textWatcher);
-
+		
 		if (mode == ChatMode.CHAT_SEND_MODE && chat != null) {
 			chat_editview.setText(chat);
 		}
 		if (mode == ChatMode.CHAT_EDIT_MODE && str_chat != null) {
 			chat_editview.setText(str_chat);
 		}
-		ImageView chat_send=holder.getView(R.id.chat_send);
+	    chat_send = (TextView)holder.getView(R.id.chat_send);
 		chat_send.setOnClickListener(new View.OnClickListener() {
 
 				@Override
@@ -138,7 +140,7 @@ public class EditChatDialog extends BaseBottomDialog {
 	}
 	private void sendChat(String str_chat, final BaseBottomDialog edit_chat_dialog) {
 		final ProgressDialog progressDialog = new ProgressDialog(getActivity());
-		progressDialog.setMessage(getResources().getString(R.string.mess_upload));
+		progressDialog.setMessage(getResources().getString(R.string.chat_upload));
 		progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 		progressDialog.show();
 		//自定义MessBmob发送留言
@@ -158,9 +160,9 @@ public class EditChatDialog extends BaseBottomDialog {
 						edit_chat_dialog.dismiss();
 						MainChatFragment main_chat=(MainChatFragment)edit_chat_dialog.getActivity().getSupportFragmentManager().findFragmentById(R.id.main_fragment);
 						main_chat.getChat();
-						Toast.makeText(getActivity(), getResources().getString(R.string.mess_true), Toast.LENGTH_SHORT).show();
+						Toast.makeText(getActivity(), getResources().getString(R.string.chat_true), Toast.LENGTH_SHORT).show();
 					} else {
-						Toast.makeText(getActivity(), getResources().getString(R.string.mess_false) + e.getMessage(), Toast.LENGTH_SHORT).show();
+						Toast.makeText(getActivity(), getResources().getString(R.string.chat_false) + e.getMessage(), Toast.LENGTH_SHORT).show();
 					}
 				}
 			});
@@ -169,7 +171,7 @@ public class EditChatDialog extends BaseBottomDialog {
 
 		@Override
 		public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {
-
+			
 		}
 
 		@Override
@@ -184,7 +186,7 @@ public class EditChatDialog extends BaseBottomDialog {
 
 		@Override
 		public void afterTextChanged(Editable p1) {
-			// TODO: Implement this method
+			
 		}
 	};
 }

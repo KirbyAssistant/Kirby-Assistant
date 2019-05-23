@@ -69,12 +69,10 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
 					int position=holder.getAdapterPosition();
 					Console console=mConsoleList.get(position);
 					Intent in=new Intent(mContext, GameListActivity.class);
-					String  input=console.getName().toString();	
+					String name=console.getPosition();
+					in.putExtra("consose_name",name);
 					MainActivity m=new MainActivity();
 					IntentUtil.startActivityWithAnim(in,mActivity);
-					SharedPreferences.Editor t=mContext.getSharedPreferences("string", 0).edit();
-					t.putString("主机名称", input);
-					t.apply();
 				}
 			}
 		);

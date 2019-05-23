@@ -36,15 +36,7 @@ public class GameActivity extends BaseActivity {
 	    ImageView game_img=(ImageView)findViewById(R.id.game_img);
 		final ImageView blur_game_img=(ImageView)findViewById(R.id.blur_game_img);
 		TextView game_js=(TextView)findViewById(R.id.game_js);
-		//game_layout.setBackground(new BitmapDrawable(FastBlurUtil.GetUrlBitmap(game_img_url,8)));
 		Button download_button=(Button)findViewById(R.id.download_button);
-		/*Glide
-			.with(this)
-			.load(game_img_url)
-			//.apply(Kirby.getGlideRequestOptions())
-			//.placeholder(R.drawable.ic_kirby_download)
-			//.error(R.drawable.ic_kirby_load_fail)
-			.into(game_img);*/
 		GlideUtil.setNormalImageVuaGlideCache(GameActivity.this,game_img,game_img_url);
 		GlideUtil.setBlurImageViaGlideCache(GameActivity.this,blur_game_img,game_img_url,"5");
 		download_button.setOnClickListener(new View.OnClickListener(){

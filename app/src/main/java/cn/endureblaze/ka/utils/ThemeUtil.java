@@ -1,10 +1,14 @@
 package cn.endureblaze.ka.utils;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+import android.util.TypedValue;
+import cn.endureblaze.ka.R;
+import android.widget.Toast;
 
-import android.content.*;
-import cn.endureblaze.ka.*;
-
-public class ThemeUtil
+public class ThemeUtil 
 {
 	private static SharedPreferences.Editor edit;
 	private static String FILE_NAME="theme";
@@ -69,5 +73,34 @@ public class ThemeUtil
 				context.setTheme(R.style.WhiteTheme);
 				break;
 		}
+	}
+	/**
+	 * 获取主题颜色
+	 * @return
+	 */
+	public static int getColorPrimary(Activity activity){
+		TypedValue typedValue = new  TypedValue();
+		activity.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
+		return typedValue.data;
+	}
+
+	/**
+	 * 获取主题颜色
+	 * @return
+	 */
+	public static int getDarkColorPrimary(Activity activity){
+		TypedValue typedValue = new  TypedValue();
+		activity.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
+		return typedValue.data;
+	}
+	
+	/**
+	 * 获取主题字体颜色
+	 * @return
+	 */
+	public static int getTextColor(Activity activity){
+		TypedValue typedValue = new  TypedValue();
+		activity.getTheme().resolveAttribute(R.attr.color_text, typedValue, true);
+		return typedValue.data;
 	}
 }

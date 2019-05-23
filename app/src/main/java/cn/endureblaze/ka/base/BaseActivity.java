@@ -29,7 +29,7 @@ public class BaseActivity extends AppCompatActivity
     public void setContentView(int layoutResID)
 	{
         super.setContentView(layoutResID);
-        setStatusBar(getDarkColorPrimary());
+        setStatusBar(ThemeUtil.getDarkColorPrimary(this));
     }
 
     public void setStatusBar(int color)
@@ -37,13 +37,6 @@ public class BaseActivity extends AppCompatActivity
 		getWindow().setStatusBarColor(color);
 		getWindow().setNavigationBarColor(color);
     }
-	public int getDarkColorPrimary()
-	{
-		TypedValue typedValue = new  TypedValue();
-		getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
-		return typedValue.data;
-	}
-
 	@Override
 	protected void onSaveInstanceState(Bundle outState)
 	{

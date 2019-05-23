@@ -2,6 +2,6 @@
     
     <item
         android:id="@+id/mess_copy"
-        android:title="@string/mess_copy"/>
+        android:title="@string/chat_copy"/>
     
 </menu>

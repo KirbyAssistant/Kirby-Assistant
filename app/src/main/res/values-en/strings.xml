@@ -7,7 +7,7 @@
 	<string name="setting_title">Setting</string>
 	<string name="about_title">About</string>
 	<string name="help_title">Help</string>
-	<string name="mess_title">Details</string>
+	<string name="chat_title">Details</string>
 	<string name="video_title">Video</string>
 	<string name="cheatCode_title">Cheat Code</string>
 	<string name="ziyuan">Resources</string>
@@ -23,16 +23,17 @@
 	<string name="bug_report">Bug has uploaded</string>
 	<string name="two_back">Please press exit again</string>
 	
-	<string name="mess_upload">Sending</string>
-	<string name="mess_true">Send Successfully:</string>
-	<string name="mess_false">Send Unsuccessfully:</string>
-	<string name="mess_del_success">Chat delete successfully</string>
-	<string name="mess_del_fail">Chat delete failed :</string>
-	<string name="mess_edit_success">Chat editing successfully</string>
-	<string name="mess_edit_fail">Chat editing fail:</string>
-	<string name="mess_copy">Copy content</string>
-	<string name="mess_del">Delete this chat</string>
-	<string name="mess_edit">Edit this chat</string>
+	<string name="chat_send">Send</string>
+	<string name="chat_upload">Sending</string>
+	<string name="chat_true">Send Successfully:</string>
+	<string name="chat_false">Send Unsuccessfully:</string>
+	<string name="chat_del_success">Chat delete successfully</string>
+	<string name="chat_del_fail">Chat delete failed :</string>
+	<string name="chat_edit_success">Chat editing successfully</string>
+	<string name="chat_edit_fail">Chat editing fail:</string>
+	<string name="chat_copy">Copy content</string>
+	<string name="chat_del">Delete this chat</string>
+	<string name="chat_edit">Edit this chat</string>
 	
 	<string name="pay_alipay">Alipay</string>
 	<string name="pay_wechatpay">WeChat</string>

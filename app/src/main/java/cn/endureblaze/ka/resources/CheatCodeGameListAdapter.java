@@ -70,12 +70,10 @@ public class CheatCodeGameListAdapter extends RecyclerView.Adapter<CheatCodeGame
 					int position=holder.getAdapterPosition();
 					Console console=mCheatCodeGameList.get(position);
 					Intent in=new Intent(mContext, CheatCodeActivity.class);
-					String  input=console.getName().toString();	
+					String name=console.getName().toString();
+					in.putExtra("game_name",name);
 					MainActivity m=new MainActivity();
 					IntentUtil.startActivityWithAnim(in,mActivity);
-					SharedPreferences.Editor t=mContext.getSharedPreferences("string", 0).edit();
-					t.putString("金手指_游戏", input);
-					t.apply();
 				}
 			}
 		);

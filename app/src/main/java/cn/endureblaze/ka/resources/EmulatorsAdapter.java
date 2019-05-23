@@ -70,7 +70,7 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
 					mm.putExtra("game_name",game.getName());
 					mm.putExtra("game_img",game.getImageUrl());
 					mm.putExtra("game_pos",game.getPosition());
-					m.theDownload(mContext, game.getName(),game.getPosition());
+					m.theDownload(mContext,game.getName(),game.getPosition());
 				}
 			}
 		);
