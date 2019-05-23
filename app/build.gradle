@@ -8,8 +8,8 @@ android {
         applicationId "cn.endureblaze.ka"
         minSdkVersion 21
 	    targetSdkVersion 29
-        versionCode 38
-        versionName "未来·炫动-1.3.5"
+        versionCode 39
+        versionName "未来·炫动-1.3.6"
 		multiDexEnabled false
         multiDexKeepProguard file('multiDexKeep.pro') 
 		//using proguard syntax multiDexKeepFile file('multiDexKeep.txt')
