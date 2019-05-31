@@ -39,7 +39,7 @@
 				android:layout_margin="4dp"
 				app:cardCornerRadius="4dp"
 				app:cardElevation="2dp"
-				android:id="@+id/alipay_card">
+				android:id="@+id/alidonate_card">
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -58,7 +58,7 @@
 						android:layout_height="wrap_content"
 						android:paddingBottom="8dp"
 						android:paddingTop="8dp"
-						android:text="@string/pay_alipay"
+						android:text="@string/donate_alipay"
 						android:textSize="16sp"
 						android:layout_gravity="center_horizontal"/>
 
@@ -80,8 +80,8 @@
 				android:layout_margin="4dp"
 				app:cardCornerRadius="4dp"
 				app:cardElevation="2dp"
-				android:layout_below="@id/alipay_card"
-				android:id="@+id/wechatpay_card">
+				android:layout_below="@id/alidonate_card"
+				android:id="@+id/wechatdonate_card">
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -100,7 +100,7 @@
 						android:layout_height="wrap_content"
 						android:paddingBottom="8dp"
 						android:paddingTop="8dp"
-						android:text="@string/pay_wechatpay"
+						android:text="@string/donate_wechatpay"
 						android:textSize="16sp"
 						android:layout_gravity="center_horizontal"/>
 
@@ -120,7 +120,7 @@
 				android:layout_margin="4dp"
 				app:cardCornerRadius="4dp"
 				app:cardElevation="2dp"
-				android:layout_below="@id/wechatpay_card"
+				android:layout_below="@id/wechatdonate_card"
 				android:id="@+id/btc_card">
 
 				<LinearLayout
@@ -140,7 +140,7 @@
 						android:layout_height="wrap_content"
 						android:paddingBottom="8dp"
 						android:paddingTop="8dp"
-						android:text="@string/pay_btc"
+						android:text="@string/donate_btc"
 						android:textSize="16sp"
 						android:layout_gravity="center_horizontal"/>
 
@@ -168,7 +168,7 @@
 				app:cardCornerRadius="4dp"
 				app:cardElevation="2dp"
 				android:layout_below="@id/btc_card"
-				android:id="@+id/qqpay_card">
+				android:id="@+id/qqdonate_card">
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -187,7 +187,7 @@
 						android:layout_height="wrap_content"
 						android:paddingBottom="8dp"
 						android:paddingTop="8dp"
-						android:text="@string/pay_qqpay"
+						android:text="@string/donate_qqpay"
 						android:textSize="16sp"
 						android:layout_gravity="center_horizontal"/>
 
@@ -207,7 +207,7 @@
 				android:layout_margin="4dp"
 				app:cardCornerRadius="4dp"
 				app:cardElevation="2dp"
-				android:layout_below="@id/qqpay_card">
+				android:layout_below="@id/qqdonate_card">
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -226,7 +226,7 @@
 						android:layout_height="wrap_content"
 						android:paddingBottom="8dp"
 						android:paddingTop="8dp"
-						android:text="@string/pay_paypal"
+						android:text="@string/donate_paypal"
 						android:textSize="16sp"
 						android:layout_gravity="center_horizontal"/>
 

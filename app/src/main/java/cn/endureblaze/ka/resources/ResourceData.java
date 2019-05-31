@@ -1,7 +1,7 @@
 package cn.endureblaze.ka.resources;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.bean.Console;
-import cn.endureblaze.ka.utils.ActManager;
+import cn.endureblaze.ka.manager.ActManager;
 import java.util.List;
 
 public class ResourceData

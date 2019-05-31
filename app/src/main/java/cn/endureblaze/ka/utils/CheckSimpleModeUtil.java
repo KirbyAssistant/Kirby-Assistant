@@ -1,5 +1,6 @@
 package cn.endureblaze.ka.utils;
-import android.content.*;
+import android.content.SharedPreferences;
+import cn.endureblaze.ka.manager.ActManager;
 
 public class CheckSimpleModeUtil
 {

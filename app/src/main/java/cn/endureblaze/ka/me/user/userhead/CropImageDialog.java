@@ -1,17 +1,23 @@
 package cn.endureblaze.ka.me.user.userhead;
-import android.content.*;
-import android.graphics.*;
-import android.net.*;
-import android.os.*;
-import android.support.annotation.*;
-import android.view.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.bottomdialog.*;
-import cn.endureblaze.ka.nocropper.*;
-import android.provider.*;
-import java.io.*;
-import android.widget.*;
-import cn.endureblaze.ka.utils.*;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.annotation.StyleRes;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import cn.endureblaze.ka.R;
+import cn.endureblaze.ka.bottomdialog.BaseBottomDialog;
+import cn.endureblaze.ka.bottomdialog.ViewHolder;
+import cn.endureblaze.ka.manager.ActManager;
+import cn.endureblaze.ka.nocropper.CropperView;
+import cn.endureblaze.ka.utils.BitmapUriUtil;
+import java.io.IOException;
 
 public class CropImageDialog extends BaseBottomDialog
 {

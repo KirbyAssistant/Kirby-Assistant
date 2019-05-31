@@ -25,9 +25,9 @@
 		</activity>
 		<activity
 			android:name=".main.MainActivity"
-			android:label="Kirby Assistant"/>
+			android:label="@string/app_name"/>
 		<activity android:name=".me.user.userhead.HeadActivity"/>
-		<activity android:name=".main.donate.PayActivity"/>
+		<activity android:name=".main.donate.DonateActivity"/>
 		<activity android:name=".resources.game.GameListActivity"/>
 		<activity android:name=".resources.game.GameActivity"/>
 		<activity android:name=".resources.cheatcode.CheatCodeActivity"/>

@@ -6,25 +6,25 @@
 //Hi 2019
 package cn.endureblaze.ka;
 
-import android.app.*;
-import android.os.*;
-import android.support.v4.app.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.crash.*;
-import cn.endureblaze.ka.utils.*;
-import com.github.anzewei.parallaxbacklayout.*;
-import com.oasisfeng.condom.*;
-import com.umeng.analytics.*;
-import com.umeng.commonsdk.*;
+import android.app.Application;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.v4.app.FragmentActivity;
+import cn.endureblaze.ka.crash.CaptureCrash;
+import cn.endureblaze.ka.crash.CrashDialog;
+import cn.endureblaze.ka.manager.ActManager;
+import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
+import com.oasisfeng.condom.CondomContext;
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.commonsdk.UMConfigure;
 
-import cn.endureblaze.ka.R;
-public class Kirby extends Application
+public class Kirby extends Application 
 {
 	public void onCreate()
 	{
         super.onCreate();
 		registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
-	    CaptureCrash.init(new CaptureCrash.CrashHandler() {
+		CaptureCrash.init(new CaptureCrash.CrashHandler() {
 				@Override
 				public void uncaughtException(Thread t, Throwable e)
 				{	

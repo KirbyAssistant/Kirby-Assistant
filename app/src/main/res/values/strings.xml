@@ -54,11 +54,11 @@
 	<string name="chat_del">删除此闲聊</string>
 	<string name="chat_edit">编辑此闲聊</string>
 	
-	<string name="pay_alipay">支付宝</string>
-	<string name="pay_wechatpay">微信</string>
-	<string name="pay_btc">比特币</string>
-	<string name="pay_qqpay">QQ</string>
-	<string name="pay_paypal">PayPal</string>
+	<string name="donate_alipay">支付宝</string>
+	<string name="donate_wechatpay">微信</string>
+	<string name="donate_btc">比特币</string>
+	<string name="donate_qqpay">QQ</string>
+	<string name="donate_paypal">PayPal</string>
 	
 	<string name="load_fail">加载失败，请刷新重试</string>
 	
@@ -212,7 +212,7 @@
 	<string name="register_password">密码（支持数字和字母）</string>
 	<string name="register_password_again">请再次输入密码</string>
 	
-	<string name="pay_title">捐赠</string>
+	<string name="donate_title">捐赠</string>
 	
 	<string name="dia_download">下载</string>
 	<string name="dia_yes">确定</string>

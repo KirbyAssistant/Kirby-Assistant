@@ -33,6 +33,7 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.FutureTarget;
 import java.util.concurrent.ExecutionException;
+
 public class MainUserFragment extends BaseFragment {
 	private ChangeUserHeadLocalReceiver localReceiver;
     private LocalBroadcastManager localBroadcastManager;
@@ -111,7 +112,7 @@ public class MainUserFragment extends BaseFragment {
 					.load(UserUtil.getCurrentUser().getUserHead().getFileUrl())
 					//.apply(Kirby.getGlideRequestOptions())
 					.asBitmap()
-					.placeholder(R.drawable.buletheme)
+					.placeholder(R.drawable.theme_blue)
 					.fitCenter()
 					.into(userHead);
 				GlideUtil.setBlurImageViaGlideCache(getActivity(),mo_userHead,UserUtil.getCurrentUser().getUserHead().getFileUrl(),"5");

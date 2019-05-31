@@ -31,8 +31,8 @@
 				android:layout_height="80dp"
 				android:layout_width="80dp"
 				android:id="@+id/user_head"
-				android:background="@drawable/buletheme"
-				android:src="@drawable/buletheme"
+				android:background="@drawable/theme_blue"
+				android:src="@drawable/theme_blue"
 				android:layout_centerHorizontal="true"
 				android:transitionName="userHead"
 				android:layout_marginTop="10dp"/>

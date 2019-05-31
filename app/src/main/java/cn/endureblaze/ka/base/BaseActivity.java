@@ -1,17 +1,13 @@
 package cn.endureblaze.ka.base;
 
-import android.os.*;
-import android.support.v7.app.*;
-import android.transition.*;
-import android.util.*;
-import android.view.*;
-import cn.bmob.v3.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.utils.*;
-import com.oasisfeng.condom.*;
-import com.umeng.analytics.*;
-
-import cn.endureblaze.ka.R;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import cn.bmob.v3.Bmob;
+import cn.endureblaze.ka.manager.ActManager;
+import cn.endureblaze.ka.utils.LanguageUtil;
+import cn.endureblaze.ka.utils.ThemeUtil;
+import com.oasisfeng.condom.CondomContext;
+import com.umeng.analytics.MobclickAgent;
 
 public class BaseActivity extends AppCompatActivity
 {

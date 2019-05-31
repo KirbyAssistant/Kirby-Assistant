@@ -9,7 +9,7 @@
 	android:padding="8dp">
 
 	<ImageView
-		android:src="@drawable/kirbytheme"
+		android:src="@drawable/theme_kirby"
 		android:id="@+id/user_head"
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"

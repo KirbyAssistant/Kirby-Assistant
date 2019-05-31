@@ -35,11 +35,11 @@
 	<string name="chat_del">Delete this chat</string>
 	<string name="chat_edit">Edit this chat</string>
 	
-	<string name="pay_alipay">Alipay</string>
-	<string name="pay_wechatpay">WeChat</string>
-	<string name="pay_btc">Bitcoin</string>
-	<string name="pay_qqpay">QQ</string>
-	<string name="pay_paypal">PayPal</string>
+	<string name="donate_alipay">Alipay</string>
+	<string name="donate_wechatpay">WeChat</string>
+	<string name="donate_btc">Bitcoin</string>
+	<string name="donate_qqpay">QQ</string>
+	<string name="donate_paypal">PayPal</string>
 	
 	<string name="load_fail">Failed to load, please refresh and try again</string>
 	
@@ -195,7 +195,7 @@
 	<string name="register_password">Password(Numbers Or Letter)</string>
 	<string name="register_password_again">Please enter your password again</string>
 	
-	<string name="pay_title">Donate</string>
+	<string name="donate_title">Donate</string>
 	
 	<string name="dia_download">Download</string>
 	<string name="dia_yes">OK</string>

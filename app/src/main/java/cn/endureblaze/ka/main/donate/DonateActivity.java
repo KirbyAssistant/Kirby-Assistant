@@ -18,7 +18,7 @@ import cn.endureblaze.ka.base.*;
 import com.github.anzewei.parallaxbacklayout.*;
 
 @ParallaxBack
-public class PayActivity extends BaseActivity
+public class DonateActivity extends BaseActivity
 {
 	private static String Donate_USER_INPUT="FKX07472I7DSDDEO5UYS82";
 	private static String Donate_PAYPAL="https://www.paypal.me/nihaocun";
@@ -36,12 +36,11 @@ public class PayActivity extends BaseActivity
     {
 		super.onCreate(savedInstanceState);
         ThemeUtil.setClassTheme(this);
-		setContentView(R.layout.activity_pay);
+		setContentView(R.layout.activity_donate);
 		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-		getSupportActionBar().setTitle(R.string.pay_title);
-		//  btAlipayCustom = ((Button) findViewById(R.id.bt_alipay));
-        btAlipayUserInput = ((Button) findViewById(R.id.bt_alipay_user_input));
+		getSupportActionBar().setTitle(R.string.donate_title);
+		btAlipayUserInput = ((Button) findViewById(R.id.bt_alipay_user_input));
 		paypal=((Button)findViewById(R.id.paypal));
 		qq=((Button)findViewById(R.id.qq));
 		btc=((Button)findViewById(R.id.btc));
@@ -73,7 +72,7 @@ public class PayActivity extends BaseActivity
 					String btc_account="13yQa3Q95hZJR3VvmaM3XNj39AQVMgkg8P";
 					ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 					cm.setText(btc_account);
-					Toast.makeText(PayActivity.this,getResources().getString(R.string.copy_success),Toast.LENGTH_SHORT).show();
+					Toast.makeText(DonateActivity.this,getResources().getString(R.string.copy_success),Toast.LENGTH_SHORT).show();
 				}
 			});
 		qq.setOnClickListener(new View.OnClickListener(){
@@ -92,6 +91,6 @@ public class PayActivity extends BaseActivity
     
 	private void donateAlipay(String payCode)
 	{
-        PayUtil.Ailipay(payCode,PayActivity.this);
+        PayUtil.Ailipay(payCode,DonateActivity.this);
     }
 }

@@ -1,29 +1,29 @@
 package cn.endureblaze.ka.me.user.userhead;
-import android.app.*;
-import android.content.*;
-import android.content.pm.*;
-import android.database.*;
-import android.graphics.*;
-import android.net.*;
-import android.os.*;
-import android.provider.*;
-import android.support.v4.content.*;
-import android.text.*;
-import android.view.*;
-import android.widget.*;
-import cn.bmob.v3.*;
-import cn.bmob.v3.datatype.*;
-import cn.bmob.v3.exception.*;
-import cn.bmob.v3.listener.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.bmob.*;
-import cn.endureblaze.ka.utils.*;
-import java.io.*;
-
-import cn.endureblaze.ka.base.*;
-import android.support.v4.app.*;
-import android.support.annotation.*;
-import com.bumptech.glide.*;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v4.content.LocalBroadcastManager;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+import cn.bmob.v3.datatype.BmobFile;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.UpdateListener;
+import cn.bmob.v3.listener.UploadFileListener;
+import cn.endureblaze.ka.R;
+import cn.endureblaze.ka.base.BaseActivity;
+import cn.endureblaze.ka.bmob.BmobKirbyAssistantUser;
+import cn.endureblaze.ka.manager.ActManager;
+import cn.endureblaze.ka.utils.ThemeUtil;
+import cn.endureblaze.ka.utils.UserUtil;
+import com.bumptech.glide.Glide;
+import java.io.File;
+import java.io.IOException;
 
 public class HeadActivity extends BaseActivity
 {

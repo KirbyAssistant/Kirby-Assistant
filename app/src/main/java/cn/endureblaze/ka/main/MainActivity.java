@@ -46,6 +46,8 @@ public class MainActivity extends BaseActivity {
 	private Toolbar toolbar;
 	private Context gameContext;
 
+	private BottomNavigationView bottomNavigationView;
+
 	//private CosXmlService cosXmlService;
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,7 @@ public class MainActivity extends BaseActivity {
 		toolbar.setSubtitle(R.string.ziyuan);
 		replaceFragment(new MainGameFragment());
 	    bottomBar();
+		findShortcut();
 		permissionAndPrivacy();
 		CheckUpdateUtil.checkUpdate(toolbar, this);
 		//友盟统计
@@ -132,7 +135,7 @@ public class MainActivity extends BaseActivity {
 	 *内部完成了所有逻辑
 	 */
 	private void bottomBar() {
-	    BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
+	    bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
 		if (CheckSimpleModeUtil.isSimpleMode()) {
 			bottomNavigationView.getMenu().removeItem(R.id.talk);
 			bottomNavigationView.getMenu().removeItem(R.id.me);
@@ -157,23 +160,23 @@ public class MainActivity extends BaseActivity {
 						case R.id.talk:
 							if (toolbar.getSubtitle() != getResources().getString(R.string.talk)) {
 								toolbar.setSubtitle(R.string.talk);
-								if (null == UserUtil.getCurrentUser()) {
-									replaceFragment(new MainNullFragment());
-								} else {
+								if (UserUtil.isUserLogin()) {
 									replaceFragment(new MainChatFragment());
+								} else {
+									replaceFragment(new MainNullFragment());
 								}
 							}
 							break;
 						case R.id.me:
-							if (null == UserUtil.getCurrentUser()) {
-								if (toolbar.getSubtitle() != getResources().getString(R.string.login_title)) {
-									replaceFragment(new MainLoginFragment());
-									toolbar.setSubtitle(R.string.login_title);
-								}
-							} else {
+							if (UserUtil.isUserLogin()) {
 								if (toolbar.getSubtitle() != UserUtil.getCurrentUser().getUsername()) {
 									replaceFragment(new MainUserFragment());
 									toolbar.setSubtitle(UserUtil.getCurrentUser().getUsername());
+								}
+							} else {
+								if (toolbar.getSubtitle() != getResources().getString(R.string.login_title)) {
+									replaceFragment(new MainLoginFragment());
+									toolbar.setSubtitle(R.string.login_title);
 								}
 							}
 							break;
@@ -181,6 +184,19 @@ public class MainActivity extends BaseActivity {
 					return true;
 				}
 			});
+	}
+	private void findShortcut() {
+		Intent intent=getIntent();
+		if ("video".equals(intent.getStringExtra("function"))) {
+			toolbar.setSubtitle(R.string.video_title);
+			replaceFragment(new MainVideoFragment());
+			bottomNavigationView.setSelectedItemId(R.id.video);
+		}
+		if ("user".equals(intent.getStringExtra("function"))) {
+			toolbar.setSubtitle(R.string.user_title);
+			replaceFragment(new MainUserFragment());
+			bottomNavigationView.setSelectedItemId(R.id.me);
+		}
 	}
 	/**
 	 *方法名:replaceFragment
@@ -262,18 +278,18 @@ public class MainActivity extends BaseActivity {
 				AlertDialog.Builder theme = new AlertDialog.Builder(MainActivity.this);
 				theme.setTitle(R.string.theme_title);
 				Integer[] res = new Integer[]{
-					R.drawable.buletheme,
-					R.drawable.redtheme,
-					R.drawable.purpletheme,
-					R.drawable.lindigotheme,
-					R.drawable.tealtheme,
-					R.drawable.greentheme,
-					R.drawable.orangetheme,
-					R.drawable.browntheme,
-					R.drawable.bluegreytheme,
-					R.drawable.yellowtheme,
-					R.drawable.kirbytheme,
-					R.drawable.whitetheme
+					R.drawable.theme_blue,
+					R.drawable.theme_red,
+					R.drawable.theme_purple,
+					R.drawable.theme_lindigo,
+					R.drawable.theme_teal,
+					R.drawable.theme_green,
+					R.drawable.theme_orange,
+					R.drawable.theme_brown,
+					R.drawable.theme_bluegrey,
+					R.drawable.theme_yellow,
+					R.drawable.theme_kirby,
+					R.drawable.theme_white
 				};
 				List<Integer> list = Arrays.asList(res);
 				ColorListAdapter adapter = new ColorListAdapter(MainActivity.this, list);
@@ -318,9 +334,9 @@ public class MainActivity extends BaseActivity {
 				builder.create();
 				builder.show();
 				break;
-			case R.id.pay:
-				Intent pay=new Intent(MainActivity.this, PayActivity.class);
-				IntentUtil.startActivityWithAnim(pay, MainActivity.this);
+			case R.id.donate:
+				Intent donate=new Intent(MainActivity.this, DonateActivity.class);
+				IntentUtil.startActivityWithAnim(donate, MainActivity.this);
 				break;
 			default:
 		}
@@ -335,8 +351,8 @@ public class MainActivity extends BaseActivity {
 	 *调用了方法:appFileDownload
 	 */
 
-	public void theDownload(Context context,String game_name, String position) {
-		gameContext=context;
+	public void theDownload(Context context, String game_name, String position) {
+		gameContext = context;
 		switch (position) {
 			case "emulators_gba"://"GBA " + getGameText(R.string.moniqi) + "\nMy Boy!":
 				showOtherDownloadDialog("gba", game_name);

@@ -54,11 +54,11 @@
 	<string name="chat_del">刪除此閑聊</string>
 	<string name="chat_edit">編輯此閑聊</string>
 	
-	<string name="pay_alipay">支付寶</string>
-	<string name="pay_wechatpay">微信</string>
-	<string name="pay_btc">比特幣</string>
-	<string name="pay_qqpay">QQ</string>
-	<string name="pay_paypal">PayPal</string>
+	<string name="donate_alipay">支付寶</string>
+	<string name="donate_wechatpay">微信</string>
+	<string name="donate_btc">比特幣</string>
+	<string name="donate_qqpay">QQ</string>
+	<string name="donate_paypal">PayPal</string>
 	
 	<string name="load_fail">載入失敗，請刷新重試</string>
 	
@@ -195,7 +195,7 @@
 	<string name="register_password">密碼（支持數字和字母）</string>
 	<string name="register_password_again">請再次輸入密碼</string>
 	
-	<string name="pay_title">捐贈</string>
+	<string name="donate_title">捐贈</string>
 	
 	<string name="dia_download">下載</string>
 	<string name="dia_yes">確定</string>

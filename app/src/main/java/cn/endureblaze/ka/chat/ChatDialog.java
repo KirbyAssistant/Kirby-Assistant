@@ -206,8 +206,8 @@ public class ChatDialog extends BaseBottomDialog
 								//.apply(Kirby.getGlideRequestOptions())
 								.asBitmap()
 								.fitCenter()
-								.placeholder(R.drawable.buletheme)
-								.error(R.drawable.buletheme)
+								.placeholder(R.drawable.theme_blue)
+								.error(R.drawable.theme_blue)
 								.into(userHeadImage);
 						}
 						catch (Exception e)
