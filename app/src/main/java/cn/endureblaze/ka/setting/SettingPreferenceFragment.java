@@ -165,6 +165,11 @@ public class SettingPreferenceFragment extends PreferenceFragment
 				String key="6j76WE8N9l378jnsWzmmUDv5HohOteHu";
 				joinQQGroup(key);
 				break;
+			case "tg_channel":
+				Intent tg_channel=new Intent("android.intent.action.VIEW");
+				tg_channel.setData(Uri.parse("https://t.me/kirbyassistant"));
+				getActivity().startActivity(tg_channel);
+				break;
 			case "github":
 				Intent github=new Intent("android.intent.action.VIEW");
 				github.setData(Uri.parse("https://github.com/EndureBlaze/Kirby-Assistant"));

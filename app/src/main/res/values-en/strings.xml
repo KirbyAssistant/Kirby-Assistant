@@ -22,6 +22,7 @@
 	<string name="egg">Here is the egg</string>
 	<string name="bug_report">Bug has uploaded</string>
 	<string name="two_back">Please press exit again</string>
+	<string name="profile_photo">Profile Photo</string>
 	
 	<string name="chat_send">Send</string>
 	<string name="chat_upload">Sending</string>
@@ -156,6 +157,8 @@
 	<string name="faq_message">FAQ</string>
    <string name="feedback_title">Feedback</string>
 	<string name="qq_group">More Detailed Help？Pass The Button To Go To Me Tencent QQ Group</string>
+	<string name="tg_channel_title">Telegram Channel</string>
+	<string name="tg_channel_message">Will post updates and other things</string>
 	<string name="dev_title">Developer</string>
 	<string name="dev_coolapk">Coolapk\@汝南京</string>
 	<string name="dev_github">Github\@EnduerBlaze</string>

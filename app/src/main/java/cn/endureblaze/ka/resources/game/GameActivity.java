@@ -109,7 +109,7 @@ public class GameActivity extends BaseActivity {
 							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3i48QqMh", "https://eyun.baidu.com/s/3eSwv1DK", "");
 							break;
 						case "gbc_gg"://"星之卡比 滚滚卡比":
-							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKP9eav", "https://eyun.baidu.com/s/3nuQZavJ", "");
+							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKP9eav", "https://eyun.baidu.com/s/3qZZMtZY", "");
 							break;
 						case "fc_mzq"://"星之卡比 梦之泉物语":
 							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKXFx8n", "https://eyun.baidu.com/s/3pKZHpaF", "https://eyun.baidu.com/s/3i4HC8FN");

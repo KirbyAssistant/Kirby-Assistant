@@ -86,14 +86,14 @@ public class Launcher extends BaseActivity {
 			.setShortLabel(getResources().getString(R.string.donate_title))
 			.setLongLabel(getResources().getString(R.string.donate_title))
 			.setIcon(Icon.createWithResource(this, R.drawable.ic_shortcut_donate))
-			.setIntent(donate_intent)
+			.setIntents(new Intent[]{main_intent,donate_intent})
 			.build();
 		infos.add(donate);
 
 	if(UserUtil.isUserLogin()){
 		ShortcutInfo user_head = new ShortcutInfo.Builder(this, "user_head")
-			.setShortLabel("更换头像")
-			.setLongLabel("更换头像")
+			.setShortLabel(getResources().getString(R.string.profile_photo))
+			.setLongLabel(getResources().getString(R.string.profile_photo))
 			.setIcon(Icon.createWithResource(this, R.drawable.ic_shortcut_user_head))
 			.setIntents(new Intent[]{main_user_head_intent,user_head_intent})
 			.build();

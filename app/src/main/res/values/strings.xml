@@ -24,6 +24,7 @@
 	<string name="egg">这里是彩蛋</string>
 	<string name="bug_report">Bug已经上传</string>
 	<string name="two_back">请再按一次退出程序</string>
+	<string name="profile_photo">头像</string>
 	
 	<string name="permissionandprivacy_title">权限和隐私政策</string>
 	<string name="permissionandprivacy_cnntent">权限说明:\n
@@ -160,6 +161,8 @@
 	<string name="faq_message">常见问题汇总</string>
 	<string name="feedback_title">反馈</string>
 	<string name="qq_group">更详细的帮助？点我进入QQ群</string>
+	<string name="tg_channel_title">Telegram频道</string>
+	<string name="tg_channel_message">会在里面发布更新内容以及其他事情</string>
 	<string name="dev_title">开发者</string>
 	<string name="dev_coolapk">酷安\@汝南京</string>
 	<string name="dev_coolapk_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzY1MTg4MA==</string>

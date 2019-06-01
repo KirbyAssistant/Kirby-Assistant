@@ -40,6 +40,11 @@
             android:summary="@string/qq_group"
             android:title="@string/feedback_title" />
 
+		<Preference
+            android:key="tg_channel"
+            android:summary="@string/tg_channel_message"
+            android:title="@string/tg_channel_title" />
+		
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/dev_title">

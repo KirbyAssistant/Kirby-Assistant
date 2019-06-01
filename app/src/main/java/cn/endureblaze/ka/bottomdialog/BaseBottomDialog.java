@@ -22,7 +22,7 @@ public abstract class BaseBottomDialog extends DialogFragment {
     private int width;//宽度
     private int height;//高度
     private float dimAmount = 0.5f;//灰度深浅
-    private boolean showBottom = true;//是否底部显示
+    private boolean showBottom;//是否底部显示
     private boolean outCancel = true;//是否点击外部取消
     @StyleRes
     protected int theme = R.style.BottomDialogStyle; // dialog主题

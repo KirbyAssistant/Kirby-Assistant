@@ -24,6 +24,7 @@
 	<string name="egg">這裡是彩蛋</string>
 	<string name="bug_report">bug已上傳</string>
 	<string name="two_back">再按一次返回鍵即可退出</string>
+	<string name="profile_photo">頭像</string>
 	
 	<string name="permissionandprivacy_title">權限和隱私政策</string>
 	<string name="permissionandprivacy_cnntent">權限說明:\n
@@ -159,6 +160,8 @@
 	<string name="faq_message">常見問題匯總</string>
     <string name="feedback_title">反饋</string>
 	<string name="qq_group">更詳細的幫助？點我進入QQ群</string>
+	<string name="tg_channel_title">Telegram頻道</string>
+	<string name="tg_channel_message">會在裡面發佈更新內容以及其他事情</string>
 	<string name="dev_title">開發者</string>
 	<string name="dev_coolapk">酷安\@汝南京</string>
 	<string name="dev_github">Github\@EnduerBlaze</string>
