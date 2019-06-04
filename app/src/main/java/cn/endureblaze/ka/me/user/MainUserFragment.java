@@ -33,8 +33,11 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.FutureTarget;
 import java.util.concurrent.ExecutionException;
+import cn.endureblaze.ka.me.login.MainLoginFragment;
+import cn.endureblaze.ka.manager.ActManager;
 
 public class MainUserFragment extends BaseFragment {
+	private boolean CHANGE_HEAD=false;
 	private ChangeUserHeadLocalReceiver localReceiver;
     private LocalBroadcastManager localBroadcastManager;
 	private View view;
@@ -100,7 +103,7 @@ public class MainUserFragment extends BaseFragment {
 				public void onClick(View p1) {
 					UserUtil.getCurrentUser().logOut();
 					MobclickAgent.onProfileSignOff();
-					m.open();
+					m.replaceFragment(new MainLoginFragment());
 				}
 			});
 		userHead = (ImageView)view.findViewById(R.id.user_head);
@@ -262,7 +265,7 @@ public class MainUserFragment extends BaseFragment {
 	private class ChangeUserHeadLocalReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-			m.open();
+			CHANGE_HEAD=true;
         }
     }
 	public static Bitmap netPicToBmp(String src) {
@@ -295,5 +298,12 @@ public class MainUserFragment extends BaseFragment {
 			// Log exception
 			return null;
 		}
+	}
+	@Override
+	public void onResume() {
+		if(CHANGE_HEAD){
+			m.replaceFragment(new MainUserFragment());
+		}
+		super.onResume();
 	}
 }

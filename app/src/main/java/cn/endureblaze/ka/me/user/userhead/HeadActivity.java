@@ -24,6 +24,7 @@ import cn.endureblaze.ka.utils.UserUtil;
 import com.bumptech.glide.Glide;
 import java.io.File;
 import java.io.IOException;
+import cn.endureblaze.ka.utils.GlideUtil;
 
 public class HeadActivity extends BaseActivity
 {
@@ -47,10 +48,7 @@ public class HeadActivity extends BaseActivity
 		{
 			if (UserUtil.getCurrentUser().getUserHead().getFileUrl() != null)
 			{
-				Glide
-					.with(this)
-					.load(UserUtil.getCurrentUser().getUserHead().getFileUrl())
-					.into(userHead);
+				GlideUtil.setNormalImageViaGlideCache(HeadActivity.this,userHead,UserUtil.getCurrentUser().getUserHead().getFileUrl().toString());
 			}
 		}
 		catch (Exception e)
@@ -93,7 +91,6 @@ public class HeadActivity extends BaseActivity
 	{
 		SharedPreferences image=getSharedPreferences("string", 0);
 		final String image_str= image.getString("image_str", null);
-		Toast.makeText(this, image_str, Toast.LENGTH_SHORT).show();
 		try
 		{
 			final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -147,10 +144,10 @@ public class HeadActivity extends BaseActivity
 			catch (IOException e)
 			{}
 			userHead.setImageBitmap(imageBitmap);
+			ActManager.finishActivity();
 			Intent intent = new Intent("com.kirby.download.CHANGE_USERHEAD");
 			intent.putExtra("userHead", 1);
 			localBroadcastManager.sendBroadcast(intent);
-			this.finish();
         }
 		else
 		{

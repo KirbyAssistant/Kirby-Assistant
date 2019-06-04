@@ -37,7 +37,7 @@ public class GameActivity extends BaseActivity {
 		final ImageView blur_game_img=(ImageView)findViewById(R.id.blur_game_img);
 		TextView game_js=(TextView)findViewById(R.id.game_js);
 		Button download_button=(Button)findViewById(R.id.download_button);
-		GlideUtil.setNormalImageVuaGlideCache(GameActivity.this,game_img,game_img_url);
+		GlideUtil.setNormalImageViaGlideCache(GameActivity.this,game_img,game_img_url);
 		GlideUtil.setBlurImageViaGlideCache(GameActivity.this,blur_game_img,game_img_url,"5");
 		download_button.setOnClickListener(new View.OnClickListener(){
 				@Override

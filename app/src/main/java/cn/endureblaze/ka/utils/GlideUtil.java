@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import java.util.concurrent.ExecutionException;
 import android.app.Activity;
+import android.widget.ImageView.ScaleType;
 
 public class GlideUtil {
 	private static Bitmap glideBitmap;
@@ -14,13 +15,13 @@ public class GlideUtil {
 			glideBitmap = Glide.with(context)
 				.load(url)
 				.asBitmap() //必须
-				.into(500, 500)
+				.into(1024,1024)
 				.get();
 		} catch (InterruptedException e) {} catch (ExecutionException e) {}
 		return glideBitmap;
 	};
 
-	public static void setNormalImageVuaGlideCache(final Activity activity, final ImageView image, final String imageUrl) {
+	public static void setNormalImageViaGlideCache(final Activity activity, final ImageView image, final String imageUrl) {
 			new Thread(new Runnable() {
 					@Override
 					public void run() {

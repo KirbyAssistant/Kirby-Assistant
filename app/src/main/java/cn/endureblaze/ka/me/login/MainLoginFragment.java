@@ -20,6 +20,7 @@ import android.support.v7.app.AlertDialog;
 import cn.endureblaze.ka.helper.*;
 import cn.endureblaze.ka.base.*;
 import cn.endureblaze.ka.main.*;
+import cn.endureblaze.ka.me.user.MainUserFragment;
 
 public class MainLoginFragment extends BaseFragment
 {
@@ -105,7 +106,7 @@ public class MainLoginFragment extends BaseFragment
 									{
 										loginProgress.dismiss();
 										Toast.makeText(getActivity(),getActivity().getString(R.string.login_success), Toast.LENGTH_SHORT).show();
-										m.open();
+										m.replaceFragment(new MainUserFragment());
 									}
 									else
 									{
