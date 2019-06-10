@@ -38,7 +38,7 @@
 			android:layout_width="wrap_content"
 			android:text="Text"
 			android:layout_margin="8dp"
-			android:textSize="20sp"
+			android:textSize="16sp"
 			android:id="@+id/console_text"
 			android:layout_gravity="center|end"
 			android:transitionName="name"

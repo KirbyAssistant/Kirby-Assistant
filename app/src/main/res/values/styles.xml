@@ -33,8 +33,8 @@
 		<item name="color_bkg_title">#FFEEEEEE</item>
 		<item name="color_bkg">#FFFFFFFF</item>
         <item name="color_text">#ff000000</item>
-        <item name="color_text_pressed">#80212121</item>
-        <item name="color_text_hint">#40212121</item>
+        <item name="color_text_pressed">#70212121</item>
+        <item name="color_text_hint">#30212121</item>
         <item name="color_divider">#bdbdbd</item>
 	</style>
 

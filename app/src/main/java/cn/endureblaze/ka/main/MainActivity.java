@@ -47,9 +47,7 @@ public class MainActivity extends BaseActivity {
 	private Context gameContext;
 
 	private BottomNavigationView bottomNavigationView;
-
-	//private CosXmlService cosXmlService;
-	@Override
+@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 		ThemeUtil.setClassTheme(this);

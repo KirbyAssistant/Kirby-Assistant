@@ -33,14 +33,12 @@ dependencies {
 	//compile 'com.just.agentweb:agentweb:4.0.2' 
 	//compile 'com.liulishuo.okdownload:okdownload:1.0.4'
 	//compile 'com.liulishuo.okdownload:sqlite:1.0.4'
-	//腾讯云服务
-	//compile 'com.tencent.qcloud:cosxml:5.4.8'
 	//图片加载
 	implementation "com.github.bumptech.glide:glide:3.6.1"
 	//compile 'com.github.bumptech.glide:compiler:4.7.1'
 	//多样的下拉刷新
-	implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-16'
-    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-16'
+	implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-28'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-28'
     //bmob
 	implementation 'cn.bmob.android:bmob-sdk:3.6.5'
 	//滑动返回

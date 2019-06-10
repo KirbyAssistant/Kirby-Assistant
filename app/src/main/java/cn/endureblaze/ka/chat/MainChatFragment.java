@@ -43,9 +43,6 @@ public class MainChatFragment extends BaseFragment
 	private MainActivity m;
 	private int messItem;
 	private EditText edit_编辑;
-
-	private RippleLayout rippleBackground;
-
 	private TextView mess_load_fail;  
 	//private BottomDialog mess_dia;
 	@Override
@@ -66,8 +63,6 @@ public class MainChatFragment extends BaseFragment
 		GridLayoutManager layoutManager=new GridLayoutManager(getActivity(), 1);
 		re.setLayoutManager(layoutManager);
 		adapter = new ChatAdapter(chatlist,getActivity(),getActivity().getSupportFragmentManager());	
-		//律动动画
-	    rippleBackground=(RippleLayout)view.findViewById(R.id.content);
 		//refresh数据
 		refresh = (RefreshLayout)view.findViewById(R.id.refresh);
 		refresh.setOnRefreshListener(new OnRefreshListener(){
@@ -76,7 +71,6 @@ public class MainChatFragment extends BaseFragment
 				{
 					refresh.setEnableLoadMore(false);
 					edit_mess_button.setVisibility(View.GONE);
-					rippleBackground.stopRippleAnimation();
 					getChat();
 				}
 			});
@@ -127,8 +121,7 @@ public class MainChatFragment extends BaseFragment
 						edit_mess_button.setVisibility(View.VISIBLE);
 						ScaleAnimation mess_fab_anim = (ScaleAnimation) AnimationUtils.loadAnimation(getActivity(), R.transition.mess_fab);
 						edit_mess_button.startAnimation(mess_fab_anim);
-						rippleBackground.startRippleAnimation();
-					}
+				}
 					else
 					{
 						mess_load_fail.setVisibility(View.VISIBLE);
