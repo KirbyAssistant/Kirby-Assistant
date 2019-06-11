@@ -29,6 +29,7 @@ import cn.endureblaze.ka.main.*;
 import cn.endureblaze.ka.utils.*;
 import com.scwang.smartrefresh.layout.api.*;
 import com.scwang.smartrefresh.layout.listener.*;
+import com.scwang.smartrefresh.header.MaterialHeader;
 
 
 public class MainChatFragment extends BaseFragment
@@ -65,6 +66,8 @@ public class MainChatFragment extends BaseFragment
 		adapter = new ChatAdapter(chatlist,getActivity(),getActivity().getSupportFragmentManager());	
 		//refresh数据
 		refresh = (RefreshLayout)view.findViewById(R.id.refresh);
+		MaterialHeader mMaterialHeader=(MaterialHeader) refresh.getRefreshHeader();
+		mMaterialHeader.setColorSchemeColors(ThemeUtil.getColorPrimary(getActivity()));
 		refresh.setOnRefreshListener(new OnRefreshListener(){
 				@Override
 				public void onRefresh(RefreshLayout re)

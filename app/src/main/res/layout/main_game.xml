@@ -16,7 +16,8 @@
 		android:layout_height="wrap_content"
 		app:tabSelectedTextColor="?attr/colorPrimary"
 		app:tabIndicatorColor="?attr/colorPrimary"
-		app:tabIndicatorHeight="2dp"/>
+		app:tabIndicatorHeight="2dp"
+		android:elevation="1dp"/>
 
 	<android.support.v4.view.ViewPager
 		android:id="@+id/viewpager"

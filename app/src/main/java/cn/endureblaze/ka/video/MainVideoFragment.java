@@ -26,6 +26,11 @@ import java.util.ArrayList;
 import java.util.List;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.header.WaveSwipeHeader;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.scwang.smartrefresh.header.internal.MaterialProgressDrawable;
+import cn.endureblaze.ka.Kirby;
+import com.scwang.smartrefresh.layout.api.RefreshHeader;
+import cn.endureblaze.ka.utils.ThemeUtil;
 
 public class MainVideoFragment extends BaseFragment 
 {
@@ -57,6 +62,8 @@ public class MainVideoFragment extends BaseFragment
 		adapter = new VideoAdapter(videolist);	
 		//refresh数据
 		refresh = (RefreshLayout)view.findViewById(R.id.refresh);
+		MaterialHeader mMaterialHeader=(MaterialHeader) refresh.getRefreshHeader();
+		mMaterialHeader.setColorSchemeColors(ThemeUtil.getColorPrimary(getActivity()));
 		refresh.setOnRefreshListener(new OnRefreshListener(){
 				@Override
 				public void onRefresh(RefreshLayout re)

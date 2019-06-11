@@ -12,8 +12,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		app:srlPrimaryColor="?attr/colorPrimary"
-		app:srlAccentColor="@android:color/white"
-		app:srlEnableHeaderTranslationContent="true">
+		app:srlAccentColor="@android:color/white">
 
 		<com.scwang.smartrefresh.header.MaterialHeader
 			android:layout_width="match_parent"

@@ -8,7 +8,11 @@ import cn.endureblaze.ka.utils.LanguageUtil;
 import cn.endureblaze.ka.utils.ThemeUtil;
 import com.oasisfeng.condom.CondomContext;
 import com.umeng.analytics.MobclickAgent;
+import java.security.cert.PolicyQualifierInfo;
+import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout;
+import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 
+@ParallaxBack
 public class BaseActivity extends AppCompatActivity
 {
 	private String WINDOW_HIERARCHY_TAG="window_save";
