@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
 		toolbar = (Toolbar)findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		if (CheckSimpleModeUtil.isSimpleMode()) {
-			getSupportActionBar().setTitle(R.string.simple_mode_app_name);
+			getSupportActionBar().setTitle(getResources().getString(R.string.app_name)+"·"+"2017");
 		} else {
 			getSupportActionBar().setTitle(R.string.app_name);
 		}

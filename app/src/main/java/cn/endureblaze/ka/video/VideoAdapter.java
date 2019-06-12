@@ -73,7 +73,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
 			.load(vi.getImageUrl())
 			//.apply(Kirby.getGlideRequestOptions())
 			.asBitmap()
-		  //  .centerCrop()
+		    .fitCenter()
 			.placeholder(R.drawable.ic_kirby_download)
 			.error(R.drawable.ic_kirby_load_fail)
 			.into(holder.videoImage);

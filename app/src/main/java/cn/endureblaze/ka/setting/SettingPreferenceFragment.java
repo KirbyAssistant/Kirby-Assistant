@@ -84,7 +84,7 @@ public class SettingPreferenceFragment extends PreferenceFragment
 				dialog.show();
 				break;
 			case "simple":
-				if (CheckSimpleModeUtil.isSimpleMode())
+				/*if (CheckSimpleModeUtil.isSimpleMode())
 				{
 					AlertDialog.Builder simple_mode_disable_dialog=new AlertDialog.Builder(getActivity())
 						.setTitle(R.string.simple_mode_is_enable)
@@ -135,7 +135,7 @@ public class SettingPreferenceFragment extends PreferenceFragment
 					)
 						.setNegativeButton(getResources().getString(R.string.dia_cancel), null);
 					simple_mode_enable_dialog.show();
-				}
+				}*/
 				break;
 			case "greenapps":
 				Intent greenapps=new Intent("android.intent.action.VIEW");
