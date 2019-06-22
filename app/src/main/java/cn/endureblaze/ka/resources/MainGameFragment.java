@@ -1,21 +1,22 @@
 package cn.endureblaze.ka.resources;
 import android.os.*;
-import android.support.design.widget.*;
-import android.support.v4.app.*;
-import android.support.v4.view.*;
-import android.support.v7.widget.*;
+import androidx.core.app.*;
+import androidx.core.view.*;
+import androidx.appcompat.widget.*;
 import android.view.*;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import cn.endureblaze.ka.*;
 import cn.endureblaze.ka.bean.*;
 import java.util.*;
 import cn.endureblaze.ka.helper.*;
 import android.view.animation.*;
-import android.widget.*;
 import cn.endureblaze.ka.base.*;
-import cn.endureblaze.ka.resources.game.*;
 import cn.endureblaze.ka.main.*;
-import cn.endureblaze.ka.resources.*;
 import cn.endureblaze.ka.utils.*;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainGameFragment extends BaseFragment
 {

@@ -1,7 +1,9 @@
 package cn.endureblaze.ka.helper;
 
-import android.support.v7.widget.*;
+import androidx.appcompat.widget.*;
 import android.view.animation.*;
+import androidx.recyclerview.widget.RecyclerView;
+
 import static android.view.animation.Animation.RELATIVE_TO_SELF;
 
 public class LayoutAnimationHelper

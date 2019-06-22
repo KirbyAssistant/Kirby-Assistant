@@ -3,7 +3,7 @@ package cn.endureblaze.ka.video;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.widget.GridLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +25,6 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import java.util.ArrayList;
 import java.util.List;
 import com.scwang.smartrefresh.header.MaterialHeader;
-import com.scwang.smartrefresh.header.WaveSwipeHeader;
-import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.scwang.smartrefresh.header.internal.MaterialProgressDrawable;
-import cn.endureblaze.ka.Kirby;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import cn.endureblaze.ka.utils.ThemeUtil;
 
 public class MainVideoFragment extends BaseFragment 

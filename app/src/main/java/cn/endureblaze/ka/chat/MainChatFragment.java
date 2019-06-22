@@ -1,32 +1,26 @@
 package cn.endureblaze.ka.chat;
 
-import android.app.*;
-import android.content.*;
 import android.os.*;
-import android.support.design.widget.*;
-import android.support.v4.app.*;
-import android.support.v7.widget.*;
-import android.text.*;
-import android.util.*;
+import androidx.core.app.*;
+import androidx.appcompat.widget.*;
 import android.view.*;
 import android.view.animation.*;
-import android.view.inputmethod.*;
 import android.widget.*;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import cn.bmob.v3.*;
 import cn.bmob.v3.exception.*;
 import cn.bmob.v3.listener.*;
-import cn.endureblaze.ka.*;
 import cn.endureblaze.ka.bean.*;
 import cn.endureblaze.ka.bmob.*;
 import cn.endureblaze.ka.helper.*;
 import java.util.*;
 
-import android.support.v4.app.Fragment;
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.customui.*;
 import cn.endureblaze.ka.base.*;
 import cn.endureblaze.ka.main.*;
 import cn.endureblaze.ka.utils.*;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.scwang.smartrefresh.layout.api.*;
 import com.scwang.smartrefresh.layout.listener.*;
 import com.scwang.smartrefresh.header.MaterialHeader;

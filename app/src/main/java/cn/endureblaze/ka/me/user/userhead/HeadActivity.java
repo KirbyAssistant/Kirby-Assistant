@@ -6,7 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,7 +21,7 @@ import cn.endureblaze.ka.bmob.BmobKirbyAssistantUser;
 import cn.endureblaze.ka.manager.ActManager;
 import cn.endureblaze.ka.utils.ThemeUtil;
 import cn.endureblaze.ka.utils.UserUtil;
-import com.bumptech.glide.Glide;
+
 import java.io.File;
 import java.io.IOException;
 import cn.endureblaze.ka.utils.GlideUtil;

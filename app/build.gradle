@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.2"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "cn.endureblaze.ka"
@@ -44,10 +44,10 @@ dependencies {
 	//滑动返回
 	implementation 'com.github.anzewei:parallaxbacklayout:1.1.6'
 	
-	implementation 'com.android.support:appcompat-v7:25.3.1'
-	implementation 'com.android.support:design:25.3.1'
-	implementation 'com.android.support:support-v4:25.3.1'
-	implementation 'com.android.support:recyclerview-v7:25.3.1'
-	implementation 'com.android.support:cardview-v7:25.3.1'
+	implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+	implementation 'com.google.android.material:material:1.0.0-beta01'
+	implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
+	implementation 'androidx.recyclerview:recyclerview:1.0.0-beta01'
+	implementation 'androidx.cardview:cardview:1.0.0-beta01'
 }
 

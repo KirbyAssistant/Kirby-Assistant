@@ -1,5 +1,5 @@
 package cn.endureblaze.ka;
-import android.support.v4.content.*;
+import androidx.core.content.*;
 
 public class KirbyFileProvider extends FileProvider
 {

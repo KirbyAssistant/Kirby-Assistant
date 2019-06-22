@@ -1,11 +1,14 @@
 package cn.endureblaze.ka.customui;
 
 import android.content.*;
-import android.support.annotation.*;
-import android.support.v7.widget.*;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.*;
 import android.util.*;
 import android.view.*;
 import android.view.animation.*;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 public class StaggeredGridRecyclerView extends RecyclerView
 {

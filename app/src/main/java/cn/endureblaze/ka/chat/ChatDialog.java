@@ -1,23 +1,20 @@
 package cn.endureblaze.ka.chat;
-import android.app.*;
 import android.content.*;
 import android.os.*;
-import android.support.annotation.*;
-import android.support.v4.app.*;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
+import androidx.core.app.*;
 import android.view.*;
-import android.view.inputmethod.*;
 import android.widget.*;
+import androidx.fragment.app.FragmentActivity;
 import cn.bmob.v3.*;
 import cn.bmob.v3.exception.*;
 import cn.bmob.v3.listener.*;
-import cn.endureblaze.ka.*;
 import cn.endureblaze.ka.bmob.*;
 import java.util.*;
 
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.utils.*;
-import cn.endureblaze.ka.base.*;
-import cn.endureblaze.ka.bottomdialog.*;
 import cn.endureblaze.ka.bottomdialog.*;
 import com.bumptech.glide.*;
 

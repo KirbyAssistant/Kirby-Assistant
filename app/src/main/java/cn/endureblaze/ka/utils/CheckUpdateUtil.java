@@ -1,16 +1,16 @@
 package cn.endureblaze.ka.utils;
 import android.content.*;
-import android.support.design.widget.*;
-import android.support.v7.app.*;
+import androidx.appcompat.app.*;
 import android.view.*;
 import cn.bmob.v3.*;
 import cn.bmob.v3.exception.*;
 import cn.bmob.v3.listener.*;
 import cn.endureblaze.ka.*;
 import cn.endureblaze.ka.bmob.*;
-import cn.endureblaze.ka.main.*;
+
 import java.util.*;
 import android.net.*;
+import com.google.android.material.snackbar.Snackbar;
 
 public class CheckUpdateUtil
 {

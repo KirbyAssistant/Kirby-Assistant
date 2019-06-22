@@ -1,16 +1,16 @@
 package cn.endureblaze.ka.chat;
 import android.app.*;
 import android.content.*;
-import android.support.v4.app.*;
-import android.support.v7.widget.*;
+import androidx.core.app.*;
+import androidx.appcompat.widget.*;
 import android.view.*;
 import android.widget.*;
+import androidx.recyclerview.widget.RecyclerView;
 import cn.endureblaze.ka.*;
 import cn.endureblaze.ka.bean.*;
 import java.util.*;
 
-import android.support.v4.app.FragmentManager;
-import cn.endureblaze.ka.utils.*;
+import androidx.fragment.app.FragmentManager;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>
 {

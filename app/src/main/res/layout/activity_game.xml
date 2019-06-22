@@ -6,12 +6,12 @@
 	android:layout_height="fill_parent"
 	android:background="?color_bkg_main">
 
-	<android.support.design.widget.AppBarLayout
+	<com.google.android.material.appbar.AppBarLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/mainAppBarLayout1">
 
-		<android.support.v7.widget.Toolbar
+		<androidx.appcompat.widget.Toolbar
 			android:id="@+id/toolbar"
 			app:elevation="4dp"
 			android:layout_height="?attr/actionBarSize"
@@ -21,7 +21,7 @@
 			app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
 			app:layout_scrollFlags="scroll|enterAlways|snap"/>
 
-	</android.support.design.widget.AppBarLayout>
+	</com.google.android.material.appbar.AppBarLayout>
 
 	<ScrollView
 		android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/activitygameRelativeLayout1">
 
-			<android.support.v7.widget.CardView
+			<androidx.cardview.widget.CardView
 				android:layout_height="168dp"
 				android:layout_width="match_parent"
 				app:elevation="5dp"
@@ -57,7 +57,7 @@
 					android:transitionName="image"
 					android:layout_margin="8dp"/>
 
-			</android.support.v7.widget.CardView>
+			</androidx.cardview.widget.CardView>
 
 			<Button
 				android:layout_height="wrap_content"

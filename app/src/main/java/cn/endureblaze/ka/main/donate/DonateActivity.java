@@ -2,18 +2,14 @@ package cn.endureblaze.ka.main.donate;
 
 import android.content.*;
 import android.os.*;
-import android.support.annotation.*;
-import android.support.v7.widget.*;
+import androidx.appcompat.widget.*;
 import android.view.*;
 import android.widget.*;
-import cn.endureblaze.ka.*;
 import cn.endureblaze.ka.utils.*;
 
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import cn.endureblaze.ka.R;
 import android.net.*;
-import java.io.*;
-import android.graphics.*;
 import cn.endureblaze.ka.base.*;
 import com.github.anzewei.parallaxbacklayout.*;
 

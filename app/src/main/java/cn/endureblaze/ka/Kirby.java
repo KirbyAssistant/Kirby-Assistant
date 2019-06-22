@@ -7,26 +7,16 @@
 package cn.endureblaze.ka;
 
 import android.app.Application;
-import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.app.FragmentActivity;
-import cn.endureblaze.ka.R;
+import androidx.fragment.app.FragmentActivity;
 import cn.endureblaze.ka.crash.CaptureCrash;
 import cn.endureblaze.ka.crash.CrashDialog;
 import cn.endureblaze.ka.manager.ActManager;
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
 import com.oasisfeng.condom.CondomContext;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
-import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
-import com.scwang.smartrefresh.layout.api.RefreshFooter;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
-import com.scwang.smartrefresh.header.BezierCircleHeader;
 
 public class Kirby extends Application 
 {

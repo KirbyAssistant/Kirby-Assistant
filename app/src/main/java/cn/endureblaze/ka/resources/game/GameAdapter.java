@@ -2,12 +2,10 @@ package cn.endureblaze.ka.resources.game;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,13 +15,10 @@ import android.widget.TextView;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.bean.Console;
 import cn.endureblaze.ka.main.MainActivity;
-import cn.endureblaze.ka.utils.FastBlurUtil;
 import cn.endureblaze.ka.utils.GlideUtil;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.FutureTarget;
-import java.io.File;
+
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
     private Context mContext;

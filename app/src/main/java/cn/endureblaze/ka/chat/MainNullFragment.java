@@ -1,7 +1,7 @@
 package cn.endureblaze.ka.chat;
 
 import android.os.*;
-import android.support.v4.app.*;
+import androidx.core.app.*;
 import android.view.*;
 import cn.endureblaze.ka.*;
 import cn.endureblaze.ka.base.*;
