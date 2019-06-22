@@ -1,17 +1,25 @@
 package cn.endureblaze.ka.resources;
-import android.app.*;
-import android.content.*;
-import android.support.v7.widget.*;
-import android.view.*;
-import android.widget.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.bean.*;
-import java.util.*;
-
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.main.*;
-import cn.endureblaze.ka.resources.game.*;
-import com.bumptech.glide.*;
+import cn.endureblaze.ka.bean.Console;
+import cn.endureblaze.ka.main.MainActivity;
+import cn.endureblaze.ka.resources.game.GameActivity;
+import cn.endureblaze.ka.utils.FastBlurUtil;
+import cn.endureblaze.ka.utils.GlideUtil;
+import com.bumptech.glide.Glide;
+import java.util.List;
 
 public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.ViewHolder>
 {
@@ -25,6 +33,8 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
 		CardView cardView;
         ImageView gameImage;
         TextView gameName;
+
+		private ImageView blurImage;
         public ViewHolder(View view)
 		{
             super(view);
@@ -32,12 +42,13 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
             cardView = (CardView) view.findViewById(R.id.cardview);
             gameImage = (ImageView) view.findViewById(R.id.console_image);
             gameName = (TextView) view.findViewById(R.id.console_text);
+			blurImage = (ImageView)view.findViewById(R.id.blur_image);
         }
     }
-    public EmulatorsAdapter(List<Console> gamelist)
+    public EmulatorsAdapter(List<Console> gamelist,Activity activity)
 	{
         mGameList = gamelist;
-		//mActivity=activity;
+		mActivity=activity;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -59,9 +70,7 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
 					mm.putExtra("game_name",game.getName());
 					mm.putExtra("game_img",game.getImageUrl());
 					mm.putExtra("game_pos",game.getPosition());
-					//mContext.startActivity(mm);
-					//IntentUtil.startActivityWithAnim(mm,mActivity);
-					m.theDownload(mContext, game.getName(),game.getPosition());
+					m.theDownload(mContext,game.getName(),game.getPosition());
 				}
 			}
 		);
@@ -69,9 +78,9 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position)
+    public void onBindViewHolder(final ViewHolder holder, int position)
 	{
-        Console co = mGameList.get(position);
+        final Console co = mGameList.get(position);
         holder.gameName.setText(co.getName());
 		Glide
 			.with(mContext)
@@ -82,6 +91,7 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
 		    .placeholder(R.drawable.ic_kirby_download)
 			.error(R.drawable.ic_kirby_load_fail)
 			.into(holder.gameImage);
+		GlideUtil.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"5");
     }
 
     @Override

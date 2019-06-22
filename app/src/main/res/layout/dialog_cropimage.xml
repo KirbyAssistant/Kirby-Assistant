@@ -5,15 +5,14 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="?color_bkg_main">
+	android:background="#60000000">
 
 	<cn.endureblaze.ka.nocropper.CropperView
 		xmlns:custom="http://schemas.android.com/apk/res-auto"
 		android:id="@+id/CropImageView"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="match_parent"
 		android:layout_above="@+id/imageView"
-		android:background="?color_bkg_main"
 		android:layout_centerVertical="true"/>
 
 	<LinearLayout

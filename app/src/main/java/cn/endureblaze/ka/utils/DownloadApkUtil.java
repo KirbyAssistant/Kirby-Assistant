@@ -27,7 +27,7 @@ public class DownloadApkUtil
 		progressDialog.setMax(100);
 		progressDialog.show();
 
-		BmobQuery<BmobDownloadApk> query = new BmobQuery<BmobDownloadApk>();
+		BmobQuery<BmobDownloadApk> query = new BmobQuery<>();
         query.addWhereEqualTo("name", app_name);
         query.findObjects(new FindListener<BmobDownloadApk>(){
 				private BmobFile emulatorsApk;

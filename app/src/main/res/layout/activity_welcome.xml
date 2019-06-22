@@ -8,23 +8,11 @@
 	android:id="@+id/root_view">
 
 	<ImageView
-		android:src="@drawable/ic_foreground_image"
+		android:src="@mipmap/ic_foreground_image"
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
 		android:id="@+id/welcomeImageView1"
 		android:layout_gravity="center"/>
-
-	<TextView
-		android:id="@+id/textview"
-		android:layout_width="match_parent"
-		android:layout_height="100dp"
-		android:gravity="center_horizontal"
-		android:textColor="#60000000"
-		android:textSize="40sp"
-		android:layout_below="@id/welcomeImageView1"
-		android:layout_gravity="bottom|center_horizontal"
-		android:layout_marginBottom="32dp"
-		/>
 
 </FrameLayout>
 

@@ -5,13 +5,14 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical"
+	android:background="?color_bkg_main"
 	android:padding="8dp">
 
 	<ImageView
-		android:src="@drawable/kirbytheme"
+		android:src="@drawable/theme_kirby"
 		android:id="@+id/user_head"
 		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_gravity="center_horizontal"
 		android:transitionName="userHead"/>
 

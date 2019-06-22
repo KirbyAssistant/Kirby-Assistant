@@ -1,26 +1,27 @@
 package cn.endureblaze.ka.resources.game;
 
-import android.content.*;
-import android.net.*;
-import android.os.*;
-import android.support.v7.app.*;
-import android.support.v7.widget.*;
-import android.view.*;
-import android.widget.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.utils.*;
-
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
-import android.graphics.*;
-import android.graphics.drawable.*;
-import cn.endureblaze.ka.base.*;
-import com.bumptech.glide.*;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import cn.endureblaze.ka.R;
+import cn.endureblaze.ka.base.BaseActivity;
+import cn.endureblaze.ka.utils.FastBlurUtil;
+import cn.endureblaze.ka.utils.GlideUtil;
+import cn.endureblaze.ka.utils.ThemeUtil;
+import com.bumptech.glide.Glide;
 
-public class GameActivity extends BaseActivity
-{
+public class GameActivity extends BaseActivity {
 	@Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_game);
@@ -33,22 +34,15 @@ public class GameActivity extends BaseActivity
 		final String game_pos=game.getStringExtra("game_pos");
 		getSupportActionBar().setTitle(game_name);
 	    ImageView game_img=(ImageView)findViewById(R.id.game_img);
+		final ImageView blur_game_img=(ImageView)findViewById(R.id.blur_game_img);
 		TextView game_js=(TextView)findViewById(R.id.game_js);
-		//game_layout.setBackground(new BitmapDrawable(FastBlurUtil.GetUrlBitmap(game_img_url,8)));
 		Button download_button=(Button)findViewById(R.id.download_button);
-		Glide
-			.with(this)
-			.load(game_img_url)
-			//.apply(Kirby.getGlideRequestOptions())
-			//.placeholder(R.drawable.ic_kirby_download)
-			//.error(R.drawable.ic_kirby_load_fail)
-			.into(game_img);
+		GlideUtil.setNormalImageViaGlideCache(GameActivity.this,game_img,game_img_url);
+		GlideUtil.setBlurImageViaGlideCache(GameActivity.this,blur_game_img,game_img_url,"5");
 		download_button.setOnClickListener(new View.OnClickListener(){
 				@Override
-				public void onClick(View p1)
-				{
-					switch (game_pos)
-					{
+				public void onClick(View p1) {
+					switch (game_pos) {
 						case "gba_mzqdx"://"星之卡比 梦之泉DX":
 							//Intent gg=new Intent(GameActivity.this,KirbyWebActivity.class);
 							//startActivity(gg);
@@ -61,7 +55,7 @@ public class GameActivity extends BaseActivity
 							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKTD8EZ", "https://eyun.baidu.com/s/3gfwui2n", "");
 							break;
 						case "sfc_kss"://"星之卡比 超豪华版":
-							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3qXEc4Xm", "https://eyun.baidu.com/s/3dia_nu8IVpv", "");
+							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3qXEc4Xm", "https://eyun.baidu.com/s/3nu8IV", "");
 							break;
 						case "sfc_mhd"://"星之卡比 卡比梦幻都":
 							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3hsvCjfI", "https://eyun.baidu.com/s/3jHCmNps", "");
@@ -70,7 +64,7 @@ public class GameActivity extends BaseActivity
 							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_nu, R.string.dia_nu, "https://eyun.baidu.com/s/3qZr1yry", "", "");
 							break;
 						case "sfc_mfqp"://"[仅美国]星之卡比 卡比魔方气泡":
-							showDownloadDialog(game_name, R.string.game_name1, R.string.dia_us , R.string.dia_nu ,  R.string.dia_nu, "https://eyun.baidu.com/s/3eSudia_usSi", "", "");
+							showDownloadDialog(game_name, R.string.game_name1, R.string.dia_us , R.string.dia_nu ,  R.string.dia_nu, "https://eyun.baidu.com/s/3eSuusSi", "", "");
 							break;
 						case "sfc_bsxdx"://"[仅日本]星之卡比 卡比宝石星DX":
 							showDownloadDialog(game_name, R.string.game_name2, R.string.dia_jp, R.string.dia_nu, R.string.dia_nu, "https://eyun.baidu.com/s/3kVDhaS3", "", "");
@@ -115,17 +109,16 @@ public class GameActivity extends BaseActivity
 							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3i48QqMh", "https://eyun.baidu.com/s/3eSwv1DK", "");
 							break;
 						case "gbc_gg"://"星之卡比 滚滚卡比":
-							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKP9eav", "https://eyun.baidu.com/s/3dia_nuQZavJ", "");
+							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKP9eav", "https://eyun.baidu.com/s/3qZZMtZY", "");
 							break;
 						case "fc_mzq"://"星之卡比 梦之泉物语":
-							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKXFx8n", "https://eyun.baidu.com/s/3pKdia_zhpaF", "https://eyun.baidu.com/s/3i4HC8FN");
+							showDownloadDialog(game_name,  R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_nu, "https://eyun.baidu.com/s/3pKXFx8n", "https://eyun.baidu.com/s/3pKZHpaF", "https://eyun.baidu.com/s/3i4HC8FN");
 							break;
 					}
 				}
 			});
 		StringBuffer game_js_text=new StringBuffer();
-		switch (game_pos)
-		{
+		switch (game_pos) {
 			case "gba_mzqdx"://"星之卡比 梦之泉DX":
 				game_js_text.append(getResources().getString(R.string.bj)).append("\n");
 				game_js_text.append(getResources().getString(R.string.gba_mzqdx_bj)).append("\n").append("\n");
@@ -267,8 +260,7 @@ public class GameActivity extends BaseActivity
 		}
 		game_js.setText(game_js_text);
 	}
-	public void showDownloadDialog(String name, int mess, Integer pos, Integer neg, Integer neu, final String pos_url, final String neg_url, final String neu_url)
-	{
+	public void showDownloadDialog(String name, int mess, Integer pos, Integer neg, Integer neu, final String pos_url, final String neg_url, final String neu_url) {
 		AlertDialog.Builder dialog = new
 			AlertDialog.Builder(this)
 			.setTitle(name)
@@ -277,8 +269,7 @@ public class GameActivity extends BaseActivity
 			DialogInterface.OnClickListener()
 			{
 				@Override
-				public void onClick(DialogInterface dialog, int which)
-				{
+				public void onClick(DialogInterface dialog, int which) {
 					Intent web = new Intent();        
 					web.setAction("android.intent.action.VIEW");    
 					Uri content_url = Uri.parse(pos_url);   
@@ -291,8 +282,7 @@ public class GameActivity extends BaseActivity
 			{
 				@Override
 
-				public void onClick(DialogInterface dialog, int which)
-				{
+				public void onClick(DialogInterface dialog, int which) {
 					Intent web = new Intent();        
 					web.setAction("android.intent.action.VIEW");    
 					Uri content_url = Uri.parse(neg_url);   
@@ -304,8 +294,7 @@ public class GameActivity extends BaseActivity
 			.setNeutralButton(neu, new DialogInterface.OnClickListener()
 			{
 				@Override
-				public void onClick(DialogInterface dialog, int which)
-				{
+				public void onClick(DialogInterface dialog, int which) {
 					Intent web = new Intent();        
 					web.setAction("android.intent.action.VIEW");    
 					Uri content_url = Uri.parse(neu_url);   

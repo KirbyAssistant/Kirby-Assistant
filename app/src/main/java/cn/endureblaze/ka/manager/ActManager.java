@@ -1,10 +1,13 @@
-package cn.endureblaze.ka.utils;
-import android.app.*;
-import android.content.*;
-import java.util.*;
-import android.support.v4.app.*;
+package cn.endureblaze.ka.manager;
 
-public class ActManager
+import android.app.Activity;
+import android.content.Context;
+import android.support.v4.app.FragmentActivity;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+public class ActManager 
 {
     private static Stack<Activity> activityStack;
     private static ActManager instance;
@@ -55,7 +58,7 @@ public class ActManager
         FragmentActivity fragmentActivity = (FragmentActivity) activityStack.lastElement();
         return fragmentActivity;
     }
-	
+
 	/**
      * 获取当前Activity（堆栈中最后一个压入的）
      *

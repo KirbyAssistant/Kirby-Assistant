@@ -10,6 +10,7 @@ import java.util.*;
 
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.base.*;
+import cn.endureblaze.ka.helper.LayoutAnimationHelper;
 
 
 public class GameListActivity extends BaseActivity
@@ -32,12 +33,13 @@ public class GameListActivity extends BaseActivity
 		r.setLayoutManager(layoutManager);
 		adapter = new GameAdapter(gamelist,this);
 		r.setAdapter(adapter);
+		PlayAnimUtil.playLayoutAnimationWithRecyclerView(r,LayoutAnimationHelper.getAnimationSetFromBottom(),false);
 		//获取数据
-		SharedPreferences console=getSharedPreferences("string", 0);
-		String game= console.getString("主机名称", "");
+		Intent intent=getIntent();
+		String game=intent.getStringExtra("consose_name");
 		toolbar.setSubtitle(game);
 		//判断数据然后处理列表
-		if (game == "gba")
+		if (game.endsWith("gba"))
 		{	
 			Console[] 游戏 = {
 				new Console("星之卡比 梦之泉DX", "https://gitee.com/nihaocun/ka_image/raw/master/game/mengzhiquandx.jpg","gba_mzqdx"),
@@ -49,7 +51,7 @@ public class GameListActivity extends BaseActivity
 				gamelist.add(游戏[index++]);
 			}
 		}
-		if (game == "gb")
+		if (game.equals("gb"))
 		{
 			Console []游戏={		
 				new Console("星之卡比 1", "https://gitee.com/nihaocun/ka_image/raw/master/game/xing1.jpg","gb_x1"),
@@ -64,7 +66,7 @@ public class GameListActivity extends BaseActivity
 				gamelist.add(游戏[index++]);
 			}
 		}
-		if(game=="gbc"){
+		if(game.endsWith("gbc")){
 			Console []游戏={		
 				new Console("星之卡比 滚滚卡比", "https://gitee.com/nihaocun/ka_image/raw/master/game/gungun.jpg","gbc_gg"),
 			};
@@ -74,7 +76,7 @@ public class GameListActivity extends BaseActivity
 				gamelist.add(游戏[index++]);
 			}
 		}
-		if (game == "sfc")
+		if (game.equals("sfc"))
 		{
 			Console[] 游戏 = {
 				new Console("星之卡比 3", "https://gitee.com/nihaocun/ka_image/raw/master/game/xing3.jpg","sfc_x3"),
@@ -90,7 +92,7 @@ public class GameListActivity extends BaseActivity
 				gamelist.add(游戏[index++]);
 			}
 		}
-		if (game == "n64")
+		if (game.equals("n64"))
 		{
 
 			Console[] 游戏 = {
@@ -102,7 +104,7 @@ public class GameListActivity extends BaseActivity
 				gamelist.add(游戏[index++]);
 			}
 		}
-		if (game == "ngc")
+		if (game.equals("ngc"))
 		{
 
 			Console[] 游戏 = {
@@ -114,7 +116,7 @@ public class GameListActivity extends BaseActivity
 				gamelist.add(游戏[index++]);
 			}
 		}
-		if (game == "wii")
+		if (game.equals("wii"))
 		{
 
 			Console[] 游戏 = {
@@ -127,7 +129,7 @@ public class GameListActivity extends BaseActivity
 				gamelist.add(游戏[index++]);
 			}
 		}
-		if (game == "nds")
+		if (game.equals("nds"))
 		{
 
 			Console[] 游戏 = {
@@ -142,7 +144,7 @@ public class GameListActivity extends BaseActivity
 				gamelist.add(游戏[index++]);
 			}
 		}
-		if (game == "fc")
+		if (game.equals("fc"))
 		{
 
 			Console[] 游戏 = {

@@ -9,19 +9,28 @@
 	android:id="@+id/cardview"
 	android:layout_margin="8dp">
 
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/blur_image"
+		android:transitionName="blur_image"/>
+
 	<LinearLayout
 		style="?android:attr/buttonBarButtonStyle"
 		android:background="?attr/selectableItemBackground"
 		android:orientation="horizontal"
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
-		android:id="@+id/LinearLayout">
+		android:id="@+id/LinearLayout"
+		android:paddingBottom="16dp"
+		android:paddingTop="16dp">
 
 		<ImageView
-			android:layout_width="200dp"
+			android:layout_width="158dp"
 			android:layout_height="158dp"
 			android:id="@+id/console_image"
-			android:layout_gravity="left|center"
+			android:scaleType="centerInside"
+			android:layout_gravity="center|start"
 			android:transitionName="image"/>
 
 		<TextView
@@ -29,10 +38,13 @@
 			android:layout_width="wrap_content"
 			android:text="Text"
 			android:layout_margin="8dp"
-			android:textSize="20sp"
+			android:textSize="16sp"
 			android:id="@+id/console_text"
-			android:layout_gravity="right|center"
-			android:transitionName="name"/>
+			android:layout_gravity="center|end"
+			android:transitionName="name"
+			android:background="#20000000"
+			android:textColor="#FFFFFFFF"
+			android:padding="4dp"/>
 
 	</LinearLayout>
 

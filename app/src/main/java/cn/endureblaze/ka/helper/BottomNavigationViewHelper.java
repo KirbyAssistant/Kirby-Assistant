@@ -3,8 +3,9 @@ package cn.endureblaze.ka.helper;
 import android.support.design.internal.BottomNavigationItemView; 
 import android.support.design.internal.BottomNavigationMenuView; 
 import android.support.design.widget.BottomNavigationView; 
-import android.util.Log;
+
 import java.lang.reflect.Field;
+import android.util.Log;
 
 public class BottomNavigationViewHelper { 
   public static void disableShiftMode(BottomNavigationView view) {
@@ -17,7 +18,7 @@ public class BottomNavigationViewHelper {
             for (int i = 0; i < menuView.getChildCount(); i++) {
                 BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);
                 //noinspection RestrictedApi 
-                //item.setShiftingMode(false);
+                item.setShiftingMode(false);
                 // set once again checked value, so view will be updated 
                 //noinspection RestrictedApi 
                 item.setChecked(item.getItemData().isChecked());

@@ -1,24 +1,15 @@
 package cn.endureblaze.ka.setting;
 
-import android.content.*;
-import android.os.*;
-import android.support.v7.widget.*;
-import android.view.*;
-import android.widget.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.base.*;
-import cn.endureblaze.ka.utils.*;
-
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.main.*;
-import android.support.v4.content.*;
-import com.github.anzewei.parallaxbacklayout.*;
+import cn.endureblaze.ka.base.BaseActivity;
+import cn.endureblaze.ka.utils.ThemeUtil;
+import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 
 @ParallaxBack
 public class SettingActivity extends BaseActivity
 {
-	private LocalBroadcastManager localBroadcastManager;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

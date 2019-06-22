@@ -40,14 +40,31 @@
             android:summary="@string/qq_group"
             android:title="@string/feedback_title" />
 
+		<Preference
+            android:key="tg_channel"
+            android:summary="@string/tg_channel_message"
+            android:title="@string/tg_channel_title" />
+		
 	</PreferenceCategory>
 
-	<PreferenceCategory android:title="@string/kfz_title">
+	<PreferenceCategory android:title="@string/dev_title">
 
 		<Preference
-            android:key="me"
-			android:summary="@string/me2"
-            android:title="@string/me1" />
+            android:key="dev_coolapk"
+            android:title="@string/dev_coolapk" />
+		
+		<Preference
+            android:key="dev_github"
+            android:title="@string/dev_github" />
+		
+		<Preference
+            android:key="dev_weibo"
+            android:title="@string/dev_weibo" />
+		
+		<Preference
+            android:key="dev_twitter"
+            android:title="@string/dev_twitter" />
+		
 		<Preference
             android:key="github"
             android:title="@string/github" />
@@ -57,33 +74,48 @@
 	<PreferenceCategory android:title="@string/contributor_title">
 
 		<Preference
-				android:key="program_contributors_lxfly2000"
-				android:summary="@string/contributor_github_lxfly2000"
-				android:title="@string/program_contributors"/>
+				android:key="program_github_lxfly2000"
+				android:summary="@string/program_github_lxfly2000"
+				android:title="@string/program_title"/>
 
 		<Preference
-            android:key="translation_tw"
-			android:summary="@string/translation_tw_message"
+            android:key="translation_tw_github_longxk2017"
+			android:summary="@string/translation_tw_github_longxk2017"
             android:title="@string/translation_tw_title" />
 
 		<Preference
-            android:key="translation_en"
-			android:summary="@string/translation_en_message"
+            android:key="translation_en_tieba_nannannan550"
+			android:summary="@string/translation_en_tieba_nannannan550"
             android:title="@string/translation_en_title" />
 		
 		<Preference
-            android:key="draw_icon"
-			android:summary="@string/draw_icon_message"
+            android:key="translation_en_tieba_guangzhiyaoxi"
+			android:summary="@string/translation_en_tieba_guangzhiyaoxi"
+            android:title="@string/translation_en_title" />
+		
+		<Preference
+            android:key="draw_icon_coolapk_hkliuxing"
+			android:summary="@string/draw_icon_coolapk_hkliuxing"
             android:title="@string/draw_icon_title" />
 		
 		<Preference
-            android:key="video_author"
-			android:summary="@string/video_author_message"
+            android:key="draw_icon_coolapk_markuss"
+			android:summary="@string/draw_icon_coolapk_markuss"
+            android:title="@string/draw_icon_title" />
+		
+		<Preference
+            android:key="draw_icon_tieba_xiaoyibu"
+			android:summary="@string/draw_icon_tieba_xiaoyibu"
+            android:title="@string/draw_icon_title" />
+		
+		<Preference
+            android:key="video_author_bilibili_xige"
+			android:summary="@string/video_author_bilibili_xige"
             android:title="@string/video_author_title" />
 		
 		<Preference
-            android:key="writer_help_faq"
-			android:summary="@string/writer_help_faq_message"
+            android:key="writer_help_faq_coolapk_talinhu"
+			android:summary="@string/writer_help_faq_coolapk_talinhu"
             android:title="@string/writer_help_faq_title" />
 
 	</PreferenceCategory>

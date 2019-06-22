@@ -13,7 +13,7 @@ public class PlayAnimUtil
      */
     public static void playLayoutAnimationWithRecyclerView(RecyclerView mRecyclerView, Animation animation, boolean isReverse)
 	{
-		if (CheckSimpleModeUtil.isSimpleMode()==false)
+		if (CheckSimpleModeUtil.isSimpleMode())
 		{
 			LayoutAnimationController controller = new LayoutAnimationController(animation);
 			controller.setDelay(0.1f);
@@ -26,7 +26,7 @@ public class PlayAnimUtil
 
 	public static void playLayoutAnimation(Animation animation, boolean isReverse)
 	{
-		if (CheckSimpleModeUtil.isSimpleMode()==false)
+		if (CheckSimpleModeUtil.isSimpleMode())
 		{
 			LayoutAnimationController controller = new LayoutAnimationController(animation);
 			controller.setDelay(0.1f);
@@ -34,14 +34,14 @@ public class PlayAnimUtil
 		}
 	}
 	/**
-     * 播放RecyclerView动画
+     * 播放View动画
      *
      * @param animation
      * @param isReverse
      */
     public static void playLayoutAnimationWithGridLayout(RecyclerView mRecyclerView, Animation animation, boolean isReverse)
 	{
-		if (CheckSimpleModeUtil.isSimpleMode()==false)
+		if (CheckSimpleModeUtil.isSimpleMode())
 		{
 			GridLayoutAnimationController controller = new GridLayoutAnimationController(animation);
 			controller.setColumnDelay(0.2f);

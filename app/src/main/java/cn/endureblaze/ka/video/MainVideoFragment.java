@@ -1,26 +1,36 @@
 package cn.endureblaze.ka.video;
 
-import android.os.*;
-import android.support.v4.app.*;
-import android.support.v7.widget.*;
-import android.util.*;
-import android.view.*;
-import cn.bmob.v3.*;
-import cn.bmob.v3.exception.*;
-import cn.bmob.v3.listener.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.bean.*;
-import cn.endureblaze.ka.bmob.*;
-import java.util.*;
-import android.widget.*;
-import android.view.animation.*;
-import cn.endureblaze.ka.utils.*;
-import cn.endureblaze.ka.helper.*;
-import cn.endureblaze.ka.customui.*;
-import cn.endureblaze.ka.base.*;
-import cn.endureblaze.ka.main.*;
-import com.scwang.smartrefresh.layout.api.*;
-import com.scwang.smartrefresh.layout.listener.*;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v7.widget.GridLayoutManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.LayoutAnimationController;
+import android.widget.TextView;
+import android.widget.Toast;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.endureblaze.ka.R;
+import cn.endureblaze.ka.base.BaseFragment;
+import cn.endureblaze.ka.bmob.BmobVideo;
+import cn.endureblaze.ka.customui.StaggeredGridRecyclerView;
+import cn.endureblaze.ka.helper.LayoutAnimationHelper;
+import cn.endureblaze.ka.main.MainActivity;
+import cn.endureblaze.ka.utils.PlayAnimUtil;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import java.util.ArrayList;
+import java.util.List;
+import com.scwang.smartrefresh.header.MaterialHeader;
+import com.scwang.smartrefresh.header.WaveSwipeHeader;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.scwang.smartrefresh.header.internal.MaterialProgressDrawable;
+import cn.endureblaze.ka.Kirby;
+import com.scwang.smartrefresh.layout.api.RefreshHeader;
+import cn.endureblaze.ka.utils.ThemeUtil;
 
 public class MainVideoFragment extends BaseFragment 
 {
@@ -52,6 +62,8 @@ public class MainVideoFragment extends BaseFragment
 		adapter = new VideoAdapter(videolist);	
 		//refresh数据
 		refresh = (RefreshLayout)view.findViewById(R.id.refresh);
+		MaterialHeader mMaterialHeader=(MaterialHeader) refresh.getRefreshHeader();
+		mMaterialHeader.setColorSchemeColors(ThemeUtil.getColorPrimary(getActivity()));
 		refresh.setOnRefreshListener(new OnRefreshListener(){
 				@Override
 				public void onRefresh(RefreshLayout re)

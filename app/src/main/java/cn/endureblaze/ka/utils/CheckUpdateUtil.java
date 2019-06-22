@@ -40,7 +40,7 @@ public class CheckUpdateUtil
 									public void onClick(View p1)
 									{
 										AlertDialog.Builder update_dialog=new AlertDialog.Builder(context)
-											.setTitle(R.string.find_new_version+versionName)
+											.setTitle(context.getResources().getString(R.string.find_new_version)+versionName)
 											.setMessage(changeLog)
 											.setCancelable(false)
 											.setPositiveButton(context.getResources().getString(R.string.dia_download), new

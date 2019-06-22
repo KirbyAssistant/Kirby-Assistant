@@ -1,30 +1,40 @@
 /*
-*这个App的代号
-*This App code
-*KEMU
-*/
+ *这个App的代号
+ *This App code
+ *KEMU
+ */
 //Hi 2019
 package cn.endureblaze.ka;
 
-import android.app.*;
-import android.os.*;
-import android.support.v4.app.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.crash.*;
-import cn.endureblaze.ka.utils.*;
-import com.github.anzewei.parallaxbacklayout.*;
-import com.oasisfeng.condom.*;
-import com.umeng.analytics.*;
-import com.umeng.commonsdk.*;
-
+import android.app.Application;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.v4.app.FragmentActivity;
 import cn.endureblaze.ka.R;
-public class Kirby extends Application
+import cn.endureblaze.ka.crash.CaptureCrash;
+import cn.endureblaze.ka.crash.CrashDialog;
+import cn.endureblaze.ka.manager.ActManager;
+import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
+import com.oasisfeng.condom.CondomContext;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
+import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
+import com.scwang.smartrefresh.layout.api.RefreshFooter;
+import com.scwang.smartrefresh.layout.api.RefreshHeader;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.commonsdk.UMConfigure;
+import com.scwang.smartrefresh.header.BezierCircleHeader;
+
+public class Kirby extends Application 
 {
 	public void onCreate()
 	{
         super.onCreate();
 		registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
-	    CaptureCrash.init(new CaptureCrash.CrashHandler() {
+		CaptureCrash.init(new CaptureCrash.CrashHandler() {
 				@Override
 				public void uncaughtException(Thread t, Throwable e)
 				{	
@@ -32,22 +42,21 @@ public class Kirby extends Application
 					toCrashActivity(e);
 				}
 			});
-		UMConfigure.init(CondomContext.wrap(this, "Umeng"),"5c000429b465f56fdb0005ba", "CoolApk",UMConfigure.DEVICE_TYPE_PHONE, null);
-		//UMConfigure.setLogEnabled(true);//测试模式
+		UMConfigure.init(CondomContext.wrap(this, "Umeng"), "5c000429b465f56fdb0005ba", "CoolApk", UMConfigure.DEVICE_TYPE_PHONE, null);
 		MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
     }
 	/*public static RequestOptions getGlideRequestOptions()
-	{
-		RequestOptions requ=new RequestOptions();
-		requ.placeholder(R.drawable.ic_kirby_download)
-			.error(R.drawable.ic_kirby_load_fail);
-		return requ;
-	}*/
+	 {
+	 RequestOptions requ=new RequestOptions();
+	 requ.placeholder(R.drawable.ic_kirby_download)
+	 .error(R.drawable.ic_kirby_load_fail);
+	 return requ;
+	 }*/
 	/*@Override
-	protected void attachBaseContext(Context base) {
-		super.attachBaseContext(base);
-		MultiDex.install(this);
-	}*/
+	 protected void attachBaseContext(Context base) {
+	 super.attachBaseContext(base);
+	 MultiDex.install(this);
+	 }*/
     public void toCrashActivity(final Throwable crash)
 	{
         new Handler(Looper.getMainLooper()).post(new Runnable() {
@@ -64,7 +73,6 @@ public class Kirby extends Application
 			});
 	}
 }
-
 //                            _ooOoo_  
 //                           o8888888o  
 //                           88" . "88  

@@ -132,17 +132,17 @@ public class ChatDialog extends BaseBottomDialog
 														mess_dialog.dismiss();
 														MainChatFragment main_mess=(MainChatFragment)mess_dialog.getActivity().getSupportFragmentManager().findFragmentById(R.id.main_fragment);
 														main_mess.getChat();
-														Toast.makeText(getActivity(), getResources().getString(R.string.mess_del_success), Toast.LENGTH_SHORT).show();
+														Toast.makeText(getActivity(), getResources().getString(R.string.chat_del_success), Toast.LENGTH_SHORT).show();
 													}
 													else
 													{
-														Toast.makeText(getActivity(), getResources().getString(R.string.mess_del_fail) + e.getMessage(), Toast.LENGTH_SHORT).show();
+														Toast.makeText(getActivity(), getResources().getString(R.string.chat_del_fail) + e.getMessage(), Toast.LENGTH_SHORT).show();
 													}
 												}
 											});
 										break;
 									case R.id.mess_edit:
-										EditChatDialog.newInstance("0")
+										EditChatDialog.newInstance("0",s_mess,ChatMode.CHAT_EDIT_MODE)
 											.setTheme(R.style.BottomDialogStyle)
 											.setMargin(0)
 											.setShowBottom(true)
@@ -206,8 +206,8 @@ public class ChatDialog extends BaseBottomDialog
 								//.apply(Kirby.getGlideRequestOptions())
 								.asBitmap()
 								.fitCenter()
-								.placeholder(R.drawable.buletheme)
-								.error(R.drawable.buletheme)
+								.placeholder(R.drawable.theme_blue)
+								.error(R.drawable.theme_blue)
 								.into(userHeadImage);
 						}
 						catch (Exception e)

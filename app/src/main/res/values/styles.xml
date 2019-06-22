@@ -8,6 +8,7 @@
         <attr name="nocropper__add_padding_to_make_square" format="boolean"/>
         <attr name="nocropper__fit_to_center" format="boolean"/>
     </declare-styleable>
+	
     <style name="BottomDialogDefaultAnimation" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/enter_anim</item>
         <item name="android:windowExitAnimation">@anim/exit_anim</item>
@@ -17,7 +18,7 @@
         <item name="android:windowBackground">@drawable/ka_logo</item>
     </style>
 
-	<style name="BottomDialogStyle" parent="@android:style/Theme.Material.Dialog">
+	<style name="BottomDialogStyle" >
 		<item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
@@ -28,10 +29,12 @@
 
 	<style name="BaseLightTheme" parent="Theme.AppCompat.Light.NoActionBar">		
 		<item name="android:windowBackground">@android:color/white</item>
-		<item name="color_bkg_main">#f1f1f1</item>
-        <item name="color_text">#000000</item>
-        <item name="color_text_pressed">#80212121</item>
-        <item name="color_text_hint">#40212121</item>
+		<item name="color_bkg_main">#FFF5F5F5</item>
+		<item name="color_bkg_title">#FFEEEEEE</item>
+		<item name="color_bkg">#FFFFFFFF</item>
+        <item name="color_text">#ff000000</item>
+        <item name="color_text_pressed">#70212121</item>
+        <item name="color_text_hint">#30212121</item>
         <item name="color_divider">#bdbdbd</item>
 	</style>
 
@@ -45,8 +48,6 @@
 		<item name="colorPrimary">#F44336</item>	
 		<item name="colorPrimaryDark">#D32F2F</item>
 		<item name="colorAccent">#FF5252</item>	
-		<item name="android:textColorPrimary">#000000</item>
-		<item name="android:colorControlNormal">#F44336</item>
 	</style>
 
 	<style name="PurpleTheme" parent="BaseLightTheme">		

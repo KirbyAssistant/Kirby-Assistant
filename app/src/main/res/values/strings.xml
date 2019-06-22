@@ -9,7 +9,7 @@
 	<string name="setting_title">设置</string>
 	<string name="about_title">关于</string>
 	<string name="help_title">帮助</string>
-	<string name="mess_title">详情</string>
+	<string name="chat_title">详情</string>
 	<string name="video_title">视频</string>
 	<string name="cheatCode_title">金手指</string>
 	<string name="ziyuan">资源</string>
@@ -24,6 +24,7 @@
 	<string name="egg">这里是彩蛋</string>
 	<string name="bug_report">Bug已经上传</string>
 	<string name="two_back">请再按一次退出程序</string>
+	<string name="profile_photo">头像</string>
 	
 	<string name="permissionandprivacy_title">权限和隐私政策</string>
 	<string name="permissionandprivacy_cnntent">权限说明:\n
@@ -42,16 +43,23 @@
 	<string name="find_new_version">发现新版本</string>
 	<string name="view_new_version">查看</string>
 	
-	<string name="mess_upload">发送中</string>
-	<string name="mess_true">发送成功:</string>
-	<string name="mess_false">发送失败:</string>
-	<string name="mess_del_success">闲聊删除成功</string>
-	<string name="mess_del_fail">闲聊删除失败:</string>
-	<string name="mess_edit_success">闲聊编辑成功</string>
-	<string name="mess_edit_fail">闲聊编辑失败:</string>
-	<string name="mess_copy">复制内容</string>
-	<string name="mess_del">删除此闲聊</string>
-	<string name="mess_edit">编辑此闲聊</string>
+	<string name="chat_send">发送</string>
+	<string name="chat_upload">发送中</string>
+	<string name="chat_true">发送成功:</string>
+	<string name="chat_false">发送失败:</string>
+	<string name="chat_del_success">闲聊删除成功</string>
+	<string name="chat_del_fail">闲聊删除失败:</string>
+	<string name="chat_edit_success">闲聊编辑成功</string>
+	<string name="chat_edit_fail">闲聊编辑失败:</string>
+	<string name="chat_copy">复制内容</string>
+	<string name="chat_del">删除此闲聊</string>
+	<string name="chat_edit">编辑此闲聊</string>
+	
+	<string name="donate_alipay">支付宝</string>
+	<string name="donate_wechatpay">微信</string>
+	<string name="donate_btc">比特币</string>
+	<string name="donate_qqpay">QQ</string>
+	<string name="donate_paypal">PayPal</string>
 	
 	<string name="load_fail">加载失败，请刷新重试</string>
 	
@@ -153,22 +161,44 @@
 	<string name="faq_message">常见问题汇总</string>
 	<string name="feedback_title">反馈</string>
 	<string name="qq_group">更详细的帮助？点我进入QQ群</string>
-	<string name="kfz_title">开发者</string>
-	<string name="me1">酷安</string>
-	<string name="me2">\@汝南京</string>
+	<string name="tg_channel_title">Telegram频道</string>
+	<string name="tg_channel_message">会在里面发布更新内容以及其他事情</string>
+	<string name="dev_title">开发者</string>
+	<string name="dev_coolapk">酷安\@汝南京</string>
+	<string name="dev_coolapk_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzY1MTg4MA==</string>
+	<string name="dev_github">Github\@EnduerBlaze</string>
+	<string name="dev_github_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL0VuZHVyZUJsYXpl</string>
+	<string name="dev_weibo">新浪微博\@汝南京</string>
+	<string name="dev_weibo_link" translatable="false">aHR0cHM6Ly93ZWliby5jb20vcnVuYW5qaW5n</string>
+	<string name="dev_twitter">Twitter\@EndureBlaze</string>
+	<string name="dev_twitter_link" translatable="false">aHR0cHM6Ly90d2l0dGVyLmNvbS9uaWhhb2N1bj9zPTA5</string>
 	<string name="github">在Github查看这个项目</string>
 	<string name="gitlab">在Gitlab查看这个项目</string>
 	<string name="contributor_title">贡献者</string>
+	<string name="program_title">程序特别贡献</string>
+	<string name="program_github_lxfly2000">Github@lxfly2000</string>
+	<string name="program_github_lxfly2000_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
 	<string name="translation_tw_title">繁体中文翻译</string>
-	<string name="translation_tw_message">Github\@longxk2017</string>
+	<string name="translation_tw_github_longxk2017">Github\@longxk2017</string>
+	<string name="translation_tw_github_longxk2017_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2xvbmd4azIwMTc=</string>
 	<string name="translation_en_title">英语翻译</string>
-	<string name="translation_en_message">百度贴吧\@难难难550\n百度贴吧\@光之耀西</string>
+	<string name="translation_en_tieba_nannannan550">百度贴吧\@难难难550</string>
+	<string name="translation_en_tieba_nannannan550_link" translatable="false">aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vaG9tZS9tYWluP3VuPemavumavumavjU1MA==</string>
+	<string name="translation_en_tieba_guangzhiyaoxi">百度贴吧\@光之耀西</string>
+	<string name="translation_en_tieba_guangzhiyaoxi_link" translatable="false">aHR0cDovL3RpZWJhLmJhaWR1LmNvbS9ob21lL21haW4/dW495YWJ5LmL6ICA6KW/</string>
 	<string name="draw_icon_title">图标绘制</string>
-	<string name="draw_icon_message">酷安\@hk流星\n酷安\@Markuss\n百度贴吧\@★☆小伊布☆★</string>
+	<string name="draw_icon_coolapk_hkliuxing">酷安\@hk流星</string>
+	<string name="draw_icon_coolapk_hkliuxing_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzU1NTg4Mw==</string>
+	<string name="draw_icon_coolapk_markuss">酷安\@Markuss</string>
+	<string name="draw_icon_coolapk_markuss_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzUyOTcxOA==</string>
+	<string name="draw_icon_tieba_xiaoyibu">百度贴吧\@★☆小伊布☆★</string>
+	<string name="draw_icon_tieba_xiaoyibu_link" translatable="false">aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vaG9tZS9tYWluP3VuPeKYheKYhuWwj+S8iuW4g+KYhuKYhQ==</string>
 	<string name="video_author_title">视频作者</string>
-	<string name="video_author_message">百度贴吧\@gf5f65d</string>
+	<string name="video_author_bilibili_xige">哔哩哔哩动画\@虚影无华</string>
+	<string name="video_author_bilibili_xige_link" translatable="false">aHR0cDovL3NwYWNlLmJpbGliaWxpLmNvbS8xMzAwMTI1Mg==</string>
 	<string name="writer_help_faq_title">FAQ 编写</string>
-	<string name="writer_help_faq_message">酷安\@塔林狐</string>
+	<string name="writer_help_faq_coolapk_talinhu">酷安\@塔林狐</string>
+	<string name="writer_help_faq_coolapk_talinhu_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzExNTc3NzQ=</string>
 	<string name="greenapps_title">Android 绿色应用公约</string>
 	<string name="greenapps_message">Kirby Assistant 遵循绿色应用公约，并通过认证\n点击访问 Android 绿色应用公约官网</string>
 	
@@ -185,7 +215,7 @@
 	<string name="register_password">密码（支持数字和字母）</string>
 	<string name="register_password_again">请再次输入密码</string>
 	
-	<string name="pay_title">捐赠</string>
+	<string name="donate_title">捐赠</string>
 	
 	<string name="dia_download">下载</string>
 	<string name="dia_yes">确定</string>
@@ -408,7 +438,4 @@
 	<string name="copyrights_warning_title">版权说明</string>
 	<string name="copyrights_warning_content">本程序中收集的所有资源均来自于网络，未经版权方授权，仅供测试、学习之用并严禁用于任何商业用途。\n
 	如果您喜欢星之卡比系列游戏，请支持正版！</string>
-	<string name="contributor_github_lxfly2000">Github@lxfly2000</string>
-	<string name="contributor_github_lxfly2000_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
-	<string name="program_contributors">程序</string>
 </resources>

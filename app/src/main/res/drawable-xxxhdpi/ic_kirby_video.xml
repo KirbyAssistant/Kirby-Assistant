@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:viewportWidth="128"
-    android:viewportHeight="128"
-    android:width="128dp"
-    android:height="128dp">
-    <path
-        android:pathData="M64.631 3.37C30.215 3.37 2.316 31.269 2.316 65.685 2.316 100.101 30.215 128 64.631 128 99.047 128 126.946 100.101 126.946 65.685 126.946 31.269 99.047 3.37 64.631 3.37Zm0 115.372c-29.303 0 -53.057 -23.755 -53.057 -53.057 0 -29.302 23.754 -53.057 53.057 -53.057 29.303 0 53.057 23.755 53.057 53.057 0 29.303 -23.754 53.057 -53.057 53.057z"
-        android:fillColor="#ffffff" />
-    <path
-        android:pathData="M91.663 61.634L72.612 50.664 53.56 39.695c-2.876 -1.656 -6.467 0.422 -6.464 3.741l0.027 21.983 0.027 21.983c0.004 3.319 3.6 5.389 6.472 3.727L72.648 80.114 91.672 69.1c2.873 -1.661 2.868 -5.81 -0.009 -7.466zM69.051 72.208L57.27 79.03 57.254 65.416 57.238 51.802l11.798 6.793 11.798 6.793 -11.783 6.82z"
-        android:fillColor="#ffffff" />
+	android:width="1024dp"
+	android:height="1024dp" 
+	android:viewportWidth="1024"
+	android:viewportHeight="1024">
+	<path android:fillColor="@color/bluetheme"
+		android:pathData="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64z m0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" /> 
+	<path android:fillColor="@color/bluetheme"  
+		android:pathData="M719.4 499.1l-296.1-215c-10.6-7.7-25.3-0.2-25.3 12.9v430c0 13.1 14.8 20.5 25.3 12.9l296.1-215c8.8-6.4 8.8-19.4 0-25.8z m-257.6 134V390.9L628.5 512 461.8 633.1z" />
 </vector>

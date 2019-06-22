@@ -34,7 +34,9 @@
     </declare-styleable>
 	
 	<attr name="color_bkg_main" format="color" />
-
+	<attr name="color_bkg_title" format="color" />
+	<attr name="color_bkg" format="color" />
+		
     <attr name="color_text" format="color" />
     <attr name="color_text_pressed" format="color" />
     <attr name="color_text_disabled" format="color" />

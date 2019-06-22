@@ -11,13 +11,10 @@
 		android:id="@+id/refresh"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		app:srlDragRate="0.7"
-		app:srlHeaderMaxDragRate="1.3"
 		app:srlPrimaryColor="?attr/colorPrimary"
-		app:srlAccentColor="@android:color/white"
-		app:srlEnableHeaderTranslationContent="true">
+		app:srlAccentColor="@android:color/white">
 
-		<com.scwang.smartrefresh.header.TaurusHeader
+		<com.scwang.smartrefresh.header.MaterialHeader
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"/>
 
@@ -28,31 +25,18 @@
 
 	</com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-	<cn.endureblaze.ka.customui.RippleLayout
-		android:layout_alignParentBottom="true"
-		android:layout_alignParentRight="true"
+	<android.support.design.widget.FloatingActionButton
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:clipChildren="false"
+		android:id="@+id/fab_chat_edit"
+		android:layout_centerInParent="true"
+		android:src="@drawable/ic_kirby_editchat"
+		android:visibility="gone"
 		android:padding="16dp"
-		app:rippleLayoutColor="?attr/colorPrimary"
-		app:rippleLayoutType="stroke"
-		app:strokeWidth="2dp"
-		app:startRadius="8dp"
-		app:endRadius="40dp"
-		app:duration="2000"
-		android:id="@+id/content">
-
-		<android.support.design.widget.FloatingActionButton
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:id="@+id/fab_chat_edit"
-			android:layout_centerInParent="true"
-			android:src="@drawable/ic_kirby_editchat"
-			android:visibility="gone"
-			android:padding="16dp"/>
-
-	</cn.endureblaze.ka.customui.RippleLayout>
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentEnd="true"
+		android:layout_marginBottom="19dp"
+		android:layout_marginEnd="22dp"/>
 
 	<TextView
 		android:layout_width="wrap_content"

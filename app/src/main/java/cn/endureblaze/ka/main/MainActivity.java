@@ -42,52 +42,39 @@ import com.umeng.analytics.*;
  *加载动画完毕后显示的Activity
  *是整个app的核心
  */
-public class MainActivity extends BaseActivity
-{
+public class MainActivity extends BaseActivity {
 	private Toolbar toolbar;
 	private Context gameContext;
-	private ProgressDialog progressDialog;
 
-	private IntentFilter intentFilter;
-
-	//private CosXmlService cosXmlService;
-	@Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+	private BottomNavigationView bottomNavigationView;
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 		ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_main);
-		//跳转GameListActivity要用的数据
-		setApply();	
 		//配置toolbar
 		toolbar = (Toolbar)findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-		if (CheckSimpleModeUtil.isSimpleMode())
-		{
-			getSupportActionBar().setTitle(R.string.simple_mode_app_name);
-		}
-		else
-		{
+		if (CheckSimpleModeUtil.isSimpleMode()) {
+			getSupportActionBar().setTitle(getResources().getString(R.string.app_name)+"·"+"2017");
+		} else {
 			getSupportActionBar().setTitle(R.string.app_name);
 		}
 		toolbar.setSubtitle(R.string.ziyuan);
 		replaceFragment(new MainGameFragment());
 	    bottomBar();
-		//initTencentCloud();
+		findShortcut();
 		permissionAndPrivacy();
 		CheckUpdateUtil.checkUpdate(toolbar, this);
 		//友盟统计
-		if (UserUtil.getCurrentUser() != null)
-		{
+		if (UserUtil.getCurrentUser() != null) {
 			MobclickAgent.onProfileSignIn(UserUtil.getCurrentUser().getUsername());
 		}
 	}
-	private void permissionAndPrivacy()
-	{
+	private void permissionAndPrivacy() {
 		SharedPreferences preferences = getSharedPreferences("boolean", 0);
         boolean pAp = preferences.getBoolean("permissionAndPrivacy", false);
-		if (pAp == false)
-		{
+		if (pAp == false) {
 			AlertDialog.Builder permissionAndPrivacy_dialog=new AlertDialog.Builder(this)
 				.setTitle(R.string.permissionandprivacy_title)
 				.setMessage(R.string.permissionandprivacy_cnntent)
@@ -96,8 +83,7 @@ public class MainActivity extends BaseActivity
 				DialogInterface.OnClickListener()
 				{
 					@Override
-					public void onClick(DialogInterface dialog, int which)
-					{
+					public void onClick(DialogInterface dialog, int which) {
 						SharedPreferences.Editor t=getSharedPreferences("boolean", 0).edit();
 						t.putBoolean("permissionAndPrivacy", true);
 						t.apply();
@@ -108,37 +94,36 @@ public class MainActivity extends BaseActivity
 				.setNeutralButton(getResources().getString(R.string.dia_disagree), new DialogInterface.OnClickListener()
 				{
 					@Override
-					public void onClick(DialogInterface dialog, int which)
-					{
+					public void onClick(DialogInterface dialog, int which) {
 						finish();
 					}
 				}
 			);
 			permissionAndPrivacy_dialog.show();
-		}else{
+		} else {
 			copyrightsWarning();
 		}
 	}
 
-	private void copyrightsWarning(){
-		final SharedPreferences pref=getSharedPreferences("agreements",MODE_PRIVATE);
-		if(pref.getBoolean("agree_copyrights",false)==false){
+	private void copyrightsWarning() {
+		final SharedPreferences pref=getSharedPreferences("agreements", MODE_PRIVATE);
+		if (pref.getBoolean("agree_copyrights", false) == false) {
 			new AlertDialog.Builder(this)
-					.setTitle(R.string.copyrights_warning_title)
-					.setMessage(R.string.copyrights_warning_content)
-					.setCancelable(false)
-					.setPositiveButton(R.string.dia_agree, new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(DialogInterface dialogInterface, int i) {
-							pref.edit().putBoolean("agree_copyrights",true).apply();
-						}
-					})
-					.setNeutralButton(R.string.dia_disagree, new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(DialogInterface dialogInterface, int i) {
-							finish();
-						}
-					}).show();
+				.setTitle(R.string.copyrights_warning_title)
+				.setMessage(R.string.copyrights_warning_content)
+				.setCancelable(false)
+				.setPositiveButton(R.string.dia_agree, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialogInterface, int i) {
+						pref.edit().putBoolean("agree_copyrights", true).apply();
+					}
+				})
+				.setNeutralButton(R.string.dia_disagree, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialogInterface, int i) {
+						finish();
+					}
+				}).show();
 		}
 	}
 	/**
@@ -147,64 +132,49 @@ public class MainActivity extends BaseActivity
 	 *用于显示底部导航栏的方法
 	 *内部完成了所有逻辑
 	 */
-	private void bottomBar()
-	{
-	    BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
-		if (CheckSimpleModeUtil.isSimpleMode())
-		{
+	private void bottomBar() {
+	    bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
+		if (CheckSimpleModeUtil.isSimpleMode()) {
 			bottomNavigationView.getMenu().removeItem(R.id.talk);
 			bottomNavigationView.getMenu().removeItem(R.id.me);
 		}
 		BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 		bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 				@Override
-				public boolean onNavigationItemSelected(@NonNull MenuItem item)
-				{
-					switch (item.getItemId())
-					{
+				public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+					switch (item.getItemId()) {
 						case R.id.ziyuan:
-							if (toolbar.getSubtitle() != getResources().getString(R.string.ziyuan))
-							{
+							if (toolbar.getSubtitle() != getResources().getString(R.string.ziyuan)) {
 								toolbar.setSubtitle(R.string.ziyuan);
 								replaceFragment(new MainGameFragment());
 							}
 							break;
 						case R.id.video:
-							if (toolbar.getSubtitle() != getResources().getString(R.string.video_title))
-							{
+							if (toolbar.getSubtitle() != getResources().getString(R.string.video_title)) {
 								toolbar.setSubtitle(R.string.video_title);
 								replaceFragment(new MainVideoFragment());
 							}
 							break;
 						case R.id.talk:
-							if (toolbar.getSubtitle() != getResources().getString(R.string.talk))
-							{
+							if (toolbar.getSubtitle() != getResources().getString(R.string.talk)) {
 								toolbar.setSubtitle(R.string.talk);
-								if (null == UserUtil.getCurrentUser())
-								{
-									replaceFragment(new MainNullFragment());
-								}
-								else
-								{
+								if (UserUtil.isUserLogin()) {
 									replaceFragment(new MainChatFragment());
+								} else {
+									replaceFragment(new MainNullFragment());
 								}
 							}
 							break;
 						case R.id.me:
-							if (null == UserUtil.getCurrentUser())
-							{
-								if (toolbar.getSubtitle() != getResources().getString(R.string.login_title))
-								{
-									replaceFragment(new MainLoginFragment());
-									toolbar.setSubtitle(R.string.login_title);
-								}
-							}
-							else
-							{
-								if (toolbar.getSubtitle() != UserUtil.getCurrentUser().getUsername())
-								{
+							if (UserUtil.isUserLogin()) {
+								if (toolbar.getSubtitle() != UserUtil.getCurrentUser().getUsername()) {
 									replaceFragment(new MainUserFragment());
 									toolbar.setSubtitle(UserUtil.getCurrentUser().getUsername());
+								}
+							} else {
+								if (toolbar.getSubtitle() != getResources().getString(R.string.login_title)) {
+									replaceFragment(new MainLoginFragment());
+									toolbar.setSubtitle(R.string.login_title);
 								}
 							}
 							break;
@@ -213,32 +183,19 @@ public class MainActivity extends BaseActivity
 				}
 			});
 	}
-
-	/*private void initTencentCloud()
-	 {
-	 String appid = "1253475863";
-	 String region = "ap-shanghai"; 
-
-	 String secretId = "AKIDt4utx89lfgtCZyuqpJ0tpozDUqbLqKTg";
-	 String secretKey ="7jaWYfoaUTWftA57GUrM51FgJs3S3pel";
-	 long keyDuration = 600; //SecretKey 的有效时间，单位秒
-
-	 //创建 CosXmlServiceConfig 对象，根据需要修改默认的配置参数
-	 CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
-	 .isHttps(true)
-	 .setAppidAndRegion(appid, region)
-	 .setDebuggable(true)
-	 .builder();
-
-	 //创建获取签名类(请参考下面的生成签名示例，或者参考 sdk中提供的ShortTimeCredentialProvider类）
-	 ShortTimeCredentialProvider localCredentialProvider = new ShortTimeCredentialProvider(secretId, secretKey, keyDuration);
-
-	 //创建 CosXmlService 对象，实现对象存储服务各项操作.
-	 Context context = getApplicationContext(); //应用的上下文
-
-	 cosXmlService = new CosXmlService(context,serviceConfig, localCredentialProvider);
-	 }*/
-
+	private void findShortcut() {
+		Intent intent=getIntent();
+		if ("video".equals(intent.getStringExtra("function"))) {
+			toolbar.setSubtitle(R.string.video_title);
+			replaceFragment(new MainVideoFragment());
+			bottomNavigationView.setSelectedItemId(R.id.video);
+		}
+		if ("user".equals(intent.getStringExtra("function"))) {
+			toolbar.setSubtitle(R.string.user_title);
+			replaceFragment(new MainUserFragment());
+			bottomNavigationView.setSelectedItemId(R.id.me);
+		}
+	}
 	/**
 	 *方法名:replaceFragment
 	 *需要传入参数(Fragment fragment)
@@ -246,38 +203,15 @@ public class MainActivity extends BaseActivity
 	 *参数举例:replaceFragment(new MainMessFragment())  MainMessFragment是对应Fragment的名称
 	 *用于显示MainActivity上id为fragment的组件显示的内容
 	 */
-	public void replaceFragment(Fragment fragment)
-	{
+	public void replaceFragment(Fragment fragment) {
 		FragmentManager fragmentManager=getSupportFragmentManager();
 		FragmentTransaction transaction=fragmentManager.beginTransaction();
-		if (CheckSimpleModeUtil.isSimpleMode() == false)
-		{
+		if (CheckSimpleModeUtil.isSimpleMode() == false) {
 			transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 		}
 		transaction.replace(R.id.main_fragment, fragment);
 		transaction.commit();
 	}
-	/**
-	 *方法名:setApply
-	 *不需要传入参数
-	 *用于初始化参数
-	 */
-	private void setApply()
-	{
-		SharedPreferences.Editor y=getSharedPreferences("string", 0).edit();
-		y.putString("主机名称", "0");
-		y.putString("游戏或模拟器名称", "0");
-		y.apply();
-	}
-	@Override
-	protected void onDestroy()//在退出程序时恢复数据
-	{	
-		super.onDestroy();
-		SharedPreferences.Editor y=getSharedPreferences("string", 0).edit();
-		y.putString("主机名称", "0");
-		y.putString("游戏或模拟器名称", "0");
-		y.apply();
-    }
 	/**
 	 *方法名:setCustomTheme
 	 *需要传入参数(int i)
@@ -285,8 +219,7 @@ public class MainActivity extends BaseActivity
 	 *参数举例:setCustomTheme(0)  表示设置列表第一个主题
 	 *用于设置主题颜色参数
 	 */
-	public void setCustomTheme(int i)
-	{
+	public void setCustomTheme(int i) {
 		ThemeUtil.setTheme(MainActivity.this, i);
 		SharedPreferences.Editor y=getSharedPreferences("customtheme", 0).edit();
 		y.putInt("id", i);
@@ -298,8 +231,7 @@ public class MainActivity extends BaseActivity
 	 *不需要传入参数
 	 *用于退出并再次打开MainActivity 适用于修改主题或者修改用户头像等之后使用
 	 */
-	public void open()
-	{
+	public void open() {
 		Intent intent = getIntent();
 		overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);//假装没退出过...
 		intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
@@ -307,11 +239,9 @@ public class MainActivity extends BaseActivity
 	    startActivity(intent);
 	}
 	//初始化toolbar菜单
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
+	public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar, menu);
-		if (CheckSimpleModeUtil.isSimpleMode())
-		{
+		if (CheckSimpleModeUtil.isSimpleMode()) {
 			menu.removeItem(R.id.theme);
 		}
         return true;
@@ -319,18 +249,13 @@ public class MainActivity extends BaseActivity
 	//按两次退出
 	private long exitTime = 0;
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event)
-	{
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK
-			&& event.getAction() == KeyEvent.ACTION_DOWN)
-		{
-			if ((System.currentTimeMillis() - exitTime) > 2000)
-			{
+			&& event.getAction() == KeyEvent.ACTION_DOWN) {
+			if ((System.currentTimeMillis() - exitTime) > 2000) {
 				Snackbar.make(toolbar, R.string.two_back, Snackbar.LENGTH_SHORT).show();
 				exitTime = System.currentTimeMillis();
-			}
-			else
-			{
+			} else {
 				finish();
 			}
 			return true;
@@ -339,10 +264,8 @@ public class MainActivity extends BaseActivity
 	}
 	@Override
 	//获取toolbar菜单id执行事件
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		switch (item.getItemId())
-		{
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
 			case R.id.theme:
 				/**
 				 *用于显示主题列表
@@ -353,18 +276,18 @@ public class MainActivity extends BaseActivity
 				AlertDialog.Builder theme = new AlertDialog.Builder(MainActivity.this);
 				theme.setTitle(R.string.theme_title);
 				Integer[] res = new Integer[]{
-					R.drawable.buletheme,
-					R.drawable.redtheme,
-					R.drawable.purpletheme,
-					R.drawable.lindigotheme,
-					R.drawable.tealtheme,
-					R.drawable.greentheme,
-					R.drawable.orangetheme,
-					R.drawable.browntheme,
-					R.drawable.bluegreytheme,
-					R.drawable.yellowtheme,
-					R.drawable.kirbytheme,
-					R.drawable.whitetheme
+					R.drawable.theme_blue,
+					R.drawable.theme_red,
+					R.drawable.theme_purple,
+					R.drawable.theme_lindigo,
+					R.drawable.theme_teal,
+					R.drawable.theme_green,
+					R.drawable.theme_orange,
+					R.drawable.theme_brown,
+					R.drawable.theme_bluegrey,
+					R.drawable.theme_yellow,
+					R.drawable.theme_kirby,
+					R.drawable.theme_white
 				};
 				List<Integer> list = Arrays.asList(res);
 				ColorListAdapter adapter = new ColorListAdapter(MainActivity.this, list);
@@ -378,11 +301,9 @@ public class MainActivity extends BaseActivity
 				gridView.setOnItemClickListener(
 					new AdapterView.OnItemClickListener() {
 						@Override
-						public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-						{
+						public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 							dialog.dismiss();
-							if (itemSelected != position)
-							{
+							if (itemSelected != position) {
 								setCustomTheme(position);
 							}
 						}
@@ -400,10 +321,8 @@ public class MainActivity extends BaseActivity
 				String[] items={"ZArchiver\n" + getResources().getString(R.string.app_ZArchiver)};
 				builder.setItems(items, new DialogInterface.OnClickListener() {
 						@Override
-						public void onClick(DialogInterface dialogInterface, int i)
-						{
-							switch (i)
-							{
+						public void onClick(DialogInterface dialogInterface, int i) {
+							switch (i) {
 								case 0:
 									DownloadApkUtil.downloadappApk("ZArchiver", MainActivity.this);
 									break;
@@ -413,9 +332,9 @@ public class MainActivity extends BaseActivity
 				builder.create();
 				builder.show();
 				break;
-			case R.id.pay:
-				Intent pay=new Intent(MainActivity.this, PayActivity.class);
-				IntentUtil.startActivityWithAnim(pay, MainActivity.this);
+			case R.id.donate:
+				Intent donate=new Intent(MainActivity.this, DonateActivity.class);
+				IntentUtil.startActivityWithAnim(donate, MainActivity.this);
 				break;
 			default:
 		}
@@ -430,11 +349,9 @@ public class MainActivity extends BaseActivity
 	 *调用了方法:appFileDownload
 	 */
 
-	public void theDownload(Context con, String game_name, String position)
-	{
-		gameContext = con;
-		switch (position)
-		{
+	public void theDownload(Context context, String game_name, String position) {
+		gameContext = context;
+		switch (position) {
 			case "emulators_gba"://"GBA " + getGameText(R.string.moniqi) + "\nMy Boy!":
 				showOtherDownloadDialog("gba", game_name);
 				break;
@@ -458,8 +375,7 @@ public class MainActivity extends BaseActivity
 				break;
 		}
 	}
-	private void showOtherDownloadDialog(final String downloadName, String game_name)
-	{
+	private void showOtherDownloadDialog(final String downloadName, String game_name) {
 		AlertDialog.Builder dialog = new
 			AlertDialog.Builder(gameContext)
 			.setTitle(game_name)
@@ -468,66 +384,50 @@ public class MainActivity extends BaseActivity
 			DialogInterface.OnClickListener()
 			{
 				@Override
-				public void onClick(DialogInterface dialog, int which)
-				{
+				public void onClick(DialogInterface dialog, int which) {
 					DownloadApkUtil.downloadappApk(downloadName, gameContext);
 				}			
 			}
 		);dialog.show();
 	}
 	@Override
-	protected void onSaveInstanceState(Bundle outState)
-	{
+	protected void onSaveInstanceState(Bundle outState) {
 		// TODO: Implement this method
 		super.onSaveInstanceState(outState);	
 		outState.putBundle("windows_save", getWindow().saveHierarchyState());
 		outState.putCharSequence("fragment", toolbar.getSubtitle());
 	}
-	protected void onRestoreInstanceState(Bundle savedInstanceState)
-	{
-		if (getWindow() != null)	
-		{
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		if (getWindow() != null) {
 			Bundle windowState = savedInstanceState.getBundle("windows_save");
-			if (windowState != null)
-			{
+			if (windowState != null) {
 				getWindow().restoreHierarchyState(windowState);	
 			}
 		}
 		CharSequence fragment_cheak=savedInstanceState.getCharSequence("fragment");
-		if (fragment_cheak.equals(getResources().getString(R.string.ziyuan)))
-		{
+		if (fragment_cheak.equals(getResources().getString(R.string.ziyuan))) {
 			toolbar.setSubtitle(R.string.ziyuan);
 			replaceFragment(new MainGameFragment());
 		}
-		if (fragment_cheak.equals(getResources().getString(R.string.video_title)))
-		{
+		if (fragment_cheak.equals(getResources().getString(R.string.video_title))) {
 			toolbar.setSubtitle(R.string.video_title);
 			replaceFragment(new MainVideoFragment());
 		}
-		if (fragment_cheak.equals(getResources().getString(R.string.talk)))
-		{
+		if (fragment_cheak.equals(getResources().getString(R.string.talk))) {
 			toolbar.setSubtitle(R.string.talk);
-			if (null == UserUtil.getCurrentUser())
-			{
+			if (null == UserUtil.getCurrentUser()) {
 				replaceFragment(new MainNullFragment());
-			}
-			else
-			{
+			} else {
 				replaceFragment(new MainChatFragment());
 			}
 		}
-		if (null == UserUtil.getCurrentUser())
-		{
-			if (fragment_cheak.equals(getResources().getString(R.string.login_title)))
-			{
+		if (null == UserUtil.getCurrentUser()) {
+			if (fragment_cheak.equals(getResources().getString(R.string.login_title))) {
 				replaceFragment(new MainLoginFragment());
 				toolbar.setSubtitle(R.string.login_title);
 			}
-		}
-		else
-		{
-			if (fragment_cheak.equals(UserUtil.getCurrentUser().getUsername()))
-			{
+		} else {
+			if (fragment_cheak.equals(UserUtil.getCurrentUser().getUsername())) {
 				replaceFragment(new MainUserFragment());
 				toolbar.setSubtitle(UserUtil.getCurrentUser().getUsername());
 			}
@@ -536,8 +436,7 @@ public class MainActivity extends BaseActivity
 	}
 
 	@Override
-	public void onResume()
-	{
+	public void onResume() {
 		bottomBar();
 		super.onResume();
 	}

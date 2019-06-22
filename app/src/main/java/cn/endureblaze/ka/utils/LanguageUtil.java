@@ -1,10 +1,12 @@
 package cn.endureblaze.ka.utils;
-import android.content.res.*;
-import android.content.*;
-import java.util.*;
-import android.app.*;
-import android.util.*;
-import android.os.*;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
+import android.os.LocaleList;
+import android.util.DisplayMetrics;
+import cn.endureblaze.ka.manager.ActManager;
+import java.util.Locale;
 
 public class LanguageUtil
 {

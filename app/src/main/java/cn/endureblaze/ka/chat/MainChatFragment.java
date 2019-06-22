@@ -29,6 +29,7 @@ import cn.endureblaze.ka.main.*;
 import cn.endureblaze.ka.utils.*;
 import com.scwang.smartrefresh.layout.api.*;
 import com.scwang.smartrefresh.layout.listener.*;
+import com.scwang.smartrefresh.header.MaterialHeader;
 
 
 public class MainChatFragment extends BaseFragment
@@ -43,9 +44,6 @@ public class MainChatFragment extends BaseFragment
 	private MainActivity m;
 	private int messItem;
 	private EditText edit_编辑;
-
-	private RippleLayout rippleBackground;
-
 	private TextView mess_load_fail;  
 	//private BottomDialog mess_dia;
 	@Override
@@ -66,17 +64,16 @@ public class MainChatFragment extends BaseFragment
 		GridLayoutManager layoutManager=new GridLayoutManager(getActivity(), 1);
 		re.setLayoutManager(layoutManager);
 		adapter = new ChatAdapter(chatlist,getActivity(),getActivity().getSupportFragmentManager());	
-		//律动动画
-	    rippleBackground=(RippleLayout)view.findViewById(R.id.content);
 		//refresh数据
 		refresh = (RefreshLayout)view.findViewById(R.id.refresh);
+		MaterialHeader mMaterialHeader=(MaterialHeader) refresh.getRefreshHeader();
+		mMaterialHeader.setColorSchemeColors(ThemeUtil.getColorPrimary(getActivity()));
 		refresh.setOnRefreshListener(new OnRefreshListener(){
 				@Override
 				public void onRefresh(RefreshLayout re)
 				{
 					refresh.setEnableLoadMore(false);
 					edit_mess_button.setVisibility(View.GONE);
-					rippleBackground.stopRippleAnimation();
 					getChat();
 				}
 			});
@@ -94,7 +91,7 @@ public class MainChatFragment extends BaseFragment
 				@Override
 				public void onClick(View v)			
 				{
-					EditChatDialog.newInstance("0")
+					EditChatDialog.newInstance("0",null,ChatMode.CHAT_SEND_MODE)
 					.setTheme(R.style.BottomDialogStyle)
 					.setMargin(0)
 					.setShowBottom(true)
@@ -127,8 +124,7 @@ public class MainChatFragment extends BaseFragment
 						edit_mess_button.setVisibility(View.VISIBLE);
 						ScaleAnimation mess_fab_anim = (ScaleAnimation) AnimationUtils.loadAnimation(getActivity(), R.transition.mess_fab);
 						edit_mess_button.startAnimation(mess_fab_anim);
-						rippleBackground.startRippleAnimation();
-					}
+				}
 					else
 					{
 						mess_load_fail.setVisibility(View.VISIBLE);

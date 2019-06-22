@@ -2,12 +2,12 @@
     
     <item
         android:id="@+id/mess_copy"
-        android:title="@string/mess_copy"/>
+        android:title="@string/chat_copy"/>
 	<item
         android:id="@+id/mess_del"
-        android:title="@string/mess_del"/>
+        android:title="@string/chat_del"/>
 	<item
         android:id="@+id/mess_edit"
-        android:title="@string/mess_edit"/>
+        android:title="@string/chat_edit"/>
     
 </menu>

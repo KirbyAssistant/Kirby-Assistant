@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import android.content.Context;
+import android.widget.Toast;
 
 
 public class FastBlurUtil {
@@ -34,7 +36,7 @@ public class FastBlurUtil {
 
     public static Bitmap GetUrlBitmap(String url, int scaleRatio) {
 
-
+		
         int blurRadius = 8;//通常设置为8就行。
         if (scaleRatio <= 0) {
             scaleRatio = 10;

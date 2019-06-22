@@ -1,30 +1,30 @@
 package cn.endureblaze.ka.me.user.userhead;
-import android.app.*;
-import android.content.*;
-import android.content.pm.*;
-import android.database.*;
-import android.graphics.*;
-import android.net.*;
-import android.os.*;
-import android.provider.*;
-import android.support.v4.content.*;
-import android.text.*;
-import android.view.*;
-import android.widget.*;
-import cn.bmob.v3.*;
-import cn.bmob.v3.datatype.*;
-import cn.bmob.v3.exception.*;
-import cn.bmob.v3.listener.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.bmob.*;
-import cn.endureblaze.ka.utils.*;
-//import com.yalantis.ucrop.*;
-import java.io.*;
-
-import cn.endureblaze.ka.base.*;
-import android.support.v4.app.*;
-import android.support.annotation.*;
-import com.bumptech.glide.*;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v4.content.LocalBroadcastManager;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+import cn.bmob.v3.datatype.BmobFile;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.UpdateListener;
+import cn.bmob.v3.listener.UploadFileListener;
+import cn.endureblaze.ka.R;
+import cn.endureblaze.ka.base.BaseActivity;
+import cn.endureblaze.ka.bmob.BmobKirbyAssistantUser;
+import cn.endureblaze.ka.manager.ActManager;
+import cn.endureblaze.ka.utils.ThemeUtil;
+import cn.endureblaze.ka.utils.UserUtil;
+import com.bumptech.glide.Glide;
+import java.io.File;
+import java.io.IOException;
+import cn.endureblaze.ka.utils.GlideUtil;
 
 public class HeadActivity extends BaseActivity
 {
@@ -48,10 +48,7 @@ public class HeadActivity extends BaseActivity
 		{
 			if (UserUtil.getCurrentUser().getUserHead().getFileUrl() != null)
 			{
-				Glide
-					.with(this)
-					.load(UserUtil.getCurrentUser().getUserHead().getFileUrl())
-					.into(userHead);
+				GlideUtil.setNormalImageViaGlideCache(HeadActivity.this,userHead,UserUtil.getCurrentUser().getUserHead().getFileUrl().toString());
 			}
 		}
 		catch (Exception e)
@@ -79,14 +76,12 @@ public class HeadActivity extends BaseActivity
             case CHOOSE_PHOTO:
 				if (resultCode == RESULT_OK)
 				{
-					//startUcrop(data.getData());
 					CropImageDialog.newInstance(data.getData())
 						.setTheme(R.style.BottomDialogStyle)
 					    .setMargin(0)
 						.setShowBottom(true)   
 						.show(ActManager.currentFragmentActivity().getSupportFragmentManager());
 				}
-				//    getImagePathOpenUcrop(resultCode,data);
 				break;
 			default:
 				break;
@@ -96,7 +91,6 @@ public class HeadActivity extends BaseActivity
 	{
 		SharedPreferences image=getSharedPreferences("string", 0);
 		final String image_str= image.getString("image_str", null);
-		Toast.makeText(this, image_str, Toast.LENGTH_SHORT).show();
 		try
 		{
 			final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -150,10 +144,10 @@ public class HeadActivity extends BaseActivity
 			catch (IOException e)
 			{}
 			userHead.setImageBitmap(imageBitmap);
+			ActManager.finishActivity();
 			Intent intent = new Intent("com.kirby.download.CHANGE_USERHEAD");
 			intent.putExtra("userHead", 1);
 			localBroadcastManager.sendBroadcast(intent);
-			this.finish();
         }
 		else
 		{

@@ -7,7 +7,7 @@
 	<string name="setting_title">Setting</string>
 	<string name="about_title">About</string>
 	<string name="help_title">Help</string>
-	<string name="mess_title">Details</string>
+	<string name="chat_title">Details</string>
 	<string name="video_title">Video</string>
 	<string name="cheatCode_title">Cheat Code</string>
 	<string name="ziyuan">Resources</string>
@@ -22,17 +22,25 @@
 	<string name="egg">Here is the egg</string>
 	<string name="bug_report">Bug has uploaded</string>
 	<string name="two_back">Please press exit again</string>
+	<string name="profile_photo">Profile Photo</string>
 	
-	<string name="mess_upload">Sending</string>
-	<string name="mess_true">Send Successfully:</string>
-	<string name="mess_false">Send Unsuccessfully:</string>
-	<string name="mess_del_success">Chat delete successfully</string>
-	<string name="mess_del_fail">Chat delete failed :</string>
-	<string name="mess_edit_success">Chat editing successfully</string>
-	<string name="mess_edit_fail">Chat editing fail:</string>
-	<string name="mess_copy">Copy content</string>
-	<string name="mess_del">Delete this chat</string>
-	<string name="mess_edit">Edit this chat</string>
+	<string name="chat_send">Send</string>
+	<string name="chat_upload">Sending</string>
+	<string name="chat_true">Send Successfully:</string>
+	<string name="chat_false">Send Unsuccessfully:</string>
+	<string name="chat_del_success">Chat delete successfully</string>
+	<string name="chat_del_fail">Chat delete failed :</string>
+	<string name="chat_edit_success">Chat editing successfully</string>
+	<string name="chat_edit_fail">Chat editing fail:</string>
+	<string name="chat_copy">Copy content</string>
+	<string name="chat_del">Delete this chat</string>
+	<string name="chat_edit">Edit this chat</string>
+	
+	<string name="donate_alipay">Alipay</string>
+	<string name="donate_wechatpay">WeChat</string>
+	<string name="donate_btc">Bitcoin</string>
+	<string name="donate_qqpay">QQ</string>
+	<string name="donate_paypal">PayPal</string>
 	
 	<string name="load_fail">Failed to load, please refresh and try again</string>
 	
@@ -149,22 +157,31 @@
 	<string name="faq_message">FAQ</string>
    <string name="feedback_title">Feedback</string>
 	<string name="qq_group">More Detailed Help？Pass The Button To Go To Me Tencent QQ Group</string>
-	<string name="kfz_title">Developer</string>
-	<string name="me1">Coolapk</string>
-	<string name="me2">\@汝南京</string>
+	<string name="tg_channel_title">Telegram Channel</string>
+	<string name="tg_channel_message">Will post updates and other things</string>
+	<string name="dev_title">Developer</string>
+	<string name="dev_coolapk">Coolapk\@汝南京</string>
+	<string name="dev_github">Github\@EnduerBlaze</string>
+	<string name="dev_weibo">Weibo\@汝南京</string>
+	<string name="dev_twitter">Twitter\@EndureBlaze</string>
 	<string name="github">Browsing The Program In Github.</string>
 	<string name="gitlab">Browsing The Program In Gitlab.</string>
 	<string name="contributor_title">Contributor</string>
+	<string name="program_title">Special contribution of program</string>
+	<string name="program_github_lxfly2000">Github@lxfly2000</string>
 	<string name="translation_tw_title">Traditional Chinese translator</string>
-	<string name="translation_tw_message">Github\@longxk2017</string>
+	<string name="translation_tw_github_longxk2017">Github\@longxk2017</string>
 	<string name="translation_en_title">English translator</string>
-	<string name="translation_en_message">Baidu Tieba\@难难难550\nBaidu Tieba\@光之耀西</string>
+	<string name="translation_en_tieba_nannannan550">Baidu Tieba\@难难难550</string>
+	<string name="translation_en_tieba_guangzhiyaoxi">Baidu Tieba\@光之耀西</string>
 	<string name="draw_icon_title">Draw ICON</string>
-	<string name="draw_icon_message">CoolApk\@hk流星\nCoolApk\@Markuss\nBaidu Tieba\@★☆小伊布☆★</string>
+	<string name="draw_icon_coolapk_hkliuxing">CoolApk\@hk流星</string>
+	<string name="draw_icon_coolapk_markuss">CoolApk\@Markuss</string>
+	<string name="draw_icon_tieba_xiaoyibu">Baidu Tieba\@★☆小伊布☆★</string>
 	<string name="video_author_title">Video author</string>
-	<string name="video_author_message">Baidu Tieba\@gf5f65d</string>
+	<string name="video_author_bilibili_xige">Bilibili\@虚影无华</string>
 	<string name="writer_help_faq_title">FAQ Writer</string>
-	<string name="writer_help_faq_message">CoolApk\@塔林狐</string>
+	<string name="writer_help_faq_coolapk_talinhu">CoolApk\@塔林狐</string>
 	<string name="greenapps_title">Green Apps for Android</string>
 	<string name="greenapps_message">Kirby Assistant Comply to “Convention of Green Apps for Android”, certified)\nClick to visit Green Apps for Android official website</string>
 	
@@ -181,7 +198,7 @@
 	<string name="register_password">Password(Numbers Or Letter)</string>
 	<string name="register_password_again">Please enter your password again</string>
 	
-	<string name="pay_title">Donate</string>
+	<string name="donate_title">Donate</string>
 	
 	<string name="dia_download">Download</string>
 	<string name="dia_yes">OK</string>
@@ -200,6 +217,4 @@
 	<string name="copyrights_warning_title">Copyrights Warning</string>
 	<string name="copyrights_warning_content">All resources provided by this application are collected from Internet. You are limited to use these data only for testing and studying purposes and may not use for commercial.\n
 	If you feel like the Kirby series, please support the official version.</string>
-	<string name="contributor_github_lxfly2000">Github@lxfly2000</string>
-	<string name="program_contributors">Program</string>
 </resources>

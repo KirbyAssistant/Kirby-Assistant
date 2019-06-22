@@ -1,41 +1,26 @@
 package cn.endureblaze.ka.base;
 
-import android.os.*;
-import android.support.v7.app.*;
-import android.transition.*;
-import android.util.*;
-import android.view.*;
-import cn.bmob.v3.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.utils.*;
-import com.jaeger.library.*;
-import com.oasisfeng.condom.*;
-import com.umeng.analytics.*;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import cn.bmob.v3.Bmob;
+import cn.endureblaze.ka.manager.ActManager;
+import cn.endureblaze.ka.utils.LanguageUtil;
+import cn.endureblaze.ka.utils.ThemeUtil;
+import com.oasisfeng.condom.CondomContext;
+import com.umeng.analytics.MobclickAgent;
+import java.security.cert.PolicyQualifierInfo;
+import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout;
+import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 
-import cn.endureblaze.ka.R;
-
+@ParallaxBack
 public class BaseActivity extends AppCompatActivity
 {
-
 	private String WINDOW_HIERARCHY_TAG="window_save";
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 	    ActManager.addActivity(this);
-		getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-		Transition explode = TransitionInflater.from(this).inflateTransition(R.transition.explode);
-		Transition slide_in = TransitionInflater.from(this).inflateTransition(R.transition.slide_in);
-		Transition slide_out = TransitionInflater.from(this).inflateTransition(R.transition.slide_out);
-		Transition fade = TransitionInflater.from(this).inflateTransition(R.transition.fade);
-	//极简模式检测
-		if (CheckSimpleModeUtil.isSimpleMode() == false)
-		{
-			getWindow().setEnterTransition(slide_in); //首次进入显示的动画
-			getWindow().setExitTransition(slide_out); //启动一个新Activity,当前页的退出动画
-			getWindow().setReturnTransition(slide_out); //调用 finishAfterTransition() 退出时，当前页退出的动画
-			getWindow().setReenterTransition(fade); //重新进入的动画。即第二次进入，可以和首次进入不一样。
-		}
-		super.onCreate(savedInstanceState);
+     	super.onCreate(savedInstanceState);
 		LanguageUtil.setLanguage();
 		Bmob.initialize(CondomContext.wrap(this, "Bmob"), "e39c2e15ca40b358b0dcc933236c1165");
 		MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
@@ -44,21 +29,14 @@ public class BaseActivity extends AppCompatActivity
     public void setContentView(int layoutResID)
 	{
         super.setContentView(layoutResID);
-        setStatusBar(getDarkColorPrimary());
+        setStatusBar(ThemeUtil.getDarkColorPrimary(this));
     }
 
     public void setStatusBar(int color)
 	{
-		StatusBarUtil.setColor(this, color, 0);
+		getWindow().setStatusBarColor(color);
 		getWindow().setNavigationBarColor(color);
     }
-	public int getDarkColorPrimary()
-	{
-		TypedValue typedValue = new  TypedValue();
-		getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
-		return typedValue.data;
-	}
-
 	@Override
 	protected void onSaveInstanceState(Bundle outState)
 	{
