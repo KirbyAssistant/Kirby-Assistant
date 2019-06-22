@@ -5,12 +5,12 @@ import android.content.*;
 import android.content.res.*;
 import android.graphics.*;
 import android.os.*;
-import android.support.annotation.*;
 import android.text.*;
 import android.util.*;
 import android.view.*;
 import android.view.animation.*;
 import android.widget.*;
+import androidx.annotation.RequiresApi;
 import cn.endureblaze.ka.R;
 
 public class RippleLayout extends RelativeLayout {

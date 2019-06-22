@@ -1,8 +1,7 @@
 package cn.endureblaze.ka.base;
 
-import android.os.*;
-import android.support.annotation.*;
-import android.support.v4.app.*;
+import androidx.core.app.*;
+import androidx.fragment.app.Fragment;
 import com.umeng.analytics.*;
 
 public class BaseFragment extends Fragment

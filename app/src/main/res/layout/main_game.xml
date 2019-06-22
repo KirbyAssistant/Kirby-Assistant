@@ -8,7 +8,7 @@
 	android:background="?color_bkg_main"
 	android:id="@+id/root_view">
 
-	<android.support.design.widget.TabLayout
+	<com.google.android.material.tabs.TabLayout
 		android:id="@+id/tabLayout"
 		android:background="?attr/android:windowBackground"
 		android:theme="@style/ThemeOverlay.AppCompat"
@@ -19,7 +19,7 @@
 		app:tabIndicatorHeight="2dp"
 		android:elevation="1dp"/>
 
-	<android.support.v4.view.ViewPager
+	<androidx.viewpager.widget.ViewPager
 		android:id="@+id/viewpager"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"

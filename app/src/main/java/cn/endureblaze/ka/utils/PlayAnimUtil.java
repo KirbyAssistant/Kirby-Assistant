@@ -1,7 +1,8 @@
 package cn.endureblaze.ka.utils;
 
-import android.support.v7.widget.*;
+import androidx.appcompat.widget.*;
 import android.view.animation.*;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class PlayAnimUtil
 {

@@ -8,12 +8,12 @@
 	android:background="?color_bkg_main"
 	android:id="@+id/mainCoordinatorLayout1">
 
-	<android.support.design.widget.AppBarLayout
+	<com.google.android.material.appbar.AppBarLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/mainAppBarLayout1">
 
-		<android.support.v7.widget.Toolbar
+		<androidx.appcompat.widget.Toolbar
 			android:id="@+id/toolbar"
 			android:layout_height="?attr/actionBarSize"
 			android:layout_width="match_parent"
@@ -22,11 +22,11 @@
 			app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
 			android:elevation="4dp">
 
-		</android.support.v7.widget.Toolbar>
+		</androidx.appcompat.widget.Toolbar>
 
-	</android.support.design.widget.AppBarLayout>
+	</com.google.android.material.appbar.AppBarLayout>
 
-	<android.support.design.widget.BottomNavigationView
+	<com.google.android.material.bottomnavigation.BottomNavigationView
 		android:id="@+id/bottomNavigation"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"

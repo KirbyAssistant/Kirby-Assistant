@@ -2,8 +2,9 @@ package cn.endureblaze.ka.resources.game;
 
 import android.content.*;
 import android.os.*;
-import android.support.v7.widget.*;
-import cn.endureblaze.ka.*;
+import androidx.appcompat.widget.*;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import cn.endureblaze.ka.bean.*;
 import cn.endureblaze.ka.utils.*;
 import java.util.*;

@@ -1,16 +1,15 @@
 package cn.endureblaze.ka.crash;
 import android.content.*;
 import android.os.*;
-import android.support.annotation.*;
 import android.text.*;
 import android.view.*;
 import android.widget.*;
-import cn.endureblaze.ka.*;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
 import cn.endureblaze.ka.utils.*;
 
 import android.content.ClipboardManager;
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.bottomdialog.*;
 import cn.endureblaze.ka.bottomdialog.*;
 import com.umeng.analytics.*;
 

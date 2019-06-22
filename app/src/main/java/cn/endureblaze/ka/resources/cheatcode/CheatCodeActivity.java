@@ -2,15 +2,14 @@ package cn.endureblaze.ka.resources.cheatcode;
 
 import android.content.*;
 import android.os.*;
-import android.support.v7.widget.*;
+import androidx.appcompat.widget.*;
 import android.view.*;
 import android.widget.*;
-import cn.endureblaze.ka.*;
 import cn.endureblaze.ka.bean.*;
 import cn.endureblaze.ka.utils.*;
 import java.util.*;
 
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.base.*;
 import com.github.anzewei.parallaxbacklayout.*;

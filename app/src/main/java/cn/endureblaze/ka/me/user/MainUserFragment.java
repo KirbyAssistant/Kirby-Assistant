@@ -4,15 +4,16 @@ import android.app.*;
 import android.content.*;
 import android.graphics.*;
 import android.os.*;
-import android.support.v4.app.*;
-import android.support.v4.content.*;
-import android.support.v4.util.*;
-import android.support.v7.app.*;
-import android.support.v7.widget.*;
-import android.text.*;
+import androidx.core.app.*;
+import androidx.core.content.*;
+import androidx.core.util.*;
+import androidx.appcompat.app.*;
+import androidx.appcompat.widget.*;
 import android.view.*;
 import android.view.animation.*;
 import android.widget.*;
+import androidx.cardview.widget.CardView;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import cn.bmob.v3.*;
 import cn.bmob.v3.exception.*;
 import cn.bmob.v3.listener.*;
@@ -27,14 +28,8 @@ import com.umeng.analytics.*;
 import java.io.*;
 import java.net.*;
 
-import android.support.v7.app.AlertDialog;
-import android.view.View.*;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.FutureTarget;
-import java.util.concurrent.ExecutionException;
+import androidx.appcompat.app.AlertDialog;
 import cn.endureblaze.ka.me.login.MainLoginFragment;
-import cn.endureblaze.ka.manager.ActManager;
 
 public class MainUserFragment extends BaseFragment {
 	private boolean CHANGE_HEAD=false;

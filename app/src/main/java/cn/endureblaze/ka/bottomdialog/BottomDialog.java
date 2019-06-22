@@ -1,10 +1,9 @@
 package cn.endureblaze.ka.bottomdialog;
 
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
-import android.support.annotation.StyleRes;
-import cn.endureblaze.ka.bottomdialog.*;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
 
 public class BottomDialog extends BaseBottomDialog {
     private ViewConvertListener convertListener;

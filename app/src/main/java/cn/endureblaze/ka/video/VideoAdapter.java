@@ -3,11 +3,12 @@ package cn.endureblaze.ka.video;
 
 import android.content.*;
 import android.net.*;
-import android.support.v7.widget.*;
+import androidx.appcompat.widget.*;
 import android.view.*;
 import android.widget.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.bean.*;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.*;
 
 import cn.endureblaze.ka.R;

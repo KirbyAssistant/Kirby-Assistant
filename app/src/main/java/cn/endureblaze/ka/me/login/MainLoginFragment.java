@@ -2,21 +2,20 @@ package cn.endureblaze.ka.me.login;
 
 import android.app.*;
 import android.os.*;
-import android.support.v4.app.*;
-import android.support.v7.app.*;
-import android.support.v7.widget.*;
+import androidx.core.app.*;
+import androidx.appcompat.app.*;
+import androidx.appcompat.widget.*;
 import android.view.*;
 import android.view.animation.*;
 import android.widget.*;
+import androidx.cardview.widget.CardView;
 import cn.bmob.v3.*;
 import cn.bmob.v3.exception.*;
 import cn.bmob.v3.listener.*;
 import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.bmob.*;
 import cn.endureblaze.ka.utils.*;
 
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import cn.endureblaze.ka.helper.*;
 import cn.endureblaze.ka.base.*;
 import cn.endureblaze.ka.main.*;

@@ -7,12 +7,12 @@
 	android:orientation="vertical"
 	android:background="?color_bkg_main">
 
-	<android.support.design.widget.AppBarLayout
+	<com.google.android.material.appbar.AppBarLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/mainAppBarLayout1">
 
-		<android.support.v7.widget.Toolbar
+		<androidx.appcompat.widget.Toolbar
 			android:id="@+id/toolbar"
 			app:elevation="4dp"
 			android:layout_height="?attr/actionBarSize"
@@ -22,7 +22,7 @@
 			app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
 			app:layout_scrollFlags="scroll|enterAlways|snap"/>
 
-	</android.support.design.widget.AppBarLayout>
+	</com.google.android.material.appbar.AppBarLayout>
 
 	<FrameLayout
 		android:layout_height="match_parent"
