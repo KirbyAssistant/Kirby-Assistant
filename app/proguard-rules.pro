@@ -134,6 +134,9 @@
   **[] $VALUES;
   public *;
 }
+# for DexGuard only
+-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
+
 #滑动返回parallaxbacklayout
 -keep public enum com.github.anzewei.parallaxbacklayout.ParallaxBack$** {
     **[] $VALUES;

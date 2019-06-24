@@ -32,6 +32,7 @@
 		android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"
 		app:menu="@menu/bottombar"
+		app:labelVisibilityMode="labeled"
 		android:background="?attr/android:windowBackground"
 		android:elevation="6dp"/>
 

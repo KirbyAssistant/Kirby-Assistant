@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply from: 'androidres_build.gradle'
 
 android {
     compileSdkVersion 29
@@ -29,25 +30,38 @@ dependencies {
 	//友盟统计
 	implementation  'com.umeng.umsdk:analytics:8.0.0'
     implementation  'com.umeng.umsdk:common:2.0.0'
-	//web服务
-	//compile 'com.just.agentweb:agentweb:4.0.2' 
-	//compile 'com.liulishuo.okdownload:okdownload:1.0.4'
-	//compile 'com.liulishuo.okdownload:sqlite:1.0.4'
 	//图片加载
-	implementation "com.github.bumptech.glide:glide:3.6.1"
-	//compile 'com.github.bumptech.glide:compiler:4.7.1'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 	//多样的下拉刷新
-	implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-28'
-    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-28'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-11'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-11'
     //bmob
-	implementation 'cn.bmob.android:bmob-sdk:3.6.5'
+    implementation 'cn.bmob.android:bmob-sdk:3.7.3-rc1'
+    implementation "io.reactivex.rxjava2:rxjava:2.2.2"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'com.squareup.okio:okio:2.1.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 	//滑动返回
 	implementation 'com.github.anzewei:parallaxbacklayout:1.1.6'
 	
-	implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
-	implementation 'com.google.android.material:material:1.0.0-beta01'
-	implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
-	implementation 'androidx.recyclerview:recyclerview:1.0.0-beta01'
-	implementation 'androidx.cardview:cardview:1.0.0-beta01'
+	implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
+	implementation 'com.google.android.material:material:1.1.0-alpha07'
+	implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+	implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha06'
+	implementation 'androidx.cardview:cardview:1.0.0'
 }
 
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.tencent.mm:AndResGuard-gradle-plugin:1.2.16'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}

@@ -134,7 +134,6 @@ public class MainActivity extends BaseActivity {
 			bottomNavigationView.getMenu().removeItem(R.id.talk);
 			bottomNavigationView.getMenu().removeItem(R.id.me);
 		}
-		BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 		bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 				@Override
 				public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -1,35 +1,53 @@
 package cn.endureblaze.ka.me.user;
 
-import android.app.*;
-import android.content.*;
-import android.graphics.*;
-import android.os.*;
-import androidx.core.app.*;
-import androidx.core.content.*;
-import androidx.core.util.*;
-import androidx.appcompat.app.*;
-import androidx.appcompat.widget.*;
-import android.view.*;
-import android.view.animation.*;
-import android.widget.*;
-import androidx.cardview.widget.CardView;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import cn.bmob.v3.*;
-import cn.bmob.v3.exception.*;
-import cn.bmob.v3.listener.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.base.*;
-import cn.endureblaze.ka.helper.*;
-import cn.endureblaze.ka.main.*;
-import cn.endureblaze.ka.me.user.userhead.*;
-import cn.endureblaze.ka.utils.*;
-import com.bumptech.glide.*;
-import com.umeng.analytics.*;
-import java.io.*;
-import java.net.*;
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.LayoutAnimationController;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.umeng.analytics.MobclickAgent;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.UpdateListener;
+import cn.endureblaze.ka.Kirby;
+import cn.endureblaze.ka.base.BaseFragment;
+import cn.endureblaze.ka.helper.LayoutAnimationHelper;
+import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.me.login.MainLoginFragment;
+import cn.endureblaze.ka.me.user.userhead.HeadActivity;
+import cn.endureblaze.ka.utils.EmailUtil;
+import cn.endureblaze.ka.utils.GlideUtil;
+import cn.endureblaze.ka.utils.PlayAnimUtil;
+import cn.endureblaze.ka.utils.UserUtil;
+import cn.endureblaze.ka.R;
 
 public class MainUserFragment extends BaseFragment {
 	private boolean CHANGE_HEAD=false;
@@ -108,10 +126,7 @@ public class MainUserFragment extends BaseFragment {
 				Glide
 					.with(getActivity())
 					.load(UserUtil.getCurrentUser().getUserHead().getFileUrl())
-					//.apply(Kirby.getGlideRequestOptions())
-					.asBitmap()
-					.placeholder(R.drawable.theme_blue)
-					.fitCenter()
+					.apply(Kirby.getGlideRequestOptions())
 					.into(userHead);
 				GlideUtil.setBlurImageViaGlideCache(getActivity(),mo_userHead,UserUtil.getCurrentUser().getUserHead().getFileUrl(),"5");
 			}
@@ -127,7 +142,7 @@ public class MainUserFragment extends BaseFragment {
 					Pair<View, String> userHeadPair=new Pair<View,String>(userHead, "userHead");
 					Pair<View, String> cardPair= new Pair<View,String>(card, "card");
 					Pair<View, String> editPassPair= new Pair<View,String>(user_logout, "pass");
-					Intent intent = new Intent(getActivity(), HeadActivity.class);			
+					Intent intent = new Intent(getActivity(), HeadActivity.class);
 					ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), userHeadPair, cardPair, editPassPair);
 					startActivityForResult(intent, 3, options.toBundle());
 				}
@@ -263,37 +278,6 @@ public class MainUserFragment extends BaseFragment {
 			CHANGE_HEAD=true;
         }
     }
-	public static Bitmap netPicToBmp(String src) {
-		try {
-			URL url = new URL(src);
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.setDoInput(true);
-			connection.connect();
-			InputStream input = connection.getInputStream();
-			Bitmap myBitmap = BitmapFactory.decodeStream(input);
-
-			//设置固定大小
-			//需要的大小
-			float newWidth = 200f;
-			float newHeigth = 200f;
-
-			//图片大小
-			int width = myBitmap.getWidth();
-			int height = myBitmap.getHeight();
-
-			//缩放比例
-			float scaleWidth = newWidth / width;
-			float scaleHeigth = newHeigth / height;
-			Matrix matrix = new Matrix();
-			matrix.postScale(scaleWidth, scaleHeigth);
-
-			Bitmap bitmap = Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix, true);
-			return bitmap;
-		} catch (IOException e) {
-			// Log exception
-			return null;
-		}
-	}
 	@Override
 	public void onResume() {
 		if(CHANGE_HEAD){

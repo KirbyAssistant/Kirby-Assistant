@@ -1,23 +1,26 @@
 package cn.endureblaze.ka.utils;
+
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.widget.ImageView;
+
 import com.bumptech.glide.Glide;
-import java.util.concurrent.ExecutionException;
-import android.app.Activity;
-import android.widget.ImageView.ScaleType;
+import com.bumptech.glide.request.FutureTarget;
 
 public class GlideUtil {
 	private static Bitmap glideBitmap;
 	public static Bitmap getGlideBitmap(Context context, String url) {
-		try {
-			glideBitmap = Glide.with(context)
+		FutureTarget<Bitmap> bitmap = Glide.with(context)
+				.asBitmap()
 				.load(url)
-				.asBitmap() //必须
-				.into(1024,1024)
-				.get();
-		} catch (InterruptedException e) {} catch (ExecutionException e) {}
+				.submit();
+		try{
+		glideBitmap = bitmap.get();
+		}catch (Exception e){
+			e.printStackTrace();
+		}
 		return glideBitmap;
 	};
 

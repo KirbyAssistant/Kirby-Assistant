@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.bean.Console;
 import cn.endureblaze.ka.main.MainActivity;
@@ -82,11 +84,7 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
 		Glide
 			.with(mContext)
 			.load(co.getImageUrl())
-		  //  .apply(Kirby.getGlideRequestOptions())
-			.asBitmap()
-		    .fitCenter()
-		    .placeholder(R.drawable.ic_kirby_download)
-			.error(R.drawable.ic_kirby_load_fail)
+		    .apply(Kirby.getGlideRequestOptions())
 			.into(holder.gameImage);
 		GlideUtil.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"5");
     }

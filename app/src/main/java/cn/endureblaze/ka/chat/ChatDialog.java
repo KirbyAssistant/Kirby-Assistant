@@ -1,22 +1,36 @@
 package cn.endureblaze.ka.chat;
-import android.content.*;
-import android.os.*;
+
+import android.annotation.SuppressLint;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+
+import java.util.List;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
-import androidx.core.app.*;
-import android.view.*;
-import android.widget.*;
 import androidx.fragment.app.FragmentActivity;
-import cn.bmob.v3.*;
-import cn.bmob.v3.exception.*;
-import cn.bmob.v3.listener.*;
-import cn.endureblaze.ka.bmob.*;
-import java.util.*;
-
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.UpdateListener;
+import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.utils.*;
-import cn.endureblaze.ka.bottomdialog.*;
-import com.bumptech.glide.*;
+import cn.endureblaze.ka.bmob.BmobChat;
+import cn.endureblaze.ka.bmob.BmobKirbyAssistantUser;
+import cn.endureblaze.ka.bottomdialog.BaseBottomDialog;
+import cn.endureblaze.ka.bottomdialog.ViewHolder;
+import cn.endureblaze.ka.utils.UserUtil;
 
 public class ChatDialog extends BaseBottomDialog
 {
@@ -182,6 +196,7 @@ public class ChatDialog extends BaseBottomDialog
 				}
 			});
 	}
+	@SuppressLint("HandlerLeak")
 	private Handler userHandler=new Handler(){
 
 		private String userHeadUrl;
@@ -200,11 +215,7 @@ public class ChatDialog extends BaseBottomDialog
 							Glide
 								.with(mActivity)
 								.load(m.getUserHead().getFileUrl())
-								//.apply(Kirby.getGlideRequestOptions())
-								.asBitmap()
-								.fitCenter()
-								.placeholder(R.drawable.theme_blue)
-								.error(R.drawable.theme_blue)
+								.apply(Kirby.getGlideRequestOptions())
 								.into(userHeadImage);
 						}
 						catch (Exception e)

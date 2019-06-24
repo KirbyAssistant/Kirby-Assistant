@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.*;
 
+import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
 import com.bumptech.glide.*;
 
@@ -72,11 +73,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
         Glide
 			.with(mContext)
 			.load(vi.getImageUrl())
-			//.apply(Kirby.getGlideRequestOptions())
-			.asBitmap()
-		    .fitCenter()
-			.placeholder(R.drawable.ic_kirby_download)
-			.error(R.drawable.ic_kirby_load_fail)
+			.apply(Kirby.getGlideRequestOptions())
 			.into(holder.videoImage);
 	}
 
