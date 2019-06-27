@@ -25,7 +25,6 @@
 #指定不去忽略非公共库的类
 -dontskipnonpubliclibraryclasses
 
--ignorewarnings
 #这句话能够使我们的项目混淆后产生映射文件
 #包含有类名->混淆后类名的映射关系
 -verbose
@@ -44,6 +43,20 @@
 
 #抛出异常时保留代码行号
 -keepattributes SourceFile,LineNumberTable
+
+##记录生成的日志数据,gradle build时在本项目根目录输出##
+#apk 包内所有 class 的内部结构
+-dump class_files.txt
+#未混淆的类和成员-printseeds seeds.txt
+#列出从 apk 中删除的代码
+-printusage unused.txt
+#混淆前后的映射-printmapping mapping.txt
+########记录生成的日志数据，gradle build时 在本项目根目录输出-end#####
+
+#保持 native 方法不被混淆
+-keepclasseswithmembernames class * {
+  native <methods>;
+}
 
 #指定混淆是采用的算法，后面的参数是一个过滤器
 #这个过滤器是谷歌推荐的算法，一般不做更改

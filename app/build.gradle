@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply from: 'androidres_build.gradle'
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
@@ -35,7 +34,6 @@ android {
             debuggable true
             minifyEnabled true
             shrinkResources true
-            zipAlignEnabled true
             manifestPlaceholders = [:]
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
@@ -44,7 +42,6 @@ android {
             debuggable true
             minifyEnabled false
             shrinkResources false
-            zipAlignEnabled false
             signingConfig signingConfigs.debug
         }
     }
@@ -57,8 +54,8 @@ dependencies {
     implementation 'com.umeng.umsdk:analytics:8.0.0'
     implementation 'com.umeng.umsdk:common:2.0.0'
     //图片加载
-    implementation 'com.github.bumptech.glide:glide:4.8.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     //多样的下拉刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-11'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-11'
