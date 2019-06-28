@@ -3,7 +3,7 @@ Kirby-Assistant
 [![Badge](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu/#/zh_CN)
 =======
 简体中文|[English](/README_EN.md)  
-![Kirby Assistant](/ic_launcher.png "Kirby Assistant")    
+![Kirby Assistant](/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png "Kirby Assistant")    
 不仅有游戏
 
 下载
