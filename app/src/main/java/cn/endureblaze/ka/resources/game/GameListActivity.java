@@ -1,17 +1,19 @@
 package cn.endureblaze.ka.resources.game;
 
-import android.content.*;
-import android.os.*;
-import androidx.appcompat.widget.*;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import cn.endureblaze.ka.bean.*;
-import cn.endureblaze.ka.utils.*;
-import java.util.*;
-
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.base.*;
+import cn.endureblaze.ka.base.BaseActivity;
+import cn.endureblaze.ka.bean.Console;
 import cn.endureblaze.ka.helper.LayoutAnimationHelper;
+import cn.endureblaze.ka.utils.PlayAnimUtil;
+import cn.endureblaze.ka.utils.ThemeUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class GameListActivity extends BaseActivity
@@ -25,11 +27,11 @@ public class GameListActivity extends BaseActivity
         ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_gamelist);
 		//配置toolbar
-		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+		Toolbar toolbar= findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		getSupportActionBar().setTitle(R.string.game_title);
 		//配置列表
-		RecyclerView r=(RecyclerView)findViewById(R.id.game_list);
+		RecyclerView r= findViewById(R.id.game_list);
 		GridLayoutManager layoutManager=new GridLayoutManager(this, 1);
 		r.setLayoutManager(layoutManager);
 		adapter = new GameAdapter(gamelist,this);
@@ -42,19 +44,19 @@ public class GameListActivity extends BaseActivity
 		//判断数据然后处理列表
 		if (game.endsWith("gba"))
 		{	
-			Console[] 游戏 = {
+			Console[] game_data = {
 				new Console("星之卡比 梦之泉DX", "https://gitee.com/nihaocun/ka_image/raw/master/game/mengzhiquandx.jpg","gba_mzqdx"),
 				new Console("星之卡比 镜之大迷宫", "https://gitee.com/nihaocun/ka_image/raw/master/game/jingmi.jpg","gba_jm"),			
 			}; 
 			int index = 0;
-			while (index < 游戏.length)
+			while (index < game_data.length)
 			{       	
-				gamelist.add(游戏[index++]);
+				gamelist.add(game_data[index++]);
 			}
 		}
 		if (game.equals("gb"))
 		{
-			Console []游戏={		
+			Console []game_data={		
 				new Console("星之卡比 1", "https://gitee.com/nihaocun/ka_image/raw/master/game/xing1.jpg","gb_x1"),
 				new Console("星之卡比 2", "https://gitee.com/nihaocun/ka_image/raw/master/game/xing2.jpg","gb_x2"),
 				new Console("星之卡比 卡比宝石星", "https://gitee.com/nihaocun/ka_image/raw/master/game/baoshixing.jpg","gb_bsx"),
@@ -62,24 +64,24 @@ public class GameListActivity extends BaseActivity
 				new Console("星之卡比 卡比弹珠台", "https://gitee.com/nihaocun/ka_image/raw/master/game/danzhutai.jpg","gb_dzt"),
 		};
 			int index = 0;
-			while (index < 游戏.length)
+			while (index < game_data.length)
 			{       	
-				gamelist.add(游戏[index++]);
+				gamelist.add(game_data[index++]);
 			}
 		}
 		if(game.endsWith("gbc")){
-			Console []游戏={		
+			Console []game_data={		
 				new Console("星之卡比 滚滚卡比", "https://gitee.com/nihaocun/ka_image/raw/master/game/gungun.jpg","gbc_gg"),
 			};
 			int index = 0;
-			while (index < 游戏.length)
+			while (index < game_data.length)
 			{       	
-				gamelist.add(游戏[index++]);
+				gamelist.add(game_data[index++]);
 			}
 		}
 		if (game.equals("sfc"))
 		{
-			Console[] 游戏 = {
+			Console[] game_data = {
 				new Console("星之卡比 3", "https://gitee.com/nihaocun/ka_image/raw/master/game/xing3.jpg","sfc_x3"),
 				new Console("星之卡比 超豪华版", "https://gitee.com/nihaocun/ka_image/raw/master/game/kss.jpg","sfc_kss"),
 				new Console("星之卡比 卡比梦幻都", "https://gitee.com/nihaocun/ka_image/raw/master/game/menghuandu.jpg","sfc_mhd"),
@@ -88,73 +90,73 @@ public class GameListActivity extends BaseActivity
 				new Console("[仅日本]星之卡比 卡比宝石星DX", "https://gitee.com/nihaocun/ka_image/raw/master/game/baoshixingdx.jpg","sfc_bsxdx"),
 			}; 
 			int index = 0;
-			while (index < 游戏.length)
+			while (index < game_data.length)
 			{       	
-				gamelist.add(游戏[index++]);
+				gamelist.add(game_data[index++]);
 			}
 		}
 		if (game.equals("n64"))
 		{
 
-			Console[] 游戏 = {
+			Console[] game_data = {
 				new Console("星之卡比 64", "https://gitee.com/nihaocun/ka_image/raw/master/game/k64.jpg","n64_k64"),
 			}; 
 			int index = 0;
-			while (index < 游戏.length)
+			while (index < game_data.length)
 			{       	
-				gamelist.add(游戏[index++]);
+				gamelist.add(game_data[index++]);
 			}
 		}
 		if (game.equals("ngc"))
 		{
 
-			Console[] 游戏 = {
+			Console[] game_data = {
 				new Console("星之卡比 飞天赛车", "https://gitee.com/nihaocun/ka_image/raw/master/game/feitian.jpg","ngc_ft"),
 			}; 
 			int index = 0;
-			while (index < 游戏.length)
+			while (index < game_data.length)
 			{       	
-				gamelist.add(游戏[index++]);
+				gamelist.add(game_data[index++]);
 			}
 		}
 		if (game.equals("wii"))
 		{
 
-			Console[] 游戏 = {
+			Console[] game_data = {
 				new Console("星之卡比 重返梦幻岛", "https://gitee.com/nihaocun/ka_image/raw/master/game/chongfan.jpg","wii_cf"),
 				new Console("星之卡比 毛线卡比", "https://gitee.com/nihaocun/ka_image/raw/master/game/maoxian.jpg","wii_mx"),
 			}; 
 			int index = 0;
-			while (index < 游戏.length)
+			while (index < game_data.length)
 			{       	
-				gamelist.add(游戏[index++]);
+				gamelist.add(game_data[index++]);
 			}
 		}
 		if (game.equals("nds"))
 		{
 
-			Console[] 游戏 = {
+			Console[] game_data = {
 				new Console("星之卡比 触摸卡比", "https://gitee.com/nihaocun/ka_image/raw/master/game/chumo.jpg","nds_cm"),
 				new Console("星之卡比 超究豪华版", "https://gitee.com/nihaocun/ka_image/raw/master/game/kssu.jpg","nds_kssu"),
 				new Console("星之卡比 呐喊团", "https://gitee.com/nihaocun/ka_image/raw/master/game/nahantuan.jpg","nds_nht"),
 				new Console("星之卡比 集合！卡比", "https://gitee.com/nihaocun/ka_image/raw/master/game/jihe.jpg","nds_jh"),
 			}; 
 			int index = 0;
-			while (index < 游戏.length)
+			while (index < game_data.length)
 			{       	
-				gamelist.add(游戏[index++]);
+				gamelist.add(game_data[index++]);
 			}
 		}
 		if (game.equals("fc"))
 		{
 
-			Console[] 游戏 = {
+			Console[] game_data = {
 				new Console("星之卡比 梦之泉物语", "https://gitee.com/nihaocun/ka_image/raw/master/game/mengzhiquan.jpg","fc_mzq"),
 			}; 
 			int index = 0;
-			while (index < 游戏.length)
+			while (index < game_data.length)
 			{       	
-				gamelist.add(游戏[index++]);
+				gamelist.add(game_data[index++]);
 			}
 		}
 	}

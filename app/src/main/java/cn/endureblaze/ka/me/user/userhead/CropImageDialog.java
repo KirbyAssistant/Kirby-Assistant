@@ -69,16 +69,15 @@ public class CropImageDialog extends BaseBottomDialog
 	@Override
 	public void convertView(final ViewHolder holder, final BaseBottomDialog dialog)
 	{
-		final CropperView mCropImageView=(CropperView)holder.getView(R.id.CropImageView);
+		final CropperView mCropImageView= holder.getView(R.id.CropImageView);
 		mCropImageView.setImageBitmap(imageBitmap);//为了兼容小图片，必须在代码中加载图片
-		Button cropOK=(Button)holder.getView(R.id.cropimage_ok);
+		Button cropOK= holder.getView(R.id.cropimage_ok);
 		cropOK.setOnClickListener(new View.OnClickListener(){
 
 				private Uri corpImageUri;
 				@Override
 				public void onClick(View p1)
 				{
-					//Uri corpImageUri=
 					Uri corpImageUriNoCompress=BitmapUriUtil.bitmap2uri(getActivity(), mCropImageView.getCroppedBitmap().getBitmap());
 					try
 					{

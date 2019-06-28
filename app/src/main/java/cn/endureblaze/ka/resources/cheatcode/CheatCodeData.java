@@ -123,7 +123,7 @@ public class CheatCodeData {
 		new CheatCode("", "030021AF 02"),
 		new CheatCode("", "03002182 01"),};
 		
-		public static void setCheatCodeData(String game_name,List<CheatCode> list){
+		static void setCheatCodeData(String game_name, List<CheatCode> list){
 			//获取数据并遍历
 			if (game_name.equals("星之卡比 镜之大迷宫"))
 			{
@@ -147,7 +147,7 @@ public class CheatCodeData {
 					list.add(梦之泉DX_金手指[index++]);
 				}
 			}
-			if(game_name=="星之卡比 3"){
+			if(game_name.equals("星之卡比 3")){
 
 			}
 		}

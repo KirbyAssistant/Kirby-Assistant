@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.bean.Console;
 import cn.endureblaze.ka.main.MainActivity;
@@ -59,19 +61,15 @@ public class CheatCodeGameListAdapter extends RecyclerView.Adapter<CheatCodeGame
         }
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_console, parent, false);
 		final ViewHolder holder=new ViewHolder(view);
-		holder.LinearLayout.setOnClickListener(new View.OnClickListener(){
-				@Override
-				public void onClick(View v)
-				{
-					int position=holder.getAdapterPosition();
-					Console console=mCheatCodeGameList.get(position);
-					Intent in=new Intent(mContext, CheatCodeActivity.class);
-					String name=console.getName().toString();
-					in.putExtra("game_name",name);
-					MainActivity m=new MainActivity();
-					IntentUtil.startActivityWithAnim(in,mActivity);
-				}
-			}
+		holder.LinearLayout.setOnClickListener(v -> {
+			int position=holder.getAdapterPosition();
+			Console console=mCheatCodeGameList.get(position);
+			Intent in=new Intent(mContext, CheatCodeActivity.class);
+			String name= console.getName();
+			in.putExtra("game_name",name);
+			MainActivity m=new MainActivity();
+			IntentUtil.startActivityWithAnim(in,mActivity);
+		}
 		);
 		return holder;
 	}
@@ -84,11 +82,7 @@ public class CheatCodeGameListAdapter extends RecyclerView.Adapter<CheatCodeGame
         Glide
 			.with(mContext)
 			.load(co.getImageUrl())
-			//.apply(Kirby.getGlideRequestOptions())
-			.asBitmap()
-		    .fitCenter()
-			.placeholder(R.drawable.ic_kirby_download)
-			.error(R.drawable.ic_kirby_load_fail)
+			.apply(Kirby.getGlideRequestOptions())
 			.into(holder.gameImage);	
 		GlideUtil.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"5");
 		}

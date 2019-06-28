@@ -1,22 +1,29 @@
 package cn.endureblaze.ka.chat;
-import android.app.*;
-import android.content.*;
-import android.os.*;
-import android.view.*;
-import android.view.inputmethod.*;
-import android.widget.*;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
-import cn.bmob.v3.exception.*;
-import cn.bmob.v3.listener.*;
-
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
 import cn.endureblaze.ka.R;
-import cn.bmob.v3.*;
-import android.text.*;
-import cn.endureblaze.ka.bmob.*;
-import cn.endureblaze.ka.bottomdialog.*;
-import cn.endureblaze.ka.utils.*;
-import android.net.*;
+import cn.endureblaze.ka.bmob.BmobChat;
+import cn.endureblaze.ka.bmob.BmobKirbyAssistantUser;
+import cn.endureblaze.ka.bottomdialog.BaseBottomDialog;
+import cn.endureblaze.ka.bottomdialog.ViewHolder;
+import cn.endureblaze.ka.utils.CheckTextUtil;
+import cn.endureblaze.ka.utils.UserUtil;
 
 public class EditChatDialog extends BaseBottomDialog {
 	private EditText chat_editview;
@@ -80,61 +87,41 @@ public class EditChatDialog extends BaseBottomDialog {
 		if (mode == ChatMode.CHAT_EDIT_MODE && str_chat != null) {
 			chat_editview.setText(str_chat);
 		}
-	    chat_send = (TextView)holder.getView(R.id.chat_send);
-		chat_send.setOnClickListener(new View.OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					//获取字符串转化为string数据
-					//EditText 内容=(EditText)v.findViewById(R.id.内容_编辑);
-					final String str_chat = chat_editview.getText().toString();
-					//判断是否为空
-					if (str_chat.isEmpty()) {
-						Toast.makeText(getActivity(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
-					} else {
-						if (CheckTextUtil.isHaveTerribleWord(str_chat)) {
-							AlertDialog.Builder dialog = new
-								AlertDialog.Builder(getActivity())
-								.setTitle("需要帮助吗？")
-								.setMessage("这个世界虽然不完美\n我们仍可以治愈自己\n以下电话全国可拨(24小时)\n010-82951332")
-								.setCancelable(false)
-								.setPositiveButton("坚持发送", new
-								DialogInterface.OnClickListener()
-								{
-									@Override
-									public void onClick(DialogInterface dialog, int which) {
-										sendChat(str_chat, edit_chat_dialog);
-									}
-								}
-							)
-								.setNegativeButton("寻求帮助", new
-								DialogInterface.OnClickListener()
-								{
-									@Override
-									public void onClick(DialogInterface dialog, int which) {
-										Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-82951332"));
-										getActivity().startActivity(intent);
-									}
-								})
-								.setNeutralButton("离开", new DialogInterface.OnClickListener()
-								{
-									@Override
-									public void onClick(DialogInterface dialog, int which) {
-										edit_chat_dialog.dismiss();
-										SharedPreferences y=getActivity().getSharedPreferences("string", 0);
-										SharedPreferences.Editor edit=y.edit();
-										edit.putString("Chat", "");
-										edit.apply();
-									}
-								}
-							);
-							dialog.show();
-						} else {
-							sendChat(str_chat, edit_chat_dialog);
+	    chat_send = holder.getView(R.id.chat_send);
+		chat_send.setOnClickListener(v -> {
+			//获取字符串转化为string数据
+			//EditText 内容=(EditText)v.findViewById(R.id.内容_编辑);
+			final String str_chat = chat_editview.getText().toString();
+			//判断是否为空
+			if (str_chat.isEmpty()) {
+				Toast.makeText(getActivity(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
+			} else {
+				if (CheckTextUtil.isHaveTerribleWord(str_chat)) {
+					AlertDialog.Builder dialog = new
+						AlertDialog.Builder(getActivity())
+						.setTitle("需要帮助吗？")
+						.setMessage("这个世界虽然不完美\n我们仍可以治愈自己\n以下电话全国可拨(24小时)\n010-82951332")
+						.setCancelable(false)
+						.setPositiveButton("坚持发送", (dialog1, which) -> sendChat(str_chat, edit_chat_dialog)
+						)
+						.setNegativeButton("寻求帮助", (dialog12, which) -> {
+							Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-82951332"));
+							getActivity().startActivity(intent);
+						})
+						.setNeutralButton("离开", (dialog13, which) -> {
+							edit_chat_dialog.dismiss();
+							SharedPreferences y=getActivity().getSharedPreferences("string", 0);
+							SharedPreferences.Editor edit=y.edit();
+							edit.putString("Chat", "");
+							edit.apply();
 						}
-					}
+						);
+					dialog.show();
+				} else {
+					sendChat(str_chat, edit_chat_dialog);
 				}
-			});
+			}
+		});
 	}
 	private void sendChat(String str_chat, final BaseBottomDialog edit_chat_dialog) {
 		final ProgressDialog progressDialog = new ProgressDialog(getActivity());

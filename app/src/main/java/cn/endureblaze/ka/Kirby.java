@@ -6,6 +6,7 @@
 //Hi 2019
 package cn.endureblaze.ka;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.os.Handler;
 import android.os.Looper;
@@ -13,6 +14,8 @@ import androidx.fragment.app.FragmentActivity;
 import cn.endureblaze.ka.crash.CaptureCrash;
 import cn.endureblaze.ka.crash.CrashDialog;
 import cn.endureblaze.ka.manager.ActManager;
+
+import com.bumptech.glide.request.RequestOptions;
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
 import com.oasisfeng.condom.CondomContext;
 import com.umeng.analytics.MobclickAgent;
@@ -24,43 +27,31 @@ public class Kirby extends Application
 	{
         super.onCreate();
 		registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
-		CaptureCrash.init(new CaptureCrash.CrashHandler() {
-				@Override
-				public void uncaughtException(Thread t, Throwable e)
-				{	
-					MobclickAgent.reportError(getApplicationContext(), e);
-					toCrashActivity(e);
-				}
-			});
+		CaptureCrash.init((t, e) -> {
+			MobclickAgent.reportError(getApplicationContext(), e);
+			toCrashActivity(e);
+		});
 		UMConfigure.init(CondomContext.wrap(this, "Umeng"), "5c000429b465f56fdb0005ba", "CoolApk", UMConfigure.DEVICE_TYPE_PHONE, null);
 		MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
     }
-	/*public static RequestOptions getGlideRequestOptions()
+	@SuppressLint("CheckResult")
+	public static RequestOptions getGlideRequestOptions()
 	 {
 	 RequestOptions requ=new RequestOptions();
 	 requ.placeholder(R.drawable.ic_kirby_download)
 	 .error(R.drawable.ic_kirby_load_fail);
 	 return requ;
-	 }*/
-	/*@Override
-	 protected void attachBaseContext(Context base) {
-	 super.attachBaseContext(base);
-	 MultiDex.install(this);
-	 }*/
+	 }
     public void toCrashActivity(final Throwable crash)
 	{
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-				@Override
-				public void run()
-				{
-					FragmentActivity getCrashActivity=ActManager.currentFragmentActivity();
-					CrashDialog.newInstance("1", crash)
-						.setTheme(R.style.BottomDialogStyle)
-					    .setMargin(0)
-						.setShowBottom(true)   
-						.show(getCrashActivity.getSupportFragmentManager());
-				}
-			});
+        new Handler(Looper.getMainLooper()).post(() -> {
+			FragmentActivity getCrashActivity=ActManager.currentFragmentActivity();
+			CrashDialog.newInstance("1", crash)
+				.setTheme(R.style.BottomDialogStyle)
+				.setMargin(0)
+				.setShowBottom(true)
+				.show(getCrashActivity.getSupportFragmentManager());
+		});
 	}
 }
 //                            _ooOoo_  

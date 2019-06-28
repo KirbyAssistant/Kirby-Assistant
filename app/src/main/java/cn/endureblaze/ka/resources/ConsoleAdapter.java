@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.bean.Console;
 import cn.endureblaze.ka.main.MainActivity;
@@ -35,11 +37,11 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
         public ViewHolder(View view)
 		{
             super(view);
-			LinearLayout = (LinearLayout)view.findViewById(R.id.LinearLayout);
-            cardView = (CardView) view.findViewById(R.id.cardview);
-			consoleImage = (ImageView) view.findViewById(R.id.console_image);
-            consoleName = (TextView) view.findViewById(R.id.console_text);
-			blurImage = (ImageView) view.findViewById(R.id.blur_image);
+			LinearLayout = view.findViewById(R.id.LinearLayout);
+            cardView = view.findViewById(R.id.cardview);
+			consoleImage = view.findViewById(R.id.console_image);
+            consoleName = view.findViewById(R.id.console_text);
+			blurImage = view.findViewById(R.id.blur_image);
         }
     }
 
@@ -57,19 +59,15 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
         }
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_console, parent, false);
 		final ViewHolder holder=new ViewHolder(view);
-		holder.LinearLayout.setOnClickListener(new View.OnClickListener(){
-				@Override
-				public void onClick(View v)
-				{
-					int position=holder.getAdapterPosition();
-					Console console=mConsoleList.get(position);
-					Intent in=new Intent(mContext, GameListActivity.class);
-					String name=console.getPosition();
-					in.putExtra("consose_name",name);
-					MainActivity m=new MainActivity();
-					IntentUtil.startActivityWithAnim(in,mActivity);
-				}
-			}
+		holder.LinearLayout.setOnClickListener(v -> {
+			int position=holder.getAdapterPosition();
+			Console console=mConsoleList.get(position);
+			Intent in=new Intent(mContext, GameListActivity.class);
+			String name=console.getPosition();
+			in.putExtra("consose_name",name);
+			MainActivity m=new MainActivity();
+			IntentUtil.startActivityWithAnim(in,mActivity);
+		}
 		);
 		return holder;
     }
@@ -82,11 +80,7 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
         Glide
 			.with(mContext)
 			.load(co.getImageUrl())
-			//.apply(Kirby.getGlideRequestOptions())
-			.asBitmap()
-		    .fitCenter()
-			.placeholder(R.drawable.ic_kirby_download)
-			.error(R.drawable.ic_kirby_load_fail)
+			.apply(Kirby.getGlideRequestOptions())
 			.into(holder.consoleImage);		
 		//GlideUtil.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"5");
 		}

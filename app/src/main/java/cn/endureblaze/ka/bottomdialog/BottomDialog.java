@@ -2,6 +2,7 @@ package cn.endureblaze.ka.bottomdialog;
 
 import android.os.Bundle;
 import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 
@@ -58,7 +59,7 @@ public class BottomDialog extends BaseBottomDialog {
      * @param outState
      */
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable("listener", convertListener);
     }

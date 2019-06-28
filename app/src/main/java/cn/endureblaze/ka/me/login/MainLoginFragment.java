@@ -1,31 +1,32 @@
 package cn.endureblaze.ka.me.login;
 
-import android.app.*;
-import android.os.*;
-import androidx.core.app.*;
-import androidx.appcompat.app.*;
-import androidx.appcompat.widget.*;
-import android.view.*;
-import android.view.animation.*;
-import android.widget.*;
-import androidx.cardview.widget.CardView;
-import cn.bmob.v3.*;
-import cn.bmob.v3.exception.*;
-import cn.bmob.v3.listener.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.utils.*;
-
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.LayoutAnimationController;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
-import cn.endureblaze.ka.helper.*;
-import cn.endureblaze.ka.base.*;
-import cn.endureblaze.ka.main.*;
+import androidx.cardview.widget.CardView;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UpdateListener;
+import cn.endureblaze.ka.R;
+import cn.endureblaze.ka.base.BaseFragment;
+import cn.endureblaze.ka.helper.LayoutAnimationHelper;
+import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.me.user.MainUserFragment;
+import cn.endureblaze.ka.utils.EmailUtil;
+import cn.endureblaze.ka.utils.PlayAnimUtil;
 
 public class MainLoginFragment extends BaseFragment
 {
-	private View view;
 	private MainActivity m;
-	private AlertDialog register_dialog;
 
 	private CardView login_card;
 
@@ -33,7 +34,7 @@ public class MainLoginFragment extends BaseFragment
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-        view=inflater.inflate(R.layout.main_login, container, false);
+		View view = inflater.inflate(R.layout.main_login, container, false);
 		m=(MainActivity)getActivity();
 		initLogin(view);
 		return view;
@@ -41,36 +42,31 @@ public class MainLoginFragment extends BaseFragment
 
 	private void initLogin(final View view)
 	{
-		Button login_btn=(Button)view.findViewById(R.id.login_btn);
-		TextView register_btn=(TextView)view.findViewById(R.id.register_btn);
-		TextView forgetpassword=(TextView)view.findViewById(R.id.forgetpassword);
-		final TextView loginOrRegister=(TextView)view.findViewById(R.id.sw_login_register);
-		login_card=(CardView)view.findViewById(R.id.login);
-		register_card=(CardView)view.findViewById(R.id.register);
-		loginOrRegister.setOnClickListener(new View.OnClickListener(){
-
-				@Override
-				public void onClick(View p1)
-				{
-					//判断是不是注册状态
-					if(register_card.getVisibility()==8){
-						//切换到注册
-						login_card.setVisibility(8);
-						register_card.setVisibility(0);
-						loginOrRegister.setText(getActivity().getResources().getString(R.string.have_user));
-					}
-					else
-					{
-						//切换到登录
-						login_card.setVisibility(0);
-						register_card.setVisibility(8);
-						loginOrRegister.setText(getActivity().getResources().getString(R.string.not_have_user));
-					}
-				}
-			});
+		Button login_btn= view.findViewById(R.id.login_btn);
+		TextView register_btn= view.findViewById(R.id.register_btn);
+		TextView forgetpassword= view.findViewById(R.id.forgetpassword);
+		final TextView loginOrRegister= view.findViewById(R.id.sw_login_register);
+		login_card= view.findViewById(R.id.login);
+		register_card= view.findViewById(R.id.register);
+		loginOrRegister.setOnClickListener(p1 -> {
+			//判断是不是注册状态
+			if(register_card.getVisibility()==8){
+				//切换到注册
+				login_card.setVisibility(8);
+				register_card.setVisibility(0);
+				loginOrRegister.setText(getActivity().getResources().getString(R.string.have_user));
+			}
+			else
+			{
+				//切换到登录
+				login_card.setVisibility(0);
+				register_card.setVisibility(8);
+				loginOrRegister.setText(getActivity().getResources().getString(R.string.not_have_user));
+			}
+		});
 		//从edittext里获取字符串
-		final EditText login_username=(EditText)view.findViewById(R.id.login_username);
-		final EditText login_passworld=(EditText)view.findViewById(R.id.login_passworld);
+		final EditText login_username= view.findViewById(R.id.login_username);
+		final EditText login_passworld= view.findViewById(R.id.login_passworld);
 		login_btn.setOnClickListener(new View.OnClickListener(){
 
 				private ProgressDialog loginProgress;
@@ -129,10 +125,10 @@ public class MainLoginFragment extends BaseFragment
 					registerProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 					registerProgress.show();
 					//从实例化布局的edittext中获取字符串并转化为string数据
-								EditText register_username=(EditText)view.findViewById(R.id.register_username);
-								EditText register_email=(EditText)view.findViewById(R.id.register_email);
-								EditText register_password=(EditText)view.findViewById(R.id.register_password);
-								EditText register_password_again=(EditText)view.findViewById(R.id.register_password_again);
+								EditText register_username= view.findViewById(R.id.register_username);
+								EditText register_email= view.findViewById(R.id.register_email);
+								EditText register_password= view.findViewById(R.id.register_password);
+								EditText register_password_again= view.findViewById(R.id.register_password_again);
 								final String str_username=register_username.getText().toString();
 								String str_email=register_email.getText().toString();
 								final String str_passworld=register_password.getText().toString();
@@ -145,7 +141,7 @@ public class MainLoginFragment extends BaseFragment
 								}
 								else
 								{
-									if(EmailUtil.checkEmail(str_email)==false){
+									if(!EmailUtil.checkEmail(str_email)){
 										registerProgress.dismiss();
 										Toast.makeText(getActivity(), R.string.email_fail, Toast.LENGTH_SHORT).show();							
 									}else{
@@ -188,28 +184,23 @@ public class MainLoginFragment extends BaseFragment
 							}
 						}}
 					);
-		forgetpassword.setOnClickListener(new View.OnClickListener(){
+		forgetpassword.setOnClickListener(p1 -> {
+			final String email = "nihaocun@163.com";
+			BmobUser.resetPasswordByEmail(email, new UpdateListener() {
 
-				@Override
-				public void onClick(View p1)
-				{
-					final String email = "nihaocun@163.com";
-					BmobUser.resetPasswordByEmail(email, new UpdateListener() {
-
-							@Override
-							public void done(BmobException e) {
-								if(e==null){
-									Toast.makeText(getActivity(),"重置密码请求成功，请到" + email + "邮箱进行密码重置操作",Toast.LENGTH_SHORT).show();
-								}else{
-									Toast.makeText(getActivity(),"失败:" + e.getMessage(),Toast.LENGTH_SHORT).show();
-								}
-							}
-						});
-				}
-			});
+					@Override
+					public void done(BmobException e) {
+						if(e==null){
+							Toast.makeText(getActivity(),"重置密码请求成功，请到" + email + "邮箱进行密码重置操作",Toast.LENGTH_SHORT).show();
+						}else{
+							Toast.makeText(getActivity(),"失败:" + e.getMessage(),Toast.LENGTH_SHORT).show();
+						}
+					}
+				});
+		});
 			
 		LayoutAnimationController controller = LayoutAnimationHelper.makeLayoutAnimationController();
-		ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.root_view);
+		ViewGroup viewGroup = view.findViewById(R.id.root_view);
 		viewGroup.setLayoutAnimation(controller);
 		viewGroup.scheduleLayoutAnimation();
 		PlayAnimUtil.playLayoutAnimation(LayoutAnimationHelper.getAnimationSetFromBottom(),false);

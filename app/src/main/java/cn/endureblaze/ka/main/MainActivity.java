@@ -1,37 +1,38 @@
 package cn.endureblaze.ka.main;
 
-import android.app.*;
-import android.content.*;
-import android.os.*;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.GridView;
 import androidx.annotation.NonNull;
-import androidx.core.app.*;
-import androidx.appcompat.app.*;
-import androidx.appcompat.widget.*;
-import android.view.*;
-import android.widget.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.base.*;
-import cn.endureblaze.ka.chat.*;
-import cn.endureblaze.ka.helper.*;
-import cn.endureblaze.ka.main.donate.*;
-import cn.endureblaze.ka.main.theme.*;
-import cn.endureblaze.ka.me.user.*;
-import cn.endureblaze.ka.resources.*;
-import cn.endureblaze.ka.utils.*;
-import cn.endureblaze.ka.video.*;
-import java.util.*;
-
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
-import cn.endureblaze.ka.setting.*;
-import cn.endureblaze.ka.me.login.*;
-import androidx.core.content.*;
+import cn.endureblaze.ka.R;
+import cn.endureblaze.ka.base.BaseActivity;
+import cn.endureblaze.ka.chat.MainChatFragment;
+import cn.endureblaze.ka.chat.MainNullFragment;
+import cn.endureblaze.ka.main.donate.DonateActivity;
+import cn.endureblaze.ka.main.theme.ColorListAdapter;
+import cn.endureblaze.ka.me.login.MainLoginFragment;
+import cn.endureblaze.ka.me.user.MainUserFragment;
+import cn.endureblaze.ka.resources.MainGameFragment;
+import cn.endureblaze.ka.setting.SettingActivity;
+import cn.endureblaze.ka.utils.*;
+import cn.endureblaze.ka.video.MainVideoFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
-import com.umeng.analytics.*;
+import com.umeng.analytics.MobclickAgent;
+
+import java.util.Arrays;
+import java.util.List;
 /**
  *类类型:Activity
  *类名称:MainActivity
@@ -49,10 +50,10 @@ public class MainActivity extends BaseActivity {
 		ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_main);
 		//配置toolbar
-		toolbar = (Toolbar)findViewById(R.id.toolbar);
+		toolbar = findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		if (CheckSimpleModeUtil.isSimpleMode()) {
-			getSupportActionBar().setTitle(getResources().getString(R.string.app_name)+"·"+"2017");
+			getSupportActionBar().setTitle(getResources().getString(R.string.simple_mode_app_name));
 		} else {
 			getSupportActionBar().setTitle(R.string.app_name);
 		}
@@ -70,31 +71,20 @@ public class MainActivity extends BaseActivity {
 	private void permissionAndPrivacy() {
 		SharedPreferences preferences = getSharedPreferences("boolean", 0);
         boolean pAp = preferences.getBoolean("permissionAndPrivacy", false);
-		if (pAp == false) {
+		if (!pAp) {
 			AlertDialog.Builder permissionAndPrivacy_dialog=new AlertDialog.Builder(this)
 				.setTitle(R.string.permissionandprivacy_title)
 				.setMessage(R.string.permissionandprivacy_cnntent)
 				.setCancelable(false)
-				.setPositiveButton(getResources().getString(R.string.dia_agree), new
-				DialogInterface.OnClickListener()
-				{
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						SharedPreferences.Editor t=getSharedPreferences("boolean", 0).edit();
-						t.putBoolean("permissionAndPrivacy", true);
-						t.apply();
-						copyrightsWarning();
-					}
+				.setPositiveButton(getResources().getString(R.string.dia_agree), (dialog, which) -> {
+					SharedPreferences.Editor t=getSharedPreferences("boolean", 0).edit();
+					t.putBoolean("permissionAndPrivacy", true);
+					t.apply();
+					copyrightsWarning();
 				}
-			)
-				.setNeutralButton(getResources().getString(R.string.dia_disagree), new DialogInterface.OnClickListener()
-				{
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						finish();
-					}
-				}
-			);
+				)
+				.setNeutralButton(getResources().getString(R.string.dia_disagree), (dialog, which) -> finish()
+				);
 			permissionAndPrivacy_dialog.show();
 		} else {
 			copyrightsWarning();
@@ -103,23 +93,13 @@ public class MainActivity extends BaseActivity {
 
 	private void copyrightsWarning() {
 		final SharedPreferences pref=getSharedPreferences("agreements", MODE_PRIVATE);
-		if (pref.getBoolean("agree_copyrights", false) == false) {
+		if (!pref.getBoolean("agree_copyrights", false)) {
 			new AlertDialog.Builder(this)
 				.setTitle(R.string.copyrights_warning_title)
 				.setMessage(R.string.copyrights_warning_content)
 				.setCancelable(false)
-				.setPositiveButton(R.string.dia_agree, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialogInterface, int i) {
-						pref.edit().putBoolean("agree_copyrights", true).apply();
-					}
-				})
-				.setNeutralButton(R.string.dia_disagree, new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialogInterface, int i) {
-						finish();
-					}
-				}).show();
+				.setPositiveButton(R.string.dia_agree, (dialogInterface, i) -> pref.edit().putBoolean("agree_copyrights", true).apply())
+				.setNeutralButton(R.string.dia_disagree, (dialogInterface, i) -> finish()).show();
 		}
 	}
 	/**
@@ -129,55 +109,51 @@ public class MainActivity extends BaseActivity {
 	 *内部完成了所有逻辑
 	 */
 	private void bottomBar() {
-	    bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
+	    bottomNavigationView = findViewById(R.id.bottomNavigation);
 		if (CheckSimpleModeUtil.isSimpleMode()) {
 			bottomNavigationView.getMenu().removeItem(R.id.talk);
 			bottomNavigationView.getMenu().removeItem(R.id.me);
 		}
-		BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
-		bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-				@Override
-				public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-					switch (item.getItemId()) {
-						case R.id.ziyuan:
-							if (toolbar.getSubtitle() != getResources().getString(R.string.ziyuan)) {
-								toolbar.setSubtitle(R.string.ziyuan);
-								replaceFragment(new MainGameFragment());
-							}
-							break;
-						case R.id.video:
-							if (toolbar.getSubtitle() != getResources().getString(R.string.video_title)) {
-								toolbar.setSubtitle(R.string.video_title);
-								replaceFragment(new MainVideoFragment());
-							}
-							break;
-						case R.id.talk:
-							if (toolbar.getSubtitle() != getResources().getString(R.string.talk)) {
-								toolbar.setSubtitle(R.string.talk);
-								if (UserUtil.isUserLogin()) {
-									replaceFragment(new MainChatFragment());
-								} else {
-									replaceFragment(new MainNullFragment());
-								}
-							}
-							break;
-						case R.id.me:
-							if (UserUtil.isUserLogin()) {
-								if (toolbar.getSubtitle() != UserUtil.getCurrentUser().getUsername()) {
-									replaceFragment(new MainUserFragment());
-									toolbar.setSubtitle(UserUtil.getCurrentUser().getUsername());
-								}
-							} else {
-								if (toolbar.getSubtitle() != getResources().getString(R.string.login_title)) {
-									replaceFragment(new MainLoginFragment());
-									toolbar.setSubtitle(R.string.login_title);
-								}
-							}
-							break;
+		bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+			switch (item.getItemId()) {
+				case R.id.ziyuan:
+					if (toolbar.getSubtitle() != getResources().getString(R.string.ziyuan)) {
+						toolbar.setSubtitle(R.string.ziyuan);
+						replaceFragment(new MainGameFragment());
 					}
-					return true;
-				}
-			});
+					break;
+				case R.id.video:
+					if (toolbar.getSubtitle() != getResources().getString(R.string.video_title)) {
+						toolbar.setSubtitle(R.string.video_title);
+						replaceFragment(new MainVideoFragment());
+					}
+					break;
+				case R.id.talk:
+					if (toolbar.getSubtitle() != getResources().getString(R.string.talk)) {
+						toolbar.setSubtitle(R.string.talk);
+						if (UserUtil.isUserLogin()) {
+							replaceFragment(new MainChatFragment());
+						} else {
+							replaceFragment(new MainNullFragment());
+						}
+					}
+					break;
+				case R.id.me:
+					if (UserUtil.isUserLogin()) {
+						if (toolbar.getSubtitle() != UserUtil.getCurrentUser().getUsername()) {
+							replaceFragment(new MainUserFragment());
+							toolbar.setSubtitle(UserUtil.getCurrentUser().getUsername());
+						}
+					} else {
+						if (toolbar.getSubtitle() != getResources().getString(R.string.login_title)) {
+							replaceFragment(new MainLoginFragment());
+							toolbar.setSubtitle(R.string.login_title);
+						}
+					}
+					break;
+			}
+			return true;
+		});
 	}
 	private void findShortcut() {
 		Intent intent=getIntent();
@@ -202,7 +178,7 @@ public class MainActivity extends BaseActivity {
 	public void replaceFragment(Fragment fragment) {
 		FragmentManager fragmentManager=getSupportFragmentManager();
 		FragmentTransaction transaction=fragmentManager.beginTransaction();
-		if (CheckSimpleModeUtil.isSimpleMode() == false) {
+		if (!CheckSimpleModeUtil.isSimpleMode()) {
 			transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 		}
 		transaction.replace(R.id.main_fragment, fragment);
@@ -215,7 +191,7 @@ public class MainActivity extends BaseActivity {
 	 *参数举例:setCustomTheme(0)  表示设置列表第一个主题
 	 *用于设置主题颜色参数
 	 */
-	public void setCustomTheme(int i) {
+	private void setCustomTheme(int i) {
 		ThemeUtil.setTheme(MainActivity.this, i);
 		SharedPreferences.Editor y=getSharedPreferences("customtheme", 0).edit();
 		y.putInt("id", i);
@@ -263,7 +239,7 @@ public class MainActivity extends BaseActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.theme:
-				/**
+				/*
 				 *用于显示主题列表
 				 *调用了方法setCustomTheme
 				 */
@@ -295,15 +271,12 @@ public class MainActivity extends BaseActivity {
 				theme.setView(gridView);
 				final AlertDialog dialog = theme.show();
 				gridView.setOnItemClickListener(
-					new AdapterView.OnItemClickListener() {
-						@Override
-						public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+						(parent, view, position, id) -> {
 							dialog.dismiss();
 							if (itemSelected != position) {
 								setCustomTheme(position);
 							}
 						}
-					}
 
 				);
 				break;
@@ -315,16 +288,13 @@ public class MainActivity extends BaseActivity {
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
 				builder.setTitle(R.string.tj_app);
 				String[] items={"ZArchiver\n" + getResources().getString(R.string.app_ZArchiver)};
-				builder.setItems(items, new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(DialogInterface dialogInterface, int i) {
-							switch (i) {
-								case 0:
-									DownloadApkUtil.downloadappApk("ZArchiver", MainActivity.this);
-									break;
-							}
-						}
-					});
+				builder.setItems(items, (dialogInterface, i) -> {
+					switch (i) {
+						case 0:
+							DownloadApkUtil.downloadappApk("ZArchiver", MainActivity.this);
+							break;
+					}
+				});
 				builder.create();
 				builder.show();
 				break;
@@ -376,24 +346,16 @@ public class MainActivity extends BaseActivity {
 			AlertDialog.Builder(gameContext)
 			.setTitle(game_name)
 			.setMessage(R.string.download_dia_mess)
-			.setPositiveButton(R.string.dia_download, new
-			DialogInterface.OnClickListener()
-			{
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					DownloadApkUtil.downloadappApk(downloadName, gameContext);
-				}			
-			}
-		);dialog.show();
+			.setPositiveButton(R.string.dia_download, (dialog1, which) -> DownloadApkUtil.downloadappApk(downloadName, gameContext)
+			);dialog.show();
 	}
 	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		// TODO: Implement this method
+	protected void onSaveInstanceState(@NonNull Bundle outState) {
 		super.onSaveInstanceState(outState);	
 		outState.putBundle("windows_save", getWindow().saveHierarchyState());
 		outState.putCharSequence("fragment", toolbar.getSubtitle());
 	}
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+	protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
 		if (getWindow() != null) {
 			Bundle windowState = savedInstanceState.getBundle("windows_save");
 			if (windowState != null) {

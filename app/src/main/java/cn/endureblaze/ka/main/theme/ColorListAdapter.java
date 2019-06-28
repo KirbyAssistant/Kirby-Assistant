@@ -41,8 +41,8 @@ public class ColorListAdapter extends BaseAdapter
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.colors_image_layout, null);
             holder = new Holder();
-            holder.imageView1 = (ImageView) convertView.findViewById(R.id.img_1);
-            holder.imageView2 = (ImageView) convertView.findViewById(R.id.img_2);
+            holder.imageView1 = convertView.findViewById(R.id.img_1);
+            holder.imageView2 = convertView.findViewById(R.id.img_2);
             convertView.setTag(holder);
         } else {
             holder = (Holder) convertView.getTag();

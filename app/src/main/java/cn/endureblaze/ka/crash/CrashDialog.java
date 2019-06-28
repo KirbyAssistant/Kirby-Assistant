@@ -1,17 +1,18 @@
 package cn.endureblaze.ka.crash;
-import android.content.*;
-import android.os.*;
-import android.text.*;
-import android.view.*;
-import android.widget.*;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.Html;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
-import cn.endureblaze.ka.utils.*;
-
-import android.content.ClipboardManager;
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.bottomdialog.*;
-import com.umeng.analytics.*;
+import cn.endureblaze.ka.bottomdialog.BaseBottomDialog;
+import cn.endureblaze.ka.bottomdialog.ViewHolder;
+import cn.endureblaze.ka.utils.PhoneUtil;
+import com.umeng.analytics.MobclickAgent;
 
 public class CrashDialog extends BaseBottomDialog
 {
@@ -58,8 +59,8 @@ public class CrashDialog extends BaseBottomDialog
 		MobclickAgent.reportError(getActivity(), crash);
 		phoneInfo = new PhoneUtil(mess_dialog.getActivity());
 		
-		final TextView crashText=(TextView)holder.getView(R.id.crashText);
-		Button copy=(Button)holder.getView(R.id.copy);
+		final TextView crashText= holder.getView(R.id.crashText);
+		Button copy= holder.getView(R.id.copy);
 		
 		crashText.append("手机品牌:");
         crashText.append(Html.fromHtml("<font color=\"#E51C23\">" + phoneInfo.getBrand() + "</font>"));
@@ -98,15 +99,10 @@ public class CrashDialog extends BaseBottomDialog
             crashText.append("\n");
         }
 		
-		copy.setOnClickListener(new View.OnClickListener(){
-
-				@Override
-				public void onClick(View p1)
-				{
-					ClipboardManager cm = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-					cm.setText(crashText.getText());
-					Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.copy_success),Toast.LENGTH_SHORT).show();
-				}
-			});
+		copy.setOnClickListener(p1 -> {
+			ClipboardManager cm = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+			cm.setText(crashText.getText());
+			Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.copy_success),Toast.LENGTH_SHORT).show();
+		});
 	}
 }

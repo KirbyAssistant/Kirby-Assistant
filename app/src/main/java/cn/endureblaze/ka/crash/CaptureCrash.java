@@ -38,37 +38,29 @@ public class CaptureCrash
 	{
 
 		mCrashHandler = crashHandler;
-		new Handler(Looper.getMainLooper()).post(new Runnable() {
-				@Override
-				public void run()
+		new Handler(Looper.getMainLooper()).post(() -> {
+			for (;;)
+			{
+				try
 				{
-					for (;;)
-					{
-						try
-						{
-							Looper.loop();
-						}
-						catch (Throwable e)
-						{
-							if (mCrashHandler != null)
-							{//捕获异常处理
-								mCrashHandler.uncaughtException(Looper.getMainLooper().getThread(), e);
-							}
-						}
-					}
+					Looper.loop();
 				}
-			});
-
-		Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-				@Override
-				public void uncaughtException(Thread t, Throwable e)
+				catch (Throwable e)
 				{
 					if (mCrashHandler != null)
 					{//捕获异常处理
-						mCrashHandler.uncaughtException(t, e);
+						mCrashHandler.uncaughtException(Looper.getMainLooper().getThread(), e);
 					}
 				}
-			});
+			}
+		});
+
+		Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
+			if (mCrashHandler != null)
+			{//捕获异常处理
+				mCrashHandler.uncaughtException(t, e);
+			}
+		});
 
 	}
 

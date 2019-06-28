@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:background="?color_bkg_main"
 	android:layout_height="match_parent"
 	android:layout_width="match_parent">
@@ -22,7 +22,8 @@
 			android:id="@+id/dialogeditchatTextView1"
 			android:gravity="center_vertical"
 			android:layout_alignParentStart="true"
-			android:layout_marginStart="16dp"/>
+			android:layout_marginStart="16dp"
+			tools:ignore="RelativeOverlap" />
 
 		<ImageView
 			android:background="?android:attr/selectableItemBackgroundBorderless"
@@ -33,7 +34,8 @@
 			android:layout_alignParentEnd="true"
 			android:id="@+id/chatdia_close"
 			android:layout_marginStart="16dp"
-			android:layout_marginEnd="16dp"/>
+			android:layout_marginEnd="16dp"
+			tools:ignore="ContentDescription" />
 
 		<ImageView
 			android:background="?android:attr/selectableItemBackgroundBorderless"
@@ -42,7 +44,8 @@
 			android:layout_height="32dp"
 			android:layout_toStartOf="@id/chatdia_close"
 			android:layout_centerVertical="true"
-			android:id="@+id/chat_menu"/>
+			android:id="@+id/chat_menu"
+			tools:ignore="ContentDescription" />
 
 	</RelativeLayout>
 
@@ -55,17 +58,12 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content">
 
-			<RelativeLayout
-				android:layout_height="match_parent"
-				android:layout_width="match_parent"
-				android:layout_below="@id/chatdia_close">
-
 				<cn.endureblaze.ka.customui.CircleImageView
 					android:layout_height="64dp"
 					android:layout_width="64dp"
 					android:id="@+id/user_head"
 					android:layout_marginTop="16dp"
-					android:layout_marginLeft="16dp"
+					android:layout_marginStart="16dp"
 					android:background="@drawable/theme_blue"/>
 
 				<TextView
@@ -76,9 +74,9 @@
 					android:id="@+id/userName"
 					android:textColor="?color_text"
 					android:transitionName="userName"
-					android:layout_toRightOf="@id/user_head"
+					android:layout_toEndOf="@id/user_head"
 					android:layout_marginTop="16dp"
-					android:layout_marginLeft="16dp"/>
+					android:layout_marginStart="16dp"/>
 
 				<TextView
 					android:layout_height="wrap_content"
@@ -90,8 +88,8 @@
 					android:textColor="?color_text_pressed"
 					android:transitionName="timr"
 					android:layout_marginBottom="18dp"
-					android:layout_toRightOf="@id/user_head"
-					android:layout_marginLeft="16dp"/>
+					android:layout_toEndOf="@id/user_head"
+					android:layout_marginStart="16dp"/>
 
 				<TextView
 					android:layout_height="wrap_content"
@@ -102,10 +100,8 @@
 					android:id="@+id/mess"
 					android:transitionName="mess"
 					android:textColor="?color_text"
-					android:layout_marginLeft="16dp"
+					android:layout_marginStart="16dp"
 					android:layout_marginTop="16dp"/>
-
-			</RelativeLayout>
 
 		</RelativeLayout>
 

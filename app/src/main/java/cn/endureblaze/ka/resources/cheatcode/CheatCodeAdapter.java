@@ -1,4 +1,5 @@
 package cn.endureblaze.ka.resources.cheatcode;
+import android.annotation.SuppressLint;
 import android.content.*;
 import android.view.*;
 import android.widget.*;
@@ -19,9 +20,9 @@ public class CheatCodeAdapter extends ArrayAdapter<CheatCode>
 	public View getView(int position, View convertView, ViewGroup parent)
 	{
 		CheatCode cheatCode=getItem(position);
-		View view=LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
-		TextView cheatCode_id=(TextView)view.findViewById(R.id.cheatCode_id);
-		TextView cheatCode_ny=(TextView)view.findViewById(R.id.cheatCode_ny);
+		@SuppressLint("ViewHolder") View view=LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
+		TextView cheatCode_id= view.findViewById(R.id.cheatCode_id);
+		TextView cheatCode_ny= view.findViewById(R.id.cheatCode_ny);
 		cheatCode_id.setText(cheatCode.getId());
 		cheatCode_ny.setText(cheatCode.getCheatCode());
 		return view;

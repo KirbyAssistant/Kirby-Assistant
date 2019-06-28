@@ -1,18 +1,22 @@
 package cn.endureblaze.ka.video;
 
 
-import android.content.*;
-import android.net.*;
-import androidx.appcompat.widget.*;
-import android.view.*;
-import android.widget.*;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.*;
-
+import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
-import com.bumptech.glide.*;
+import com.bumptech.glide.Glide;
+
+import java.util.List;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
 {
@@ -27,10 +31,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
         public ViewHolder(View view)
 		{
             super(view);
-			LinearLayout = (LinearLayout)view.findViewById(R.id.LinearLayout);
-            cardView = (CardView) view.findViewById(R.id.cardview);
-			videoImage = (ImageView) view.findViewById(R.id.video_image);
-            videoName = (TextView) view.findViewById(R.id.video_text);
+			LinearLayout = view.findViewById(R.id.LinearLayout);
+            cardView = view.findViewById(R.id.cardview);
+			videoImage = view.findViewById(R.id.video_image);
+            videoName = view.findViewById(R.id.video_text);
         }
     }
 
@@ -47,19 +51,15 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
         }
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_video, parent, false);
 		final ViewHolder holder=new ViewHolder(view);
-		holder.LinearLayout.setOnClickListener(new View.OnClickListener(){
-				@Override
-				public void onClick(View v)
-				{
-					int position=holder.getAdapterPosition();
-					Video video=mVideoList.get(position);
-					Intent web = new Intent();        
-					web.setAction("android.intent.action.VIEW");    
-					Uri content_url = Uri.parse(video.getAv());   
-					web.setData(content_url);  
-					mContext.startActivity(web);  		
-				}
-			}
+		holder.LinearLayout.setOnClickListener(v -> {
+			int position=holder.getAdapterPosition();
+			Video video=mVideoList.get(position);
+			Intent web = new Intent();
+			web.setAction("android.intent.action.VIEW");
+			Uri content_url = Uri.parse(video.getAv());
+			web.setData(content_url);
+			mContext.startActivity(web);
+		}
 		);
 		return holder;
     }
@@ -72,11 +72,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
         Glide
 			.with(mContext)
 			.load(vi.getImageUrl())
-			//.apply(Kirby.getGlideRequestOptions())
-			.asBitmap()
-		    .fitCenter()
-			.placeholder(R.drawable.ic_kirby_download)
-			.error(R.drawable.ic_kirby_load_fail)
+			.apply(Kirby.getGlideRequestOptions())
 			.into(holder.videoImage);
 	}
 

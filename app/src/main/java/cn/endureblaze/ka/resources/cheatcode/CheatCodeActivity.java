@@ -1,18 +1,20 @@
 package cn.endureblaze.ka.resources.cheatcode;
 
-import android.content.*;
-import android.os.*;
-import androidx.appcompat.widget.*;
-import android.view.*;
-import android.widget.*;
-import cn.endureblaze.ka.bean.*;
-import cn.endureblaze.ka.utils.*;
-import java.util.*;
-
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.base.*;
-import com.github.anzewei.parallaxbacklayout.*;
+import cn.endureblaze.ka.base.BaseActivity;
+import cn.endureblaze.ka.bean.CheatCode;
+import cn.endureblaze.ka.utils.ThemeUtil;
+import com.github.anzewei.parallaxbacklayout.ParallaxBack;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @ParallaxBack
 public class CheatCodeActivity extends BaseActivity
@@ -25,26 +27,23 @@ public class CheatCodeActivity extends BaseActivity
 		ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_cheatcode);
 		//配置toolbar
-		final Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+		final Toolbar toolbar= findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		getSupportActionBar().setTitle(R.string.cheatCode_title);
 		//设置List的适配器
 		CheatCodeAdapter adapter=new CheatCodeAdapter(CheatCodeActivity.this, R.layout.item_cheatcode, list);
-		ListView listview=(ListView)findViewById(R.id.cheatCode_listview);
+		ListView listview= findViewById(R.id.cheatCode_listview);
 		listview.setAdapter(adapter);
 		Intent intent=getIntent();
 		String name=intent.getStringExtra("game_name");
 		Toast.makeText(this,name,Toast.LENGTH_LONG).show();
 		CheatCodeData.setCheatCodeData(name,list);
-		listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-			@Override
-			public void onItemClick(AdapterView<?>parent,View view,int position,long id){
-				CheatCode cheatCode=list.get(position);
-				String q=cheatCode.getCheatCode();
-				ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-				cm.setText(q);
-				Toast.makeText(CheatCodeActivity.this,getResources().getString(R.string.copy_success),Toast.LENGTH_SHORT).show();
-			}
+		listview.setOnItemClickListener((parent, view, position, id) -> {
+			CheatCode cheatCode=list.get(position);
+			String q=cheatCode.getCheatCode();
+			ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+			cm.setText(q);
+			Toast.makeText(CheatCodeActivity.this,getResources().getString(R.string.copy_success),Toast.LENGTH_SHORT).show();
 		});
 	}
 }

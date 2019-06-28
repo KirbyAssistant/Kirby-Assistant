@@ -1,8 +1,9 @@
 package cn.endureblaze.ka.helper;
 
-import androidx.appcompat.widget.*;
 import android.view.animation.*;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.Objects;
 
 import static android.view.animation.Animation.RELATIVE_TO_SELF;
 
@@ -15,7 +16,7 @@ public class LayoutAnimationHelper
         controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
 
         recyclerView.setLayoutAnimation(controller);
-        recyclerView.getAdapter().notifyDataSetChanged();
+        Objects.requireNonNull(recyclerView.getAdapter()).notifyDataSetChanged();
         recyclerView.scheduleLayoutAnimation();
     }
 
