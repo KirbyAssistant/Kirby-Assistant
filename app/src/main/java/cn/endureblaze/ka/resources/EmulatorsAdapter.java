@@ -37,11 +37,11 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
         public ViewHolder(View view)
 		{
             super(view);
-			LinearLayout = (LinearLayout)view.findViewById(R.id.LinearLayout);
-            cardView = (CardView) view.findViewById(R.id.cardview);
-            gameImage = (ImageView) view.findViewById(R.id.console_image);
-            gameName = (TextView) view.findViewById(R.id.console_text);
-			blurImage = (ImageView)view.findViewById(R.id.blur_image);
+			LinearLayout = view.findViewById(R.id.LinearLayout);
+            cardView = view.findViewById(R.id.cardview);
+            gameImage = view.findViewById(R.id.console_image);
+            gameName = view.findViewById(R.id.console_text);
+			blurImage = view.findViewById(R.id.blur_image);
         }
     }
     public EmulatorsAdapter(List<Console> gamelist,Activity activity)
@@ -58,20 +58,16 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
         }
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_console, parent, false);
 		final ViewHolder holder=new ViewHolder(view);
-		holder.LinearLayout.setOnClickListener(new View.OnClickListener(){
-				@Override
-				public void onClick(View v)
-				{
-					int position = holder.getAdapterPosition();
-					Console game = mGameList.get(position);
-					MainActivity m=new MainActivity();
-					Intent mm=new Intent(mContext,GameActivity.class);
-					mm.putExtra("game_name",game.getName());
-					mm.putExtra("game_img",game.getImageUrl());
-					mm.putExtra("game_pos",game.getPosition());
-					m.theDownload(mContext,game.getName(),game.getPosition());
-				}
-			}
+		holder.LinearLayout.setOnClickListener(v -> {
+			int position = holder.getAdapterPosition();
+			Console game = mGameList.get(position);
+			MainActivity m=new MainActivity();
+			Intent mm=new Intent(mContext,GameActivity.class);
+			mm.putExtra("game_name",game.getName());
+			mm.putExtra("game_img",game.getImageUrl());
+			mm.putExtra("game_pos",game.getPosition());
+			m.theDownload(mContext,game.getName(),game.getPosition());
+		}
 		);
 		return holder;
     }

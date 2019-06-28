@@ -1,8 +1,5 @@
 package cn.endureblaze.ka.bean;
 
-import java.io.*;
-import java.lang.annotation.*;
-
 public class Video
 {
 	private String name;

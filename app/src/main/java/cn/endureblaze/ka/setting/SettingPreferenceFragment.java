@@ -1,5 +1,6 @@
 package cn.endureblaze.ka.setting;
 
+import android.annotation.SuppressLint;
 import android.content.*;
 import android.net.*;
 import android.os.*;
@@ -13,6 +14,7 @@ import cn.endureblaze.ka.utils.*;
 
 public class SettingPreferenceFragment extends PreferenceFragment
 {
+	@SuppressLint("DefaultLocale")
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -44,67 +46,57 @@ public class SettingPreferenceFragment extends PreferenceFragment
 				int itemSelected=c.getInt("language_i", 0);
 				String [] lan={"Auto","简体中文","繁體中文（台灣）","ENGLISH"};
 				AlertDialog dialog = new AlertDialog.Builder(getActivity()).setTitle(R.string.language)
-					.setSingleChoiceItems(lan, itemSelected, new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(DialogInterface dialog, int i)
+					.setSingleChoiceItems(lan, itemSelected, (dialog1, i) -> {
+						SharedPreferences lan1 =getActivity().getSharedPreferences("setting", 0);
+						SharedPreferences.Editor edit= lan1.edit();
+						edit.putInt("language_i", i);
+						edit.apply();
+						switch (i)
 						{
-							SharedPreferences lan=getActivity().getSharedPreferences("setting", 0);
-							SharedPreferences.Editor edit=lan.edit();
-							edit.putInt("language_i", i);
-							edit.apply();
-							switch (i)
-							{
-								case 0:
-									edit.putString("language", "auto");
-									edit.apply();
-									break;
-								case 1:
-									edit.putString("language", "zh_cn");
-									edit.apply();
-									break;
-								case 2:
-									edit.putString("language", "zh_tw");
-									edit.apply();
-									break;
-								case 3:
-									edit.putString("language", "en");
-									edit.apply();
-									break;
-							}
-							edit.commit();
-							dialog.dismiss();
-							Intent intent = new Intent(getActivity(), Launcher.class);
-							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-							getActivity().startActivity(intent);
-							android.os.Process.killProcess(android.os.Process.myPid()); 
+							case 0:
+								edit.putString("language", "auto");
+								edit.apply();
+								break;
+							case 1:
+								edit.putString("language", "zh_cn");
+								edit.apply();
+								break;
+							case 2:
+								edit.putString("language", "zh_tw");
+								edit.apply();
+								break;
+							case 3:
+								edit.putString("language", "en");
+								edit.apply();
+								break;
 						}
+						edit.commit();
+						dialog1.dismiss();
+						Intent intent = new Intent(getActivity(), Launcher.class);
+						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+						getActivity().startActivity(intent);
+						android.os.Process.killProcess(android.os.Process.myPid());
 					}).create();
 				dialog.show();
 				break;
 			case "simple":
-				/*if (CheckSimpleModeUtil.isSimpleMode())
+				if (CheckSimpleModeUtil.isSimpleMode())
 				{
 					AlertDialog.Builder simple_mode_disable_dialog=new AlertDialog.Builder(getActivity())
 						.setTitle(R.string.simple_mode_is_enable)
 						.setMessage(R.string.simple_mode_to_disable)
-						.setPositiveButton(getResources().getString(R.string.dia_disable), new
-						DialogInterface.OnClickListener()
-						{
-							@Override
-							public void onClick(DialogInterface dialog, int which)
-							{
-								SharedPreferences geek_shared=getActivity().getSharedPreferences("setting", 0);
-								SharedPreferences.Editor geek_shared_edit=geek_shared.edit();
-								geek_shared_edit.putBoolean("simple_mode", false);
-								geek_shared_edit.apply();
-								geek_shared_edit.commit();
-								Intent intent = new Intent(getActivity(), Launcher.class);
-								intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-								getActivity().startActivity(intent);
-								android.os.Process.killProcess(android.os.Process.myPid()); 
-							}
+						.setPositiveButton(getResources().getString(R.string.dia_disable), (dialog12, which) -> {
+							SharedPreferences geek_shared=getActivity().getSharedPreferences("setting", 0);
+							SharedPreferences.Editor geek_shared_edit=geek_shared.edit();
+							geek_shared_edit.putBoolean("simple_mode", false);
+							geek_shared_edit.apply();
+							geek_shared_edit.commit();
+							Intent intent = new Intent(getActivity(), Launcher.class);
+							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+							getActivity().startActivity(intent);
+							android.os.Process.killProcess(android.os.Process.myPid());
 						}
-					)
+						)
 						.setNegativeButton(getResources().getString(R.string.dia_cancel), null);
 					simple_mode_disable_dialog.show();
 				}
@@ -113,27 +105,21 @@ public class SettingPreferenceFragment extends PreferenceFragment
 					AlertDialog.Builder simple_mode_enable_dialog=new AlertDialog.Builder(getActivity())
 						.setTitle(R.string.simple_mode_is_disable)
 						.setMessage(R.string.simple_mode_to_enable)
-						.setPositiveButton(getResources().getString(R.string.dia_enable), new
-						DialogInterface.OnClickListener()
-						{
-							@Override
-							public void onClick(DialogInterface dialog, int which)
-							{
-								SharedPreferences geek_shared=getActivity().getSharedPreferences("setting", 0);
-								SharedPreferences.Editor geek_shared_edit=geek_shared.edit();
-								geek_shared_edit.putBoolean("simple_mode", true);
-								geek_shared_edit.apply();
-								geek_shared_edit.commit();
-								Intent intent = new Intent(getActivity(), Launcher.class);
-								intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-								getActivity().startActivity(intent);
-								android.os.Process.killProcess(android.os.Process.myPid()); 
-							}
+						.setPositiveButton(getResources().getString(R.string.dia_enable), (dialog13, which) -> {
+							SharedPreferences geek_shared=getActivity().getSharedPreferences("setting", 0);
+							SharedPreferences.Editor geek_shared_edit=geek_shared.edit();
+							geek_shared_edit.putBoolean("simple_mode", true);
+							geek_shared_edit.apply();
+							geek_shared_edit.commit();
+							Intent intent = new Intent(getActivity(), Launcher.class);
+							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+							getActivity().startActivity(intent);
+							android.os.Process.killProcess(android.os.Process.myPid());
 						}
-					)
+						)
 						.setNegativeButton(getResources().getString(R.string.dia_cancel), null);
 					simple_mode_enable_dialog.show();
-				}*/
+				}
 				break;
 			case "greenapps":
 				Intent greenapps=new Intent("android.intent.action.VIEW");

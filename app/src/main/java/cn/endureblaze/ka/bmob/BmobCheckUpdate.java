@@ -3,9 +3,9 @@ import cn.bmob.v3.*;
 
 public class BmobCheckUpdate extends BmobObject
 {
-	String versionName;
-	Integer versionCode;
-	String changeLog;
+	private String versionName;
+	private Integer versionCode;
+	private String changeLog;
 	
 	public String getVersionName(){
 		return versionName;

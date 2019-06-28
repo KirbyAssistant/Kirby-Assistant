@@ -1,16 +1,17 @@
 package cn.endureblaze.ka.utils;
-import android.content.*;
-import androidx.appcompat.app.*;
-import android.view.*;
-import cn.bmob.v3.*;
-import cn.bmob.v3.exception.*;
-import cn.bmob.v3.listener.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.bmob.*;
-
-import java.util.*;
-import android.net.*;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import androidx.appcompat.app.AlertDialog;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.endureblaze.ka.R;
+import cn.endureblaze.ka.bmob.BmobCheckUpdate;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.List;
 
 public class CheckUpdateUtil
 {
@@ -43,29 +44,23 @@ public class CheckUpdateUtil
 											.setTitle(context.getResources().getString(R.string.find_new_version)+versionName)
 											.setMessage(changeLog)
 											.setCancelable(false)
-											.setPositiveButton(context.getResources().getString(R.string.dia_download), new
-											DialogInterface.OnClickListener()
-											{
-												@Override
-												public void onClick(DialogInterface dialog, int which)
+											.setPositiveButton(context.getResources().getString(R.string.dia_download), (dialog, which) -> {
+												try
 												{
-													try
-													{
-														Intent update=new Intent("android.intent.action.VIEW");
-														update .setData(Uri.parse("market://details?id=cn.endureblaze.ka"));
-														update.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-														update .setPackage("com.coolapk.market");
-														context.startActivity(update);
-													}
-													catch (Exception e)
-													{
-														Intent update=new Intent("android.intent.action.VIEW");
-														update.setData(Uri.parse("https://www.coolapk.com/game/cn.endureblaze.ka"));
-														context.startActivity(update);
-													}		
+													Intent update=new Intent("android.intent.action.VIEW");
+													update .setData(Uri.parse("market://details?id=cn.endureblaze.ka"));
+													update.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+													update .setPackage("com.coolapk.market");
+													context.startActivity(update);
+												}
+												catch (Exception e1)
+												{
+													Intent update=new Intent("android.intent.action.VIEW");
+													update.setData(Uri.parse("https://www.coolapk.com/game/cn.endureblaze.ka"));
+													context.startActivity(update);
 												}
 											}
-										)
+											)
 											.setNegativeButton(context.getResources().getString(R.string.dia_cancel), null);
 										update_dialog.show();
 									}

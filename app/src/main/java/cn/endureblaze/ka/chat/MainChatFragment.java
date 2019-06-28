@@ -1,5 +1,6 @@
 package cn.endureblaze.ka.chat;
 
+import android.annotation.SuppressLint;
 import android.os.*;
 import androidx.core.app.*;
 import androidx.appcompat.widget.*;
@@ -52,35 +53,25 @@ public class MainChatFragment extends BaseFragment
 	
 	private void initMess(View view)
 	{
-		mess_load_fail = (TextView)view.findViewById(R.id.mess_loadfail_text);
+		mess_load_fail = view.findViewById(R.id.mess_loadfail_text);
 		//设置显示留言的列表
-		re = (RecyclerView)view.findViewById(R.id.chat_list);
+		re = view.findViewById(R.id.chat_list);
 		GridLayoutManager layoutManager=new GridLayoutManager(getActivity(), 1);
 		re.setLayoutManager(layoutManager);
 		adapter = new ChatAdapter(chatlist,getActivity(),getActivity().getSupportFragmentManager());	
 		//refresh数据
-		refresh = (RefreshLayout)view.findViewById(R.id.refresh);
+		refresh = view.findViewById(R.id.refresh);
 		MaterialHeader mMaterialHeader=(MaterialHeader) refresh.getRefreshHeader();
 		mMaterialHeader.setColorSchemeColors(ThemeUtil.getColorPrimary(getActivity()));
-		refresh.setOnRefreshListener(new OnRefreshListener(){
-				@Override
-				public void onRefresh(RefreshLayout re)
-				{
-					refresh.setEnableLoadMore(false);
-					edit_mess_button.setVisibility(View.GONE);
-					getChat();
-				}
-			});
-		refresh.setOnLoadMoreListener(new OnLoadMoreListener(){
-				@Override
-				public void onLoadMore(RefreshLayout re)
-				{
-					getMoreChat();
-				}
-			});
+		refresh.setOnRefreshListener(re -> {
+			refresh.setEnableLoadMore(false);
+			edit_mess_button.setVisibility(View.GONE);
+			getChat();
+		});
+		refresh.setOnLoadMoreListener(re -> getMoreChat());
 		//使用BmobUser类获取部分用户数据
 		name = UserUtil.getCurrentUser().getUsername();
-		edit_mess_button = (FloatingActionButton)view.findViewById(R.id.fab_chat_edit);
+		edit_mess_button = view.findViewById(R.id.fab_chat_edit);
 		edit_mess_button.setOnClickListener(new View.OnClickListener(){			
 				@Override
 				public void onClick(View v)			
@@ -156,6 +147,7 @@ public class MainChatFragment extends BaseFragment
 				}
 			});
 	}
+	@SuppressLint("HandlerLeak")
 	private Handler messHandler=new Handler(){
 		
 		private String chat;
@@ -202,6 +194,7 @@ public class MainChatFragment extends BaseFragment
 			}
 		}
 	};
+	@SuppressLint("HandlerLeak")
 	private Handler moreMessHandler=new Handler(){
 
 		private String chat;

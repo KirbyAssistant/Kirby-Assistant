@@ -1,4 +1,5 @@
 package cn.endureblaze.ka.me.user.userhead;
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -6,11 +7,11 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
@@ -19,12 +20,12 @@ import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.base.BaseActivity;
 import cn.endureblaze.ka.bmob.BmobKirbyAssistantUser;
 import cn.endureblaze.ka.manager.ActManager;
+import cn.endureblaze.ka.utils.GlideUtil;
 import cn.endureblaze.ka.utils.ThemeUtil;
 import cn.endureblaze.ka.utils.UserUtil;
 
 import java.io.File;
 import java.io.IOException;
-import cn.endureblaze.ka.utils.GlideUtil;
 
 public class HeadActivity extends BaseActivity
 {
@@ -42,8 +43,8 @@ public class HeadActivity extends BaseActivity
 		ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_head);
 		localBroadcastManager = localBroadcastManager.getInstance(this);
-		userHead = (ImageView)findViewById(R.id.user_head);
-		Button choose_photo=(Button)findViewById(R.id.choose_photo);
+		userHead = findViewById(R.id.user_head);
+		Button choose_photo= findViewById(R.id.choose_photo);
 		try
 		{
 			if (UserUtil.getCurrentUser().getUserHead().getFileUrl() != null)
@@ -68,6 +69,7 @@ public class HeadActivity extends BaseActivity
 	    intent.setType("image/*");
 		startActivityForResult(intent, CHOOSE_PHOTO);
     }
+	@SuppressLint("MissingSuperCall")
 	@Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
@@ -79,7 +81,7 @@ public class HeadActivity extends BaseActivity
 					CropImageDialog.newInstance(data.getData())
 						.setTheme(R.style.BottomDialogStyle)
 					    .setMargin(0)
-						.setShowBottom(true)   
+						.setShowBottom(true)
 						.show(ActManager.currentFragmentActivity().getSupportFragmentManager());
 				}
 				break;

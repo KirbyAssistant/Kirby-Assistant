@@ -6,7 +6,7 @@ public abstract class BaseMainBean
 	private String imageUrl;
 	private String funk;
 	
-	public BaseMainBean(String name, String imageUrl,String funk)
+	BaseMainBean(String name, String imageUrl, String funk)
 	{
 		this.name = name;
 		this.imageUrl = imageUrl;

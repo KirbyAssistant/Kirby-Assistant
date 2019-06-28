@@ -1,37 +1,32 @@
 package cn.endureblaze.ka.resources;
-import android.os.*;
-import androidx.core.app.*;
-import androidx.core.view.*;
-import androidx.appcompat.widget.*;
-import android.view.*;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.LayoutAnimationController;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.bean.*;
-import java.util.*;
-import cn.endureblaze.ka.helper.*;
-import android.view.animation.*;
-import cn.endureblaze.ka.base.*;
-import cn.endureblaze.ka.main.*;
-import cn.endureblaze.ka.utils.*;
+import cn.endureblaze.ka.R;
+import cn.endureblaze.ka.base.BaseFragment;
+import cn.endureblaze.ka.bean.Console;
+import cn.endureblaze.ka.helper.LayoutAnimationHelper;
+import cn.endureblaze.ka.main.MainActivity;
+import cn.endureblaze.ka.utils.PlayAnimUtil;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainGameFragment extends BaseFragment
 {
-	private ViewPager mViewPager;
-	private TabLayout mTabLayout;
-	private LayoutInflater mInflater;
 	private List<String> mTitleList = new ArrayList<>();//页卡标题集合
-    private View consose_view, emulator_view,cheat_code_gamelist_view ;//页卡视图
-    private List<View> mViewList = new ArrayList<>();
+	private List<View> mViewList = new ArrayList<>();
 	private List<Console> consolelist=new ArrayList<>();
 	private List<Console> cheatCodeGamelist=new ArrayList<>();
 	private List<Console> emulatorslist=new ArrayList<>();
-	private ConsoleAdapter adapter;
-	private EmulatorsAdapter adapterlv_emulator;
-	private CheatCodeGameListAdapter adapter3;
+
 	//private TjGameAdapter adapter4;
   	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -44,13 +39,14 @@ public class MainGameFragment extends BaseFragment
 	private void initPaper(View view)
 	{	
 		//实例化viewpager需要的
-		mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
-        mTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
-		mInflater = LayoutInflater.from(getActivity());
-		
-		consose_view = mInflater.inflate(R.layout.viewpaper_game, null);
-        emulator_view = mInflater.inflate(R.layout.viewpaper_emulators, null);
-    	cheat_code_gamelist_view = mInflater.inflate(R.layout.viewpaper_cheatcode, null);	
+		ViewPager mViewPager = view.findViewById(R.id.viewpager);
+		TabLayout mTabLayout = view.findViewById(R.id.tabLayout);
+		LayoutInflater mInflater = LayoutInflater.from(getActivity());
+
+		View consose_view = mInflater.inflate(R.layout.viewpaper_game, null);
+		View emulator_view = mInflater.inflate(R.layout.viewpaper_emulators, null);
+		//页卡视图
+		View cheat_code_gamelist_view = mInflater.inflate(R.layout.viewpaper_cheatcode, null);
 		//添加页卡视图
 		//mViewList.add(view0);
         mViewList.add(consose_view);
@@ -69,30 +65,30 @@ public class MainGameFragment extends BaseFragment
         mTabLayout.setupWithViewPager(mViewPager);//将TabLayout和ViewPager关联起来。
         mTabLayout.setTabsFromPagerAdapter(mAdapter);//给Tabs设置适配器
 		//主机列表和模拟器列表需要的
-		RecyclerView rlv_consose = (RecyclerView) consose_view.findViewById(R.id.consose_list); 
-	    RecyclerView rlv_emulator = (RecyclerView) emulator_view.findViewById(R.id.emulators_list);
-		RecyclerView rlv_cheat_code_game_list = (RecyclerView) cheat_code_gamelist_view.findViewById(R.id.cheatcode_list);
+		RecyclerView rlv_consose = consose_view.findViewById(R.id.consose_list);
+	    RecyclerView rlv_emulator = emulator_view.findViewById(R.id.emulators_list);
+		RecyclerView rlv_cheat_code_game_list = cheat_code_gamelist_view.findViewById(R.id.cheatcode_list);
 		//主机列表配置
 		GridLayoutManager layoutManager_consose=new GridLayoutManager(getActivity(), 1);
 		rlv_consose.setLayoutManager(layoutManager_consose);
-		adapter = new ConsoleAdapter(consolelist,getActivity());
+		ConsoleAdapter adapter = new ConsoleAdapter(consolelist, getActivity());
 		rlv_consose.setAdapter(adapter);
 		ResourceData.setConsoseData(consolelist);
 		//模拟器列表配置
 		GridLayoutManager layoutManager_emulator=new GridLayoutManager(getActivity(), 1);
 		rlv_emulator.setLayoutManager(layoutManager_emulator);
-		adapterlv_emulator = new EmulatorsAdapter(emulatorslist,getActivity());
+		EmulatorsAdapter adapterlv_emulator = new EmulatorsAdapter(emulatorslist, getActivity());
 		rlv_emulator.setAdapter(adapterlv_emulator);
 		ResourceData.setEmulatorData(emulatorslist);
 		//金手指游戏列表配置
 		GridLayoutManager layoutManager_cheat_code_game_list=new GridLayoutManager(getActivity(), 1);
 		rlv_cheat_code_game_list.setLayoutManager(layoutManager_cheat_code_game_list);
-		adapter3 = new CheatCodeGameListAdapter(cheatCodeGamelist,getActivity());
+		CheatCodeGameListAdapter adapter3 = new CheatCodeGameListAdapter(cheatCodeGamelist, getActivity());
 		rlv_cheat_code_game_list.setAdapter(adapter3);
 		ResourceData.setCheatCodeGameData(cheatCodeGamelist);
 		
 		LayoutAnimationController controller = LayoutAnimationHelper.makeLayoutAnimationController();
-		ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.root_view);
+		ViewGroup viewGroup = view.findViewById(R.id.root_view);
         viewGroup.setLayoutAnimation(controller);
         viewGroup.scheduleLayoutAnimation();
 		PlayAnimUtil.playLayoutAnimationWithRecyclerView(rlv_consose,LayoutAnimationHelper.getAnimationSetFromBottom(),false);

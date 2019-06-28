@@ -1,6 +1,8 @@
 package cn.endureblaze.ka.base;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import cn.bmob.v3.Bmob;
 import cn.endureblaze.ka.manager.ActManager;
@@ -10,6 +12,7 @@ import com.oasisfeng.condom.CondomContext;
 import com.umeng.analytics.MobclickAgent;
 import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 
+@SuppressLint("Registered")
 @ParallaxBack
 public class BaseActivity extends AppCompatActivity
 {
@@ -30,19 +33,18 @@ public class BaseActivity extends AppCompatActivity
         setStatusBar(ThemeUtil.getDarkColorPrimary(this));
     }
 
-    public void setStatusBar(int color)
+    private void setStatusBar(int color)
 	{
 		getWindow().setStatusBarColor(color);
 		getWindow().setNavigationBarColor(color);
     }
 	@Override
-	protected void onSaveInstanceState(Bundle outState)
+	protected void onSaveInstanceState(@NonNull Bundle outState)
 	{
-		// TODO: Implement this method	
 		super.onSaveInstanceState(outState);	
 		outState.putBundle(WINDOW_HIERARCHY_TAG, getWindow().saveHierarchyState());
 	}
-	protected void onRestoreInstanceState(Bundle savedInstanceState)
+	protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState)
 
 	{
 		if (getWindow() != null)	

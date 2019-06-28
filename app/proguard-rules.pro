@@ -155,7 +155,6 @@
 # keep BmobSDK
 -dontwarn cn.bmob.v3.**
 -keep class cn.bmob.v3.** {*;}
--keep android.telephony.TelephonyManager
 -dontwarn android.net.compatibility.**
 -dontwarn android.net.http.**
 -dontwarn com.android.internal.http.multipart.**

@@ -2,7 +2,6 @@ package cn.endureblaze.ka.bottomdialog;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import cn.endureblaze.ka.bottomdialog.*;
 
 public abstract class ViewConvertListener implements Parcelable {
 
@@ -20,7 +19,7 @@ public abstract class ViewConvertListener implements Parcelable {
     public ViewConvertListener() {
     }
 
-    protected ViewConvertListener(Parcel in) {
+    ViewConvertListener(Parcel in) {
     }
 
     public static final Creator<ViewConvertListener> CREATOR = new Creator<ViewConvertListener>() {

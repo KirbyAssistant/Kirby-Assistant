@@ -1,62 +1,41 @@
 apply plugin: 'com.android.application'
-
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+apply from: 'androidres_build.gradle'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
     useLibrary 'org.apache.http.legacy'
-    signingConfigs {
-        release {//发布版本的签名配置
-            storeFile file(keystoreProperties['KEYSTORE_FILE'])
-            keyAlias keystoreProperties['KEY_ALIAS']
-            storePassword keystoreProperties['KEYSTORE_PWD']
-            keyPassword keystoreProperties['KEY_PWD']
-        }
-    }
     defaultConfig {
         applicationId "cn.endureblaze.ka"
         minSdkVersion 21
-        targetSdkVersion 29
+	    targetSdkVersion 29
         versionCode 43
         versionName "未来·炫动-1.4.0"
-        multiDexEnabled false
-        multiDexKeepProguard file('multiDexKeep.pro')
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
-        }
-    }
+  }
     buildTypes {
         release {
-            debuggable true
             minifyEnabled true
-            shrinkResources true
-            manifestPlaceholders = [:]
-            signingConfig signingConfigs.release
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-        }
-        debug {
-            debuggable true
-            minifyEnabled false
-            shrinkResources false
+			shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.debug
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //绿色守护
-    implementation 'com.oasisfeng.condom:library:2.3.1'
-    //友盟统计
-    implementation 'com.umeng.umsdk:analytics:8.0.0'
-    implementation 'com.umeng.umsdk:common:2.0.0'
-    //图片加载
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	//绿色守护
+	implementation 'com.oasisfeng.condom:library:2.3.1'
+	//友盟统计
+	implementation  'com.umeng.umsdk:analytics:8.0.0'
+    implementation  'com.umeng.umsdk:common:2.0.0'
+	//图片加载
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
-    //多样的下拉刷新
+	//多样的下拉刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-11'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-11'
     //bmob
@@ -66,23 +45,12 @@ dependencies {
     implementation 'com.squareup.okio:okio:2.1.0'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-    //滑动返回
-    implementation 'com.github.anzewei:parallaxbacklayout:1.1.6'
+	//滑动返回
+	implementation 'com.github.anzewei:parallaxbacklayout:1.1.6'
 
-    implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
-    implementation 'com.google.android.material:material:1.1.0-alpha07'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha06'
-    implementation 'androidx.cardview:cardview:1.0.0'
-}
-
-buildscript {
-    repositories {
-        jcenter()
-        google()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
-        classpath 'com.tencent.mm:AndResGuard-gradle-plugin:1.2.16'
-    }
+	implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
+	implementation 'com.google.android.material:material:1.1.0-alpha07'
+	implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+	implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha06'
+	implementation 'androidx.cardview:cardview:1.0.0'
 }

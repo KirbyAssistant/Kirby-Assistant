@@ -1,15 +1,16 @@
 package cn.endureblaze.ka.video;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import androidx.recyclerview.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LayoutAnimationController;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.recyclerview.widget.GridLayoutManager;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
@@ -20,12 +21,13 @@ import cn.endureblaze.ka.customui.StaggeredGridRecyclerView;
 import cn.endureblaze.ka.helper.LayoutAnimationHelper;
 import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.utils.PlayAnimUtil;
+import cn.endureblaze.ka.utils.ThemeUtil;
+import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+
 import java.util.ArrayList;
 import java.util.List;
-import com.scwang.smartrefresh.header.MaterialHeader;
-import cn.endureblaze.ka.utils.ThemeUtil;
 
 public class MainVideoFragment extends BaseFragment 
 {
@@ -49,14 +51,14 @@ public class MainVideoFragment extends BaseFragment
 
 	private void initVideo(View view)
 	{
-		video_load_fail = (TextView)view.findViewById(R.id.video_loadfail_text);
+		video_load_fail = view.findViewById(R.id.video_loadfail_text);
 		//设置显示视频的列表
-		re = (StaggeredGridRecyclerView)view.findViewById(R.id.video_list);
+		re = view.findViewById(R.id.video_list);
 		GridLayoutManager layoutManager=new GridLayoutManager(getActivity(), 2);
 		re.setLayoutManager(layoutManager);
 		adapter = new VideoAdapter(videolist);	
 		//refresh数据
-		refresh = (RefreshLayout)view.findViewById(R.id.refresh);
+		refresh = view.findViewById(R.id.refresh);
 		MaterialHeader mMaterialHeader=(MaterialHeader) refresh.getRefreshHeader();
 		mMaterialHeader.setColorSchemeColors(ThemeUtil.getColorPrimary(getActivity()));
 		refresh.setOnRefreshListener(new OnRefreshListener(){
@@ -73,7 +75,7 @@ public class MainVideoFragment extends BaseFragment
 	{
 		videolist.clear();//清空列表
 		//使用BmobQuery获取视频数据
-		BmobQuery<BmobVideo> query=new BmobQuery<BmobVideo>();
+		BmobQuery<BmobVideo> query= new BmobQuery<>();
 		query.order("-createdAt");//时间降序排列
 		query.findObjects(new FindListener<BmobVideo>() {
 
@@ -102,6 +104,7 @@ public class MainVideoFragment extends BaseFragment
 			});
 	}
 
+	@SuppressLint("HandlerLeak")
 	private Handler videoHandler=new Handler(){
 
 		@Override

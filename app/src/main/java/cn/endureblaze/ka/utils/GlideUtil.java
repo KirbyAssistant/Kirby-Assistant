@@ -25,52 +25,37 @@ public class GlideUtil {
 	};
 
 	public static void setNormalImageViaGlideCache(final Activity activity, final ImageView image, final String imageUrl) {
-			new Thread(new Runnable() {
-					@Override
-					public void run() {
-						try {
-						final Bitmap glideBitmap=GlideUtil.getGlideBitmap(activity, imageUrl);
-						
-							activity.runOnUiThread(new Runnable(){
-									@Override
-									public void run() {
-										image.setImageBitmap(glideBitmap);
-									}
-								});
-						} catch (Exception e) {}
-					}
-				}).start();
+			new Thread(() -> {
+				try {
+				final Bitmap glideBitmap=GlideUtil.getGlideBitmap(activity, imageUrl);
+
+					activity.runOnUiThread(() -> image.setImageBitmap(glideBitmap));
+				} catch (Exception e) {}
+			}).start();
 	}
 
 	public static void setBlurImageViaGlideCache(final Activity activity, final ImageView blurImage, final String imageUrl, final String pattern) {
 
-		new Thread(new Runnable() {
-				@Override
-				public void run() {
-					try{
-					Bitmap glideBitmap=GlideUtil.getGlideBitmap(activity, imageUrl);
-					int scaleRatio = 0;
-					if (TextUtils.isEmpty(pattern)) {
-						scaleRatio = 0;
-					} else if (scaleRatio < 0) {
-						scaleRatio = 10;
-					} else {
-						scaleRatio = Integer.parseInt(pattern);
-					}
-					//                        下面的这个方法必须在子线程中执行
-					final Bitmap blurBitmap2 = FastBlurUtil.toBlur(glideBitmap, scaleRatio);
+		new Thread(() -> {
+			try{
+			Bitmap glideBitmap=GlideUtil.getGlideBitmap(activity, imageUrl);
+			int scaleRatio = 0;
+			if (TextUtils.isEmpty(pattern)) {
+				scaleRatio = 0;
+			} else if (scaleRatio < 0) {
+				scaleRatio = 10;
+			} else {
+				scaleRatio = Integer.parseInt(pattern);
+			}
+			//下面的这个方法必须在子线程中执行
+			final Bitmap blurBitmap2 = FastBlurUtil.toBlur(glideBitmap, scaleRatio);
 
-					//                   刷新ui必须在主线程中执行
-						activity.runOnUiThread(new Runnable(){
-
-								@Override
-								public void run() {
-									blurImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
-									blurImage.setImageBitmap(blurBitmap2);
-								}
-							});
-					} catch (Exception e) {}
-				}
-			}).start();
+			//刷新ui必须在主线程中执行
+				activity.runOnUiThread(() -> {
+					blurImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+					blurImage.setImageBitmap(blurBitmap2);
+				});
+			} catch (Exception e) {}
+		}).start();
 	}
 }

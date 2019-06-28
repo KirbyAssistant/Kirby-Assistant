@@ -61,19 +61,15 @@ public class CheatCodeGameListAdapter extends RecyclerView.Adapter<CheatCodeGame
         }
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_console, parent, false);
 		final ViewHolder holder=new ViewHolder(view);
-		holder.LinearLayout.setOnClickListener(new View.OnClickListener(){
-				@Override
-				public void onClick(View v)
-				{
-					int position=holder.getAdapterPosition();
-					Console console=mCheatCodeGameList.get(position);
-					Intent in=new Intent(mContext, CheatCodeActivity.class);
-					String name=console.getName().toString();
-					in.putExtra("game_name",name);
-					MainActivity m=new MainActivity();
-					IntentUtil.startActivityWithAnim(in,mActivity);
-				}
-			}
+		holder.LinearLayout.setOnClickListener(v -> {
+			int position=holder.getAdapterPosition();
+			Console console=mCheatCodeGameList.get(position);
+			Intent in=new Intent(mContext, CheatCodeActivity.class);
+			String name= console.getName();
+			in.putExtra("game_name",name);
+			MainActivity m=new MainActivity();
+			IntentUtil.startActivityWithAnim(in,mActivity);
+		}
 		);
 		return holder;
 	}

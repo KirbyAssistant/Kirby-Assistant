@@ -1,5 +1,4 @@
 package cn.endureblaze.ka.bean;
-import java.net.*;
 
 public class Chat
 {

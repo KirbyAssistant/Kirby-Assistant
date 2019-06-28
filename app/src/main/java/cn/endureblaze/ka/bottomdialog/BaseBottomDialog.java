@@ -1,16 +1,15 @@
 package cn.endureblaze.ka.bottomdialog;
 
-import android.os.*;
+import android.os.Bundle;
+import android.view.*;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
-import androidx.core.app.*;
-import android.view.*;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import cn.endureblaze.ka.*;
+import cn.endureblaze.ka.R;
 
 public abstract class BaseBottomDialog extends DialogFragment {
     private static final String MARGIN = "margin";
@@ -34,7 +33,7 @@ public abstract class BaseBottomDialog extends DialogFragment {
     @StyleRes
     private int animStyle;
     @LayoutRes
-    protected int layoutId;
+    int layoutId;
 
     public abstract int intLayoutId();
 
@@ -84,7 +83,7 @@ public abstract class BaseBottomDialog extends DialogFragment {
      * @param outState
      */
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(MARGIN, margin);
         outState.putInt(WIDTH, width);
