@@ -12,6 +12,7 @@ import android.view.*;
 import android.widget.*;
 import cn.endureblaze.ka.*;
 
+@SuppressLint("AppCompatCustomView")
 public class CropperImageView extends ImageView {
 
     private static final String TAG = "CropperImageView";
@@ -80,13 +81,11 @@ public class CropperImageView extends ImageView {
     private void init(Context context, AttributeSet attrs) {
 
         if (attrs != null) {
-            TypedArray mTypedArray = context.obtainStyledAttributes(attrs, R.styleable.nocropper__CropperView);
-            if (mTypedArray != null) {
-                mPaintColor = mTypedArray.getColor(R.styleable.nocropper__CropperView_nocropper__padding_color, mPaintColor);
-                mAddPaddingToMakeSquare = mTypedArray.getBoolean(R.styleable.nocropper__CropperView_nocropper__add_padding_to_make_square, true);
-                initWithFitToCenter = mTypedArray.getBoolean(R.styleable.nocropper__CropperView_nocropper__fit_to_center, false);
-                mTypedArray.recycle();
-            }
+            @SuppressLint("CustomViewStyleable") TypedArray mTypedArray = context.obtainStyledAttributes(attrs, R.styleable.nocropper__CropperView);
+            mPaintColor = mTypedArray.getColor(R.styleable.nocropper__CropperView_nocropper__padding_color, mPaintColor);
+            mAddPaddingToMakeSquare = mTypedArray.getBoolean(R.styleable.nocropper__CropperView_nocropper__add_padding_to_make_square, true);
+            initWithFitToCenter = mTypedArray.getBoolean(R.styleable.nocropper__CropperView_nocropper__fit_to_center, false);
+            mTypedArray.recycle();
         }
 
         GestureListener mGestureListener = new GestureListener();
@@ -180,6 +179,7 @@ public class CropperImageView extends ImageView {
 
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
@@ -331,8 +331,8 @@ public class CropperImageView extends ImageView {
         float ty = getMatrixValue(matrix, Matrix.MTRANS_Y);
         float scaleX = getMatrixValue(matrix, Matrix.MSCALE_X);
         if (scaleX < mMinZoom) {
-            float xx = getWidth() / 2 - mMinZoom * drawable.getIntrinsicWidth() / 2;
-            float yy = getHeight() / 2 - mMinZoom * drawable.getIntrinsicHeight() / 2;
+            float xx = (getWidth() >> 1) - mMinZoom * drawable.getIntrinsicWidth() / 2;
+            float yy = (getHeight() >> 1) - mMinZoom * drawable.getIntrinsicHeight() / 2;
             animateAdjustmentWithScale(tx, xx, ty, yy, scaleX, mMinZoom);
         }
     }
@@ -376,8 +376,8 @@ public class CropperImageView extends ImageView {
                 Log.i(TAG, "set scale to min zoom: " + mMinZoom);
             }
 
-            float xx = getWidth()/2 - mMinZoom * drawable.getIntrinsicWidth()/2;
-            float yy = getHeight()/2 - mMinZoom * drawable.getIntrinsicHeight()/2;
+            float xx = (getWidth() >> 1) - mMinZoom * drawable.getIntrinsicWidth()/2;
+            float yy = (getHeight() >> 1) - mMinZoom * drawable.getIntrinsicHeight()/2;
 
             if (drawable.getIntrinsicHeight() > drawable.getIntrinsicWidth()) {
                 if (ty >= 0) {
@@ -430,7 +430,7 @@ public class CropperImageView extends ImageView {
             float yTranslate;
 
             if(h <= w) {
-                yTranslate = getHeight()/2 - scaleX * h/2;
+                yTranslate = (getHeight() >> 1) - scaleX * h/2;
 
                 if (tx >= 0) {
                     xTranslate = 0;
@@ -444,7 +444,7 @@ public class CropperImageView extends ImageView {
                 }
 
             } else {
-                xTranslate = getWidth()/2 - scaleX * w/2;
+                xTranslate = (getWidth() >> 1) - scaleX * w/2;
 
                 if(ty >= 0) {
                     yTranslate = 0;
@@ -897,22 +897,21 @@ public class CropperImageView extends ImageView {
                                             final float yStart, final float yEnd,
                                             final float scaleStart, final float scaleEnd) {
         ValueAnimator animator = ValueAnimator.ofInt(0, 20);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                Matrix matrix = getImageMatrix();
-                matrix.reset();
+        animator.addUpdateListener(animation -> {
+            Matrix matrix = getImageMatrix();
+            matrix.reset();
 
-                Integer value = (Integer)animation.getAnimatedValue();
+            Integer value = (Integer)animation.getAnimatedValue();
 
-                matrix.postScale((scaleEnd - scaleStart) * value / 20f + scaleStart,
-                        (scaleEnd - scaleStart) * value / 20f + scaleStart);
-                matrix.postTranslate((xEnd - xStart) * value / 20f + xStart,
-                        (yEnd - yStart) * value / 20f + yStart);
+            float sx = (scaleEnd - scaleStart) * value / 20f + scaleStart;
+            matrix.postScale(sx,
+                    sx);
 
-                setImageMatrix(matrix);
-                invalidate();
-            }
+            matrix.postTranslate((xEnd - xStart) * value / 20f + xStart,
+                    (yEnd - yStart) * value / 20f + yStart);
+
+            setImageMatrix(matrix);
+            invalidate();
         });
 
         animator.addListener(new Animator.AnimatorListener() {
@@ -942,14 +941,11 @@ public class CropperImageView extends ImageView {
 
     private void animateAdjustment(final float xDiff, final float yDiff) {
         ValueAnimator animator = ValueAnimator.ofInt(0, 20);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                Matrix matrix = getImageMatrix();
-                matrix.postTranslate(xDiff / 20, yDiff / 20);
-                setImageMatrix(matrix);
-                invalidate();
-            }
+        animator.addUpdateListener(animation -> {
+            Matrix matrix = getImageMatrix();
+            matrix.postTranslate(xDiff / 20, yDiff / 20);
+            setImageMatrix(matrix);
+            invalidate();
         });
 
         animator.addListener(new Animator.AnimatorListener() {
@@ -983,22 +979,19 @@ public class CropperImageView extends ImageView {
         final float scale = getScale(matrix);
 
         final ValueAnimator animator = ValueAnimator.ofInt(0, 20);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                Matrix matrix = getImageMatrix();
+        animator.addUpdateListener(animation -> {
+            Matrix matrix1 = getImageMatrix();
 
-                float currentScale = getScale(matrix);
-                if (currentScale <= mMaxZoom) {
+            float currentScale = getScale(matrix1);
+            if (currentScale <= mMaxZoom) {
 //                    animator.cancel();
-                    return;
-                }
-
-                double expScale = Math.pow(mMaxZoom / scale, 1 / 20f);
-                matrix.postScale((float)expScale, (float)expScale, mFocusX, mFocusY);
-                setImageMatrix(matrix);
-                invalidate();
+                return;
             }
+
+            double expScale = Math.pow(mMaxZoom / scale, 1 / 20f);
+            matrix1.postScale((float)expScale, (float)expScale, mFocusX, mFocusY);
+            setImageMatrix(matrix1);
+            invalidate();
         });
 
         animator.addListener(new Animator.AnimatorListener() {

@@ -7,6 +7,8 @@ import cn.endureblaze.ka.base.BaseActivity;
 import cn.endureblaze.ka.utils.ThemeUtil;
 import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 
+import java.util.Objects;
+
 @ParallaxBack
 public class SettingActivity extends BaseActivity
 {
@@ -18,7 +20,7 @@ public class SettingActivity extends BaseActivity
 		setContentView(R.layout.activity_setting);
 		Toolbar toolbar= findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-		getSupportActionBar().setTitle(R.string.setting_title);
+		Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.setting_title);
 		getFragmentManager().beginTransaction().replace(R.id.about_fragment, new SettingPreferenceFragment()).commit();
 	}
 }

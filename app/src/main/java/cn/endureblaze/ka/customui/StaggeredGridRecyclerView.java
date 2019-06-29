@@ -1,11 +1,11 @@
 package cn.endureblaze.ka.customui;
 
-import android.content.*;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.GridLayoutAnimationController;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.*;
-import android.util.*;
-import android.view.*;
-import android.view.animation.*;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -48,7 +48,7 @@ public class StaggeredGridRecyclerView extends RecyclerView
                 params.layoutAnimationParameters = animationParams;
             }
 
-            int columns = 0;
+            int columns;
             if (layoutManager instanceof GridLayoutManager) {
                 columns = ((GridLayoutManager) layoutManager).getSpanCount();
             } else {

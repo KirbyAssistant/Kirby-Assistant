@@ -15,6 +15,7 @@ import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @ParallaxBack
 public class CheatCodeActivity extends BaseActivity
@@ -29,20 +30,19 @@ public class CheatCodeActivity extends BaseActivity
 		//配置toolbar
 		final Toolbar toolbar= findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-		getSupportActionBar().setTitle(R.string.cheatCode_title);
+		Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.cheatCode_title);
 		//设置List的适配器
 		CheatCodeAdapter adapter=new CheatCodeAdapter(CheatCodeActivity.this, R.layout.item_cheatcode, list);
 		ListView listview= findViewById(R.id.cheatCode_listview);
 		listview.setAdapter(adapter);
 		Intent intent=getIntent();
 		String name=intent.getStringExtra("game_name");
-		Toast.makeText(this,name,Toast.LENGTH_LONG).show();
-		CheatCodeData.setCheatCodeData(name,list);
+		CheatCodeData.setCheatCodeData(Objects.requireNonNull(name),list);
 		listview.setOnItemClickListener((parent, view, position, id) -> {
 			CheatCode cheatCode=list.get(position);
 			String q=cheatCode.getCheatCode();
 			ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-			cm.setText(q);
+			Objects.requireNonNull(cm).setText(q);
 			Toast.makeText(CheatCodeActivity.this,getResources().getString(R.string.copy_success),Toast.LENGTH_SHORT).show();
 		});
 	}

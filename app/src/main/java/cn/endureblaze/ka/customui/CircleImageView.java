@@ -1,5 +1,6 @@
 package cn.endureblaze.ka.customui;
 
+import android.annotation.SuppressLint;
 import android.content.*;
 import android.content.res.*;
 import android.graphics.*;
@@ -317,9 +318,7 @@ public class CircleImageView extends AppCompatImageView {
     }
 
     private void applyColorFilter() {
-        if (mBitmapPaint != null) {
-            mBitmapPaint.setColorFilter(mColorFilter);
-        }
+        mBitmapPaint.setColorFilter(mColorFilter);
     }
 
     private Bitmap getBitmapFromDrawable(Drawable drawable) {
@@ -438,6 +437,7 @@ public class CircleImageView extends AppCompatImageView {
         mBitmapShader.setLocalMatrix(mShaderMatrix);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         return inTouchableArea(event.getX(), event.getY()) && super.onTouchEvent(event);

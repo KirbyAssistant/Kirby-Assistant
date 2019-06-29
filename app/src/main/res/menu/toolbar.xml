@@ -4,7 +4,7 @@
         android:id="@+id/theme"
 		android:icon="@drawable/ic_kirby_theme"
         android:title="@string/theme_title"
-		app:showAsAction="always"/>
+		app:showAsAction="ifRoom"/>
 	<item
         android:id="@+id/setting"
         android:title="@string/setting_title"

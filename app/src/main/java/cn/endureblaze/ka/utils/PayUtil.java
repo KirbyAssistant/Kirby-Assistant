@@ -1,5 +1,6 @@
 package cn.endureblaze.ka.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -35,7 +36,7 @@ class AlipayDonate {
      * 这个方法最好，但在 2016 年 8 月发现新用户可能无法使用
      *
      * @param activity Parent Activity
-     * @param urlCode 手动解析二维码获得地址中的参数，例如 https://qr.alipay.com/aehvyvf4taua18zo6e 最后那段
+     * @param payCode 手动解析二维码获得地址中的参数，例如 https://qr.alipay.com/aehvyvf4taua18zo6e 最后那段
      * @return 是否成功调用
      */
     public static boolean startAlipayClient(Activity activity, String payCode) {
@@ -49,7 +50,7 @@ class AlipayDonate {
      * @param intentFullUrl Intent 跳转地址
      * @return 是否成功调用
      */
-    public static boolean startIntentUrl(Activity activity, String intentFullUrl) {
+    private static boolean startIntentUrl(Activity activity, String intentFullUrl) {
         try {
             Intent intent = Intent.parseUri(
 				intentFullUrl,
@@ -57,10 +58,7 @@ class AlipayDonate {
             );
             activity.startActivity(intent);
             return true;
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            return false;
-        } catch (ActivityNotFoundException e) {
+        } catch (URISyntaxException | ActivityNotFoundException e) {
             e.printStackTrace();
             return false;
         }
@@ -103,6 +101,7 @@ class AlipayDonate {
      * @param context Context
      * @return 是否成功打开 Activity
      */
+    @SuppressLint("NewApi")
     public static boolean openAlipayScan(Context context) {
         try {
             Uri uri = Uri.parse("alipayqr://platformapi/startapp?saId=10000007");
@@ -125,6 +124,7 @@ class AlipayDonate {
      * @param context Context
      * @return 是否成功打开 Activity
      */
+    @SuppressLint("NewApi")
     public static boolean openAlipayBarcode(Context context) {
         try {
             Uri uri = Uri.parse("alipayqr://platformapi/startapp?saId=20000056");

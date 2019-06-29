@@ -14,13 +14,14 @@ import cn.endureblaze.ka.bottomdialog.ViewHolder;
 import cn.endureblaze.ka.utils.PhoneUtil;
 import com.umeng.analytics.MobclickAgent;
 
+import java.util.Objects;
+
 public class CrashDialog extends BaseBottomDialog
 {
 
 	private Throwable crash;
 
-	private PhoneUtil phoneInfo;
-	public static CrashDialog newInstance(String type,Throwable crash)
+    public static CrashDialog newInstance(String type,Throwable crash)
 	{
 		Bundle bundle = new Bundle();
 		bundle.putSerializable("crash",crash);
@@ -44,7 +45,7 @@ public class CrashDialog extends BaseBottomDialog
 	{
 		super.onCreate(savedInstanceState);
 		Bundle bundle = getArguments();
-		 crash=(Throwable) bundle.getSerializable("crash");
+		 crash=(Throwable) Objects.requireNonNull(bundle).getSerializable("crash");
 	}
 
 	@Override
@@ -57,7 +58,7 @@ public class CrashDialog extends BaseBottomDialog
 	public void convertView(ViewHolder holder, final BaseBottomDialog mess_dialog)
 	{
 		MobclickAgent.reportError(getActivity(), crash);
-		phoneInfo = new PhoneUtil(mess_dialog.getActivity());
+        PhoneUtil phoneInfo = new PhoneUtil(mess_dialog.getActivity());
 		
 		final TextView crashText= holder.getView(R.id.crashText);
 		Button copy= holder.getView(R.id.copy);
@@ -100,8 +101,8 @@ public class CrashDialog extends BaseBottomDialog
         }
 		
 		copy.setOnClickListener(p1 -> {
-			ClipboardManager cm = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-			cm.setText(crashText.getText());
+			ClipboardManager cm = (ClipboardManager) Objects.requireNonNull(getActivity()).getSystemService(Context.CLIPBOARD_SERVICE);
+			Objects.requireNonNull(cm).setText(crashText.getText());
 			Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.copy_success),Toast.LENGTH_SHORT).show();
 		});
 	}

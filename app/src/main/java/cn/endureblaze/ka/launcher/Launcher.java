@@ -11,18 +11,17 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-
 import androidx.annotation.RequiresApi;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.base.BaseActivity;
 import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.main.donate.DonateActivity;
 import cn.endureblaze.ka.me.user.userhead.HeadActivity;
 import cn.endureblaze.ka.utils.UserUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * 类类型:Activity
@@ -32,7 +31,6 @@ import cn.endureblaze.ka.utils.UserUtil;
  */
 
 public class Launcher extends BaseActivity {
-    private ImageView icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +45,7 @@ public class Launcher extends BaseActivity {
                 | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        icon = (ImageView) findViewById(R.id.welcomeImageView1);
+        ImageView icon = findViewById(R.id.welcomeImageView1);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
             setupShortcuts();
         }
@@ -104,7 +102,7 @@ public class Launcher extends BaseActivity {
                     .build();
             infos.add(user_head);
         }
-        mShortcutManager.setDynamicShortcuts(infos);
+        Objects.requireNonNull(mShortcutManager).setDynamicShortcuts(infos);
     }
 }
 

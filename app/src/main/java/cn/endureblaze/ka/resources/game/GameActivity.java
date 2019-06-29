@@ -13,6 +13,8 @@ import cn.endureblaze.ka.base.BaseActivity;
 import cn.endureblaze.ka.utils.GlideUtil;
 import cn.endureblaze.ka.utils.ThemeUtil;
 
+import java.util.Objects;
+
 public class GameActivity extends BaseActivity {
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +22,13 @@ public class GameActivity extends BaseActivity {
         ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_game);
 		//配置toolbar
-		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+		Toolbar toolbar= findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		Intent game=getIntent();
 		final String game_name=game.getStringExtra("game_name");
 		final String game_img_url=game.getStringExtra("game_img");
 		final String game_pos=game.getStringExtra("game_pos");
-		getSupportActionBar().setTitle(game_name);
+		Objects.requireNonNull(getSupportActionBar()).setTitle(game_name);
 	    ImageView game_img= findViewById(R.id.game_img);
 		final ImageView blur_game_img= findViewById(R.id.blur_game_img);
 		TextView game_js= findViewById(R.id.game_js);
@@ -34,7 +36,7 @@ public class GameActivity extends BaseActivity {
 		GlideUtil.setNormalImageViaGlideCache(GameActivity.this,game_img,game_img_url);
 		GlideUtil.setBlurImageViaGlideCache(GameActivity.this,blur_game_img,game_img_url,"5");
 		download_button.setOnClickListener(p1 -> {
-			switch (game_pos) {
+			switch (Objects.requireNonNull(game_pos)) {
 				case "gba_mzqdx"://"星之卡比 梦之泉DX":
 					//Intent gg=new Intent(GameActivity.this,KirbyWebActivity.class);
 					//startActivity(gg);
@@ -109,7 +111,7 @@ public class GameActivity extends BaseActivity {
 			}
 		});
 		StringBuffer game_js_text=new StringBuffer();
-		switch (game_pos) {
+		switch (Objects.requireNonNull(game_pos)) {
 			case "gba_mzqdx"://"星之卡比 梦之泉DX":
 				game_js_text.append(getResources().getString(R.string.bj)).append("\n");
 				game_js_text.append(getResources().getString(R.string.gba_mzqdx_bj)).append("\n").append("\n");

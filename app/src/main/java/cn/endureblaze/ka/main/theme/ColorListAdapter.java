@@ -1,5 +1,6 @@
 package cn.endureblaze.ka.main.theme;
 
+import android.annotation.SuppressLint;
 import android.content.*;
 import android.view.*;
 import android.widget.*;
@@ -35,6 +36,7 @@ public class ColorListAdapter extends BaseAdapter
         return position;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Holder holder;

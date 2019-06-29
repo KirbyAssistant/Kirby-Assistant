@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_height="wrap_content"
 	android:layout_width="match_parent"
 	app:cardCornerRadius="8dp"
 	android:id="@+id/cardview"
@@ -17,24 +17,25 @@
 		android:id="@+id/LinearLayout">
 
 		<ImageView
-			android:layout_width="wrap_content"
-			android:layout_height="158dp"
-			android:id="@+id/video_image"
-			android:layout_gravity="top"
-			android:scaleType="centerCrop"/>
+                android:layout_width="wrap_content"
+                android:layout_height="158dp"
+                android:id="@+id/video_image"
+                android:layout_gravity="top"
+                android:scaleType="centerCrop"
+                tools:ignore="ContentDescription"/>
 
 		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:text="Text"
-			android:textSize="14sp"
-			android:id="@+id/video_text"
-			android:layout_gravity="bottom|center_horizontal"
-			android:layout_marginTop="4dp"
-			android:textColor="?attr/color_text"
-			android:layout_marginRight="12dp"
-			android:layout_marginLeft="12dp"
-			android:layout_marginBottom="8dp"/>
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Text"
+                android:textSize="14sp"
+                android:id="@+id/video_text"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginTop="4dp"
+                android:textColor="?attr/color_text"
+                android:layout_marginRight="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginBottom="8dp" tools:ignore="HardcodedText"/>
 
 	</LinearLayout>
 

@@ -18,11 +18,11 @@ import cn.endureblaze.ka.manager.ActManager;
 import cn.endureblaze.ka.nocropper.CropperView;
 import cn.endureblaze.ka.utils.BitmapUriUtil;
 import java.io.IOException;
+import java.util.Objects;
 
 public class CropImageDialog extends BaseBottomDialog
 {
-	private Uri imageUri;
-	private Bitmap imageBitmap;
+    private Bitmap imageBitmap;
 	//private CropImageView mCropImageView;
 
 	public static CropImageDialog newInstance(Uri imageUri)
@@ -47,18 +47,16 @@ public class CropImageDialog extends BaseBottomDialog
     }
 
 	@Override
-	public void onCreate(@Nullable Bundle savedInstanceState)
-	{
+	public void onCreate(@Nullable Bundle savedInstanceState)  {
 		super.onCreate(savedInstanceState);
 		Bundle bundle = getArguments();
-		imageUri = Uri.parse(bundle.getString("imageuri"));
-		try
-		{
-			imageBitmap = BitmapUriUtil.getBitmap(getActivity(),imageUri);
-		}
-		catch (IOException e)
-		{}
-	}
+        Uri imageUri = Uri.parse(Objects.requireNonNull(bundle).getString("imageuri"));
+        try {
+            imageBitmap = BitmapUriUtil.getBitmap(Objects.requireNonNull(getActivity()), imageUri);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 	@Override
 	public int intLayoutId()
@@ -76,16 +74,14 @@ public class CropImageDialog extends BaseBottomDialog
 
 				private Uri corpImageUri;
 				@Override
-				public void onClick(View p1)
-				{
-					Uri corpImageUriNoCompress=BitmapUriUtil.bitmap2uri(getActivity(), mCropImageView.getCroppedBitmap().getBitmap());
-					try
-					{
-						corpImageUri = BitmapUriUtil.bitmap2uri(getActivity(), BitmapUriUtil.getCompressBitmap(ActManager.currentActivity(), corpImageUriNoCompress));
-					}
-					catch (IOException e)
-					{}
-					SharedPreferences y=getActivity().getSharedPreferences("string", 0);
+				public void onClick(View p1)  {
+					Uri corpImageUriNoCompress=BitmapUriUtil.bitmap2uri(Objects.requireNonNull(getActivity()), mCropImageView.getCroppedBitmap().getBitmap());
+                    try {
+                        corpImageUri = BitmapUriUtil.bitmap2uri(getActivity(), BitmapUriUtil.getCompressBitmap(ActManager.currentActivity(), corpImageUriNoCompress));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    SharedPreferences y=getActivity().getSharedPreferences("string", 0);
 					SharedPreferences.Editor edit=y.edit();
 					edit.putString("image_str", corpImageUri.toString());
 					edit.apply();
@@ -101,8 +97,8 @@ public class CropImageDialog extends BaseBottomDialog
 	 */
 	public Bitmap getBitmap(int resId)
 	{
-		WindowManager wm = (WindowManager) getActivity().getSystemService(Context.WINDOW_SERVICE);
-		int width = wm.getDefaultDisplay().getWidth();
+		WindowManager wm = (WindowManager) Objects.requireNonNull(getActivity()).getSystemService(Context.WINDOW_SERVICE);
+		int width = Objects.requireNonNull(wm).getDefaultDisplay().getWidth();
 		Bitmap bitmap= BitmapFactory.decodeResource(getResources(), resId);
 		float scaleWidth = 1,scaleHeight = 1;
 		if (bitmap.getWidth() < width)

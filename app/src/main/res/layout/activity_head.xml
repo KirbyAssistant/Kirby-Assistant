@@ -2,19 +2,19 @@
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:layout_width="fill_parent"
+	xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical"
 	android:background="?color_bkg_main"
 	android:padding="8dp">
 
 	<ImageView
-		android:src="@drawable/theme_kirby"
-		android:id="@+id/user_head"
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:layout_gravity="center_horizontal"
-		android:transitionName="userHead"/>
+			android:src="@drawable/theme_kirby"
+			android:id="@+id/user_head"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:layout_gravity="center_horizontal"
+			android:transitionName="userHead" tools:ignore="ContentDescription"/>
 
 	<androidx.cardview.widget.CardView
 		android:layout_height="wrap_content"

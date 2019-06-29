@@ -1,9 +1,12 @@
 package cn.endureblaze.ka.resources;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LayoutAnimationController;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
@@ -18,6 +21,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MainGameFragment extends BaseFragment
 {
@@ -36,7 +40,8 @@ public class MainGameFragment extends BaseFragment
 		initPaper(view);
 		return view;
 	}
-	private void initPaper(View view)
+    @SuppressLint("InflateParams")
+    private void initPaper(View view)
 	{	
 		//实例化viewpager需要的
 		ViewPager mViewPager = view.findViewById(R.id.viewpager);
@@ -54,7 +59,7 @@ public class MainGameFragment extends BaseFragment
 		mViewList.add(cheat_code_gamelist_view);
 		//添加页卡标题
 		//mTitleList.add(getActivity().getString(R.string.tj_title));
-        mTitleList.add(getActivity().getString(R.string.game));
+        mTitleList.add(Objects.requireNonNull(getActivity()).getString(R.string.game));
         mTitleList.add(getActivity().getString(R.string.emulators));
 		mTitleList.add(getActivity().getString(R.string.cheatCode_title));
 		mTabLayout.setTabMode(TabLayout.MODE_FIXED);//设置tab模式，当前为系统默认模式
@@ -110,11 +115,12 @@ public class MainGameFragment extends BaseFragment
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object)
+        public boolean isViewFromObject(@NonNull View view, @NonNull Object object)
 		{
             return view == object;//官方推荐写法
         }
 
+        @NonNull
         @Override
         public Object instantiateItem(ViewGroup container, int position)
 		{
@@ -123,7 +129,7 @@ public class MainGameFragment extends BaseFragment
         }
 
         @Override
-        public void destroyItem(ViewGroup container, int position, Object object)
+        public void destroyItem(ViewGroup container, int position, @NonNull Object object)
 		{
             container.removeView(mViewList.get(position));//删除页卡
         }

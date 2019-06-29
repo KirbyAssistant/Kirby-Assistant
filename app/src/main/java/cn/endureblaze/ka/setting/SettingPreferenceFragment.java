@@ -70,7 +70,7 @@ public class SettingPreferenceFragment extends PreferenceFragment
 								edit.apply();
 								break;
 						}
-						edit.commit();
+						edit.apply();
 						dialog1.dismiss();
 						Intent intent = new Intent(getActivity(), Launcher.class);
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -90,7 +90,7 @@ public class SettingPreferenceFragment extends PreferenceFragment
 							SharedPreferences.Editor geek_shared_edit=geek_shared.edit();
 							geek_shared_edit.putBoolean("simple_mode", false);
 							geek_shared_edit.apply();
-							geek_shared_edit.commit();
+							geek_shared_edit.apply();
 							Intent intent = new Intent(getActivity(), Launcher.class);
 							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 							getActivity().startActivity(intent);
@@ -136,10 +136,7 @@ public class SettingPreferenceFragment extends PreferenceFragment
 					case "zh-TW":
 						faq.setData(Uri.parse("https://github.com/EndureBlaze/Kirby-Assistant-FAQ/blob/master/FAQ_zh_TW.md"));
 						break;
-					case "en":
-						faq.setData(Uri.parse("https://github.com/EndureBlaze/Kirby-Assistant-FAQ/blob/master/FAQ_en.md"));
-						break;
-					default:
+                    default:
 						faq.setData(Uri.parse("https://github.com/EndureBlaze/Kirby-Assistant-FAQ/blob/master/FAQ_en.md"));
 						break;
 				}

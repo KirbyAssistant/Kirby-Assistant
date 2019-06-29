@@ -4,9 +4,9 @@ import java.util.regex.*;
 public class EmailUtil
 {
 	public static boolean checkEmail(String email){
-		boolean flag = false;
+		boolean flag;
 		try{
-			String check = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";  
+			String check = "^([a-z0-9A-Z]+[-|.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
 			Pattern regex = Pattern.compile(check);
 			Matcher matcher = regex.matcher(email);
 			flag = matcher.matches();

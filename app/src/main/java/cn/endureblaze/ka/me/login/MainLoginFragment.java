@@ -1,5 +1,6 @@
 package cn.endureblaze.ka.me.login;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
@@ -23,6 +23,8 @@ import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.me.user.MainUserFragment;
 import cn.endureblaze.ka.utils.EmailUtil;
 import cn.endureblaze.ka.utils.PlayAnimUtil;
+
+import java.util.Objects;
 
 public class MainLoginFragment extends BaseFragment
 {
@@ -40,7 +42,8 @@ public class MainLoginFragment extends BaseFragment
 		return view;
 	}
 
-	private void initLogin(final View view)
+	@SuppressLint("WrongConstant")
+    private void initLogin(final View view)
 	{
 		Button login_btn= view.findViewById(R.id.login_btn);
 		TextView register_btn= view.findViewById(R.id.register_btn);
@@ -50,7 +53,7 @@ public class MainLoginFragment extends BaseFragment
 		register_card= view.findViewById(R.id.register);
 		loginOrRegister.setOnClickListener(p1 -> {
 			//判断是不是注册状态
-			if(register_card.getVisibility()==8){
+			if(8 == register_card.getVisibility()){
 				//切换到注册
 				login_card.setVisibility(8);
 				register_card.setVisibility(0);
@@ -85,7 +88,7 @@ public class MainLoginFragment extends BaseFragment
 					if (str_passworld.isEmpty() || str_username.isEmpty())
 					{
 						loginProgress.dismiss();
-						Toast.makeText(getActivity(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
+						Toast.makeText(getActivity(), Objects.requireNonNull(getActivity()).getString(R.string.is_null), Toast.LENGTH_SHORT).show();
 					}
 					else
 					{
@@ -100,13 +103,13 @@ public class MainLoginFragment extends BaseFragment
 									if (e == null)
 									{
 										loginProgress.dismiss();
-										Toast.makeText(getActivity(),getActivity().getString(R.string.login_success), Toast.LENGTH_SHORT).show();
+										Toast.makeText(getActivity(), Objects.requireNonNull(getActivity()).getString(R.string.login_success), Toast.LENGTH_SHORT).show();
 										m.replaceFragment(new MainUserFragment());
 									}
 									else
 									{
 										loginProgress.dismiss();
-										Toast.makeText(getActivity(), getActivity().getString(R.string.login_fail)+e.getErrorCode()+e.toString(), Toast.LENGTH_SHORT).show();
+										Toast.makeText(getActivity(), Objects.requireNonNull(getActivity()).getString(R.string.login_fail)+e.getErrorCode()+e.toString(), Toast.LENGTH_SHORT).show();
 									}
 								}
 							});
@@ -137,7 +140,7 @@ public class MainLoginFragment extends BaseFragment
 								if (str_username.isEmpty() || str_email.isEmpty() || str_passworld.isEmpty() || str_passworld_again.isEmpty())
 								{
 									registerProgress.dismiss();
-									Toast.makeText(getActivity(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
+									Toast.makeText(getActivity(), Objects.requireNonNull(getActivity()).getString(R.string.is_null), Toast.LENGTH_SHORT).show();
 								}
 								else
 								{
@@ -164,13 +167,13 @@ public class MainLoginFragment extends BaseFragment
 														login_passworld.setText(str_passworld);
 														login_card.setVisibility(0);
 														register_card.setVisibility(8);
-														loginOrRegister.setText(getActivity().getResources().getString(R.string.not_have_user));
+														loginOrRegister.setText(Objects.requireNonNull(getActivity()).getResources().getString(R.string.not_have_user));
 														Toast.makeText(getActivity(), getActivity().getString(R.string.register_success), Toast.LENGTH_SHORT).show();
 													}
 													else
 													{
 														registerProgress.dismiss();
-														Toast.makeText(getActivity(), getActivity().getString(R.string.register_fail)+e.toString(), Toast.LENGTH_SHORT).show();
+														Toast.makeText(getActivity(), Objects.requireNonNull(getActivity()).getString(R.string.register_fail)+e.toString(), Toast.LENGTH_SHORT).show();
 													}
 												}
 											});
@@ -178,7 +181,7 @@ public class MainLoginFragment extends BaseFragment
 									else
 									{
 										
-										Toast.makeText(getActivity(), getActivity().getString(R.string.password), Toast.LENGTH_SHORT).show();
+										Toast.makeText(getActivity(), Objects.requireNonNull(getActivity()).getString(R.string.password), Toast.LENGTH_SHORT).show();
 									}
 								}
 							}

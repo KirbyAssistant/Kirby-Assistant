@@ -1,6 +1,7 @@
 package cn.endureblaze.ka.customui;
 
 import android.animation.*;
+import android.annotation.SuppressLint;
 import android.content.*;
 import android.content.res.*;
 import android.graphics.*;
@@ -10,6 +11,7 @@ import android.util.*;
 import android.view.*;
 import android.view.animation.*;
 import android.widget.*;
+import androidx.annotation.Keep;
 import androidx.annotation.RequiresApi;
 import cn.endureblaze.ka.R;
 
@@ -51,7 +53,7 @@ public class RippleLayout extends RelativeLayout {
             return;
         }
         //reading the attributes
-        TypedArray attrValues = context.obtainStyledAttributes(attrs, R.styleable.RippleLayout);
+        @SuppressLint("Recycle") TypedArray attrValues = context.obtainStyledAttributes(attrs, R.styleable.RippleLayout);
         int color = attrValues.getColor(R.styleable.RippleLayout_rippleLayoutColor, getResources().getColor(android.R.color.holo_blue_bright));
         float startRadius = attrValues.getDimension(R.styleable.RippleLayout_startRadius, getMeasuredWidth());
         float endRadius = attrValues.getDimension(R.styleable.RippleLayout_endRadius, getMeasuredWidth() * 2);
@@ -135,6 +137,7 @@ public class RippleLayout extends RelativeLayout {
             return mRadius;
         }
 
+        @Keep
         public void setRadius(float radius) {
             mRadius = radius;
             invalidate();

@@ -11,6 +11,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import cn.endureblaze.ka.R;
 
+import java.util.Objects;
+
 public abstract class BaseBottomDialog extends DialogFragment {
     private static final String MARGIN = "margin";
     private static final String WIDTH = "width";
@@ -97,7 +99,7 @@ public abstract class BaseBottomDialog extends DialogFragment {
     }
 
     private void initParams() {
-        Window window = getDialog().getWindow();
+        Window window = Objects.requireNonNull(getDialog()).getWindow();
         if (window != null) {
             WindowManager.LayoutParams lp = window.getAttributes();
             //调节灰色背景透明度[0-1]，默认0.5f
@@ -112,18 +114,18 @@ public abstract class BaseBottomDialog extends DialogFragment {
 
             //设置dialog宽度
             if (width == 0) {
-                lp.width = BottomDialogUtils.getScreenWidth(getActivity()) - 2 * BottomDialogUtils.dp2px(getActivity(), margin);
+                lp.width = BottomDialogUtils.getScreenWidth(Objects.requireNonNull(getActivity())) - 2 * BottomDialogUtils.dp2px(getActivity(), margin);
             } else if (width == -1) {
                 lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
             } else {
-                lp.width = BottomDialogUtils.dp2px(getActivity(), width);
+                lp.width = BottomDialogUtils.dp2px(Objects.requireNonNull(getActivity()), width);
             }
 
             //设置dialog高度
             if (height == 0) {
                 lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
             } else {
-                lp.height = BottomDialogUtils.dp2px(getActivity(), height);
+                lp.height = BottomDialogUtils.dp2px(Objects.requireNonNull(getActivity()), height);
             }
 
             //设置dialog进入、退出的动画

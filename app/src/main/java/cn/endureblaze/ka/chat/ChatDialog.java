@@ -6,7 +6,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -28,12 +27,12 @@ import cn.endureblaze.ka.utils.UserUtil;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ChatDialog extends BaseBottomDialog
 {
-	private String type;
 
-	private String id;
+    private String id;
 
 	private String s_mess;
 
@@ -75,7 +74,7 @@ public class ChatDialog extends BaseBottomDialog
 	{
 		super.onCreate(savedInstanceState);
 		Bundle bundle = getArguments();
-		type = bundle.getString("type");
+        String type = bundle.getString("type");
 		id = bundle.getString("id");
 		s_mess = bundle.getString("mess");
 		s_username = bundle.getString("username");
@@ -112,50 +111,45 @@ public class ChatDialog extends BaseBottomDialog
 				pop.getMenuInflater().inflate(R.menu.mess_menu, pop.getMenu());
 			}
 			pop.show();
-			pop.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-
-					@Override
-					public boolean onMenuItemClick(MenuItem item)
-					{
-						switch (item.getItemId())
-						{
-							case R.id.mess_copy:
-								ClipboardManager cm = (ClipboardManager) mess_dialog.getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-								cm.setText(s_mess);
-								Toast.makeText(mess_dialog.getActivity(), getResources().getString(R.string.copy_success), Toast.LENGTH_SHORT).show();
-								break;
-							case R.id.mess_del:
-								BmobChat mess_del = new BmobChat();
-								mess_del.setObjectId(id);
-								mess_del.delete(new UpdateListener() {
-										@Override
-										public void done(BmobException e)
-										{
-											if (e == null)
-											{
-												mess_dialog.dismiss();
-												MainChatFragment main_mess=(MainChatFragment)mess_dialog.getActivity().getSupportFragmentManager().findFragmentById(R.id.main_fragment);
-												main_mess.getChat();
-												Toast.makeText(getActivity(), getResources().getString(R.string.chat_del_success), Toast.LENGTH_SHORT).show();
-											}
-											else
-											{
-												Toast.makeText(getActivity(), getResources().getString(R.string.chat_del_fail) + e.getMessage(), Toast.LENGTH_SHORT).show();
-											}
-										}
-									});
-								break;
-							case R.id.mess_edit:
-								EditChatDialog.newInstance("0",s_mess,ChatMode.CHAT_EDIT_MODE)
-									.setTheme(R.style.BottomDialogStyle)
-									.setMargin(0)
-									.setShowBottom(true)
-									.show(getActivity().getSupportFragmentManager());
-								break;
-						}
-						return true;
-					}
-				});
+			pop.setOnMenuItemClickListener(item -> {
+                switch (item.getItemId())
+                {
+                    case R.id.mess_copy:
+                        ClipboardManager cm = (ClipboardManager) Objects.requireNonNull(mess_dialog.getActivity()).getSystemService(Context.CLIPBOARD_SERVICE);
+                        Objects.requireNonNull(cm).setText(s_mess);
+                        Toast.makeText(mess_dialog.getActivity(), getResources().getString(R.string.copy_success), Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.mess_del:
+                        BmobChat mess_del = new BmobChat();
+                        mess_del.setObjectId(id);
+                        mess_del.delete(new UpdateListener() {
+                                @Override
+                                public void done(BmobException e)
+                                {
+                                    if (e == null)
+                                    {
+                                        mess_dialog.dismiss();
+                                        MainChatFragment main_mess=(MainChatFragment) Objects.requireNonNull(mess_dialog.getActivity()).getSupportFragmentManager().findFragmentById(R.id.main_fragment);
+                                        main_mess.getChat();
+                                        Toast.makeText(getActivity(), getResources().getString(R.string.chat_del_success), Toast.LENGTH_SHORT).show();
+                                    }
+                                    else
+                                    {
+                                        Toast.makeText(getActivity(), getResources().getString(R.string.chat_del_fail) + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        break;
+                    case R.id.mess_edit:
+                        EditChatDialog.newInstance("0",s_mess,ChatMode.CHAT_EDIT_MODE)
+                            .setTheme(R.style.BottomDialogStyle)
+                            .setMargin(0)
+                            .setShowBottom(true)
+                            .show(Objects.requireNonNull(getActivity()).getSupportFragmentManager());
+                        break;
+                }
+                return true;
+            });
 		});
 		messDialog_close.setOnClickListener(p1 -> mess_dialog.dismiss());
 		BmobQuery<BmobKirbyAssistantUser> user=new BmobQuery<>();
@@ -184,9 +178,7 @@ public class ChatDialog extends BaseBottomDialog
 	@SuppressLint("HandlerLeak")
 	private Handler userHandler=new Handler(){
 
-		private String userHeadUrl;
-
-		@Override
+        @Override
 		public void handleMessage(Message msg)
 		{
 			switch (msg.what)
@@ -203,11 +195,13 @@ public class ChatDialog extends BaseBottomDialog
 								.apply(Kirby.getGlideRequestOptions())
 								.into(userHeadImage);
 						}
-						catch (Exception e)
+						catch (Exception ignored)
 						{}
 					}
 					break;
-			}
+                default:
+                    throw new IllegalStateException("Unexpected value: " + msg.what);
+            }
 		}
 	};
 }

@@ -4,11 +4,6 @@
         android:id="@+id/ziyuan"
         android:icon="@drawable/ic_kirby_game"
         android:title="@string/ziyuan"/>
-
-	<!--item
-		android:id="@+id/wiki"
-        android:icon="@drawable/ic_kirby_video"
-        android:title="@string/wiki_title"/-->
 	
 	<item
         android:id="@+id/video"

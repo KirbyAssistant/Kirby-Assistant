@@ -9,8 +9,8 @@ android {
         applicationId "cn.endureblaze.ka"
         minSdkVersion 21
 	    targetSdkVersion 29
-        versionCode 43
-        versionName "未来·炫动-1.4.0"
+        versionCode 44
+        versionName "未来·炫动-1.4.1"
   }
     buildTypes {
         release {
@@ -46,7 +46,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 	//滑动返回
-	implementation 'com.github.anzewei:parallaxbacklayout:1.1.6'
+	implementation 'com.github.anzewei:parallaxbacklayout:1.1.9'
 
 	implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
 	implementation 'com.google.android.material:material:1.1.0-alpha07'

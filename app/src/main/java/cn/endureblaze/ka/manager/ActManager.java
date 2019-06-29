@@ -33,7 +33,7 @@ public class ActManager
 	{
         if (activityStack == null)
 		{
-            activityStack = new Stack<Activity>();
+            activityStack = new Stack<>();
         }
     }
 
@@ -55,8 +55,7 @@ public class ActManager
      */
     public static FragmentActivity currentFragmentActivity()
 	{
-        FragmentActivity fragmentActivity = (FragmentActivity) activityStack.lastElement();
-        return fragmentActivity;
+        return (FragmentActivity) activityStack.lastElement();
     }
 
 	/**
@@ -66,8 +65,7 @@ public class ActManager
      */
     public static Activity currentActivity()
 	{
-        Activity activity = activityStack.lastElement();
-        return activity;
+        return activityStack.lastElement();
     }
 
     /**
@@ -99,7 +97,7 @@ public class ActManager
      */
     public static void finishActivity(Class<?> cls)
 	{
-        List<Activity> activities = new ArrayList<Activity>();
+        List<Activity> activities = new ArrayList<>();
         for (Activity activity : activityStack)
 		{
             if (activity.getClass().equals(cls))
@@ -121,14 +119,10 @@ public class ActManager
      */
     public static void finishAllActivity()
 	{
-        for (int i = 0, size = activityStack.size(); i < size; i++)
-		{
-            if (null != activityStack.get(i))
-			{
-                Activity activity = activityStack.get(i);
-                if (!activity.isFinishing())
-				{
-                    activity.finish();
+        for (Activity value : activityStack) {
+            if (null != value) {
+                if (!value.isFinishing()) {
+                    value.finish();
                 }
             }
         }
@@ -157,7 +151,7 @@ public class ActManager
             //这些方法如果是放到主Activity就可以退出应用，如果不是主Activity
             //就是退出当前的Activity
         }
-		catch (Exception e)
+		catch (Exception ignored)
 		{
         }
     }

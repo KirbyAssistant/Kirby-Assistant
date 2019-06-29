@@ -3,23 +3,15 @@ package cn.endureblaze.ka.utils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.URL;
-import android.content.Context;
-import android.widget.Toast;
 
 
 public class FastBlurUtil {
     /**
      * 根据imagepath获取bitmap
-     */
-    /**
+     *
+     *
      * 得到本地或者网络上的bitmap url - 网络或者本地图片的绝对路径,比如:
      * <p>
      * A.网络路径: url="http://blog.foreverlove.us/girl2.png" ;
@@ -45,9 +37,9 @@ public class FastBlurUtil {
 
 
 
-        Bitmap originBitmap = null;
-        InputStream in = null;
-        BufferedOutputStream out = null;
+        Bitmap originBitmap;
+        InputStream in;
+        BufferedOutputStream out;
         try {
             in = new BufferedInputStream(new URL(url).openStream(), IO_BUFFER_SIZE);
             final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
@@ -62,8 +54,7 @@ public class FastBlurUtil {
 															originBitmap.getWidth() / scaleRatio,
 															originBitmap.getHeight() / scaleRatio,
 															false);
-            Bitmap blurBitmap = doBlur(scaledBitmap, blurRadius, true);
-            return blurBitmap;
+            return doBlur(scaledBitmap, blurRadius, true);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -102,8 +93,7 @@ public class FastBlurUtil {
 														originBitmap.getWidth() / scaleRatio,
 														originBitmap.getHeight() / scaleRatio,
 														false);
-        Bitmap blurBitmap = doBlur(scaledBitmap, blurRadius, true);
-        return blurBitmap;
+        return doBlur(scaledBitmap, blurRadius, true);
     }
 
 
@@ -135,16 +125,16 @@ public class FastBlurUtil {
         int div = radius + radius + 1;
 
 
-        int r[] = new int[wh];
-        int g[] = new int[wh];
-        int b[] = new int[wh];
+        int[] r = new int[wh];
+        int[] g = new int[wh];
+        int[] b = new int[wh];
         int rsum, gsum, bsum, x, y, i, p, yp, yi, yw;
-        int vmin[] = new int[Math.max(w, h)];
+        int[] vmin = new int[Math.max(w, h)];
 
 
         int divsum = (div + 1) >> 1;
         divsum *= divsum;
-        int dv[] = new int[256 * divsum];
+        int[] dv = new int[256 * divsum];
         for (i = 0; i < 256 * divsum; i++) {
             dv[i] = (i / divsum);
         }

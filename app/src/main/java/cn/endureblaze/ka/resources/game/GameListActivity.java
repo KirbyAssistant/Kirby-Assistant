@@ -14,12 +14,13 @@ import cn.endureblaze.ka.utils.ThemeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class GameListActivity extends BaseActivity
 {
 	private List<Console> gamelist=new ArrayList<>();
-	private GameAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -29,12 +30,12 @@ public class GameListActivity extends BaseActivity
 		//配置toolbar
 		Toolbar toolbar= findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-		getSupportActionBar().setTitle(R.string.game_title);
+		Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.game_title);
 		//配置列表
 		RecyclerView r= findViewById(R.id.game_list);
 		GridLayoutManager layoutManager=new GridLayoutManager(this, 1);
 		r.setLayoutManager(layoutManager);
-		adapter = new GameAdapter(gamelist,this);
+        GameAdapter adapter = new GameAdapter(gamelist, this);
 		r.setAdapter(adapter);
 		PlayAnimUtil.playLayoutAnimationWithRecyclerView(r,LayoutAnimationHelper.getAnimationSetFromBottom(),false);
 		//获取数据
@@ -42,7 +43,7 @@ public class GameListActivity extends BaseActivity
 		String game=intent.getStringExtra("consose_name");
 		toolbar.setSubtitle(game);
 		//判断数据然后处理列表
-		if (game.endsWith("gba"))
+		if (Objects.requireNonNull(game).endsWith("gba"))
 		{	
 			Console[] game_data = {
 				new Console("星之卡比 梦之泉DX", "https://gitee.com/nihaocun/ka_image/raw/master/game/mengzhiquandx.jpg","gba_mzqdx"),

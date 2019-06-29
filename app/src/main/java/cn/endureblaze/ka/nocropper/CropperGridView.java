@@ -71,7 +71,7 @@ public class CropperGridView extends View {
     private void init(Context context, AttributeSet attrs) {
 
         if (attrs != null) {
-            TypedArray mTypedArray = context.obtainStyledAttributes(attrs, R.styleable.nocropper__CropperView);
+            @SuppressLint("CustomViewStyleable") TypedArray mTypedArray = context.obtainStyledAttributes(attrs, R.styleable.nocropper__CropperView);
             mColor = mTypedArray.getColor(R.styleable.nocropper__CropperView_nocropper__grid_color, mColor);
 
             float alpha = 255 * mTypedArray.getFloat(R.styleable.nocropper__CropperView_nocropper__grid_opacity, 1f);
@@ -106,6 +106,7 @@ public class CropperGridView extends View {
     }
 
     @Override
+    @SuppressLint("CanvasSize")
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (!showGrid) {
@@ -144,11 +145,8 @@ public class CropperGridView extends View {
         }
     }
 
-    private Runnable mHideRunnable = new Runnable() {
-        @Override
-        public void run() {
-            showGrid = false;
-            invalidate();
-        }
+    private Runnable mHideRunnable = () -> {
+        showGrid = false;
+        invalidate();
     };
 }

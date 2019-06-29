@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -26,6 +25,7 @@ import cn.endureblaze.ka.utils.UserUtil;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 public class HeadActivity extends BaseActivity
 {
@@ -42,25 +42,19 @@ public class HeadActivity extends BaseActivity
 		super.onCreate(savedInstanceState);
 		ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_head);
-		localBroadcastManager = localBroadcastManager.getInstance(this);
+		localBroadcastManager = LocalBroadcastManager.getInstance(this);
 		userHead = findViewById(R.id.user_head);
 		Button choose_photo= findViewById(R.id.choose_photo);
 		try
 		{
 			if (UserUtil.getCurrentUser().getUserHead().getFileUrl() != null)
 			{
-				GlideUtil.setNormalImageViaGlideCache(HeadActivity.this,userHead,UserUtil.getCurrentUser().getUserHead().getFileUrl().toString());
+				GlideUtil.setNormalImageViaGlideCache(HeadActivity.this,userHead, UserUtil.getCurrentUser().getUserHead().getFileUrl());
 			}
 		}
-		catch (Exception e)
+		catch (Exception ignored)
 		{}
-		choose_photo.setOnClickListener(new View.OnClickListener(){
-				@Override
-				public void onClick(View p1)
-				{
-					choosePhoto();
-				}
-			});
+		choose_photo.setOnClickListener(p1 -> choosePhoto());
 	}
 	private void choosePhoto()
 	{
@@ -78,7 +72,7 @@ public class HeadActivity extends BaseActivity
             case CHOOSE_PHOTO:
 				if (resultCode == RESULT_OK)
 				{
-					CropImageDialog.newInstance(data.getData())
+					CropImageDialog.newInstance(Objects.requireNonNull(data.getData()))
 						.setTheme(R.style.BottomDialogStyle)
 					    .setMargin(0)
 						.setShowBottom(true)
@@ -99,7 +93,7 @@ public class HeadActivity extends BaseActivity
 			progressDialog.setMessage(getResources().getString(R.string.head_upload));
 			progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 			progressDialog.show();
-			final BmobFile headFile=new BmobFile(new File(Uri.parse(image_str).getPath()));
+			final BmobFile headFile=new BmobFile(new File(Objects.requireNonNull(Uri.parse(image_str).getPath())));
 			headFile.uploadblock(new UploadFileListener(){
 					@Override
 					public void done(BmobException e)
@@ -131,7 +125,7 @@ public class HeadActivity extends BaseActivity
 					}
 				});
 		}
-		catch (Exception e)
+		catch (Exception ignored)
 		{}
 	}
     public void displayImage(String imagePath)
@@ -143,7 +137,7 @@ public class HeadActivity extends BaseActivity
 			{
 				 imageBitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
 			}
-			catch (IOException e)
+			catch (IOException ignored)
 			{}
 			userHead.setImageBitmap(imageBitmap);
 			ActManager.finishActivity();

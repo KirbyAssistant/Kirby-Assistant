@@ -1,147 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical"
-	android:background="?color_bkg_main"
-	android:id="@+id/root_view">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="?color_bkg_main"
+        android:id="@+id/root_view">
 
-	<androidx.cardview.widget.CardView
-		android:layout_height="192dp"
-		android:layout_width="match_parent"
-		app:elevation="5dp"
-		app:cardCornerRadius="4dp"
-		android:id="@+id/egg"
-		android:layout_margin="5dp">
+    <androidx.cardview.widget.CardView
+            android:layout_height="192dp"
+            android:layout_width="match_parent"
+            app:elevation="5dp"
+            app:cardCornerRadius="4dp"
+            android:id="@+id/egg"
+            android:layout_margin="5dp">
 
-		<RelativeLayout
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-		    android:id="@+id/change_userhead"	>
+        <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/change_userhead">
 
-			<ImageView
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:scaleType="centerCrop"
-				android:id="@+id/mo_user_head"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/mo_user_head"
+                    tools:ignore="ContentDescription"/>
 
-			<cn.endureblaze.ka.customui.CircleImageView
-				android:layout_height="80dp"
-				android:layout_width="80dp"
-				android:id="@+id/user_head"
-				android:background="@drawable/theme_blue"
-				android:src="@drawable/theme_blue"
-				android:layout_centerHorizontal="true"
-				android:transitionName="userHead"
-				android:layout_marginTop="10dp"/>
+            <cn.endureblaze.ka.customui.CircleImageView
+                    android:layout_height="80dp"
+                    android:layout_width="80dp"
+                    android:id="@+id/user_head"
+                    android:background="@drawable/theme_blue"
+                    android:src="@drawable/theme_blue"
+                    android:layout_centerHorizontal="true"
+                    android:transitionName="userHead"
+                    android:layout_marginTop="10dp"/>
 
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceLarge"
-				android:text="Large Text"
-				android:id="@+id/user_name"
-				android:layout_centerHorizontal="true"
-				android:layout_below="@id/user_head"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Large Text"
+                    android:id="@+id/user_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/user_head"/>
 
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:text="Small Text"
-				android:id="@+id/user_id"
-				android:layout_below="@id/user_name"
-				android:textColor="?color_text_pressed"
-				android:layout_centerHorizontal="true"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Small Text"
+                    android:id="@+id/user_id"
+                    android:layout_below="@id/user_name"
+                    android:textColor="?color_text_pressed"
+                    android:layout_centerHorizontal="true"/>
 
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:text="Small Text"
-				android:layout_below="@id/user_id"
-				android:id="@+id/user_data"
-				android:textColor="?color_text_pressed"
-				android:layout_centerHorizontal="true"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Small Text"
+                    android:layout_below="@id/user_id"
+                    android:id="@+id/user_data"
+                    android:textColor="?color_text_pressed"
+                    android:layout_centerHorizontal="true"/>
 
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:text="Small Text"
-				android:textColor="?color_text_pressed"
-				android:layout_centerHorizontal="true"
-				android:layout_below="@id/user_data"
-				android:id="@+id/user_email"
-				android:layout_marginBottom="10dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Small Text"
+                    android:textColor="?color_text_pressed"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/user_data"
+                    android:id="@+id/user_email"
+                    android:layout_marginBottom="10dp"/>
 
-		</RelativeLayout>
+        </RelativeLayout>
 
-	</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-	<androidx.cardview.widget.CardView
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		app:elevation="5dp"
-		app:cardCornerRadius="4dp"
-		android:transitionName="card"
-		android:layout_margin="5dp">
+    <androidx.cardview.widget.CardView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            app:elevation="5dp"
+            app:cardCornerRadius="4dp"
+            android:transitionName="card"
+            android:layout_margin="5dp">
 
-		<LinearLayout
-			android:orientation="horizontal"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-			<Button
-				android:layout_width="wrap_content"
-				style="?android:attr/buttonBarButtonStyle"
-				android:layout_height="wrap_content"
-				android:text="@string/modification_email"
-				android:layout_weight="5"
-				android:id="@+id/edit_email"
-				android:transitionName="email"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_height="wrap_content"
+                    android:text="@string/modification_email"
+                    android:layout_weight="5"
+                    android:id="@+id/edit_email"
+                    android:transitionName="email"/>
 
-			<Button
-				android:layout_width="wrap_content"
-				style="?android:attr/buttonBarButtonStyle"
-				android:layout_height="wrap_content"
-				android:text="@string/modification_password"
-				android:layout_weight="5"
-				android:id="@+id/edit_password"
-				android:transitionName="pass"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_height="wrap_content"
+                    android:text="@string/modification_password"
+                    android:layout_weight="5"
+                    android:id="@+id/edit_password"
+                    android:transitionName="pass"/>
 
-		</LinearLayout>
+        </LinearLayout>
 
-	</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-	<androidx.cardview.widget.CardView
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		app:elevation="5dp"
-		app:cardCornerRadius="4dp"
-		android:transitionName="card"
-		android:id="@+id/cardview"
-		android:layout_margin="5dp">
+    <androidx.cardview.widget.CardView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            app:elevation="5dp"
+            app:cardCornerRadius="4dp"
+            android:transitionName="card"
+            android:id="@+id/cardview"
+            android:layout_margin="5dp">
 
-		<LinearLayout
-			android:orientation="horizontal"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-			<Button
-				android:layout_width="wrap_content"
-				style="?android:attr/buttonBarButtonStyle"
-				android:layout_height="wrap_content"
-				android:text="@string/user_logout"
-				android:layout_weight="5"
-				android:id="@+id/user_logout"
-				android:transitionName="email"/>
+            <Button
+                    android:layout_width="0dp"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_logout"
+                    android:layout_weight="5"
+                    android:id="@+id/user_logout"
+                    android:transitionName="email"/>
 
-		</LinearLayout>
+        </LinearLayout>
 
-	</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>
 

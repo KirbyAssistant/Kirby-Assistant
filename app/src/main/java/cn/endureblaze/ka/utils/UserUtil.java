@@ -14,9 +14,6 @@ public class UserUtil
 		 return BmobUser.getCurrentUser(BmobKirbyAssistantUser.class);
 	}
 	public static boolean isUserLogin(){
-		if(BmobUser.getCurrentUser(BmobKirbyAssistantUser.class)==null){
-			return false;
-		}
-		return true;
-	}
+        return BmobUser.getCurrentUser(BmobKirbyAssistantUser.class) != null;
+    }
 }

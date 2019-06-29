@@ -1,30 +1,39 @@
 package cn.endureblaze.ka.chat;
 
 import android.annotation.SuppressLint;
-import android.os.*;
-import androidx.core.app.*;
-import androidx.appcompat.widget.*;
-import android.view.*;
-import android.view.animation.*;
-import android.widget.*;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
+import android.view.animation.ScaleAnimation;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import cn.bmob.v3.*;
-import cn.bmob.v3.exception.*;
-import cn.bmob.v3.listener.*;
-import cn.endureblaze.ka.bean.*;
-import cn.endureblaze.ka.bmob.*;
-import cn.endureblaze.ka.helper.*;
-import java.util.*;
-
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.base.*;
-import cn.endureblaze.ka.main.*;
-import cn.endureblaze.ka.utils.*;
+import cn.endureblaze.ka.base.BaseFragment;
+import cn.endureblaze.ka.bean.Chat;
+import cn.endureblaze.ka.bmob.BmobChat;
+import cn.endureblaze.ka.helper.LayoutAnimationHelper;
+import cn.endureblaze.ka.main.MainActivity;
+import cn.endureblaze.ka.utils.PlayAnimUtil;
+import cn.endureblaze.ka.utils.ThemeUtil;
+import cn.endureblaze.ka.utils.UserUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.scwang.smartrefresh.layout.api.*;
-import com.scwang.smartrefresh.layout.listener.*;
 import com.scwang.smartrefresh.header.MaterialHeader;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 
 public class MainChatFragment extends BaseFragment
@@ -33,19 +42,17 @@ public class MainChatFragment extends BaseFragment
 	private ChatAdapter adapter;
 	private RecyclerView re;
 	private RefreshLayout refresh;
-	private String name;
-	private FloatingActionButton edit_mess_button;
+    private FloatingActionButton edit_mess_button;
 	private View view;
-	private MainActivity m;
-	private int messItem;
+    private int messItem;
 	private EditText edit_编辑;
-	private TextView mess_load_fail;  
+	private TextView mess_load_fail;
 	//private BottomDialog mess_dia;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
         view = inflater.inflate(R.layout.main_chat, container, false);
-		m = (MainActivity)getActivity();
+        MainActivity m = (MainActivity) getActivity();
 		initMess(view);
 		refresh.autoRefresh();
 		return view;
@@ -58,11 +65,11 @@ public class MainChatFragment extends BaseFragment
 		re = view.findViewById(R.id.chat_list);
 		GridLayoutManager layoutManager=new GridLayoutManager(getActivity(), 1);
 		re.setLayoutManager(layoutManager);
-		adapter = new ChatAdapter(chatlist,getActivity(),getActivity().getSupportFragmentManager());	
+		adapter = new ChatAdapter(chatlist,getActivity(), Objects.requireNonNull(getActivity()).getSupportFragmentManager());
 		//refresh数据
 		refresh = view.findViewById(R.id.refresh);
 		MaterialHeader mMaterialHeader=(MaterialHeader) refresh.getRefreshHeader();
-		mMaterialHeader.setColorSchemeColors(ThemeUtil.getColorPrimary(getActivity()));
+		Objects.requireNonNull(mMaterialHeader).setColorSchemeColors(ThemeUtil.getColorPrimary(getActivity()));
 		refresh.setOnRefreshListener(re -> {
 			refresh.setEnableLoadMore(false);
 			edit_mess_button.setVisibility(View.GONE);
@@ -70,29 +77,24 @@ public class MainChatFragment extends BaseFragment
 		});
 		refresh.setOnLoadMoreListener(re -> getMoreChat());
 		//使用BmobUser类获取部分用户数据
-		name = UserUtil.getCurrentUser().getUsername();
+        String name = UserUtil.getCurrentUser().getUsername();
 		edit_mess_button = view.findViewById(R.id.fab_chat_edit);
-		edit_mess_button.setOnClickListener(new View.OnClickListener(){			
-				@Override
-				public void onClick(View v)			
-				{
-					EditChatDialog.newInstance("0",null,ChatMode.CHAT_SEND_MODE)
-					.setTheme(R.style.BottomDialogStyle)
-					.setMargin(0)
-					.setShowBottom(true)
-					.show(getActivity().getSupportFragmentManager());
-				}
-			});
+		edit_mess_button.setOnClickListener(v -> EditChatDialog.newInstance("0",null,ChatMode.CHAT_SEND_MODE)
+        .setTheme(R.style.BottomDialogStyle)
+        .setMargin(0)
+        .setShowBottom(true)
+        .show(getActivity().getSupportFragmentManager()));
 	}
 	public void  getChat()
 	{
 		chatlist.clear();//清空列表
 		//使用BmobQuery获取留言数据
-		BmobQuery<BmobChat> query=new BmobQuery<BmobChat>();
+		BmobQuery<BmobChat> query= new BmobQuery<>();
 		query.order("-createdAt");//时间降序排列
 		query.setLimit(20);
 		query.findObjects(new FindListener<BmobChat>() {	
-				@Override
+				@SuppressLint("SetTextI18n")
+                @Override
 				public void done(List<BmobChat> list, BmobException e)
 				{
 					if (e == null)
@@ -107,13 +109,13 @@ public class MainChatFragment extends BaseFragment
 						messHandler.sendMessage(message);
 						messItem=20;
 						edit_mess_button.setVisibility(View.VISIBLE);
-						ScaleAnimation mess_fab_anim = (ScaleAnimation) AnimationUtils.loadAnimation(getActivity(), R.transition.mess_fab);
+						@SuppressLint("ResourceType") ScaleAnimation mess_fab_anim = (ScaleAnimation) AnimationUtils.loadAnimation(getActivity(), R.transition.mess_fab);
 						edit_mess_button.startAnimation(mess_fab_anim);
 				}
 					else
 					{
 						mess_load_fail.setVisibility(View.VISIBLE);
-						mess_load_fail.setText(getActivity().getResources().getString(R.string.load_fail)+e.getMessage());
+						mess_load_fail.setText(Objects.requireNonNull(getActivity()).getResources().getString(R.string.load_fail)+e.getMessage());
 						refresh.finishRefresh();
 					}
 				}
@@ -121,7 +123,7 @@ public class MainChatFragment extends BaseFragment
 	}
 	public void getMoreChat(){
 		//使用BmobQuery获取留言数据
-		BmobQuery<BmobChat> query=new BmobQuery<BmobChat>();
+		BmobQuery<BmobChat> query= new BmobQuery<>();
 		query.order("-createdAt");//时间降序排列
 		query.setSkip(messItem);
 		query.setLimit(20);
@@ -183,7 +185,7 @@ public class MainChatFragment extends BaseFragment
 						//设置适配器
 						re.setAdapter(adapter);
 						LayoutAnimationController controller = LayoutAnimationHelper.makeLayoutAnimationController();
-						ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.chat_list);
+						ViewGroup viewGroup = view.findViewById(R.id.chat_list);
 						viewGroup.setLayoutAnimation(controller);
 						viewGroup.scheduleLayoutAnimation();
 						PlayAnimUtil.playLayoutAnimationWithRecyclerView(re,LayoutAnimationHelper.getAnimationSetFromBottom(),false);
@@ -226,10 +228,10 @@ public class MainChatFragment extends BaseFragment
 						}
 						String time_=m.getCreatedAt();
 						String time = time_.substring(0, 16);
-						Chat mess=new Chat(id,user,userHead,chat,time,chat_full,show_all);
+						Chat mess=new Chat(id,user, null,chat,time,chat_full,show_all);
 						//将查询到的数据依次添加到列表
 						chatlist.add(mess);
-						re.getAdapter().notifyItemChanged(messItem);
+						Objects.requireNonNull(re.getAdapter()).notifyItemChanged(messItem);
 					}			
 					//refresh回调
 					refresh.finishLoadMore();

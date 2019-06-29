@@ -2,6 +2,7 @@ package cn.endureblaze.ka.resources;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,11 +40,11 @@ public class CheatCodeGameListAdapter extends RecyclerView.Adapter<CheatCodeGame
         public ViewHolder(View view)
 		{
             super(view);
-			LinearLayout = (LinearLayout)view.findViewById(R.id.LinearLayout);
-            cardView = (CardView) view.findViewById(R.id.cardview);
-			gameImage = (ImageView) view.findViewById(R.id.console_image);
-            gameName = (TextView) view.findViewById(R.id.console_text);
-			blurImage = (ImageView) view.findViewById(R.id.blur_image);
+			LinearLayout = view.findViewById(R.id.LinearLayout);
+            cardView = view.findViewById(R.id.cardview);
+			gameImage = view.findViewById(R.id.console_image);
+            gameName = view.findViewById(R.id.console_text);
+			blurImage = view.findViewById(R.id.blur_image);
         }
     }
 
@@ -52,8 +53,9 @@ public class CheatCodeGameListAdapter extends RecyclerView.Adapter<CheatCodeGame
         mCheatCodeGameList = cheatCodeGamelist;
 		mActivity=activity;
     }
-	@Override
-	public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+	@NonNull
+    @Override
+	public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
 	{
 		if (mContext == null)
 		{

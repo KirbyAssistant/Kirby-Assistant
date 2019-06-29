@@ -1,11 +1,15 @@
 package cn.endureblaze.ka.utils;
 
-import android.content.*;
-import android.content.pm.*;
-import android.graphics.*;
-import android.graphics.drawable.*;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
+
+import java.util.Objects;
 
 public class AppUtil {
     /**
@@ -88,7 +92,7 @@ public class AppUtil {
      */
     public static synchronized Bitmap getBitmap(Context context) {
         PackageManager packageManager = null;
-        ApplicationInfo applicationInfo = null;
+        ApplicationInfo applicationInfo;
         try {
             packageManager = context.getApplicationContext()
                     .getPackageManager();
@@ -97,10 +101,9 @@ public class AppUtil {
         } catch (PackageManager.NameNotFoundException e) {
             applicationInfo = null;
         }
-        Drawable d = packageManager.getApplicationIcon(applicationInfo); //xxx根据自己的情况获取drawable
+        Drawable d = packageManager.getApplicationIcon(Objects.requireNonNull(applicationInfo)); //xxx根据自己的情况获取drawable
         BitmapDrawable bd = (BitmapDrawable) d;
-        Bitmap bm = bd.getBitmap();
-        return bm;
+        return bd.getBitmap();
     }
 
     /**
@@ -113,8 +116,7 @@ public class AppUtil {
         try {
             PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), PackageManager.GET_META_DATA);
             Bundle metaData = packageInfo.applicationInfo.metaData;
-            String channel = metaData.getString("CHANNEL");
-            return channel;
+            return metaData.getString("CHANNEL");
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }

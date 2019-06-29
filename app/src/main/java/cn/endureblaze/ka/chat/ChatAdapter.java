@@ -1,25 +1,26 @@
 package cn.endureblaze.ka.chat;
-import android.app.*;
-import android.content.*;
-import androidx.core.app.*;
-import androidx.appcompat.widget.*;
-import android.view.*;
-import android.widget.*;
-import androidx.recyclerview.widget.RecyclerView;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.bean.*;
-import java.util.*;
-
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.RecyclerView;
+import cn.endureblaze.ka.R;
+import cn.endureblaze.ka.bean.Chat;
+
+import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>
 {
 	private Context mContext;
 	private List<Chat> mChatlist;
 
-	private Activity mActivity;
-
-	private FragmentManager mFragmentManager;
+    private FragmentManager mFragmentManager;
 
 	static class ViewHolder extends RecyclerView.ViewHolder
 	{
@@ -29,27 +30,27 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>
 		TextView chat_time;
 	    TextView lookmore;
 
-		private ImageView 头像;
+		private ImageView user_head;
 		
 
 		public ViewHolder(View view)
 		{
 			super(view);
-			relativelayout = (RelativeLayout)view.findViewById(R.id.chatitemRelativeLayout1);
-			chat_username = (TextView)view.findViewById(R.id.chat_username);
-			chat = (TextView)view.findViewById(R.id.chat);
-			chat_time = (TextView)view.findViewById(R.id.chat_time);
-			lookmore = (TextView)view.findViewById(R.id.show_all);
+			relativelayout = view.findViewById(R.id.chatitemRelativeLayout1);
+			chat_username = view.findViewById(R.id.chat_username);
+			chat = view.findViewById(R.id.chat);
+			chat_time = view.findViewById(R.id.chat_time);
+			lookmore = view.findViewById(R.id.show_all);
 		}
 	}
 	public ChatAdapter(List<Chat>chatlist,Activity activity,FragmentManager fragmentManager)
 	{
 		mChatlist = chatlist;
-		mActivity=activity;
-		mFragmentManager=fragmentManager;
+        mFragmentManager=fragmentManager;
 	}
-	@Override
-	public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+	@NonNull
+    @Override
+	public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
 	{
 		if (mContext == null)
 		{
@@ -57,18 +58,15 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>
 		}
 		final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chat, parent, false);
 		final ViewHolder holder=new ViewHolder(view);
-        holder.relativelayout.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					int position = holder.getAdapterPosition();
-					Chat chat = mChatlist.get(position);			
-					ChatDialog.newInstance("0",chat.getId(),chat.getFullChat(),chat.getName(),chat.getTime())
-					.setTheme(R.style.BottomDialogStyle)
-					.setMargin(0)
-					.setShowBottom(true)   
-					.show(mFragmentManager);
-				}
-			});
+        holder.relativelayout.setOnClickListener(v -> {
+            int position = holder.getAdapterPosition();
+            Chat chat = mChatlist.get(position);
+            ChatDialog.newInstance("0",chat.getId(),chat.getFullChat(),chat.getName(),chat.getTime())
+            .setTheme(R.style.BottomDialogStyle)
+            .setMargin(0)
+            .setShowBottom(true)
+            .show(mFragmentManager);
+        });
 		return holder;
 	}
 

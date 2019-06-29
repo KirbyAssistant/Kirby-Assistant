@@ -22,15 +22,15 @@ public class GlideUtil {
 			e.printStackTrace();
 		}
 		return glideBitmap;
-	};
+	}
 
-	public static void setNormalImageViaGlideCache(final Activity activity, final ImageView image, final String imageUrl) {
+    public static void setNormalImageViaGlideCache(final Activity activity, final ImageView image, final String imageUrl) {
 			new Thread(() -> {
 				try {
 				final Bitmap glideBitmap=GlideUtil.getGlideBitmap(activity, imageUrl);
 
 					activity.runOnUiThread(() -> image.setImageBitmap(glideBitmap));
-				} catch (Exception e) {}
+				} catch (Exception ignored) {}
 			}).start();
 	}
 
@@ -55,7 +55,7 @@ public class GlideUtil {
 					blurImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
 					blurImage.setImageBitmap(blurBitmap2);
 				});
-			} catch (Exception e) {}
+			} catch (Exception ignored) {}
 		}).start();
 	}
 }

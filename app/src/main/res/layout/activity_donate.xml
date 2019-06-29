@@ -2,7 +2,7 @@
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:layout_width="fill_parent"
+	xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical"
 	android:background="?color_bkg_main">
@@ -48,10 +48,11 @@
 					android:padding="12dp">
 
 					<ImageView
-						android:src="@drawable/ic_kirby_alipay"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_gravity="center_horizontal"/>
+							android:src="@drawable/ic_kirby_alipay"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_horizontal"
+							tools:ignore="ContentDescription"/>
 
 					<TextView
 						android:layout_width="wrap_content"
@@ -90,10 +91,11 @@
 					android:padding="12dp">
 
 					<ImageView
-						android:src="@drawable/ic_kirby_wechat"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_gravity="center_horizontal"/>
+							android:src="@drawable/ic_kirby_wechat"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_horizontal"
+							tools:ignore="ContentDescription"/>
 
 					<TextView
 						android:layout_width="wrap_content"
@@ -105,10 +107,11 @@
 						android:layout_gravity="center_horizontal"/>
 
 					<ImageView
-						android:src="@drawable/wechat"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_gravity="center_horizontal"/>
+							android:src="@drawable/wechat"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_horizontal"
+							tools:ignore="ContentDescription"/>
 
 				</LinearLayout>
 
@@ -130,10 +133,11 @@
 					android:padding="12dp">
 
 					<ImageView
-						android:src="@drawable/ic_kirby_btc"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_gravity="center_horizontal"/>
+							android:src="@drawable/ic_kirby_btc"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_horizontal"
+							tools:ignore="ContentDescription"/>
 
 					<TextView
 						android:layout_width="wrap_content"
@@ -145,11 +149,12 @@
 						android:layout_gravity="center_horizontal"/>
 
 					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:text="13yQa3Q95hZJR3VvmaM3XNj39AQVMgkg8P"
-						android:textAppearance="?android:attr/textAppearanceMedium"
-						android:gravity="center_horizontal"/>
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="13yQa3Q95hZJR3VvmaM3XNj39AQVMgkg8P"
+							android:textAppearance="?android:attr/textAppearanceMedium"
+							android:gravity="center_horizontal"
+							tools:ignore="HardcodedText"/>
 
 					<Button
 						android:layout_width="match_parent"
@@ -177,10 +182,11 @@
 					android:padding="12dp">
 
 					<ImageView
-						android:src="@drawable/ic_kirby_qq"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_gravity="center_horizontal"/>
+							android:src="@drawable/ic_kirby_qq"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_horizontal"
+							tools:ignore="ContentDescription"/>
 
 					<TextView
 						android:layout_width="wrap_content"
@@ -216,10 +222,11 @@
 					android:padding="12dp">
 
 					<ImageView
-						android:src="@drawable/ic_kirby_paypal"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_gravity="center_horizontal"/>
+							android:src="@drawable/ic_kirby_paypal"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_horizontal"
+							tools:ignore="ContentDescription"/>
 
 					<TextView
 						android:layout_width="wrap_content"

@@ -1,8 +1,11 @@
 package cn.endureblaze.ka.utils;
 
-import androidx.appcompat.widget.*;
-import android.view.animation.*;
+import android.view.animation.Animation;
+import android.view.animation.GridLayoutAnimationController;
+import android.view.animation.LayoutAnimationController;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.Objects;
 
 public class PlayAnimUtil
 {
@@ -20,7 +23,7 @@ public class PlayAnimUtil
 			controller.setDelay(0.1f);
 			controller.setOrder(isReverse ? LayoutAnimationController.ORDER_REVERSE : LayoutAnimationController.ORDER_NORMAL);
 			mRecyclerView.setLayoutAnimation(controller);
-			mRecyclerView.getAdapter().notifyDataSetChanged();
+			Objects.requireNonNull(mRecyclerView.getAdapter()).notifyDataSetChanged();
 			mRecyclerView.scheduleLayoutAnimation();
 		}
     }
@@ -49,7 +52,7 @@ public class PlayAnimUtil
 			controller.setRowDelay(0.3f);
 			controller.setOrder(isReverse ? LayoutAnimationController.ORDER_REVERSE : LayoutAnimationController.ORDER_NORMAL);
 			mRecyclerView.setLayoutAnimation(controller);
-			mRecyclerView.getAdapter().notifyDataSetChanged();
+			Objects.requireNonNull(mRecyclerView.getAdapter()).notifyDataSetChanged();
 			mRecyclerView.scheduleLayoutAnimation();
 		}
 	}

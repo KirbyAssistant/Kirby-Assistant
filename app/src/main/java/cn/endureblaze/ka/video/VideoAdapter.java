@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import cn.endureblaze.ka.Kirby;
@@ -42,8 +43,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>
 	{
         mVideoList = videolist;
     }
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
 	{
         if (mContext == null)
 		{

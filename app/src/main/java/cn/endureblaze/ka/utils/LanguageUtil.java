@@ -52,7 +52,6 @@ public class LanguageUtil
 		{
 			locale = Locale.getDefault();
 		}
-		String language = locale.getLanguage() + "-" + locale.getCountry();
-		return language;
+        return locale.getLanguage() + "-" + locale.getCountry();
 	}
 }

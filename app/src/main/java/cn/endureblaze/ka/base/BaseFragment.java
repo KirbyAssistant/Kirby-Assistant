@@ -16,9 +16,5 @@ public class BaseFragment extends Fragment
 		super.onPause();
 		MobclickAgent.onPageEnd(this.getClass().getName()); 
 	}
-
-	public void onDestroy()
-	{
-		super.onDestroy();
-	}
+	
 }

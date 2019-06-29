@@ -2,6 +2,7 @@ package cn.endureblaze.ka.resources;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -33,7 +34,6 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
         ImageView consoleImage;
         TextView consoleName;
 
-		private ImageView blurImage;
         public ViewHolder(View view)
 		{
             super(view);
@@ -41,7 +41,7 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
             cardView = view.findViewById(R.id.cardview);
 			consoleImage = view.findViewById(R.id.console_image);
             consoleName = view.findViewById(R.id.console_text);
-			blurImage = view.findViewById(R.id.blur_image);
+            ImageView blurImage = view.findViewById(R.id.blur_image);
         }
     }
 
@@ -50,8 +50,9 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
         mConsoleList = consolelist;
 		mActivity=activity;
     }
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
 	{
         if (mContext == null)
 		{

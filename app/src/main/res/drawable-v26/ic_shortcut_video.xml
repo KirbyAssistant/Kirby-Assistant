@@ -4,6 +4,6 @@
     <foreground>
         <inset
             android:drawable="@drawable/ic_kirby_video"
-            android:inset="30%" /> <!-- 10dp padding on each side of 108dp asset -->
+            android:inset="30%" />
     </foreground>
 </adaptive-icon>

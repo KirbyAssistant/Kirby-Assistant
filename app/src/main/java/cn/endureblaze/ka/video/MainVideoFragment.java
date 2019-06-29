@@ -24,16 +24,15 @@ import cn.endureblaze.ka.utils.PlayAnimUtil;
 import cn.endureblaze.ka.utils.ThemeUtil;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MainVideoFragment extends BaseFragment 
 {
 	private View view;
-	private MainActivity m;
-	private StaggeredGridRecyclerView re;
+    private StaggeredGridRecyclerView re;
 	private VideoAdapter adapter;
 	private RefreshLayout refresh;
 	private List<Video> videolist = new ArrayList<>();
@@ -43,7 +42,7 @@ public class MainVideoFragment extends BaseFragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
         view = inflater.inflate(R.layout.main_video, container, false);
-		m = (MainActivity)getActivity();
+        MainActivity m = (MainActivity) getActivity();
 		initVideo(view);
 		refresh.autoRefresh();
 		return view;
@@ -60,15 +59,11 @@ public class MainVideoFragment extends BaseFragment
 		//refresh数据
 		refresh = view.findViewById(R.id.refresh);
 		MaterialHeader mMaterialHeader=(MaterialHeader) refresh.getRefreshHeader();
-		mMaterialHeader.setColorSchemeColors(ThemeUtil.getColorPrimary(getActivity()));
-		refresh.setOnRefreshListener(new OnRefreshListener(){
-				@Override
-				public void onRefresh(RefreshLayout re)
-				{
-					refresh.setEnableLoadMore(false);
-					getVideo();
-				}
-			});
+		Objects.requireNonNull(mMaterialHeader).setColorSchemeColors(ThemeUtil.getColorPrimary(Objects.requireNonNull(getActivity())));
+		refresh.setOnRefreshListener(re -> {
+            refresh.setEnableLoadMore(false);
+            getVideo();
+        });
 	}
 
 	private void getVideo()
@@ -79,7 +74,8 @@ public class MainVideoFragment extends BaseFragment
 		query.order("-createdAt");//时间降序排列
 		query.findObjects(new FindListener<BmobVideo>() {
 
-				@Override
+				@SuppressLint("SetTextI18n")
+                @Override
 				public void done(List<BmobVideo> list, BmobException e)
 				{
 					if (e == null)
@@ -96,7 +92,7 @@ public class MainVideoFragment extends BaseFragment
 					else
 					{
 						video_load_fail.setVisibility(View.VISIBLE);
-						video_load_fail.setText(getActivity().getResources().getString(R.string.load_fail)+e.getMessage());
+						video_load_fail.setText(Objects.requireNonNull(getActivity()).getResources().getString(R.string.load_fail)+e.getMessage());
 						Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
 						refresh.finishRefresh();
 					}
@@ -126,7 +122,7 @@ public class MainVideoFragment extends BaseFragment
 						//设置适配器
 						re.setAdapter(adapter);
 						LayoutAnimationController controller = LayoutAnimationHelper.makeLayoutAnimationController();
-						ViewGroup viewGroup = (ViewGroup)view.findViewById(R.id.video_list);
+						ViewGroup viewGroup = view.findViewById(R.id.video_list);
 						viewGroup.setLayoutAnimation(controller);
 						viewGroup.scheduleLayoutAnimation();
 						PlayAnimUtil.playLayoutAnimationWithGridLayout(re,LayoutAnimationHelper.getAnimationSetFromBottom(),false);

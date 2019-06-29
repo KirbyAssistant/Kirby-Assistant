@@ -16,7 +16,7 @@ import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 @ParallaxBack
 public class BaseActivity extends AppCompatActivity
 {
-	private String WINDOW_HIERARCHY_TAG="window_save";
+	private final String WINDOW_HIERARCHY_TAG="window_save";
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{

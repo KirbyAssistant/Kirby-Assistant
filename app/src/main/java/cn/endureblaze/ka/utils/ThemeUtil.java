@@ -3,15 +3,12 @@ package cn.endureblaze.ka.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.util.TypedValue;
 import cn.endureblaze.ka.R;
-import android.widget.Toast;
 
 public class ThemeUtil 
 {
-	private static SharedPreferences.Editor edit;
-	private static String FILE_NAME="theme";
+    private static String FILE_NAME="theme";
 	public static void setClassTheme(Context context)
 	{
 		SharedPreferences theme = context.getSharedPreferences(FILE_NAME, 0);
@@ -28,7 +25,7 @@ public class ThemeUtil
 	public static void setTheme(Context context, int i)
 	{
 		SharedPreferences theme = context.getSharedPreferences(FILE_NAME, 0);
-		edit = theme.edit();
+        SharedPreferences.Editor edit = theme.edit();
 		edit.putInt("themeId", i);
 		edit.apply();
 	}

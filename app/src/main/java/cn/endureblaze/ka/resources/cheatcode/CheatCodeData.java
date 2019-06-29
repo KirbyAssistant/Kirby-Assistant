@@ -123,32 +123,25 @@ public class CheatCodeData {
 		new CheatCode("", "030021AF 02"),
 		new CheatCode("", "03002182 01"),};
 		
-		static void setCheatCodeData(String game_name, List<CheatCode> list){
-			//获取数据并遍历
-			if (game_name.equals("星之卡比 镜之大迷宫"))
-			{
-				int index = 0;
-				while (index < 镜迷_金手指.length)
-				{       	
-					list.add(镜迷_金手指[index++]);
-				}
-			}
-			if(game_name.equals("星之卡比 梦之泉物语")){
-				int index = 0;
-				while (index < 梦之泉_金手指.length)
-				{       	
-					list.add(梦之泉_金手指[index++]);
-				}
-			}
-			if(game_name.equals("星之卡比 梦之泉DX")){
-				int index = 0;
-				while (index < 梦之泉DX_金手指.length)
-				{       	
-					list.add(梦之泉DX_金手指[index++]);
-				}
-			}
-			if(game_name.equals("星之卡比 3")){
-
-			}
-		}
+		static void setCheatCodeData(String game_name, List<CheatCode> list) {
+            //获取数据并遍历
+            if (game_name.equals("星之卡比 镜之大迷宫")) {
+                int index = 0;
+                while (index < 镜迷_金手指.length) {
+                    list.add(镜迷_金手指[index++]);
+                }
+            }
+            if (game_name.equals("星之卡比 梦之泉物语")) {
+                int index = 0;
+                while (index < 梦之泉_金手指.length) {
+                    list.add(梦之泉_金手指[index++]);
+                }
+            }
+            if (game_name.equals("星之卡比 梦之泉DX")) {
+                int index = 0;
+                while (index < 梦之泉DX_金手指.length) {
+                    list.add(梦之泉DX_金手指[index++]);
+                }
+            }
+        }
 }

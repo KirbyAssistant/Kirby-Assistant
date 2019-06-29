@@ -25,6 +25,8 @@ import cn.endureblaze.ka.bottomdialog.ViewHolder;
 import cn.endureblaze.ka.utils.CheckTextUtil;
 import cn.endureblaze.ka.utils.UserUtil;
 
+import java.util.Objects;
+
 public class EditChatDialog extends BaseBottomDialog {
 	private EditText chat_editview;
 
@@ -32,9 +34,7 @@ public class EditChatDialog extends BaseBottomDialog {
 
 	private int mode;
 
-	private TextView chat_send;
-
-	public static EditChatDialog newInstance(String type, String chat, int mode) {
+    public static EditChatDialog newInstance(String type, String chat, int mode) {
 		Bundle bundle = new Bundle();
 		bundle.putString("str_chat", chat);
 		bundle.putInt("mode", mode);
@@ -57,7 +57,7 @@ public class EditChatDialog extends BaseBottomDialog {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Bundle bundle = getArguments();
-	    str_chat = bundle.getString("str_chat");
+	    str_chat = Objects.requireNonNull(bundle).getString("str_chat");
 		mode = bundle.getInt("mode");
 	}
 
@@ -68,18 +68,15 @@ public class EditChatDialog extends BaseBottomDialog {
 
 	@Override
 	public void convertView(ViewHolder holder, final BaseBottomDialog edit_chat_dialog) {
-		SharedPreferences chat_share=getActivity().getSharedPreferences("string", 0);
+		SharedPreferences chat_share= Objects.requireNonNull(getActivity()).getSharedPreferences("string", 0);
 		String chat= chat_share.getString("Chat", null);
-	    chat_editview = (EditText)holder.getView(R.id.chat_editview);
+	    chat_editview = holder.getView(R.id.chat_editview);
 		chat_editview.addTextChangedListener(textWatcher);
-		chat_editview.post(new Runnable() {
-				@Override
-				public void run() {
-					InputMethodManager imm =
-						(InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-					imm.showSoftInput(chat_editview, 0);
-				}
-			});
+		chat_editview.post(() -> {
+            InputMethodManager imm =
+                (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(chat_editview, 0);
+        });
 		
 		if (mode == ChatMode.CHAT_SEND_MODE && chat != null) {
 			chat_editview.setText(chat);
@@ -87,7 +84,7 @@ public class EditChatDialog extends BaseBottomDialog {
 		if (mode == ChatMode.CHAT_EDIT_MODE && str_chat != null) {
 			chat_editview.setText(str_chat);
 		}
-	    chat_send = holder.getView(R.id.chat_send);
+        TextView chat_send = holder.getView(R.id.chat_send);
 		chat_send.setOnClickListener(v -> {
 			//获取字符串转化为string数据
 			//EditText 内容=(EditText)v.findViewById(R.id.内容_编辑);
@@ -138,13 +135,13 @@ public class EditChatDialog extends BaseBottomDialog {
 				public void done(String objectId, BmobException e) {
 					progressDialog.dismiss();
 					if (e == null) {		
-						SharedPreferences y=getActivity().getSharedPreferences("string", 0);
+						SharedPreferences y= Objects.requireNonNull(getActivity()).getSharedPreferences("string", 0);
 						SharedPreferences.Editor edit=y.edit();
 						edit.putString("Chat", "");
 						edit.apply();
 						edit_chat_dialog.dismiss();
-						MainChatFragment main_chat=(MainChatFragment)edit_chat_dialog.getActivity().getSupportFragmentManager().findFragmentById(R.id.main_fragment);
-						main_chat.getChat();
+						MainChatFragment main_chat=(MainChatFragment) Objects.requireNonNull(edit_chat_dialog.getActivity()).getSupportFragmentManager().findFragmentById(R.id.main_fragment);
+						Objects.requireNonNull(main_chat).getChat();
 						Toast.makeText(getActivity(), getResources().getString(R.string.chat_true), Toast.LENGTH_SHORT).show();
 					} else {
 						Toast.makeText(getActivity(), getResources().getString(R.string.chat_false) + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -162,7 +159,7 @@ public class EditChatDialog extends BaseBottomDialog {
 		@Override
 		public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
 			if (mode == ChatMode.CHAT_SEND_MODE) {
-				SharedPreferences y=getActivity().getSharedPreferences("string", 0);
+				SharedPreferences y= Objects.requireNonNull(getActivity()).getSharedPreferences("string", 0);
 				SharedPreferences.Editor edit=y.edit();
 				edit.putString("Chat", chat_editview.getText().toString());
 				edit.apply();

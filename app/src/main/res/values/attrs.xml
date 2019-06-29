@@ -11,26 +11,26 @@
         <attr name="civ_circle_background_color" format="color" />
     </declare-styleable>
 	<declare-styleable name="RippleLayout">
-		<attr name="rippleLayoutColor" format="color"></attr>
+        <attr name="rippleLayoutColor" format="color"/>
 		<attr name="rippleLayoutType" format="enum">
-			<enum name="fill" value="0"></enum>
-			<enum name="stroke" value="1"></enum>
+            <enum name="fill" value="0"/>
+            <enum name="stroke" value="1"/>
 		</attr>
-		<attr name="startRadius" format="dimension"></attr>
-		<attr name="endRadius" format="dimension"></attr>
-		<attr name="duration" format="integer"></attr>
-		<attr name="strokeWidth" format="dimension"></attr>
+        <attr name="startRadius" format="dimension"/>
+        <attr name="endRadius" format="dimension"/>
+        <attr name="duration" format="integer"/>
+        <attr name="strokeWidth" format="dimension"/>
 	</declare-styleable>
 	<declare-styleable name="ParticleView">
-        <attr name="pv_host_text" format="string"></attr>
-        <attr name="pv_host_text_size" format="dimension"></attr>
-        <attr name="pv_particle_text" format="string"></attr>
-        <attr name="pv_particle_text_size" format="dimension"></attr>
-        <attr name="pv_text_color" format="color"></attr>
-        <attr name="pv_background_color" format="color"></attr>
-        <attr name="pv_text_anim_time" format="integer"></attr>
-        <attr name="pv_spread_anim_time" format="integer"></attr>
-        <attr name="pv_host_text_anim_time" format="integer"></attr>
+        <attr name="pv_host_text" format="string"/>
+        <attr name="pv_host_text_size" format="dimension"/>
+        <attr name="pv_particle_text" format="string"/>
+        <attr name="pv_particle_text_size" format="dimension"/>
+        <attr name="pv_text_color" format="color"/>
+        <attr name="pv_background_color" format="color"/>
+        <attr name="pv_text_anim_time" format="integer"/>
+        <attr name="pv_spread_anim_time" format="integer"/>
+        <attr name="pv_host_text_anim_time" format="integer"/>
     </declare-styleable>
 	
 	<attr name="color_bkg_main" format="color" />

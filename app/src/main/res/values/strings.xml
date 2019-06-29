@@ -4,12 +4,10 @@
 	<string name="simple_mode_app_name">Kirby Assistant·极简模式</string>
 	
 	<string name="game_title">当前是</string>
-	<string name="tj_title">推荐</string>
 	<string name="wiki_title">百科</string>
 	<string name="setting_title">设置</string>
 	<string name="about_title">关于</string>
 	<string name="help_title">帮助</string>
-	<string name="chat_title">详情</string>
 	<string name="video_title">视频</string>
 	<string name="cheatCode_title">金手指</string>
 	<string name="ziyuan">资源</string>
@@ -76,7 +74,6 @@
 	
 	<string name="user_name">用户名</string>
 	<string name="user_email">邮箱</string>
-	<string name="talk_photo">拍照</string>
 	<string name="choose_photo">选择图片</string>
 	<string name="not_have_user">没有账号？点我</string>
 	<string name="have_user">已有账号？点我</string>

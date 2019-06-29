@@ -1,12 +1,14 @@
 package cn.endureblaze.ka.utils;
 
-import android.content.*;
-import android.graphics.*;
-import android.net.*;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.util.Log;
+
 import java.io.*;
-import android.graphics.BitmapFactory.*;
-import android.util.*;
-import android.app.*;
+import java.util.Objects;
 
 public class BitmapUriUtil
 {
@@ -25,11 +27,11 @@ public class BitmapUriUtil
 		}
 		return null;
 	}
-	public static final Bitmap getBitmap(Context ctx, Uri url) throws FileNotFoundException, IOException{
+	public static Bitmap getBitmap(Context ctx, Uri url) throws IOException{
 	InputStream stream =ctx.getContentResolver().openInputStream(url);
 		//BitmapFactory.Options options = null;
 		Bitmap bitmap = BitmapFactory.decodeStream(stream);
-		stream.close();
+		Objects.requireNonNull(stream).close();
 		return bitmap;
 	}
 	/**
@@ -47,7 +49,7 @@ public class BitmapUriUtil
 
         //再进行质量压缩
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);//100表示不压缩，直接放到out里面
+        Objects.requireNonNull(bitmap).compress(Bitmap.CompressFormat.PNG, 100, out);//100表示不压缩，直接放到out里面
         int options = 90;//压缩比例
         while (out.toByteArray().length / 1024 > 100) { // 循环判断如果压缩后图片是否大于100kb,大于继续压缩
             out.reset(); // 重置baos即清空baos
@@ -57,9 +59,8 @@ public class BitmapUriUtil
         Log.e("压缩-提交", out.toByteArray().length + "");
 
 		ByteArrayInputStream isBm = new ByteArrayInputStream(out.toByteArray());//把压缩后的数据baos存放到ByteArrayInputStream中
-		Bitmap bitmap2 = BitmapFactory.decodeStream(isBm, null, null);//把ByteArrayInputStream数据生成图片
-		
-        return bitmap2;
+
+        return BitmapFactory.decodeStream(isBm, null, null);
     }
 
 
@@ -71,14 +72,14 @@ public class BitmapUriUtil
      *
      * @param uri
      */
-    public static Bitmap getBitmapFormUri(Activity ac, Uri uri) throws FileNotFoundException, IOException {
+    public static Bitmap getBitmapFormUri(Activity ac, Uri uri) throws IOException {
         InputStream input = ac.getContentResolver().openInputStream(uri);
         BitmapFactory.Options onlyBoundsOptions = new BitmapFactory.Options();
         onlyBoundsOptions.inJustDecodeBounds = true;
         onlyBoundsOptions.inDither = true;//optional
         onlyBoundsOptions.inPreferredConfig = Bitmap.Config.ARGB_8888;//optional
         BitmapFactory.decodeStream(input, null, onlyBoundsOptions);
-        input.close();
+        Objects.requireNonNull(input).close();
         int originalWidth = onlyBoundsOptions.outWidth;
         int originalHeight = onlyBoundsOptions.outHeight;
         if ((originalWidth == -1) || (originalHeight == -1))
@@ -109,7 +110,7 @@ public class BitmapUriUtil
         bitmapOptions.inPreferredConfig = Bitmap.Config.ARGB_8888;//optional
         input = ac.getContentResolver().openInputStream(uri);
         Bitmap bitmap = BitmapFactory.decodeStream(input, null, bitmapOptions);
-        input.close();
+        Objects.requireNonNull(input).close();
 
         return bitmap;//再进行质量压缩
     }

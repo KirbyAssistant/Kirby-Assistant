@@ -31,10 +31,11 @@ import cn.endureblaze.ka.utils.UserUtil;
 import com.bumptech.glide.Glide;
 import com.umeng.analytics.MobclickAgent;
 
+import java.util.Objects;
+
 public class MainUserFragment extends BaseFragment {
 	private boolean CHANGE_HEAD=false;
-	private LocalBroadcastManager localBroadcastManager;
-	private MainActivity m;
+    private MainActivity m;
 	private ImageView userHead;
 	private String email;
 	private String id;
@@ -52,7 +53,7 @@ public class MainUserFragment extends BaseFragment {
 
 	@SuppressLint("SetTextI18n")
 	private void initUser(View view) {
-		localBroadcastManager = LocalBroadcastManager.getInstance(getActivity());
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(Objects.requireNonNull(getActivity()));
 		IntentFilter intentFilter = new IntentFilter();
 		intentFilter.addAction("com.kirby.download.CHANGE_USERHEAD");
 		ChangeUserHeadLocalReceiver localReceiver = new ChangeUserHeadLocalReceiver();
@@ -86,7 +87,7 @@ public class MainUserFragment extends BaseFragment {
 					.into(userHead);
 				GlideUtil.setBlurImageViaGlideCache(getActivity(), mo_userHead,UserUtil.getCurrentUser().getUserHead().getFileUrl(),"5");
 			}
-		} catch (Exception e) {}
+		} catch (Exception ignored) {}
 		userName.setText(UserUtil.getCurrentUser().getUsername());
 		userId.setText("id:" + UserUtil.getCurrentUser().getObjectId());
 		userTime.setText(getActivity().getResources().getString(R.string.register_time) + ":" + UserUtil.getCurrentUser().getCreatedAt());
@@ -108,8 +109,8 @@ public class MainUserFragment extends BaseFragment {
 		PlayAnimUtil.playLayoutAnimation(LayoutAnimationHelper.getAnimationSetFromBottom(), false);
 	}
 	private void userEditEmail() {
-		LayoutInflater lay_1 =getActivity().getLayoutInflater();
-		final View modification_email_layout = lay_1.inflate(R.layout.dialog_modification_email, null);
+		LayoutInflater lay_1 = Objects.requireNonNull(getActivity()).getLayoutInflater();
+		@SuppressLint("InflateParams") final View modification_email_layout = lay_1.inflate(R.layout.dialog_modification_email, null);
 		new AlertDialog.Builder(getActivity())
 			.setTitle(R.string.modification_email)
 			.setView(modification_email_layout) 
@@ -133,7 +134,7 @@ public class MainUserFragment extends BaseFragment {
 						modificationEmailProgress.dismiss();
 						Toast.makeText(getActivity(), R.string.is_null, Toast.LENGTH_SHORT).show();
 					} else {
-						if (EmailUtil.checkEmail(str_modification_email_old) == false || EmailUtil.checkEmail(str_modification_email_new) == false) {
+						if (!EmailUtil.checkEmail(str_modification_email_old) || !EmailUtil.checkEmail(str_modification_email_new)) {
 							modificationEmailProgress.dismiss();
 							Toast.makeText(getActivity(), R.string.email_fail, Toast.LENGTH_SHORT).show();
 						} else {
@@ -169,8 +170,8 @@ public class MainUserFragment extends BaseFragment {
 			.show();
 	}
 	private void userEditPassword() {
-		LayoutInflater lay_2 =getActivity().getLayoutInflater();
-		final View modification_password_layout = lay_2.inflate(R.layout.dialog_modification_password, null);
+		LayoutInflater lay_2 = Objects.requireNonNull(getActivity()).getLayoutInflater();
+		@SuppressLint("InflateParams") final View modification_password_layout = lay_2.inflate(R.layout.dialog_modification_password, null);
 		new AlertDialog.Builder(getActivity())
 			.setTitle(R.string.modification_password)
 			.setView(modification_password_layout) 
@@ -200,7 +201,7 @@ public class MainUserFragment extends BaseFragment {
 					} else {
 						if (str_modification_password_new.equals(str_modification_password_new_again)) {
 							final BmobUser pas = new BmobUser();
-							pas.updateCurrentUserPassword(str_modification_password_old, str_modification_password_new, new UpdateListener(){
+							BmobUser.updateCurrentUserPassword(str_modification_password_old, str_modification_password_new, new UpdateListener(){
 									@Override
 									public void done(BmobException e) {
 										if (e == null) {
