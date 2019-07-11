@@ -3,7 +3,7 @@ Kirby-Assistant
 [![Badge](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu/#/zh_CN)
 =======
 简体中文|[English](/README_EN.md)  
-![Kirby Assistant](/ic_launcher.png "Kirby Assistant")    
+![Kirby Assistant](/logo.png "Kirby Assistant")
 不仅有游戏
 
 下载
@@ -32,4 +32,4 @@ QQ群:[点我](https://shang.qq.com/wpa/qunwpa?idkey=0e172ee61a12688b204d4d0b014
 Twitter:https://twitter.com/nihaocun?s=09   
 开源地址(Github):https://github.com/nihaocun/Kirby-Assistant    
 开源地址(Gitlab):https://gitlab.com/nihaocun/Kirby-Assistant    
-官网:https://kirbyassistant.tk    
+官网:ka.endureblaze.cn

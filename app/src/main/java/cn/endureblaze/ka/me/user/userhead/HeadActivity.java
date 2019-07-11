@@ -15,11 +15,11 @@ import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
 import cn.bmob.v3.listener.UploadFileListener;
+import cn.ednureblaze.glidecache.GlideCache;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.base.BaseActivity;
 import cn.endureblaze.ka.bmob.BmobKirbyAssistantUser;
 import cn.endureblaze.ka.manager.ActManager;
-import cn.endureblaze.ka.utils.GlideUtil;
 import cn.endureblaze.ka.utils.ThemeUtil;
 import cn.endureblaze.ka.utils.UserUtil;
 
@@ -49,7 +49,7 @@ public class HeadActivity extends BaseActivity
 		{
 			if (UserUtil.getCurrentUser().getUserHead().getFileUrl() != null)
 			{
-				GlideUtil.setNormalImageViaGlideCache(HeadActivity.this,userHead, UserUtil.getCurrentUser().getUserHead().getFileUrl());
+				GlideCache.setNormalImageViaGlideCache(HeadActivity.this,userHead, UserUtil.getCurrentUser().getUserHead().getFileUrl());
 			}
 		}
 		catch (Exception ignored)

@@ -2,15 +2,17 @@ package cn.endureblaze.ka.base;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import cn.bmob.v3.Bmob;
+import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.manager.ActManager;
 import cn.endureblaze.ka.utils.LanguageUtil;
 import cn.endureblaze.ka.utils.ThemeUtil;
+import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 import com.oasisfeng.condom.CondomContext;
 import com.umeng.analytics.MobclickAgent;
-import com.github.anzewei.parallaxbacklayout.ParallaxBack;
 
 @SuppressLint("Registered")
 @ParallaxBack
@@ -31,12 +33,15 @@ public class BaseActivity extends AppCompatActivity
 	{
         super.setContentView(layoutResID);
         setStatusBar(ThemeUtil.getDarkColorPrimary(this));
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        if(layoutResID== R.layout.activity_game) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
     }
 
     private void setStatusBar(int color)
 	{
 		getWindow().setStatusBarColor(color);
-		getWindow().setNavigationBarColor(color);
     }
 	@Override
 	protected void onSaveInstanceState(@NonNull Bundle outState)

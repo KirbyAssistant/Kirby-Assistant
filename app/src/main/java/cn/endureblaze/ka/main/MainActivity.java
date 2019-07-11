@@ -250,7 +250,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     //获取toolbar菜单id执行事件
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.theme:
                 /*
@@ -330,7 +330,7 @@ public class MainActivity extends BaseActivity {
      * 调用了方法:appFileDownload
      */
 
-    public void theDownload(Context context, String game_name, String position) {
+    public void theDownload(Context context, String game_name, @NonNull String position) {
         gameContext = context;
         switch (position) {
             case "emulators_gba"://"GBA " + getGameText(R.string.moniqi) + "\nMy Boy!":
@@ -399,12 +399,12 @@ public class MainActivity extends BaseActivity {
             }
         }
         if (null == UserUtil.getCurrentUser()) {
-            if (fragment_cheak.equals(getResources().getString(R.string.login_title))) {
+            if (Objects.requireNonNull(fragment_cheak).equals(getResources().getString(R.string.login_title))) {
                 replaceFragment(new MainLoginFragment());
                 toolbar.setSubtitle(R.string.login_title);
             }
         } else {
-            if (fragment_cheak.equals(UserUtil.getCurrentUser().getUsername())) {
+            if (Objects.requireNonNull(fragment_cheak).equals(UserUtil.getCurrentUser().getUsername())) {
                 replaceFragment(new MainUserFragment());
                 toolbar.setSubtitle(UserUtil.getCurrentUser().getUsername());
             }

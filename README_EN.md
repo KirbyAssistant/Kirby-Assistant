@@ -3,7 +3,7 @@ Kirby-Assistant
 [![Badge](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu/#/zh_CN)
 =======
 [简体中文](/README_EN.md)|English  
-![Kirby Assistant](/ic_launcher.png "Kirby Assistant")    
+![Kirby Assistant](/logo.png "Kirby Assistant")
 Not just games
 
 Download
@@ -29,4 +29,4 @@ Weibops://weibo.com/runanjing
 Twitter:https://twitter.com/nihaocun?s=09   
 Open source address(Github):https://github.com/nihaocun/Kirby-Assistant    
 Open source address(Gitlab):https://gitlab.com/nihaocun/Kirby-Assistant    
-Official website:kirbyassistant.tk    
+Official website:ka.endureblaze.cn

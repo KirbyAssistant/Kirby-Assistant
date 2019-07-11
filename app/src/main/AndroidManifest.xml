@@ -52,5 +52,8 @@
 				android:name="android.support.FILE_PROVIDER_PATHS"
 				android:resource="@xml/file_paths"/>
 		</provider>
-	</application>
+        <meta-data
+                android:name="CHANNEL"
+                android:value="${CHANNEL_VALUE}" />
+    </application>
 </manifest>

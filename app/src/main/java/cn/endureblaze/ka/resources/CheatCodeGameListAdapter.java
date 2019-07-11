@@ -12,12 +12,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import cn.ednureblaze.glidecache.GlideCache;
 import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.bean.Console;
 import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.resources.cheatcode.CheatCodeActivity;
-import cn.endureblaze.ka.utils.GlideUtil;
 import cn.endureblaze.ka.utils.IntentUtil;
 import com.bumptech.glide.Glide;
 import java.util.List;
@@ -86,7 +86,7 @@ public class CheatCodeGameListAdapter extends RecyclerView.Adapter<CheatCodeGame
 			.load(co.getImageUrl())
 			.apply(Kirby.getGlideRequestOptions())
 			.into(holder.gameImage);	
-		GlideUtil.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"5");
+		GlideCache.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"5");
 		}
 
 	@Override

@@ -17,6 +17,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
+import cn.ednureblaze.glidecache.GlideCache;
 import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.base.BaseFragment;
@@ -25,13 +26,13 @@ import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.me.login.MainLoginFragment;
 import cn.endureblaze.ka.me.user.userhead.HeadActivity;
 import cn.endureblaze.ka.utils.EmailUtil;
-import cn.endureblaze.ka.utils.GlideUtil;
 import cn.endureblaze.ka.utils.PlayAnimUtil;
 import cn.endureblaze.ka.utils.UserUtil;
 import com.bumptech.glide.Glide;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.Objects;
+
 
 public class MainUserFragment extends BaseFragment {
 	private boolean CHANGE_HEAD=false;
@@ -85,7 +86,7 @@ public class MainUserFragment extends BaseFragment {
 					.load(UserUtil.getCurrentUser().getUserHead().getFileUrl())
 					.apply(Kirby.getGlideRequestOptions())
 					.into(userHead);
-				GlideUtil.setBlurImageViaGlideCache(getActivity(), mo_userHead,UserUtil.getCurrentUser().getUserHead().getFileUrl(),"5");
+				GlideCache.setBlurImageViaGlideCache(getActivity(), mo_userHead,UserUtil.getCurrentUser().getUserHead().getFileUrl(),"5");
 			}
 		} catch (Exception ignored) {}
 		userName.setText(UserUtil.getCurrentUser().getUsername());

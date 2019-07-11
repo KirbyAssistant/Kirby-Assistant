@@ -7,10 +7,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
+import cn.ednureblaze.glidecache.GlideCache;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.base.BaseActivity;
-import cn.endureblaze.ka.utils.GlideUtil;
 import cn.endureblaze.ka.utils.ThemeUtil;
 
 import java.util.Objects;
@@ -21,25 +20,21 @@ public class GameActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
         ThemeUtil.setClassTheme(this);
 		setContentView(R.layout.activity_game);
-		//配置toolbar
-		Toolbar toolbar= findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
 		Intent game=getIntent();
 		final String game_name=game.getStringExtra("game_name");
 		final String game_img_url=game.getStringExtra("game_img");
 		final String game_pos=game.getStringExtra("game_pos");
-		Objects.requireNonNull(getSupportActionBar()).setTitle(game_name);
+        TextView game_title= findViewById(R.id.game_title);
+        game_title.setText(game_name);
 	    ImageView game_img= findViewById(R.id.game_img);
 		final ImageView blur_game_img= findViewById(R.id.blur_game_img);
 		TextView game_js= findViewById(R.id.game_js);
 		Button download_button= findViewById(R.id.download_button);
-		GlideUtil.setNormalImageViaGlideCache(GameActivity.this,game_img,game_img_url);
-		GlideUtil.setBlurImageViaGlideCache(GameActivity.this,blur_game_img,game_img_url,"5");
+		GlideCache.setNormalImageViaGlideCache(GameActivity.this,game_img,game_img_url);
+		GlideCache.setBlurImageViaGlideCache(GameActivity.this,blur_game_img,game_img_url,"5");
 		download_button.setOnClickListener(p1 -> {
 			switch (Objects.requireNonNull(game_pos)) {
-				case "gba_mzqdx"://"星之卡比 梦之泉DX":
-					//Intent gg=new Intent(GameActivity.this,KirbyWebActivity.class);
-					//startActivity(gg);
+				case "gba_mzqdx"://"星之卡比 梦之泉DX"：
 					showDownloadDialog(game_name, R.string.game_name, R.string.dia_jp, R.string.dia_us, R.string.dia_zh, "https://eyun.baidu.com/s/3kURIBIZ", "https://eyun.baidu.com/s/3o86TXDS", "https://eyun.baidu.com/s/3dF22BWP");
 					break;
 				case "gba_jm"://"星之卡比 镜之大迷宫":
@@ -253,7 +248,7 @@ public class GameActivity extends BaseActivity {
 		}
 		game_js.setText(game_js_text);
 	}
-	public void showDownloadDialog(String name, int mess, Integer pos, Integer neg, Integer neu, final String pos_url, final String neg_url, final String neu_url) {
+	private void showDownloadDialog(String name, int mess, Integer pos, Integer neg, Integer neu, final String pos_url, final String neg_url, final String neu_url) {
 		AlertDialog.Builder dialog = new
 			AlertDialog.Builder(this)
 			.setTitle(name)
