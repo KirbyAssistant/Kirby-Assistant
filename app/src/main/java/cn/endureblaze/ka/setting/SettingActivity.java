@@ -21,7 +21,10 @@ public class SettingActivity extends BaseActivity
 		Toolbar toolbar= findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.setting_title);
-		getFragmentManager().beginTransaction().replace(R.id.about_fragment, new SettingPreferenceFragment()).commit();
-	}
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.about_fragment, new SettingPreferenceFragment())
+                .commit();
+    }
 }
 		

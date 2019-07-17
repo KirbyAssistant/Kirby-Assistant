@@ -4,7 +4,7 @@ import java.util.List;
 
 public class CheatCodeData {
 	
-	static CheatCode []镜迷_金手指={new CheatCode("正常", "02020FE3 00"),
+	static CheatCode []jm_cheatcode={new CheatCode("正常", "02020FE3 00"),
 		new CheatCode("喷火", "02020FE3 01"),
 		new CheatCode("冷冻", "02020FE3 02"),
 		new CheatCode("回力镖", "02020FE3 06"),
@@ -39,7 +39,7 @@ public class CheatCodeData {
 		new CheatCode("镜片全满", " 02038970 FF"),
 		new CheatCode("传送门全开1", "42028C14 0001"), 
 		new CheatCode("", "0000000F 0004")};
-	static CheatCode []梦之泉_金手指={new CheatCode("", "C:0598:ff:01:麦克使用回数满"),
+	static CheatCode []mzq_cheatcode={new CheatCode("", "C:0598:ff:01:麦克使用回数满"),
 		new CheatCode("", "C:05e3:00:01:火炎"),
 		new CheatCode("", "C:05e3:01:01:火花"),
 		new CheatCode("", "C:05e3:02:01:回力标"),
@@ -69,7 +69,7 @@ public class CheatCodeData {
 		new CheatCode("", "C:05e7:02:01:混合"),
 		new CheatCode("", "C:05e0:0d:01:UFO"),
 		new CheatCode("", "C:05f9:14:01:无敌"),};
-	static CheatCode []梦之泉DX_金手指={new CheatCode("[命数]", ""),
+	static CheatCode []mzqDX_cheatcode={new CheatCode("[命数]", ""),
 		new CheatCode("开启", "02007D48 63"),
 		new CheatCode("[生命]", ""),
 		new CheatCode("开启", "02005588 14"),
@@ -127,20 +127,20 @@ public class CheatCodeData {
             //获取数据并遍历
             if (game_name.equals("星之卡比 镜之大迷宫")) {
                 int index = 0;
-                while (index < 镜迷_金手指.length) {
-                    list.add(镜迷_金手指[index++]);
+                while (index < jm_cheatcode.length) {
+                    list.add(jm_cheatcode[index++]);
                 }
             }
             if (game_name.equals("星之卡比 梦之泉物语")) {
                 int index = 0;
-                while (index < 梦之泉_金手指.length) {
-                    list.add(梦之泉_金手指[index++]);
+                while (index < mzq_cheatcode.length) {
+                    list.add(mzq_cheatcode[index++]);
                 }
             }
             if (game_name.equals("星之卡比 梦之泉DX")) {
                 int index = 0;
-                while (index < 梦之泉DX_金手指.length) {
-                    list.add(梦之泉DX_金手指[index++]);
+                while (index < mzqDX_cheatcode.length) {
+                    list.add(mzqDX_cheatcode[index++]);
                 }
             }
         }

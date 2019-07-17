@@ -1,18 +1,18 @@
 package cn.endureblaze.ka.utils;
 
-import android.app.*;
-import android.content.*;
-import android.widget.*;
-import cn.bmob.v3.*;
-import cn.bmob.v3.datatype.*;
-import cn.bmob.v3.exception.*;
-import cn.bmob.v3.listener.*;
-import cn.endureblaze.ka.*;
-import cn.endureblaze.ka.bmob.*;
-import cn.endureblaze.ka.utils.*;
-import java.io.*;
-import java.util.*;
-import cn.endureblaze.ka.bean.*;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.widget.Toast;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobFile;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.DownloadFileListener;
+import cn.bmob.v3.listener.FindListener;
+import cn.endureblaze.ka.R;
+import cn.endureblaze.ka.bmob.BmobDownloadApk;
+
+import java.io.File;
+import java.util.List;
 
 public class DownloadApkUtil
 {

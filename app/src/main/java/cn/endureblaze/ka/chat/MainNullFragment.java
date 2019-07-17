@@ -12,7 +12,6 @@ public class MainNullFragment extends BaseFragment
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-        View view = inflater.inflate(R.layout.main_null, container, false);
-		return view;
+        return inflater.inflate(R.layout.main_null, container, false);
 	}
 }

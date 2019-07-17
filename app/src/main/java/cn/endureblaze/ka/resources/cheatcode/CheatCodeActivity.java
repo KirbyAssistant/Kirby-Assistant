@@ -1,5 +1,6 @@
 package cn.endureblaze.ka.resources.cheatcode;
 
+import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -42,7 +43,10 @@ public class CheatCodeActivity extends BaseActivity
 			CheatCode cheatCode=list.get(position);
 			String q=cheatCode.getCheatCode();
 			ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-			Objects.requireNonNull(cm).setText(q);
+            Objects.requireNonNull(cm).setPrimaryClip(ClipData.newPlainText("cheat_code",q));
+            if (cm.hasPrimaryClip()) {
+                Objects.requireNonNull(cm.getPrimaryClip()).getItemAt(0).getText();
+            }
 			Toast.makeText(CheatCodeActivity.this,getResources().getString(R.string.copy_success),Toast.LENGTH_SHORT).show();
 		});
 	}

@@ -57,14 +57,14 @@ public class MainLoginFragment extends BaseFragment
 				//切换到注册
 				login_card.setVisibility(8);
 				register_card.setVisibility(0);
-				loginOrRegister.setText(getActivity().getResources().getString(R.string.have_user));
+				loginOrRegister.setText(Objects.requireNonNull(getActivity()).getResources().getString(R.string.have_user));
 			}
 			else
 			{
 				//切换到登录
 				login_card.setVisibility(0);
 				register_card.setVisibility(8);
-				loginOrRegister.setText(getActivity().getResources().getString(R.string.not_have_user));
+				loginOrRegister.setText(Objects.requireNonNull(getActivity()).getResources().getString(R.string.not_have_user));
 			}
 		});
 		//从edittext里获取字符串
@@ -144,7 +144,7 @@ public class MainLoginFragment extends BaseFragment
 								}
 								else
 								{
-									if(!EmailUtil.checkEmail(str_email)){
+									if(EmailUtil.checkEmail(str_email)){
 										registerProgress.dismiss();
 										Toast.makeText(getActivity(), R.string.email_fail, Toast.LENGTH_SHORT).show();							
 									}else{

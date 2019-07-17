@@ -1,18 +1,22 @@
 package cn.endureblaze.ka.customui;
 
-import android.animation.*;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
-import android.content.*;
-import android.content.res.*;
-import android.graphics.*;
-import android.os.*;
-import android.text.*;
-import android.util.*;
-import android.view.*;
-import android.view.animation.*;
-import android.widget.*;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.RelativeLayout;
 import androidx.annotation.Keep;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 import cn.endureblaze.ka.R;
 
 public class RippleLayout extends RelativeLayout {
@@ -54,7 +58,7 @@ public class RippleLayout extends RelativeLayout {
         }
         //reading the attributes
         @SuppressLint("Recycle") TypedArray attrValues = context.obtainStyledAttributes(attrs, R.styleable.RippleLayout);
-        int color = attrValues.getColor(R.styleable.RippleLayout_rippleLayoutColor, getResources().getColor(android.R.color.holo_blue_bright));
+        int color = attrValues.getColor(R.styleable.RippleLayout_rippleLayoutColor, ContextCompat.getColor(context,android.R.color.holo_blue_bright));
         float startRadius = attrValues.getDimension(R.styleable.RippleLayout_startRadius, getMeasuredWidth());
         float endRadius = attrValues.getDimension(R.styleable.RippleLayout_endRadius, getMeasuredWidth() * 2);
         float strokeWidth = attrValues.getDimension(R.styleable.RippleLayout_strokeWidth, 4);

@@ -6,21 +6,17 @@
 	<string name="game_title">Now is</string>
 	<string name="setting_title">Setting</string>
 	<string name="about_title">About</string>
-	<string name="help_title">Help</string>
-	<string name="video_title">Video</string>
+    <string name="video_title">Video</string>
 	<string name="cheatCode_title">Cheat Code</string>
 	<string name="ziyuan">Resources</string>
 	<string name="talk">Chat</string>
+    <string name="me">Me</string>
 	<string name="login_title">Login/Register</string>
 	<string name="game">Games</string>
-	<string name="welcome_to">Not just games</string>
-	<string name="emulators">Emulators</string>
-	<string name="not_login">Not Login</string>
-	<string name="language">Language setting</string>
+    <string name="emulators">Emulators</string>
+    <string name="language">Language setting</string>
 	<string name="crash_title">Error</string>
-	<string name="egg">Here is the egg</string>
-	<string name="bug_report">Bug has uploaded</string>
-	<string name="two_back">Please press exit again</string>
+    <string name="two_back">Please press exit again</string>
 	<string name="profile_photo">Profile Photo</string>
 	
 	<string name="chat_send">Send</string>
@@ -29,9 +25,7 @@
 	<string name="chat_false">Send Unsuccessfully:</string>
 	<string name="chat_del_success">Chat delete successfully</string>
 	<string name="chat_del_fail">Chat delete failed :</string>
-	<string name="chat_edit_success">Chat editing successfully</string>
-	<string name="chat_edit_fail">Chat editing fail:</string>
-	<string name="chat_copy">Copy content</string>
+    <string name="chat_copy">Copy content</string>
 	<string name="chat_del">Delete this chat</string>
 	<string name="chat_edit">Edit this chat</string>
 	
@@ -64,31 +58,24 @@
 	<string name="head_upload">Uploading</string>
 	
 	<string name="copy">Copy</string>
-	<string name="email">Send Email</string>
-	
-	<string name="check_me">Choose me</string>
+
+    <string name="check_me">Choose me</string>
 	<string name="email_fail">The mailbox format is not correct</string>
-	
-	<string name="sw_icon_finish">The icon has been switched, and you can see the new icon later after the desktop refresh </string>
-	
-	<string name="user_name">User Name</string>
-	<string name="user_email">E-mail</string>
+
+    <string name="user_email">E-mail</string>
 	<string name="choose_photo">Choose a picture</string>
 	<string name="not_have_user">No account number? Click me</string>
 	<string name="have_user">Existing account? Click me</string>
 	<string name="modification_email_old">Please Enter Your Original Email Address</string>
 	<string name="modification_email_new">Please Enter New Email Address</string>
-    <string name="modification_email_new_again">Please Enter New Email Address Again</string>
-	<string name="modification_password_old">Please Enter Old Password</string>
+    <string name="modification_password_old">Please Enter Old Password</string>
 	<string name="modification_password_new">Please Enter New Password</string>
 	<string name="modification_password_new_again">Please Enter New Password Again</string>
 	<string name="modification_email">modification E-mail</string>
-	<string name="modification_email_hint">modification E-mail (You Need Login Again If You modification Successfully)</string>
-	<string name="modification_email_false">Email verification Unsuccessfully</string>
+    <string name="modification_email_false">Email verification Unsuccessfully</string>
 	<string name="password">Twice You Input Passwords Are Different</string>
 	<string name="modification_password">modification Password</string>
-	<string name="modification_password_hint">modification Password (You Need Login Again If modification Successfully)</string>
-	<string name="modification_password_false">ERROR</string>
+    <string name="modification_password_false">ERROR</string>
 	
 	
 	<string name="is_null">Not Empty</string>
@@ -96,19 +83,13 @@
 	<string name="edit_false">modification Unsuccessfully:</string>
 	
 	<string name="user_logout">Logout</string>
-	<string name="logout_true">Logout Successfully</string>
-	<string name="register_time">Registration time</string>
+    <string name="register_time">Registration time</string>
 	
 	<string name="theme_title">Themes</string>
-	
-	<string name="web_loading">Loading</string>
-	
-	<string name="hello">Hello:</string>
-	
-	<string name="look_more">Look More</string>
-	<string name="edit_some">Please write something...｡ӧ◡ӧ｡</string>	
-	<string name="look_funk">What are you seeing?!(ﾉ｀⊿´)ﾉ</string>
-	<string name="edit_ny">Text (1000 Letters)</string>
+
+    <string name="look_more">Look More</string>
+	<string name="edit_some">Please write something...｡ӧ◡ӧ｡</string>
+    <string name="edit_ny">Text (1000 Letters)</string>
 	
 	<string name="game_name">Please Choose Versions Of  The Languages You Need</string>
 	<string name="game_name1">ONLY North American Version</string>
@@ -134,21 +115,10 @@
 	<string name="login_fail">Login Unsuccessfully</string>
 		
 	<string name="copy_success">The text has been copied</string>
-	
-	<string name="intro_welcome_title">Welcome</string>
-	<string name="intro_welcome_text">It is an app you can get Kirby games resource, and it is FREE.</string><!-- Kirby能给斜体吗，英语中专用名词没有专名号用斜体代替-->
-	<string name="intro_user_title">Account</string>
-	<string name="intro_user_text">Kirby Assistant Have Users System, You Can Login Your Account If You Have Registered Before,Or Register\nOf Course,You Can Also Do It Whenever You Use This App.</string>
-	<string name="intro_finish_title">Done</string>
-	<string name="intro_finish_text">The Setup Wizard For The App Has Neen Completed\nHope You Use It Happily!</string>
-	<string name="intro_permission_title">Permission</string>
-	<string name="intro_permission_text">Kirby Assistant Need Some Permissions,Please Allowed.</string>
-	<string name="intro_permission_sd">"SD card read/write permissions"</string>
-	<string name="intro_icon_title">Icon</string>
-	<string name="intro_icon_text">The Kirby Asssistant has two icons that you can switch between later in the menu</string>
 
-	<string name="x_title">Information</string>
-	<string name="version">Version</string>
+    <!-- Kirby能给斜体吗，英语中专用名词没有专名号用斜体代替-->
+
+    <string name="version">Version</string>
 	<string name="star_title">Gtade</string>
 	<string name="simple_mode">Simple Mode</string>
 	<string name="star_message">Hope You Give Me FIVE STAR!</string>
@@ -164,8 +134,7 @@
 	<string name="dev_weibo">Weibo\@汝南京</string>
 	<string name="dev_twitter">Twitter\@EndureBlaze</string>
 	<string name="github">Browsing The Program In Github.</string>
-	<string name="gitlab">Browsing The Program In Gitlab.</string>
-	<string name="contributor_title">Contributor</string>
+    <string name="contributor_title">Contributor</string>
 	<string name="program_title">Special contribution of program</string>
 	<string name="program_github_lxfly2000">Github@lxfly2000</string>
 	<string name="translation_tw_title">Traditional Chinese translator</string>
@@ -203,13 +172,11 @@
 	<string name="dia_yes">OK</string>
 	<string name="dia_enable">Enable</string>
 	<string name="dia_disable">Disable</string>
-	<string name="dia_open">Open</string>
-	<string name="dia_close">Close</string>
-	<string name="dia_cancel">Cancel</string>
+    <string name="dia_cancel">Cancel</string>
 	<string name="dia_jp">Japanese Version</string>
 	<string name="dia_us">North America Version</string>
 	<string name="dia_zh">Chinesize Versiom</string>
-	<string name="dia_nu"></string>
+    <string name="dia_nu"/>
 	<string name="dia_agree">Agree</string>
 	<string name="dia_disagree">Disagree</string>
 

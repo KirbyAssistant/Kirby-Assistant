@@ -15,7 +15,7 @@
         <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/activitygameRelativeLayout1">
+        >
 
             <androidx.cardview.widget.CardView
                     android:layout_height="280dp"

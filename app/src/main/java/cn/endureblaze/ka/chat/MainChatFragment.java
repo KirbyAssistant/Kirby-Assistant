@@ -45,7 +45,7 @@ public class MainChatFragment extends BaseFragment
     private FloatingActionButton edit_mess_button;
 	private View view;
     private int messItem;
-	private EditText edit_编辑;
+	private EditText edit_edit;
 	private TextView mess_load_fail;
 	//private BottomDialog mess_dia;
 	@Override

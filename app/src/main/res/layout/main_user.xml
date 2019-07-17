@@ -13,7 +13,6 @@
             android:layout_width="match_parent"
             app:elevation="5dp"
             app:cardCornerRadius="4dp"
-            android:id="@+id/egg"
             android:layout_margin="5dp">
 
         <RelativeLayout

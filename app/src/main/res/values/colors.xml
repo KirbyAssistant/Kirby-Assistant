@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<color name="shortcut_background">#F5F5F5</color>
-	<color name="head">#c6c6c6</color>
-	<color name="bluetheme">#2196F3</color>
+    <color name="bluetheme">#2196F3</color>
 	<color name="redtheme">#F44336</color>
 	<color name="purpletheme">#9C27B0</color>
 	<color name="lindigotheme">#3F51B5</color>

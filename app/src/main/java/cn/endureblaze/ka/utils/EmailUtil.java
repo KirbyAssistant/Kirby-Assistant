@@ -13,6 +13,6 @@ public class EmailUtil
 		}catch(Exception e){
 			flag = false;
 		}
-		return flag;
+		return !flag;
 	}
 }

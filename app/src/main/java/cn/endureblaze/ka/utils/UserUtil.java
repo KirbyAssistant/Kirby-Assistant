@@ -1,12 +1,7 @@
 package cn.endureblaze.ka.utils;
 
-import cn.bmob.v3.*;
-import cn.endureblaze.ka.bmob.*;
-import android.content.Context;
-import cn.bmob.v3.listener.UpdateListener;
-import cn.bmob.v3.exception.BmobException;
-import cn.endureblaze.ka.main.MainActivity;
-import cn.endureblaze.ka.me.user.MainUserFragment;
+import cn.bmob.v3.BmobUser;
+import cn.endureblaze.ka.bmob.BmobKirbyAssistantUser;
 
 public class UserUtil
 {

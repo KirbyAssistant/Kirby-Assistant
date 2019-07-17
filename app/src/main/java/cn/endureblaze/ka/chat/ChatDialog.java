@@ -1,6 +1,7 @@
 package cn.endureblaze.ka.chat;
 
 import android.annotation.SuppressLint;
+import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
@@ -74,7 +75,7 @@ public class ChatDialog extends BaseBottomDialog
 	{
 		super.onCreate(savedInstanceState);
 		Bundle bundle = getArguments();
-        String type = bundle.getString("type");
+        String type = Objects.requireNonNull(bundle).getString("type");
 		id = bundle.getString("id");
 		s_mess = bundle.getString("mess");
 		s_username = bundle.getString("username");
@@ -116,7 +117,10 @@ public class ChatDialog extends BaseBottomDialog
                 {
                     case R.id.mess_copy:
                         ClipboardManager cm = (ClipboardManager) Objects.requireNonNull(mess_dialog.getActivity()).getSystemService(Context.CLIPBOARD_SERVICE);
-                        Objects.requireNonNull(cm).setText(s_mess);
+                        Objects.requireNonNull(cm).setPrimaryClip(ClipData.newPlainText("chat",s_mess));
+                        if (cm.hasPrimaryClip()) {
+                            Objects.requireNonNull(cm.getPrimaryClip()).getItemAt(0).getText();
+                        }
                         Toast.makeText(mess_dialog.getActivity(), getResources().getString(R.string.copy_success), Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.mess_del:
@@ -130,7 +134,7 @@ public class ChatDialog extends BaseBottomDialog
                                     {
                                         mess_dialog.dismiss();
                                         MainChatFragment main_mess=(MainChatFragment) Objects.requireNonNull(mess_dialog.getActivity()).getSupportFragmentManager().findFragmentById(R.id.main_fragment);
-                                        main_mess.getChat();
+                                        Objects.requireNonNull(main_mess).getChat();
                                         Toast.makeText(getActivity(), getResources().getString(R.string.chat_del_success), Toast.LENGTH_SHORT).show();
                                     }
                                     else

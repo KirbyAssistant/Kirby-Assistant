@@ -1,8 +1,6 @@
 package cn.endureblaze.ka.bmob;
 
-import cn.bmob.v3.*;
-import cn.bmob.v3.datatype.BmobFile;
-import cn.endureblaze.ka.bean.*;
+import cn.bmob.v3.BmobObject;
 
 public class BmobChat extends BmobObject
 {

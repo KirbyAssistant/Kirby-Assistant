@@ -1,22 +1,26 @@
 package cn.endureblaze.ka.me.user.userhead;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.annotation.StyleRes;
+import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.bottomdialog.BaseBottomDialog;
 import cn.endureblaze.ka.bottomdialog.ViewHolder;
 import cn.endureblaze.ka.manager.ActManager;
 import cn.endureblaze.ka.nocropper.CropperView;
 import cn.endureblaze.ka.utils.BitmapUriUtil;
+
 import java.io.IOException;
 import java.util.Objects;
 
@@ -98,7 +102,9 @@ public class CropImageDialog extends BaseBottomDialog
 	public Bitmap getBitmap(int resId)
 	{
 		WindowManager wm = (WindowManager) Objects.requireNonNull(getActivity()).getSystemService(Context.WINDOW_SERVICE);
-		int width = Objects.requireNonNull(wm).getDefaultDisplay().getWidth();
+        Display disPlay = Objects.requireNonNull(wm).getDefaultDisplay();
+        Point size = new Point(); disPlay.getSize(size);
+        int width =size.x;
 		Bitmap bitmap= BitmapFactory.decodeResource(getResources(), resId);
 		float scaleWidth = 1,scaleHeight = 1;
 		if (bitmap.getWidth() < width)

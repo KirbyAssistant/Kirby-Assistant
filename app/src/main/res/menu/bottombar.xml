@@ -18,6 +18,6 @@
 	<item
         android:id="@+id/me"
         android:icon="@drawable/ic_kirby_account"
-        android:title="我"/>
+        android:title="@string/me"/>
 
 </menu>

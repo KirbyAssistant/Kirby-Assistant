@@ -1,5 +1,6 @@
 package cn.endureblaze.ka.main.donate;
 
+import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -47,7 +48,10 @@ public class DonateActivity extends BaseActivity
 		btc.setOnClickListener(p1 -> {
 			String btc_account="13yQa3Q95hZJR3VvmaM3XNj39AQVMgkg8P";
 			ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-			Objects.requireNonNull(cm).setText(btc_account);
+            Objects.requireNonNull(cm).setPrimaryClip(ClipData.newPlainText("btc",btc_account));
+            if (cm.hasPrimaryClip()) {
+                Objects.requireNonNull(cm.getPrimaryClip()).getItemAt(0).getText();
+            }
 			Toast.makeText(DonateActivity.this,getResources().getString(R.string.copy_success),Toast.LENGTH_SHORT).show();
 		});
 		qq.setOnClickListener(p1 -> {

@@ -1,6 +1,4 @@
 package cn.endureblaze.ka.video;
-import java.io.*;
-import java.lang.annotation.*;
 
 public class Video
 {

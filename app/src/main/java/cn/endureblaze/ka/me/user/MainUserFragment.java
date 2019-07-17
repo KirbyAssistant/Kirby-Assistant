@@ -73,7 +73,7 @@ public class MainUserFragment extends BaseFragment {
 		edit_email.setOnClickListener(p1 -> userEditEmail());
 		edit_password.setOnClickListener(p1 -> userEditPassword());
 		user_logout.setOnClickListener(p1 -> {
-			UserUtil.getCurrentUser().logOut();
+			BmobUser.logOut();
 			MobclickAgent.onProfileSignOff();
 			m.replaceFragment(new MainLoginFragment());
 		});
@@ -135,7 +135,7 @@ public class MainUserFragment extends BaseFragment {
 						modificationEmailProgress.dismiss();
 						Toast.makeText(getActivity(), R.string.is_null, Toast.LENGTH_SHORT).show();
 					} else {
-						if (!EmailUtil.checkEmail(str_modification_email_old) || !EmailUtil.checkEmail(str_modification_email_new)) {
+						if (EmailUtil.checkEmail(str_modification_email_old) || EmailUtil.checkEmail(str_modification_email_new)) {
 							modificationEmailProgress.dismiss();
 							Toast.makeText(getActivity(), R.string.email_fail, Toast.LENGTH_SHORT).show();
 						} else {
@@ -149,7 +149,7 @@ public class MainUserFragment extends BaseFragment {
 											if (e == null) {
 												modificationEmailProgress.dismiss();
 												Toast.makeText(getActivity(), R.string.edit_true, Toast.LENGTH_SHORT).show();
-												UserUtil.getCurrentUser().logOut();
+												BmobUser.logOut();
 												//finish();
 												m.open();
 											} else {
@@ -208,7 +208,7 @@ public class MainUserFragment extends BaseFragment {
 										if (e == null) {
 											changepasswordProgress.dismiss();
 											Toast.makeText(getActivity(), R.string.edit_true, Toast.LENGTH_SHORT).show();
-											UserUtil.getCurrentUser().logOut();
+											BmobUser.logOut();
 											//finish();
 											m.open();
 										} else {

@@ -110,13 +110,4 @@
 		<item name="colorAccent">#448AFF</item>	
 	</style>
 
-	<style name="DarkTheme" parent="Theme.AppCompat.NoActionBar">		
-		<item name="color_bkg_main">#0f0f0f</item>
-        <item name="color_text">#00ffffff</item>
-        <item name="color_text_pressed">#80fdfdfd</item>
-        <item name="color_text_hint">#40fdfdfd</item>
-        <item name="color_divider">#bdbdbd</item>
-		<item name="colorAccent">#009688</item>	
-	</style>
-
 </resources>

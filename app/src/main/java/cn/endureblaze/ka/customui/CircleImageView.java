@@ -1,20 +1,25 @@
 package cn.endureblaze.ka.customui;
 
 import android.annotation.SuppressLint;
-import android.content.*;
-import android.content.res.*;
+import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.*;
-import android.graphics.drawable.*;
-import android.net.*;
-import android.os.*;
-import android.util.*;
-import android.view.*;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Build;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewOutlineProvider;
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatImageView;
-import cn.endureblaze.ka.*;
+import androidx.core.content.ContextCompat;
+import cn.endureblaze.ka.R;
 
 public class CircleImageView extends AppCompatImageView {
 
@@ -196,7 +201,7 @@ public class CircleImageView extends AppCompatImageView {
     }
 
     public void setCircleBackgroundColorResource(@ColorRes int circleBackgroundRes) {
-        setCircleBackgroundColor(getContext().getResources().getColor(circleBackgroundRes));
+        setCircleBackgroundColor(ContextCompat.getColor(getContext(),circleBackgroundRes));
     }
 
     /**

@@ -75,7 +75,7 @@ public class EditChatDialog extends BaseBottomDialog {
 		chat_editview.post(() -> {
             InputMethodManager imm =
                 (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.showSoftInput(chat_editview, 0);
+            Objects.requireNonNull(imm).showSoftInput(chat_editview, 0);
         });
 		
 		if (mode == ChatMode.CHAT_SEND_MODE && chat != null) {

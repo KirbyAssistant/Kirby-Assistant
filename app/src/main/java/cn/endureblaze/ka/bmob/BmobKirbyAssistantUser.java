@@ -1,7 +1,6 @@
 package cn.endureblaze.ka.bmob;
 
-import cn.bmob.v3.*;
-import java.io.File;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
 
 public class BmobKirbyAssistantUser extends BmobUser

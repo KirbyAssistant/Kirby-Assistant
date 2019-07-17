@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import cn.endureblaze.ka.BuildConfig;
 
 import java.util.Objects;
 
@@ -58,7 +59,7 @@ public class AppUtil {
             PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
                     context.getPackageName(), 0);
-            return packageInfo.versionCode;
+            return BuildConfig.VERSION_CODE;
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -19,8 +19,7 @@
 			android:textSize="18sp"
 			android:textColor="?color_text"
 			android:textStyle="bold"
-			android:id="@+id/dialogeditchatTextView1"
-			android:gravity="center_vertical"
+            android:gravity="center_vertical"
 			android:layout_alignParentStart="true"
 			android:layout_marginStart="16dp"
 			tools:ignore="RelativeOverlap" />
