@@ -9,11 +9,12 @@ android {
         applicationId "cn.endureblaze.ka"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 45
-        versionName "未来·炫动-1.4.2"
+        versionCode 46
+        versionName "未来·炫动-1.4.3"
         flavorDimensions "versionCode"
         vectorDrawables.useSupportLibrary = true
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']
+        resConfigs "zh","en"
     }
     buildTypes {
         release {
@@ -31,9 +32,6 @@ android {
         coolapk {
             manifestPlaceholders = [CHANNEL_VALUE: "CoolApk"]
         }
-       /* huawei {
-            manifestPlaceholders = [CHANNEL_VALUE: "Huawei"]
-        }*/
     }
 }
 dependencies {
@@ -63,7 +61,7 @@ dependencies {
     implementation 'com.github.EndureBlaze:GlideCache:1.0'
     
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
-    implementation 'com.google.android.material:material:1.1.0-alpha07'
+    implementation 'com.google.android.material:material:1.1.0-alpha08'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0-beta01'
     implementation 'androidx.cardview:cardview:1.0.0'
