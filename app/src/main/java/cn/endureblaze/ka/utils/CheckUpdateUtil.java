@@ -1,14 +1,15 @@
 package cn.endureblaze.ka.utils;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
-import androidx.appcompat.app.AlertDialog;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.bmob.BmobCheckUpdate;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
@@ -37,7 +38,7 @@ public class CheckUpdateUtil
 						}
 						if(versionCode>AppUtil.getVersionCode(context)){
 							Snackbar.make(snackBarShowView, R.string.find_new_version, Snackbar.LENGTH_LONG).setAction(R.string.view_new_version, p1 -> {
-                                AlertDialog.Builder update_dialog=new AlertDialog.Builder(context)
+                                MaterialAlertDialogBuilder update_dialog=new MaterialAlertDialogBuilder(context)
                                     .setTitle(context.getResources().getString(R.string.find_new_version)+versionName)
                                     .setMessage(changeLog)
                                     .setCancelable(false)

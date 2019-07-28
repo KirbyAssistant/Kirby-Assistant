@@ -29,6 +29,7 @@ import cn.endureblaze.ka.setting.SettingActivity;
 import cn.endureblaze.ka.utils.*;
 import cn.endureblaze.ka.video.MainVideoFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.umeng.analytics.MobclickAgent;
 
@@ -77,7 +78,7 @@ public class MainActivity extends BaseActivity {
         SharedPreferences preferences = getSharedPreferences("boolean", 0);
         boolean pAp = preferences.getBoolean("permissionAndPrivacy", false);
         if (!pAp) {
-            AlertDialog.Builder permissionAndPrivacy_dialog = new AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder permissionAndPrivacy_dialog = new MaterialAlertDialogBuilder(this)
                     .setTitle(R.string.permissionandprivacy_title)
                     .setMessage(R.string.permissionandprivacy_cnntent)
                     .setCancelable(false)
@@ -99,7 +100,7 @@ public class MainActivity extends BaseActivity {
     private void copyrightsWarning() {
         final SharedPreferences pref = getSharedPreferences("agreements", MODE_PRIVATE);
         if (!pref.getBoolean("agree_copyrights", false)) {
-            new AlertDialog.Builder(this)
+            new MaterialAlertDialogBuilder(this)
                     .setTitle(R.string.copyrights_warning_title)
                     .setMessage(R.string.copyrights_warning_content)
                     .setCancelable(false)
@@ -259,7 +260,7 @@ public class MainActivity extends BaseActivity {
                  */
                 SharedPreferences c = getSharedPreferences("customtheme", 0);
                 final int itemSelected = c.getInt("id", 0);
-                AlertDialog.Builder theme = new AlertDialog.Builder(MainActivity.this);
+                MaterialAlertDialogBuilder theme = new MaterialAlertDialogBuilder(MainActivity.this);
                 theme.setTitle(R.string.theme_title);
                 Integer[] res = new Integer[]{
                         R.drawable.theme_blue,
@@ -299,7 +300,7 @@ public class MainActivity extends BaseActivity {
                 IntentUtil.startActivityWithAnim(setting, MainActivity.this);
                 break;
             case R.id.app:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
                 builder.setTitle(R.string.tj_app);
                 String[] items = {"ZArchiver\n" + getResources().getString(R.string.app_ZArchiver)};
                 builder.setItems(items, (dialogInterface, i) -> {
@@ -358,8 +359,8 @@ public class MainActivity extends BaseActivity {
     }
 
     private void showOtherDownloadDialog(final String downloadName, String game_name) {
-        AlertDialog.Builder dialog = new
-                AlertDialog.Builder(gameContext)
+        MaterialAlertDialogBuilder dialog = new
+                MaterialAlertDialogBuilder(gameContext)
                 .setTitle(game_name)
                 .setMessage(R.string.download_dia_mess)
                 .setPositiveButton(R.string.dia_download, (dialog1, which) -> DownloadApkUtil.downloadappApk(downloadName, gameContext)

@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LayoutAnimationController;
 import android.widget.*;
-import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.util.Pair;
@@ -29,6 +28,7 @@ import cn.endureblaze.ka.utils.EmailUtil;
 import cn.endureblaze.ka.utils.PlayAnimUtil;
 import cn.endureblaze.ka.utils.UserUtil;
 import com.bumptech.glide.Glide;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.Objects;
@@ -96,11 +96,10 @@ public class MainUserFragment extends BaseFragment {
 		RelativeLayout changeUserHead = view.findViewById(R.id.change_userhead);
 		changeUserHead.setOnClickListener(p1 -> {
 			Pair<View, String> userHeadPair= new Pair<>(userHead, "userHead");
-			Pair<View, String> cardPair= new Pair<>(card, "card");
-			Pair<View, String> editPassPair= new Pair<>(user_logout, "pass");
+			Pair<View, String> logoutPair= new Pair<>(user_logout, "logout");
 			Intent intent = new Intent(getActivity(), HeadActivity.class);
-			ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), userHeadPair, cardPair, editPassPair);
-			startActivityForResult(intent, 3, options.toBundle());
+			ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), userHeadPair, logoutPair);
+			getActivity().startActivityForResult(intent, 3, options.toBundle());
 		});
 
 		LayoutAnimationController controller = LayoutAnimationHelper.makeLayoutAnimationController();
@@ -112,7 +111,7 @@ public class MainUserFragment extends BaseFragment {
 	private void userEditEmail() {
 		LayoutInflater lay_1 = Objects.requireNonNull(getActivity()).getLayoutInflater();
 		@SuppressLint("InflateParams") final View modification_email_layout = lay_1.inflate(R.layout.dialog_modification_email, null);
-		new AlertDialog.Builder(getActivity())
+		new MaterialAlertDialogBuilder(getActivity())
 			.setTitle(R.string.modification_email)
 			.setView(modification_email_layout) 
 			.setPositiveButton(R.string.dia_yes, new
@@ -173,7 +172,7 @@ public class MainUserFragment extends BaseFragment {
 	private void userEditPassword() {
 		LayoutInflater lay_2 = Objects.requireNonNull(getActivity()).getLayoutInflater();
 		@SuppressLint("InflateParams") final View modification_password_layout = lay_2.inflate(R.layout.dialog_modification_password, null);
-		new AlertDialog.Builder(getActivity())
+		new MaterialAlertDialogBuilder(getActivity())
 			.setTitle(R.string.modification_password)
 			.setView(modification_password_layout) 
 			.setPositiveButton(R.string.dia_yes, new

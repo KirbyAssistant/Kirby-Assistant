@@ -1,5 +1,5 @@
 package cn.endureblaze.ka.chat;
-import android.app.AlertDialog;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -24,6 +24,7 @@ import cn.endureblaze.ka.bottomdialog.BaseBottomDialog;
 import cn.endureblaze.ka.bottomdialog.ViewHolder;
 import cn.endureblaze.ka.utils.CheckTextUtil;
 import cn.endureblaze.ka.utils.UserUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Objects;
 
@@ -94,8 +95,8 @@ public class EditChatDialog extends BaseBottomDialog {
 				Toast.makeText(getActivity(), getActivity().getString(R.string.is_null), Toast.LENGTH_SHORT).show();
 			} else {
 				if (CheckTextUtil.isHaveTerribleWord(str_chat)) {
-					AlertDialog.Builder dialog = new
-						AlertDialog.Builder(getActivity())
+					MaterialAlertDialogBuilder dialog = new
+						MaterialAlertDialogBuilder(getActivity())
 						.setTitle("需要帮助吗？")
 						.setMessage("这个世界虽然不完美\n我们仍可以治愈自己\n以下电话全国可拨(24小时)\n010-82951332")
 						.setCancelable(false)

@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.appcompat.app.AlertDialog;
 import cn.ednureblaze.glidecache.GlideCache;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.base.BaseActivity;
 import cn.endureblaze.ka.utils.ThemeUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Objects;
 
@@ -249,8 +249,8 @@ public class GameActivity extends BaseActivity {
 		game_js.setText(game_js_text);
 	}
 	private void showDownloadDialog(String name, int mess, Integer pos, Integer neg, Integer neu, final String pos_url, final String neg_url, final String neu_url) {
-		AlertDialog.Builder dialog = new
-			AlertDialog.Builder(this)
+		MaterialAlertDialogBuilder dialog = new
+			MaterialAlertDialogBuilder(this)
 			.setTitle(name)
 			.setMessage(mess)
 			.setPositiveButton(pos, (dialog1, which) -> {

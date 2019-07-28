@@ -31,7 +31,6 @@ public class MainGameFragment extends BaseFragment
 	private List<Console> cheatCodeGamelist=new ArrayList<>();
 	private List<Console> emulatorslist=new ArrayList<>();
 
-	//private TjGameAdapter adapter4;
   	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
@@ -80,7 +79,7 @@ public class MainGameFragment extends BaseFragment
 		rlv_consose.setAdapter(adapter);
 		ResourceData.setConsoseData(consolelist);
 		//模拟器列表配置
-		GridLayoutManager layoutManager_emulator=new GridLayoutManager(getActivity(), 1);
+		GridLayoutManager layoutManager_emulator=new GridLayoutManager(getActivity(), 3);
 		rlv_emulator.setLayoutManager(layoutManager_emulator);
 		EmulatorsAdapter adapterlv_emulator = new EmulatorsAdapter(emulatorslist, getActivity());
 		rlv_emulator.setAdapter(adapterlv_emulator);

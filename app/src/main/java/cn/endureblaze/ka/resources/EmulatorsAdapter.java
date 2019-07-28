@@ -32,17 +32,16 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
 	{
         LinearLayout LinearLayout;
 		CardView cardView;
-        ImageView gameImage;
-        TextView gameName;
-
+        ImageView emuImage;
+        TextView emuName;
 		private ImageView blurImage;
         public ViewHolder(View view)
 		{
             super(view);
 			LinearLayout = view.findViewById(R.id.LinearLayout);
             cardView = view.findViewById(R.id.cardview);
-            gameImage = view.findViewById(R.id.console_image);
-            gameName = view.findViewById(R.id.console_text);
+            emuImage = view.findViewById(R.id.emulator_image);
+            emuName = view.findViewById(R.id.emulator_text);
 			blurImage = view.findViewById(R.id.blur_image);
         }
     }
@@ -59,16 +58,16 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
 		{
             mContext = parent.getContext();
         }
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_console, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_emulator, parent, false);
 		final ViewHolder holder=new ViewHolder(view);
 		holder.LinearLayout.setOnClickListener(v -> {
 			int position = holder.getAdapterPosition();
 			Console game = mGameList.get(position);
 			MainActivity m=new MainActivity();
 			Intent mm=new Intent(mContext,GameActivity.class);
-			mm.putExtra("game_name",game.getName());
-			mm.putExtra("game_img",game.getImageUrl());
-			mm.putExtra("game_pos",game.getPosition());
+			mm.putExtra("emu_name",game.getName());
+			mm.putExtra("emu_img",game.getImageUrl());
+			mm.putExtra("emu_pos",game.getPosition());
 			m.theDownload(mContext,game.getName(),game.getPosition());
 		}
 		);
@@ -79,12 +78,12 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
     public void onBindViewHolder(final ViewHolder holder, int position)
 	{
         final Console co = mGameList.get(position);
-        holder.gameName.setText(co.getName());
+        holder.emuName.setText(co.getName());
 		Glide
 			.with(mContext)
 			.load(co.getImageUrl())
 		    .apply(Kirby.getGlideRequestOptions())
-			.into(holder.gameImage);
+			.into(holder.emuImage);
         GlideCache.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"8");
     }
 

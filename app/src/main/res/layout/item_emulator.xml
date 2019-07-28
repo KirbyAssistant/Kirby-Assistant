@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="8dp"
+        android:id="@+id/cardview"
+        android:layout_margin="8dp">
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/blur_image"
+            android:transitionName="blur_image"
+            tools:ignore="ContentDescription"/>
+
+    <LinearLayout
+            style="?android:attr/buttonBarButtonStyle"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/LinearLayout">
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="158dp"
+                android:id="@+id/emulator_image"
+                android:layout_gravity="top|center_horizontal"
+                android:scaleType="centerInside"
+                tools:ignore="ContentDescription"/>
+
+        <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Text"
+                android:layout_margin="8dp"
+                android:textSize="16sp"
+                android:id="@+id/emulator_text"
+                android:layout_gravity="center_horizontal|bottom"
+                android:transitionName="name"
+                android:background="#20000000"
+                android:textColor="#FFFFFFFF"
+                android:padding="4dp" tools:ignore="HardcodedText"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+

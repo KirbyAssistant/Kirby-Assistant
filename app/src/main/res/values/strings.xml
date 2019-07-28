@@ -138,29 +138,32 @@
 	<string name="dev_twitter_link" translatable="false">aHR0cHM6Ly90d2l0dGVyLmNvbS9uaWhhb2N1bj9zPTA5</string>
 	<string name="github">在Github查看这个项目</string>
     <string name="contributor_title">贡献者</string>
+    <string name="domain_name_title">域名特别贡献</string>
+    <string name="domain_name_website_shaoxudong">访问 @邵旭东 的主页</string>
+    <string name="domain_name_website_shaoxudong_link" translatable="false">aHR0cDovL3d3dy5zaGFveHVkb25nLmNvbS8=</string>
 	<string name="program_title">程序特别贡献</string>
-	<string name="program_github_lxfly2000">Github@lxfly2000</string>
+	<string name="program_github_lxfly2000">Github @lxfly2000</string>
 	<string name="program_github_lxfly2000_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
 	<string name="translation_tw_title">繁体中文翻译</string>
-	<string name="translation_tw_github_longxk2017">Github\@longxk2017</string>
+	<string name="translation_tw_github_longxk2017">Github @longxk2017</string>
 	<string name="translation_tw_github_longxk2017_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2xvbmd4azIwMTc=</string>
 	<string name="translation_en_title">英语翻译</string>
-	<string name="translation_en_tieba_nannannan550">百度贴吧\@难难难550</string>
+	<string name="translation_en_tieba_nannannan550">百度贴吧 @难难难550</string>
 	<string name="translation_en_tieba_nannannan550_link" translatable="false">aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vaG9tZS9tYWluP3VuPemavumavumavjU1MA==</string>
-	<string name="translation_en_tieba_guangzhiyaoxi">百度贴吧\@光之耀西</string>
+	<string name="translation_en_tieba_guangzhiyaoxi">百度贴吧 @光之耀西</string>
 	<string name="translation_en_tieba_guangzhiyaoxi_link" translatable="false">aHR0cDovL3RpZWJhLmJhaWR1LmNvbS9ob21lL21haW4/dW495YWJ5LmL6ICA6KW/</string>
 	<string name="draw_icon_title">图标绘制</string>
-	<string name="draw_icon_coolapk_hkliuxing">酷安\@hk流星</string>
+	<string name="draw_icon_coolapk_hkliuxing">酷安 @hk流星</string>
 	<string name="draw_icon_coolapk_hkliuxing_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzU1NTg4Mw==</string>
-	<string name="draw_icon_coolapk_markuss">酷安\@Markuss</string>
+	<string name="draw_icon_coolapk_markuss">酷安 @Markuss</string>
 	<string name="draw_icon_coolapk_markuss_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzUyOTcxOA==</string>
-	<string name="draw_icon_tieba_xiaoyibu">百度贴吧\@★☆小伊布☆★</string>
+	<string name="draw_icon_tieba_xiaoyibu">百度贴吧 @★☆小伊布☆★</string>
 	<string name="draw_icon_tieba_xiaoyibu_link" translatable="false">aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vaG9tZS9tYWluP3VuPeKYheKYhuWwj+S8iuW4g+KYhuKYhQ==</string>
 	<string name="video_author_title">视频作者</string>
-	<string name="video_author_bilibili_xige">哔哩哔哩动画\@虚影无华</string>
+	<string name="video_author_bilibili_xige">哔哩哔哩动画 @虚影无华</string>
 	<string name="video_author_bilibili_xige_link" translatable="false">aHR0cDovL3NwYWNlLmJpbGliaWxpLmNvbS8xMzAwMTI1Mg==</string>
 	<string name="writer_help_faq_title">FAQ 编写</string>
-	<string name="writer_help_faq_coolapk_talinhu">酷安\@塔林狐</string>
+	<string name="writer_help_faq_coolapk_talinhu">酷安 @塔林狐</string>
 	<string name="writer_help_faq_coolapk_talinhu_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzExNTc3NzQ=</string>
 	<string name="greenapps_title">Android 绿色应用公约</string>
 	<string name="greenapps_message">Kirby Assistant 遵循绿色应用公约，并通过认证\n点击访问 Android 绿色应用公约官网</string>

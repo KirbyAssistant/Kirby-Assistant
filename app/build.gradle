@@ -9,8 +9,8 @@ android {
         applicationId "cn.endureblaze.ka"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 46
-        versionName "未来·炫动-1.4.3"
+        versionCode 47
+        versionName "未来·炫动-1.4.4"
         flavorDimensions "versionCode"
         vectorDrawables.useSupportLibrary = true
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']

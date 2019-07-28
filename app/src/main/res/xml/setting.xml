@@ -73,6 +73,11 @@
 
 	<androidx.preference.PreferenceCategory android:title="@string/contributor_title">
 
+        <Preference
+                android:key="domain_name_website_shaoxudong"
+                android:summary="@string/domain_name_website_shaoxudong"
+                android:title="@string/domain_name_title"/>
+
 		<Preference
 				android:key="program_github_lxfly2000"
 				android:summary="@string/program_github_lxfly2000"

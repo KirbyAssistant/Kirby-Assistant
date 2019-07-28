@@ -27,7 +27,7 @@
         <item name="android:windowContentOverlay">@null</item>
 	</style>
 
-	<style name="BaseLightTheme" parent="Theme.AppCompat.Light.NoActionBar">		
+	<style name="BaseLightTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
 		<item name="android:windowBackground">@android:color/white</item>
 		<item name="color_bkg_main">#FFF5F5F5</item>
 		<item name="color_bkg_title">#FFEEEEEE</item>
@@ -36,66 +36,67 @@
         <item name="color_text_pressed">#70212121</item>
         <item name="color_text_hint">#30212121</item>
         <item name="color_divider">#bdbdbd</item>
+        <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
 	</style>
 
     <style name="BuleTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#2196F3</item>	
+		<item name="colorPrimary">#2196F3</item>
 		<item name="colorPrimaryDark">#1976D2</item>
-		<item name="colorAccent">#448AFF</item>	
+		<item name="colorAccent">#90CAF9</item>
 	</style>
 
 	<style name="RedTheme" parent="BaseLightTheme">		
 		<item name="colorPrimary">#F44336</item>	
 		<item name="colorPrimaryDark">#D32F2F</item>
-		<item name="colorAccent">#FF5252</item>	
+		<item name="colorAccent">#ef9a9a</item>
 	</style>
 
 	<style name="PurpleTheme" parent="BaseLightTheme">		
 		<item name="colorPrimary">#9C27B0</item>	
 		<item name="colorPrimaryDark">#7B1FA2</item>
-		<item name="colorAccent">#E040FB</item>	
+		<item name="colorAccent">#CE93D8</item>
 	</style>
 
 	<style name="LindigoTheme" parent="BaseLightTheme">		
 		<item name="colorPrimary">#3F51B5</item>	
 		<item name="colorPrimaryDark">#303F9F</item>
-		<item name="colorAccent">#536DFE</item>	
+		<item name="colorAccent">#9FA8DA</item>
 	</style>
 
 	<style name="TealTheme" parent="BaseLightTheme">		
 		<item name="colorPrimary">#009688</item>	
 		<item name="colorPrimaryDark">#00796B</item>
-		<item name="colorAccent">#64FFDA</item>	
+		<item name="colorAccent">#80CBC4</item>
 	</style>
 
 	<style name="GreenTheme" parent="BaseLightTheme">		
 		<item name="colorPrimary">#4CAF50</item>	
 		<item name="colorPrimaryDark">#388E3C</item>
-		<item name="colorAccent">#69F0AE</item>	
+		<item name="colorAccent">#A5D6A7</item>
 	</style>
 
 	<style name="OrangeTheme" parent="BaseLightTheme">		
 		<item name="colorPrimary">#FF9800</item>	
-		<item name="colorPrimaryDark">#F57C00</item>
-		<item name="colorAccent">#FFAB40</item>	
+		<item name="colorPrimaryDark">#FFA000</item>
+		<item name="colorAccent">#FFE082</item>
 	</style>
 
 	<style name="BrownTheme" parent="BaseLightTheme">		
 		<item name="colorPrimary">#795548</item>	
 		<item name="colorPrimaryDark">#5D4037</item>
-		<item name="colorAccent">#5D4037</item>	
+		<item name="colorAccent">#BCAAA4</item>
 	</style>
 
 	<style name="BlueGreyTheme" parent="BaseLightTheme">		
 		<item name="colorPrimary">#607D8B</item>	
 		<item name="colorPrimaryDark">#455A64</item>
-		<item name="colorAccent">#455A64</item>	
+		<item name="colorAccent">#B0BEC5</item>
 	</style>
 
 	<style name="YellowTheme" parent="BaseLightTheme">		
 		<item name="colorPrimary">#FFEB3B</item>	
-		<item name="colorPrimaryDark">#FDD835</item>
-		<item name="colorAccent">#FFEA00</item>	
+		<item name="colorPrimaryDark">#FBC02D</item>
+		<item name="colorAccent">#FFF59D</item>
 	</style>
 
 	<style name="KirbyTheme" parent="BaseLightTheme">		
@@ -105,9 +106,9 @@
 	</style>
 
 	<style name="WhiteTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#999999</item>	
-		<item name="colorPrimaryDark">#666666</item>
-		<item name="colorAccent">#448AFF</item>	
+		<item name="colorPrimary">#9E9E9E</item>
+		<item name="colorPrimaryDark">#616161</item>
+		<item name="colorAccent">#EEEEEE</item>
 	</style>
 
 </resources>

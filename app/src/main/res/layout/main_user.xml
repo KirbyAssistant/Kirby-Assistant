@@ -2,8 +2,9 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="?color_bkg_main"
         android:id="@+id/root_view">
@@ -13,7 +14,7 @@
             android:layout_width="match_parent"
             app:elevation="5dp"
             app:cardCornerRadius="4dp"
-            android:layout_margin="5dp">
+            android:layout_margin="8dp">
 
         <RelativeLayout
                 android:layout_height="wrap_content"
@@ -81,67 +82,40 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            app:elevation="5dp"
-            app:cardCornerRadius="4dp"
-            android:transitionName="card"
-            android:layout_margin="5dp">
-
-        <LinearLayout
-                android:orientation="horizontal"
+    <GridLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:rowCount="2"
+                android:columnCount="2">
+        <Button
+                android:layout_height="wrap_content"
+                android:text="@string/modification_email"
+                android:id="@+id/edit_email"
+                android:layout_columnWeight="1"
+                android:transitionName="email"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="4dp"/>
 
-            <Button
-                    android:layout_width="wrap_content"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_height="wrap_content"
-                    android:text="@string/modification_email"
-                    android:layout_weight="5"
-                    android:id="@+id/edit_email"
-                    android:transitionName="email"/>
+        <Button
+                android:layout_height="wrap_content"
+                android:text="@string/modification_password"
+                android:id="@+id/edit_password"
+                android:layout_columnWeight="1"
+                android:transitionName="pass"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="8dp"/>
 
-            <Button
-                    android:layout_width="wrap_content"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_height="wrap_content"
-                    android:text="@string/modification_password"
-                    android:layout_weight="5"
-                    android:id="@+id/edit_password"
-                    android:transitionName="pass"/>
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            app:elevation="5dp"
-            app:cardCornerRadius="4dp"
-            android:transitionName="card"
-            android:id="@+id/cardview"
-            android:layout_margin="5dp">
-
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <Button
-                    android:layout_width="0dp"
-                    style="?android:attr/buttonBarButtonStyle"
+        <Button
                     android:layout_height="wrap_content"
                     android:text="@string/user_logout"
-                    android:layout_weight="5"
                     android:id="@+id/user_logout"
-                    android:transitionName="email"/>
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="2"
+                    android:transitionName="logout"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"/>
 
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
+    </GridLayout>
 
 </LinearLayout>
 

@@ -14,6 +14,7 @@ import cn.endureblaze.ka.launcher.Launcher;
 import cn.endureblaze.ka.utils.AppUtil;
 import cn.endureblaze.ka.utils.CheckSimpleModeUtil;
 import cn.endureblaze.ka.utils.LanguageUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Objects;
 
@@ -48,7 +49,7 @@ public class SettingPreferenceFragment extends PreferenceFragmentCompat
 				SharedPreferences c= Objects.requireNonNull(getActivity()).getSharedPreferences("setting", 0);
 				int itemSelected=c.getInt("language_i", 0);
 				String [] lan={"Auto","简体中文","繁體中文（台灣）","ENGLISH"};
-				AlertDialog dialog = new AlertDialog.Builder(getActivity()).setTitle(R.string.language)
+				AlertDialog dialog = new MaterialAlertDialogBuilder(getActivity()).setTitle(R.string.language)
 					.setSingleChoiceItems(lan, itemSelected, (dialog1, i) -> {
 						SharedPreferences lan1 =getActivity().getSharedPreferences("setting", 0);
 						SharedPreferences.Editor edit= lan1.edit();
@@ -85,7 +86,7 @@ public class SettingPreferenceFragment extends PreferenceFragmentCompat
 			case "simple":
 				if (CheckSimpleModeUtil.isSimpleMode())
 				{
-					AlertDialog.Builder simple_mode_disable_dialog=new AlertDialog.Builder(Objects.requireNonNull(getActivity()))
+					MaterialAlertDialogBuilder simple_mode_disable_dialog=new MaterialAlertDialogBuilder(Objects.requireNonNull(getActivity()))
 						.setTitle(R.string.simple_mode_is_enable)
 						.setMessage(R.string.simple_mode_to_disable)
 						.setPositiveButton(getResources().getString(R.string.dia_disable), (dialog12, which) -> {
@@ -105,7 +106,7 @@ public class SettingPreferenceFragment extends PreferenceFragmentCompat
 				}
 				else
 				{
-					AlertDialog.Builder simple_mode_enable_dialog=new AlertDialog.Builder(Objects.requireNonNull(getActivity()))
+					MaterialAlertDialogBuilder simple_mode_enable_dialog=new MaterialAlertDialogBuilder(Objects.requireNonNull(getActivity()))
 						.setTitle(R.string.simple_mode_is_disable)
 						.setMessage(R.string.simple_mode_to_enable)
 						.setPositiveButton(getResources().getString(R.string.dia_enable), (dialog13, which) -> {
@@ -171,6 +172,9 @@ public class SettingPreferenceFragment extends PreferenceFragmentCompat
 			case "dev_twitter":
 				Objects.requireNonNull(getActivity()).startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(new String(Base64.decode(getString(R.string.dev_twitter_link), Base64.DEFAULT)))).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 				break;
+            case "domain_name_website_shaoxudong":
+                Objects.requireNonNull(getActivity()).startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(new String(Base64.decode(getString(R.string.domain_name_website_shaoxudong_link), Base64.DEFAULT)))).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                break;
 			case "program_github_lxfly2000":
 				Objects.requireNonNull(getActivity()).startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(new String(Base64.decode(getString(R.string.program_github_lxfly2000_link), Base64.DEFAULT)))).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 				break;
