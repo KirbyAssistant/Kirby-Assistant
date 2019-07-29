@@ -1,17 +1,17 @@
 package cn.endureblaze.ka.resources;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.bean.Console;
@@ -19,6 +19,7 @@ import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.resources.game.GameListActivity;
 import cn.endureblaze.ka.utils.IntentUtil;
 import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHolder>
@@ -45,7 +46,7 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
         }
     }
 
-    public ConsoleAdapter(List<Console> consolelist,Activity activity)
+    public ConsoleAdapter(List<Console> consolelist, Activity activity)
 	{
         mConsoleList = consolelist;
 		mActivity=activity;
@@ -64,7 +65,7 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
 			int position=holder.getAdapterPosition();
 			Console console=mConsoleList.get(position);
 			Intent in=new Intent(mContext, GameListActivity.class);
-			String name=console.getPosition();
+			String name=console.getConsoleTag();
 			in.putExtra("consose_name",name);
 			MainActivity m=new MainActivity();
 			IntentUtil.startActivityWithAnim(in,mActivity);
@@ -77,10 +78,10 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
     public void onBindViewHolder(final ViewHolder holder, int position)
 	{
         final Console co = mConsoleList.get(position);
-        holder.consoleName.setText(co.getName());
+        holder.consoleName.setText(co.getConsoleName());
         Glide
 			.with(mContext)
-			.load(co.getImageUrl())
+			.load(co.getConsoleImageUrl())
 			.apply(Kirby.getGlideRequestOptions())
 			.into(holder.consoleImage);		
 		//GlideUtil.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"5");

@@ -15,39 +15,39 @@ import androidx.recyclerview.widget.RecyclerView;
 import cn.ednureblaze.glidecache.GlideCache;
 import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.bean.Console;
+import cn.endureblaze.ka.bean.Emulator;
 import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.resources.game.GameActivity;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.ViewHolder>
+public class EmulatorAdapter extends RecyclerView.Adapter<EmulatorAdapter.ViewHolder>
 {
     private Context mContext;
-    private List<Console> mGameList;
+    private List<Emulator> mEmulatorlist;
 
 	private Activity mActivity;
     static class ViewHolder extends RecyclerView.ViewHolder
 	{
         LinearLayout LinearLayout;
 		CardView cardView;
-        ImageView emuImage;
-        TextView emuName;
+        ImageView emulatorImage;
+        TextView emulatorName;
 		private ImageView blurImage;
         public ViewHolder(View view)
 		{
             super(view);
 			LinearLayout = view.findViewById(R.id.LinearLayout);
             cardView = view.findViewById(R.id.cardview);
-            emuImage = view.findViewById(R.id.emulator_image);
-            emuName = view.findViewById(R.id.emulator_text);
+            emulatorImage = view.findViewById(R.id.emulator_image);
+            emulatorName = view.findViewById(R.id.emulator_text);
 			blurImage = view.findViewById(R.id.blur_image);
         }
     }
-    public EmulatorsAdapter(List<Console> gamelist,Activity activity)
+    public EmulatorAdapter(List<Emulator> emulatorlist, Activity activity)
 	{
-        mGameList = gamelist;
+        mEmulatorlist = emulatorlist;
 		mActivity=activity;
     }
     @NonNull
@@ -62,13 +62,13 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
 		final ViewHolder holder=new ViewHolder(view);
 		holder.LinearLayout.setOnClickListener(v -> {
 			int position = holder.getAdapterPosition();
-			Console game = mGameList.get(position);
+			Emulator game = mEmulatorlist.get(position);
 			MainActivity m=new MainActivity();
 			Intent mm=new Intent(mContext,GameActivity.class);
-			mm.putExtra("emu_name",game.getName());
-			mm.putExtra("emu_img",game.getImageUrl());
-			mm.putExtra("emu_pos",game.getPosition());
-			m.theDownload(mContext,game.getName(),game.getPosition());
+			mm.putExtra("emu_name",game.getEmulatorName());
+			mm.putExtra("emu_img",game.getEmulatorImageUrl());
+			mm.putExtra("emu_pos",game.getEmulatorTag());
+			m.theDownload(mContext,game.getEmulatorName(),game.getEmulatorTag());
 		}
 		);
 		return holder;
@@ -77,20 +77,20 @@ public class EmulatorsAdapter extends RecyclerView.Adapter<EmulatorsAdapter.View
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position)
 	{
-        final Console co = mGameList.get(position);
-        holder.emuName.setText(co.getName());
+        final Emulator co = mEmulatorlist.get(position);
+        holder.emulatorName.setText(co.getEmulatorName());
 		Glide
 			.with(mContext)
-			.load(co.getImageUrl())
+			.load(co.getEmulatorImageUrl())
 		    .apply(Kirby.getGlideRequestOptions())
-			.into(holder.emuImage);
-        GlideCache.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"8");
+			.into(holder.emulatorImage);
+        GlideCache.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getEmulatorImageUrl(),"8");
     }
 
     @Override
     public int getItemCount()
 	{
-        return mGameList.size();
+        return mEmulatorlist.size();
     }
 
 }

@@ -30,7 +30,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 import java.util.Objects;
 
-public class ChatDialog extends BaseBottomDialog
+public class ShowChatDialog extends BaseBottomDialog
 {
 
     private String id;
@@ -45,7 +45,7 @@ public class ChatDialog extends BaseBottomDialog
 
 	private FragmentActivity mActivity;
 
-	public static ChatDialog newInstance(String type, String id, String mess, String username, String time)
+	public static ShowChatDialog newInstance(String type, String id, String mess, String username, String time)
 	{
 		Bundle bundle = new Bundle();
 		bundle.putString("type", type);
@@ -53,7 +53,7 @@ public class ChatDialog extends BaseBottomDialog
 		bundle.putString("mess", mess);
 		bundle.putString("username", username);
 		bundle.putString("time", time);
-		ChatDialog dialog = new ChatDialog();
+		ShowChatDialog dialog = new ShowChatDialog();
 		dialog.setArguments(bundle);
 		return dialog;
 	}
@@ -64,7 +64,7 @@ public class ChatDialog extends BaseBottomDialog
         return theme;
     }
 
-	public ChatDialog setTheme(@StyleRes int theme)
+	public ShowChatDialog setTheme(@StyleRes int theme)
 	{
         this.theme = theme;
         return this;

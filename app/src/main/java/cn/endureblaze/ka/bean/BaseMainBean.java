@@ -4,13 +4,13 @@ public abstract class BaseMainBean
 {
 	private String name;
 	private String imageUrl;
-	private String funk;
+	private String tag;
 	
 	BaseMainBean(String name, String imageUrl, String funk)
 	{
 		this.name = name;
 		this.imageUrl = imageUrl;
-		this.funk=funk;
+		this.tag=funk;
 	}
 	public String getName()
 	{
@@ -20,8 +20,5 @@ public abstract class BaseMainBean
 	{
 		return imageUrl;
 	}
-	public String getPosition()
-	{
-		return funk;
-	}
+	public String getPosition() { return tag; }
 }

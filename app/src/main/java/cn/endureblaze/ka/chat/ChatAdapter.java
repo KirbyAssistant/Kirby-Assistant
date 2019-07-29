@@ -61,7 +61,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>
         holder.relativelayout.setOnClickListener(v -> {
             int position = holder.getAdapterPosition();
             Chat chat = mChatlist.get(position);
-            ChatDialog.newInstance("0",chat.getId(),chat.getFullChat(),chat.getName(),chat.getTime())
+            ShowChatDialog.newInstance("0",chat.getId(),chat.getFullChat(),chat.getName(),chat.getTime())
             .setTheme(R.style.BottomDialogStyle)
             .setMargin(0)
             .setShowBottom(true)

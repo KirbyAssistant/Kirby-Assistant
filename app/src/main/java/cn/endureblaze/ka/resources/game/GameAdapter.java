@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import cn.ednureblaze.glidecache.GlideCache;
 import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.bean.Console;
+import cn.endureblaze.ka.bean.ConsoleOld;
 import cn.endureblaze.ka.main.MainActivity;
 import com.bumptech.glide.Glide;
 
@@ -24,7 +24,7 @@ import java.util.List;
 
 public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
     private Context mContext;
-    private List<Console> mGameList;
+    private List<ConsoleOld> mGameList;
 	private Activity mActivity;
     static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -46,7 +46,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
 			blurImage = view.findViewById(R.id.blur_image);
         }
     }
-    public GameAdapter(List<Console> gamelist, Activity activity) {
+    public GameAdapter(List<ConsoleOld> gamelist, Activity activity) {
         mGameList = gamelist;
 		mActivity = activity;
     }
@@ -60,7 +60,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
 		final ViewHolder holder=new ViewHolder(view);
 		holder.LinearLayout.setOnClickListener(v -> {
             int position = holder.getAdapterPosition();
-            Console game = mGameList.get(position);
+            ConsoleOld game = mGameList.get(position);
             MainActivity m=new MainActivity();
             Intent mm=new Intent(mContext, GameActivity.class);
             mm.putExtra("game_name", game.getName());
@@ -79,7 +79,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        final Console co = mGameList.get(position);
+        final ConsoleOld co = mGameList.get(position);
         holder.gameName.setText(co.getName());
 		Glide
 			.with(mContext)

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import cn.ednureblaze.glidecache.GlideCache;
 import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
-import cn.endureblaze.ka.bean.Console;
+import cn.endureblaze.ka.bean.ConsoleOld;
 import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.resources.cheatcode.CheatCodeActivity;
 import cn.endureblaze.ka.utils.IntentUtil;
@@ -25,7 +25,7 @@ import java.util.List;
 public class CheatCodeGameListAdapter extends RecyclerView.Adapter<CheatCodeGameListAdapter.ViewHolder>
 {
 
-	private List<Console> mCheatCodeGameList;
+	private List<ConsoleOld> mCheatCodeGameList;
 	private Context mContext;
 
 	private Activity mActivity;
@@ -48,7 +48,7 @@ public class CheatCodeGameListAdapter extends RecyclerView.Adapter<CheatCodeGame
         }
     }
 
-    public CheatCodeGameListAdapter(List<Console> cheatCodeGamelist,Activity activity)
+    public CheatCodeGameListAdapter(List<ConsoleOld> cheatCodeGamelist, Activity activity)
 	{
         mCheatCodeGameList = cheatCodeGamelist;
 		mActivity=activity;
@@ -65,7 +65,7 @@ public class CheatCodeGameListAdapter extends RecyclerView.Adapter<CheatCodeGame
 		final ViewHolder holder=new ViewHolder(view);
 		holder.LinearLayout.setOnClickListener(v -> {
 			int position=holder.getAdapterPosition();
-			Console console=mCheatCodeGameList.get(position);
+			ConsoleOld console=mCheatCodeGameList.get(position);
 			Intent in=new Intent(mContext, CheatCodeActivity.class);
 			String name= console.getName();
 			in.putExtra("game_name",name);
@@ -79,7 +79,7 @@ public class CheatCodeGameListAdapter extends RecyclerView.Adapter<CheatCodeGame
 	@Override
 	public void onBindViewHolder(final ViewHolder holder, int position)
 	{
-		final Console co = mCheatCodeGameList.get(position);
+		final ConsoleOld co = mCheatCodeGameList.get(position);
         holder.gameName.setText(co.getName());
         Glide
 			.with(mContext)

@@ -24,7 +24,7 @@ import cn.endureblaze.ka.main.donate.DonateActivity;
 import cn.endureblaze.ka.main.theme.ColorListAdapter;
 import cn.endureblaze.ka.me.login.MainLoginFragment;
 import cn.endureblaze.ka.me.user.MainUserFragment;
-import cn.endureblaze.ka.resources.MainGameFragment;
+import cn.endureblaze.ka.resources.MainResFragment;
 import cn.endureblaze.ka.setting.SettingActivity;
 import cn.endureblaze.ka.utils.*;
 import cn.endureblaze.ka.video.MainVideoFragment;
@@ -63,7 +63,7 @@ public class MainActivity extends BaseActivity {
             Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.app_name);
         }
         toolbar.setSubtitle(R.string.ziyuan);
-        replaceFragment(new MainGameFragment());
+        replaceFragment(new MainResFragment());
         bottomBar();
         findShortcut();
         permissionAndPrivacy();
@@ -126,7 +126,7 @@ public class MainActivity extends BaseActivity {
                 case R.id.ziyuan:
                     if (toolbar.getSubtitle() != getResources().getString(R.string.ziyuan)) {
                         toolbar.setSubtitle(R.string.ziyuan);
-                        replaceFragment(new MainGameFragment());
+                        replaceFragment(new MainResFragment());
                     }
                     break;
                 case R.id.video:
@@ -385,7 +385,7 @@ public class MainActivity extends BaseActivity {
         CharSequence fragment_cheak = savedInstanceState.getCharSequence("fragment");
         if (Objects.equals(fragment_cheak, getResources().getString(R.string.ziyuan))) {
             toolbar.setSubtitle(R.string.ziyuan);
-            replaceFragment(new MainGameFragment());
+            replaceFragment(new MainResFragment());
         }
         if (Objects.equals(fragment_cheak, getResources().getString(R.string.video_title))) {
             toolbar.setSubtitle(R.string.video_title);
