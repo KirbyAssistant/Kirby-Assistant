@@ -13,7 +13,7 @@
     <string name="me">Me</string>
 	<string name="login_title">Login/Register</string>
 	<string name="game">Games</string>
-    <string name="emulators">Emulators</string>
+    <string name="emulator">emulator</string>
     <string name="language">Language setting</string>
 	<string name="crash_title">Error</string>
     <string name="two_back">Please press exit again</string>

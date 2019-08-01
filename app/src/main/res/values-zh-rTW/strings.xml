@@ -13,7 +13,7 @@
     <string name="me">我</string>
 	<string name="login_title">登入/註冊</string>
 	<string name="game">遊戲</string>
-    <string name="emulators">模擬器</string>
+    <string name="emulator">模擬器</string>
     <string name="language">語言設置</string>
 	<string name="crash_title">出錯了</string>
     <string name="two_back">再按一次返回鍵即可退出</string>

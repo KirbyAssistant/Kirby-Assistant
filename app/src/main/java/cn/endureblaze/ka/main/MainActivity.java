@@ -334,25 +334,25 @@ public class MainActivity extends BaseActivity {
     public void theDownload(Context context, String game_name, @NonNull String position) {
         gameContext = context;
         switch (position) {
-            case "emulators_gba"://"GBA " + getGameText(R.string.moniqi) + "\nMy Boy!":
+            case "emulator_gba"://"GBA " + getGameText(R.string.moniqi) + "\nMy Boy!":
                 showOtherDownloadDialog("gba", game_name);
                 break;
-            case "emulators_sfc"://"SFC "++"\nSnes9x EX+":
+            case "emulator_sfc"://"SFC "++"\nSnes9x EX+":
                 showOtherDownloadDialog("sfc", game_name);
                 break;
-            case "emulators_n64"://"N64 "++"\nTendo64":
+            case "emulator_n64"://"N64 "++"\nTendo64":
                 showOtherDownloadDialog("n64", game_name);
                 break;
-            case "emulators_nds"://"NDS "++"\nDraStic":
+            case "emulator_nds"://"NDS "++"\nDraStic":
                 showOtherDownloadDialog("nds", game_name);
                 break;
-            case "emulators_wii"://"NGC&WII "++"\nDolphin":
+            case "emulator_wii"://"NGC&WII "++"\nDolphin":
                 showOtherDownloadDialog("wii", game_name);
                 break;
-            case "emulators_gb"://"GB&GBC "++"\nMy OldBoy!":
+            case "emulator_gb"://"GB&GBC "++"\nMy OldBoy!":
                 showOtherDownloadDialog("gb", game_name);
                 break;
-            case "emulators_fc"://"FC "++"\nNES.emu":
+            case "emulator_fc"://"FC "++"\nNES.emu":
                 showOtherDownloadDialog("fc", game_name);
                 break;
         }

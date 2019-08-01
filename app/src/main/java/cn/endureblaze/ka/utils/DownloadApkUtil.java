@@ -30,7 +30,7 @@ public class DownloadApkUtil
 		BmobQuery<BmobDownloadApk> query = new BmobQuery<>();
         query.addWhereEqualTo("name", app_name);
         query.findObjects(new FindListener<BmobDownloadApk>(){
-				private BmobFile emulatorsApk;
+				private BmobFile emulatorApk;
 				@Override
 				public void done(List<BmobDownloadApk> p1, BmobException p2)
 				{
@@ -38,16 +38,16 @@ public class DownloadApkUtil
 					{
 						for (BmobDownloadApk apk: p1)
 						{
-							emulatorsApk = apk.getApk();
+							emulatorApk = apk.getApk();
 						}
-						if (isfFiileIsExists(context.getExternalCacheDir() + "/bmob/" + emulatorsApk.getFilename()))
+						if (isfFiileIsExists(context.getExternalCacheDir() + "/bmob/" + emulatorApk.getFilename()))
 						{
-							InstallUtil.installApk(context, context.getExternalCacheDir() + "/bmob/" + emulatorsApk.getFilename());
+							InstallUtil.installApk(context, context.getExternalCacheDir() + "/bmob/" + emulatorApk.getFilename());
 							progressDialog.dismiss();
 						}
 						else
 						{
-							appFileDownload(emulatorsApk, app_name, context);
+							appFileDownload(emulatorApk, app_name, context);
 						}
 					}
 					else
@@ -58,9 +58,9 @@ public class DownloadApkUtil
 				}
 			});
 	}
-	private static void appFileDownload(BmobFile emulatorsApk, final String app_name, final Context context)
+	private static void appFileDownload(BmobFile emulatorApk, final String app_name, final Context context)
 	{
-		emulatorsApk.download(new File(context.getExternalCacheDir() + "/bmob/" + emulatorsApk.getFilename()),new DownloadFileListener() {
+		emulatorApk.download(new File(context.getExternalCacheDir() + "/bmob/" + emulatorApk.getFilename()),new DownloadFileListener() {
 				@Override
 				public void onStart()
 				{

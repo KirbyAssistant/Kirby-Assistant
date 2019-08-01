@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LayoutAnimationController;
+import android.widget.ProgressBar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -14,7 +15,8 @@ import cn.endureblaze.ka.base.BaseFragment;
 import cn.endureblaze.ka.bean.Console;
 import cn.endureblaze.ka.bean.ConsoleOld;
 import cn.endureblaze.ka.bean.Emulator;
-import cn.endureblaze.ka.bmobdataquery.BmobGetDataToRlv;
+import cn.endureblaze.ka.bmobdataquery.BmobGetDataToConsole;
+import cn.endureblaze.ka.bmobdataquery.BmobGetDataToEmulator;
 import cn.endureblaze.ka.helper.LayoutAnimationHelper;
 import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.utils.PlayAnimUtil;
@@ -44,6 +46,9 @@ public class MainResFragment extends BaseFragment
 
     private View view;
 
+    private ProgressBar progress_console;
+    private ProgressBar progress_emulator;
+
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
@@ -62,7 +67,7 @@ public class MainResFragment extends BaseFragment
 
         //页卡视图
 		View console_view = mInflater.inflate(R.layout.viewpaper_console, null);
-		View emulator_view = mInflater.inflate(R.layout.viewpaper_emulators, null);
+		View emulator_view = mInflater.inflate(R.layout.viewpaper_emulator, null);
 		View cheat_code_gamelist_view = mInflater.inflate(R.layout.viewpaper_cheatcode, null);
 
 		//添加页卡视图
@@ -72,7 +77,7 @@ public class MainResFragment extends BaseFragment
 
 		//添加页卡标题
         mTitleList.add(Objects.requireNonNull(getActivity()).getString(R.string.game));
-        mTitleList.add(getActivity().getString(R.string.emulators));
+        mTitleList.add(getActivity().getString(R.string.emulator));
 		mTitleList.add(getActivity().getString(R.string.cheatCode_title));
 
 		mTabLayout.setTabMode(TabLayout.MODE_FIXED);//设置tab模式，当前为系统默认模式
@@ -85,22 +90,26 @@ public class MainResFragment extends BaseFragment
 
 		//列表需要的布局
         rlv_consose = console_view.findViewById(R.id.consose_list);//主机列表
-        rlv_emulator = emulator_view.findViewById(R.id.emulators_list);//模拟器列表
+        rlv_emulator = emulator_view.findViewById(R.id.emulator_list);//模拟器列表
         rlv_cheat_code_game_list = cheat_code_gamelist_view.findViewById(R.id.cheatcode_list);//金手指游戏列表
+
+        //加载转圈圈布局
+        progress_console = console_view.findViewById(R.id.console_list_load_progress);
+        progress_emulator = emulator_view.findViewById(R.id.emulator_list_load_progress);
 
 		//主机列表配置
 		GridLayoutManager layoutManager_consose=new GridLayoutManager(getActivity(), 1);
 		rlv_consose.setLayoutManager(layoutManager_consose);
 		console_adapter = new ConsoleAdapter(consolelist, getActivity());
 		//getConsoleDataVersion();
-        BmobGetDataToRlv.setConsoleData(getActivity(),consolelist,rlv_consose,console_adapter);
+        BmobGetDataToConsole.setConsoleData(getActivity(),consolelist,rlv_consose,console_adapter,progress_console);
 
         //模拟器列表配置
 		GridLayoutManager layoutManager_emulator=new GridLayoutManager(getActivity(), 3);
 		rlv_emulator.setLayoutManager(layoutManager_emulator);
 		emulator_adapter = new EmulatorAdapter(emulatorlist, getActivity());
 		rlv_emulator.setAdapter(emulator_adapter);
-        BmobGetDataToRlv.setEmulatorData(getActivity(),emulatorlist,rlv_emulator,emulator_adapter);
+        BmobGetDataToEmulator.setEmulatorData(getActivity(),emulatorlist,rlv_emulator,emulator_adapter,progress_emulator);
 
 		//金手指游戏列表配置
 		GridLayoutManager layoutManager_cheat_code_game_list=new GridLayoutManager(getActivity(), 1);

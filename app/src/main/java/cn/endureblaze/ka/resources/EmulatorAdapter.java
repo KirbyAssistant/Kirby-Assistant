@@ -2,7 +2,6 @@ package cn.endureblaze.ka.resources;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +15,9 @@ import cn.ednureblaze.glidecache.GlideCache;
 import cn.endureblaze.ka.Kirby;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.bean.Emulator;
-import cn.endureblaze.ka.main.MainActivity;
-import cn.endureblaze.ka.resources.game.GameActivity;
+import cn.endureblaze.ka.utils.DownloadApkUtil;
 import com.bumptech.glide.Glide;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
 
@@ -62,13 +61,16 @@ public class EmulatorAdapter extends RecyclerView.Adapter<EmulatorAdapter.ViewHo
 		final ViewHolder holder=new ViewHolder(view);
 		holder.LinearLayout.setOnClickListener(v -> {
 			int position = holder.getAdapterPosition();
-			Emulator game = mEmulatorlist.get(position);
-			MainActivity m=new MainActivity();
-			Intent mm=new Intent(mContext,GameActivity.class);
-			mm.putExtra("emu_name",game.getEmulatorName());
-			mm.putExtra("emu_img",game.getEmulatorImageUrl());
-			mm.putExtra("emu_pos",game.getEmulatorTag());
-			m.theDownload(mContext,game.getEmulatorName(),game.getEmulatorTag());
+			Emulator emulator = mEmulatorlist.get(position);
+
+			//m.theDownload(mContext,game.getEmulatorName(),game.getEmulatorTag());
+                    MaterialAlertDialogBuilder dialog = new
+                            MaterialAlertDialogBuilder(mContext)
+                            .setTitle(emulator.getEmulatorName())
+                            .setMessage(R.string.download_dia_mess)
+                            .setPositiveButton(R.string.dia_download, (dialog1, which) -> DownloadApkUtil.downloadappApk(emulator.getEmulatorTag(), mContext)
+                            );
+                    dialog.show();
 		}
 		);
 		return holder;

@@ -9,6 +9,8 @@ public class BmobResEmulator extends BmobObject {
 
     private Integer version;
 
+    private String EmulatorConsoleName;
+
     private String EmulatorName;
 
     private BmobFile EmulatorImage;
@@ -32,6 +34,9 @@ public class BmobResEmulator extends BmobObject {
     {
         this.version = version;
     }
+
+    public String getEmulatorConsoleName(){return EmulatorConsoleName;}
+    public void setEmulatorConsoleName(String EmulatorConsoleName){this.EmulatorConsoleName = EmulatorConsoleName;}
 
     public String getEmulatorName(){return EmulatorName;}
     public void setEmulatorName(String EmulatorName){this.EmulatorName = EmulatorName;}
