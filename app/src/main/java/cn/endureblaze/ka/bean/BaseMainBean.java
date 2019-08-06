@@ -6,11 +6,11 @@ public abstract class BaseMainBean
 	private String imageUrl;
 	private String tag;
 	
-	BaseMainBean(String name, String imageUrl, String funk)
+	BaseMainBean(String name, String imageUrl, String tag)
 	{
 		this.name = name;
 		this.imageUrl = imageUrl;
-		this.tag=funk;
+		this.tag=tag;
 	}
 	public String getName()
 	{

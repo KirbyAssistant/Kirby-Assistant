@@ -66,9 +66,9 @@ public class EmulatorAdapter extends RecyclerView.Adapter<EmulatorAdapter.ViewHo
 			//m.theDownload(mContext,game.getEmulatorName(),game.getEmulatorTag());
                     MaterialAlertDialogBuilder dialog = new
                             MaterialAlertDialogBuilder(mContext)
-                            .setTitle(emulator.getEmulatorName())
+                            .setTitle(emulator.getName())
                             .setMessage(R.string.download_dia_mess)
-                            .setPositiveButton(R.string.dia_download, (dialog1, which) -> DownloadApkUtil.downloadappApk(emulator.getEmulatorTag(), mContext)
+                            .setPositiveButton(R.string.dia_download, (dialog1, which) -> DownloadApkUtil.downloadappApk(emulator.getPosition(), mContext)
                             );
                     dialog.show();
 		}
@@ -80,13 +80,13 @@ public class EmulatorAdapter extends RecyclerView.Adapter<EmulatorAdapter.ViewHo
     public void onBindViewHolder(final ViewHolder holder, int position)
 	{
         final Emulator co = mEmulatorlist.get(position);
-        holder.emulatorName.setText(co.getEmulatorName());
+        holder.emulatorName.setText(co.getName());
 		Glide
 			.with(mContext)
-			.load(co.getEmulatorImageUrl())
+			.load(co.getImageUrl())
 		    .apply(Kirby.getGlideRequestOptions())
 			.into(holder.emulatorImage);
-        GlideCache.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getEmulatorImageUrl(),"8");
+        GlideCache.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"8");
     }
 
     @Override

@@ -6,17 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LayoutAnimationController;
-import android.widget.ProgressBar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import cn.endureblaze.ka.R;
 import cn.endureblaze.ka.base.BaseFragment;
+import cn.endureblaze.ka.bean.CheatCodeGame;
 import cn.endureblaze.ka.bean.Console;
-import cn.endureblaze.ka.bean.ConsoleOld;
 import cn.endureblaze.ka.bean.Emulator;
-import cn.endureblaze.ka.bmobdataquery.BmobGetDataToConsole;
-import cn.endureblaze.ka.bmobdataquery.BmobGetDataToEmulator;
 import cn.endureblaze.ka.helper.LayoutAnimationHelper;
 import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.utils.PlayAnimUtil;
@@ -33,7 +30,7 @@ public class MainResFragment extends BaseFragment
 	private List<View> mViewList = new ArrayList<>();
 
 	private List<Console> consolelist=new ArrayList<>();
-	private List<ConsoleOld> cheatCodeGamelist=new ArrayList<>();
+	private List<CheatCodeGame> cheatCodeGamelist=new ArrayList<>();
 	private List<Emulator> emulatorlist=new ArrayList<>();
 
     private RecyclerView rlv_consose;
@@ -42,12 +39,10 @@ public class MainResFragment extends BaseFragment
 
     private ConsoleAdapter console_adapter;
     private EmulatorAdapter emulator_adapter;
-    private CheatCodeGameListAdapter cheat_adapter;
+    private CheatCodeGameAdapter cheat_adapter;
 
     private View view;
 
-    private ProgressBar progress_console;
-    private ProgressBar progress_emulator;
 
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -93,28 +88,24 @@ public class MainResFragment extends BaseFragment
         rlv_emulator = emulator_view.findViewById(R.id.emulator_list);//模拟器列表
         rlv_cheat_code_game_list = cheat_code_gamelist_view.findViewById(R.id.cheatcode_list);//金手指游戏列表
 
-        //加载转圈圈布局
-        progress_console = console_view.findViewById(R.id.console_list_load_progress);
-        progress_emulator = emulator_view.findViewById(R.id.emulator_list_load_progress);
-
 		//主机列表配置
 		GridLayoutManager layoutManager_consose=new GridLayoutManager(getActivity(), 1);
 		rlv_consose.setLayoutManager(layoutManager_consose);
 		console_adapter = new ConsoleAdapter(consolelist, getActivity());
-		//getConsoleDataVersion();
-        BmobGetDataToConsole.setConsoleData(getActivity(),consolelist,rlv_consose,console_adapter,progress_console);
+		rlv_consose.setAdapter(console_adapter);
+		ResourceData.setConsoseData(consolelist);
 
         //模拟器列表配置
 		GridLayoutManager layoutManager_emulator=new GridLayoutManager(getActivity(), 3);
 		rlv_emulator.setLayoutManager(layoutManager_emulator);
 		emulator_adapter = new EmulatorAdapter(emulatorlist, getActivity());
 		rlv_emulator.setAdapter(emulator_adapter);
-        BmobGetDataToEmulator.setEmulatorData(getActivity(),emulatorlist,rlv_emulator,emulator_adapter,progress_emulator);
+        ResourceData.setEmulatorData(emulatorlist);
 
 		//金手指游戏列表配置
 		GridLayoutManager layoutManager_cheat_code_game_list=new GridLayoutManager(getActivity(), 1);
 		rlv_cheat_code_game_list.setLayoutManager(layoutManager_cheat_code_game_list);
-		cheat_adapter = new CheatCodeGameListAdapter(cheatCodeGamelist, getActivity());
+		cheat_adapter = new CheatCodeGameAdapter(cheatCodeGamelist, getActivity());
 		rlv_cheat_code_game_list.setAdapter(cheat_adapter);
 		ResourceData.setCheatCodeGameData(cheatCodeGamelist);
 

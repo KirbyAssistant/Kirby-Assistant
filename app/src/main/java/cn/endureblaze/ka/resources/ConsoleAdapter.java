@@ -65,7 +65,7 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
 			int position=holder.getAdapterPosition();
 			Console console=mConsoleList.get(position);
 			Intent in=new Intent(mContext, GameListActivity.class);
-			String name=console.getConsoleTag();
+			String name=console.getPosition();
 			in.putExtra("consose_name",name);
 			MainActivity m=new MainActivity();
 			IntentUtil.startActivityWithAnim(in,mActivity);
@@ -78,10 +78,10 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
     public void onBindViewHolder(final ViewHolder holder, int position)
 	{
         final Console co = mConsoleList.get(position);
-        holder.consoleName.setText(co.getConsoleName());
+        holder.consoleName.setText(co.getName());
         Glide
 			.with(mContext)
-			.load(co.getConsoleImageUrl())
+			.load(co.getImageUrl())
 			.apply(Kirby.getGlideRequestOptions())
 			.into(holder.consoleImage);		
 		//GlideUtil.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"5");
