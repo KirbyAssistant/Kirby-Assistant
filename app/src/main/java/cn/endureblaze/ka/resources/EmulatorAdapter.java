@@ -62,7 +62,6 @@ public class EmulatorAdapter extends RecyclerView.Adapter<EmulatorAdapter.ViewHo
 		holder.LinearLayout.setOnClickListener(v -> {
 			int position = holder.getAdapterPosition();
 			Emulator emulator = mEmulatorlist.get(position);
-
 			//m.theDownload(mContext,game.getEmulatorName(),game.getEmulatorTag());
                     MaterialAlertDialogBuilder dialog = new
                             MaterialAlertDialogBuilder(mContext)

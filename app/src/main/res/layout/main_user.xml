@@ -83,10 +83,11 @@
     </androidx.cardview.widget.CardView>
 
     <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:rowCount="2"
-                android:columnCount="2">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rowCount="2"
+            android:columnCount="2">
+
         <Button
                 android:layout_height="wrap_content"
                 android:text="@string/modification_email"
@@ -106,14 +107,14 @@
                 android:layout_marginEnd="8dp"/>
 
         <Button
-                    android:layout_height="wrap_content"
-                    android:text="@string/user_logout"
-                    android:id="@+id/user_logout"
-                    android:layout_columnSpan="2"
-                    android:layout_columnWeight="2"
-                    android:transitionName="logout"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"/>
+                android:layout_height="wrap_content"
+                android:text="@string/user_logout"
+                android:id="@+id/user_logout"
+                android:layout_columnSpan="2"
+                android:layout_columnWeight="2"
+                android:transitionName="logout"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"/>
 
     </GridLayout>
 

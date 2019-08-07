@@ -1,255 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical"
-	android:background="?color_bkg_main">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="?color_bkg_main">
 
-	<com.google.android.material.appbar.AppBarLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/mainAppBarLayout1">
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mainAppBarLayout1">
 
-		<androidx.appcompat.widget.Toolbar
-			android:id="@+id/toolbar"
-			app:elevation="4dp"
-			android:layout_height="?attr/actionBarSize"
-			android:layout_width="match_parent"
-			android:background="?attr/colorPrimary"
-			android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-			app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-			app:layout_scrollFlags="scroll|enterAlways|snap"/>
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:elevation="4dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_scrollFlags="scroll|enterAlways|snap"/>
 
-	</com.google.android.material.appbar.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-	<ScrollView
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_below="@id/mainAppBarLayout1">
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/mainAppBarLayout1">
 
-		<RelativeLayout
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content">
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-			<androidx.cardview.widget.CardView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_margin="4dp"
-				app:cardCornerRadius="4dp"
-				app:cardElevation="2dp"
-				android:id="@+id/alidonate_card">
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp"
+                    android:id="@+id/alidonate_card">
 
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:orientation="vertical"
-					android:padding="12dp">
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
 
-					<ImageView
-							android:src="@drawable/ic_kirby_alipay"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_gravity="center_horizontal"
-							tools:ignore="ContentDescription"/>
+                    <ImageView
+                            android:src="@drawable/ic_kirby_alipay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            tools:ignore="ContentDescription"/>
 
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:paddingBottom="8dp"
-						android:paddingTop="8dp"
-						android:text="@string/donate_alipay"
-						android:textSize="16sp"
-						android:layout_gravity="center_horizontal"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:text="@string/donate_alipay"
+                            android:textSize="16sp"
+                            android:layout_gravity="center_horizontal"/>
 
-					<Button
-						android:id="@+id/bt_alipay_user_input"
-						android:layout_width="match_parent"
-						android:layout_height="48dp"
-						android:layout_marginBottom="8dp"
-						android:layout_marginTop="8dp"
-						android:text="@string/check_me"/>
+                    <Button
+                            android:id="@+id/bt_alipay_user_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/check_me"/>
 
-				</LinearLayout>
+                </LinearLayout>
 
-			</androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-			<androidx.cardview.widget.CardView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_margin="4dp"
-				app:cardCornerRadius="4dp"
-				app:cardElevation="2dp"
-				android:layout_below="@id/alidonate_card"
-				android:id="@+id/wechatdonate_card">
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp"
+                    android:layout_below="@id/alidonate_card"
+                    android:id="@+id/wechatdonate_card">
 
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:orientation="vertical"
-					android:padding="12dp">
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
 
-					<ImageView
-							android:src="@drawable/ic_kirby_wechat"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_gravity="center_horizontal"
-							tools:ignore="ContentDescription"/>
+                    <ImageView
+                            android:src="@drawable/ic_kirby_wechat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            tools:ignore="ContentDescription"/>
 
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:paddingBottom="8dp"
-						android:paddingTop="8dp"
-						android:text="@string/donate_wechatpay"
-						android:textSize="16sp"
-						android:layout_gravity="center_horizontal"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:text="@string/donate_wechatpay"
+                            android:textSize="16sp"
+                            android:layout_gravity="center_horizontal"/>
 
-					<ImageView
-							android:src="@drawable/wechat"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_gravity="center_horizontal"
-							tools:ignore="ContentDescription"/>
+                    <ImageView
+                            android:src="@drawable/wechat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            tools:ignore="ContentDescription"/>
 
-				</LinearLayout>
+                </LinearLayout>
 
-			</androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-			<androidx.cardview.widget.CardView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_margin="4dp"
-				app:cardCornerRadius="4dp"
-				app:cardElevation="2dp"
-				android:layout_below="@id/wechatdonate_card"
-				android:id="@+id/btc_card">
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp"
+                    android:layout_below="@id/wechatdonate_card"
+                    android:id="@+id/btc_card">
 
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:orientation="vertical"
-					android:padding="12dp">
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
 
-					<ImageView
-							android:src="@drawable/ic_kirby_btc"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_gravity="center_horizontal"
-							tools:ignore="ContentDescription"/>
+                    <ImageView
+                            android:src="@drawable/ic_kirby_btc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            tools:ignore="ContentDescription"/>
 
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:paddingBottom="8dp"
-						android:paddingTop="8dp"
-						android:text="@string/donate_btc"
-						android:textSize="16sp"
-						android:layout_gravity="center_horizontal"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:text="@string/donate_btc"
+                            android:textSize="16sp"
+                            android:layout_gravity="center_horizontal"/>
 
-					<TextView
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="13yQa3Q95hZJR3VvmaM3XNj39AQVMgkg8P"
-							android:textAppearance="?android:attr/textAppearanceMedium"
-							android:gravity="center_horizontal"
-							tools:ignore="HardcodedText"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13yQa3Q95hZJR3VvmaM3XNj39AQVMgkg8P"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:gravity="center_horizontal"
+                            tools:ignore="HardcodedText"/>
 
-					<Button
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:text="@string/check_me"
-						android:id="@+id/btc"/>
+                    <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/check_me"
+                            android:id="@+id/btc"/>
 
-				</LinearLayout>
+                </LinearLayout>
 
-			</androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-			<androidx.cardview.widget.CardView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_margin="4dp"
-				app:cardCornerRadius="4dp"
-				app:cardElevation="2dp"
-				android:layout_below="@id/btc_card"
-				android:id="@+id/qqdonate_card">
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp"
+                    android:layout_below="@id/btc_card"
+                    android:id="@+id/qqdonate_card">
 
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:orientation="vertical"
-					android:padding="12dp">
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
 
-					<ImageView
-							android:src="@drawable/ic_kirby_qq"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_gravity="center_horizontal"
-							tools:ignore="ContentDescription"/>
+                    <ImageView
+                            android:src="@drawable/ic_kirby_qq"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            tools:ignore="ContentDescription"/>
 
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:paddingBottom="8dp"
-						android:paddingTop="8dp"
-						android:text="@string/donate_qqpay"
-						android:textSize="16sp"
-						android:layout_gravity="center_horizontal"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:text="@string/donate_qqpay"
+                            android:textSize="16sp"
+                            android:layout_gravity="center_horizontal"/>
 
-					<Button
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:text="@string/check_me"
-						android:id="@+id/qq"/>
+                    <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/check_me"
+                            android:id="@+id/qq"/>
 
-				</LinearLayout>
+                </LinearLayout>
 
-			</androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-			<androidx.cardview.widget.CardView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_margin="4dp"
-				app:cardCornerRadius="4dp"
-				app:cardElevation="2dp"
-				android:layout_below="@id/qqdonate_card">
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp"
+                    android:layout_below="@id/qqdonate_card">
 
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:orientation="vertical"
-					android:padding="12dp">
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
 
-					<ImageView
-							android:src="@drawable/ic_kirby_paypal"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_gravity="center_horizontal"
-							tools:ignore="ContentDescription"/>
+                    <ImageView
+                            android:src="@drawable/ic_kirby_paypal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            tools:ignore="ContentDescription"/>
 
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:paddingBottom="8dp"
-						android:paddingTop="8dp"
-						android:text="@string/donate_paypal"
-						android:textSize="16sp"
-						android:layout_gravity="center_horizontal"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:text="@string/donate_paypal"
+                            android:textSize="16sp"
+                            android:layout_gravity="center_horizontal"/>
 
-					<Button
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:text="@string/check_me"
-						android:id="@+id/paypal"/>
+                    <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/check_me"
+                            android:id="@+id/paypal"/>
 
-				</LinearLayout>
+                </LinearLayout>
 
-			</androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-		</RelativeLayout>
+        </RelativeLayout>
 
-	</ScrollView>
+    </ScrollView>
 
 </RelativeLayout>
 

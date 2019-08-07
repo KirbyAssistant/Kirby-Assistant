@@ -33,9 +33,10 @@ public class BaseActivity extends AppCompatActivity
 	{
         super.setContentView(layoutResID);
         setStatusBar(ThemeUtil.getDarkColorPrimary(this));
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        if(layoutResID== R.layout.activity_game) {
+        getWindow().setNavigationBarColor(ThemeUtil.getColorPrimary(this));
+        if(layoutResID == R.layout.activity_game) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
     }
 

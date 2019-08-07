@@ -149,6 +149,7 @@ public class ShowChatDialog extends BaseBottomDialog
                             .setTheme(R.style.BottomDialogStyle)
                             .setMargin(0)
                             .setShowBottom(true)
+                                .setOutCancel(true)
                             .show(Objects.requireNonNull(getActivity()).getSupportFragmentManager());
                         break;
                 }

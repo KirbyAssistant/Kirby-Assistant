@@ -1,7 +1,6 @@
 package cn.endureblaze.ka.main;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -45,8 +44,6 @@ import java.util.Objects;
  */
 public class MainActivity extends BaseActivity {
     private Toolbar toolbar;
-    private Context gameContext;
-
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -57,6 +54,7 @@ public class MainActivity extends BaseActivity {
         //配置toolbar
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         if (CheckSimpleModeUtil.isSimpleMode()) {
             Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.simple_mode_app_name));
         } else {
@@ -239,7 +237,7 @@ public class MainActivity extends BaseActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getAction() == KeyEvent.ACTION_DOWN) {
             if ((System.currentTimeMillis() - exitTime) > 2000) {
-                Snackbar.make(toolbar, R.string.two_back, Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(findViewById(R.id.toolbar), R.string.two_back, Snackbar.LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();
             } else {
                 finish();
@@ -320,52 +318,6 @@ public class MainActivity extends BaseActivity {
             default:
         }
         return true;
-    }
-
-    /**
-     * 方法名:downloadappApk
-     * 需要传入参数(final String app_namee
-     * 参数说明:需要传入一个String类型的应用名称
-     * 参数举例:downloadappApk("kirby Assistant")  表示查询名称为kirby Assistant的app的下载链接
-     * 主要用于查询模拟器和推荐应用链接
-     * 调用了方法:appFileDownload
-     */
-
-    public void theDownload(Context context, String game_name, @NonNull String position) {
-        gameContext = context;
-        switch (position) {
-            case "emulator_gba"://"GBA " + getGameText(R.string.moniqi) + "\nMy Boy!":
-                showOtherDownloadDialog("gba", game_name);
-                break;
-            case "emulator_sfc"://"SFC "++"\nSnes9x EX+":
-                showOtherDownloadDialog("sfc", game_name);
-                break;
-            case "emulator_n64"://"N64 "++"\nTendo64":
-                showOtherDownloadDialog("n64", game_name);
-                break;
-            case "emulator_nds"://"NDS "++"\nDraStic":
-                showOtherDownloadDialog("nds", game_name);
-                break;
-            case "emulator_wii"://"NGC&WII "++"\nDolphin":
-                showOtherDownloadDialog("wii", game_name);
-                break;
-            case "emulator_gb"://"GB&GBC "++"\nMy OldBoy!":
-                showOtherDownloadDialog("gb", game_name);
-                break;
-            case "emulator_fc"://"FC "++"\nNES.emu":
-                showOtherDownloadDialog("fc", game_name);
-                break;
-        }
-    }
-
-    private void showOtherDownloadDialog(final String downloadName, String game_name) {
-        MaterialAlertDialogBuilder dialog = new
-                MaterialAlertDialogBuilder(gameContext)
-                .setTitle(game_name)
-                .setMessage(R.string.download_dia_mess)
-                .setPositiveButton(R.string.dia_download, (dialog1, which) -> DownloadApkUtil.downloadappApk(downloadName, gameContext)
-                );
-        dialog.show();
     }
 
     @Override

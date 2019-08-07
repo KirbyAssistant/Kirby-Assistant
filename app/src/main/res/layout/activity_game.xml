@@ -15,7 +15,7 @@
         <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-        >
+                >
 
             <androidx.cardview.widget.CardView
                     android:layout_height="280dp"
@@ -29,35 +29,36 @@
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/blur_game_img"
-                        android:transitionName="image"
-                        tools:ignore="ContentDescription"/>
 
-                <ImageView
-                        android:src="@android:drawable/ic_delete"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/game_img"
-                        android:layout_centerInParent="true"
-                        android:transitionName="image"
-                        android:layout_margin="8dp"
-                        tools:ignore="ContentDescription"/>
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/blur_game_img"
+                            android:transitionName="image"
+                            tools:ignore="ContentDescription"/>
 
-                <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:id="@+id/game_title"
-                        android:transitionName="name"
-                        android:background="#20000000"
-                        android:textColor="#FFFFFFFF"
-                        android:padding="4dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="8dp"
-                        android:textSize="16sp"/>
+                    <ImageView
+                            android:src="@android:drawable/ic_delete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/game_img"
+                            android:layout_centerInParent="true"
+                            android:transitionName="image"
+                            android:layout_margin="8dp"
+                            tools:ignore="ContentDescription"/>
+
+                    <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/game_title"
+                            android:transitionName="name"
+                            android:background="#20000000"
+                            android:textColor="#FFFFFFFF"
+                            android:padding="4dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="8dp"
+                            android:textSize="16sp"/>
 
                 </RelativeLayout>
 

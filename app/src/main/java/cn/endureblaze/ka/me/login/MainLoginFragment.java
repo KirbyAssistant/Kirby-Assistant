@@ -23,6 +23,7 @@ import cn.endureblaze.ka.main.MainActivity;
 import cn.endureblaze.ka.me.user.MainUserFragment;
 import cn.endureblaze.ka.utils.EmailUtil;
 import cn.endureblaze.ka.utils.PlayAnimUtil;
+import cn.endureblaze.ka.utils.UserUtil;
 
 import java.util.Objects;
 
@@ -105,6 +106,7 @@ public class MainLoginFragment extends BaseFragment
 										loginProgress.dismiss();
 										Toast.makeText(getActivity(), Objects.requireNonNull(getActivity()).getString(R.string.login_success), Toast.LENGTH_SHORT).show();
 										m.replaceFragment(new MainUserFragment());
+										m.getSupportActionBar().setSubtitle(UserUtil.getCurrentUser().getUsername());
 									}
 									else
 									{
