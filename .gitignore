@@ -3,6 +3,7 @@
 *.ap_
 
 # Files for the ART/Dalvik VM
+.idea
 *.dex
 
 # Java class files
