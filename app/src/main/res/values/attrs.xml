@@ -1,48 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<declare-styleable name="CircleImageView">
+    <declare-styleable name="CircleImageView">
         <attr name="border_width" format="dimension" />
         <attr name="border_color" format="color" />
-		<attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_width" format="dimension" />
         <attr name="civ_border_color" format="color" />
         <attr name="civ_border_overlay" format="boolean" />
         <!-- {@deprecated Use civ_circlebackground_color instead.} -->
         <attr name="civ_fill_color" format="color" />
         <attr name="civ_circle_background_color" format="color" />
     </declare-styleable>
-	<declare-styleable name="RippleLayout">
-        <attr name="rippleLayoutColor" format="color"/>
-		<attr name="rippleLayoutType" format="enum">
-            <enum name="fill" value="0"/>
-            <enum name="stroke" value="1"/>
-		</attr>
-        <attr name="startRadius" format="dimension"/>
-        <attr name="endRadius" format="dimension"/>
-        <attr name="duration" format="integer"/>
-        <attr name="strokeWidth" format="dimension"/>
-	</declare-styleable>
-	<declare-styleable name="ParticleView">
-        <attr name="pv_host_text" format="string"/>
-        <attr name="pv_host_text_size" format="dimension"/>
-        <attr name="pv_particle_text" format="string"/>
-        <attr name="pv_particle_text_size" format="dimension"/>
-        <attr name="pv_text_color" format="color"/>
-        <attr name="pv_background_color" format="color"/>
-        <attr name="pv_text_anim_time" format="integer"/>
-        <attr name="pv_spread_anim_time" format="integer"/>
-        <attr name="pv_host_text_anim_time" format="integer"/>
-    </declare-styleable>
-	
-	<attr name="color_bkg_main" format="color" />
-	<attr name="color_bkg_title" format="color" />
-	<attr name="color_bkg" format="color" />
-		
-    <attr name="color_text" format="color" />
-    <attr name="color_text_pressed" format="color" />
-    <attr name="color_text_disabled" format="color" />
-    <attr name="color_text_sub" format="color" />
-    <attr name="color_text_hint" format="color" />
 
-	<attr name="color_divider" format="color" />
-	
+    <!--窗口背景色-->
+    <attr name="color_windows_background" format="color"/>
+    <attr name="color_view_background" format="color"/>
+
+    <!--字体色-->
+    <attr name="text_high" format="color"/>
+    <attr name="text_medium" format="color"/>
+    <attr name="text_hint" format="color"/>
+    <attr name="text_error" format="color"/>
+
+    <!--底栏选中颜色-->
+    <attr name="color_nav" format="color"/>
+
 </resources>

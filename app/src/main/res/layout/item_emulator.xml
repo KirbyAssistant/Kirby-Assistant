@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        app:cardCornerRadius="8dp"
+        android:layout_marginBottom="@dimen/card_margin_vertical_big_activity"
+        android:layout_marginEnd="@dimen/card_margin_horizontal_big_activity"
+        android:layout_marginStart="@dimen/card_margin_horizontal_big_activity"
+        android:layout_marginTop="@dimen/card_margin_vertical_big_activity"
+        android:background="?android:attr/windowBackground"
+        android:foreground="?attr/selectableItemBackground"
         android:id="@+id/cardview"
         android:layout_margin="8dp">
 
@@ -42,7 +46,7 @@
                 android:layout_gravity="center_horizontal|bottom"
                 android:transitionName="name"
                 android:background="#20000000"
-                android:textColor="#FFFFFFFF"
+                android:textColor="?attr/text_hint"
                 android:padding="4dp"
                 tools:ignore="HardcodedText"/>
 

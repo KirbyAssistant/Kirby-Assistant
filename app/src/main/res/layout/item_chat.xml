@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_item_recycler_view"
         android:layout_width="match_parent"
-        android:layout_margin="8dp"
-        android:background="#ffffff"
-        android:id="@+id/chatitemRelativeLayout1">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/card_margin_vertical_big_activity"
+        android:layout_marginEnd="@dimen/card_margin_horizontal_big_activity"
+        android:layout_marginStart="@dimen/card_margin_horizontal_big_activity"
+        android:layout_marginTop="@dimen/card_margin_vertical_big_activity"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="@dimen/card_recycler_corner_radius"
+        app:cardElevation="@dimen/card_recycler_elevation"
+        app:cardBackgroundColor="?attr/color_view_background">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/text_margin">
 
     <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/chat_username"
             android:textSize="16sp"
-            android:textColor="?color_text"
             android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"
-            android:transitionName="userName"/>
+            android:transitionName="userName"
+            android:textColor="?attr/text_high"/>
 
     <TextView
             android:layout_height="wrap_content"
@@ -23,9 +35,9 @@
             android:layout_margin="8dp"
             android:id="@+id/chat_time"
             android:textSize="12sp"
-            android:textColor="?color_text_pressed"
             android:layout_below="@id/chat_username"
-            android:transitionName="time"/>
+            android:transitionName="time"
+            android:textColor="?attr/text_hint"/>
 
     <TextView
             android:layout_height="wrap_content"
@@ -37,18 +49,17 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:transitionName="mess"
-            android:textColor="?color_text"/>
+            android:textColor="?attr/text_high"/>
 
     <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="@string/look_more"
             android:textSize="16sp"
             android:id="@+id/show_all"
             android:textColor="?attr/colorPrimary"
             android:visibility="gone"
             android:layout_alignParentEnd="true"
             android:layout_margin="8dp"/>
-
-</RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
 

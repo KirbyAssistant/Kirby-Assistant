@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/color_windows_background">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="240dp"
+            tools:ignore="UselessParent">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?attr/color_view_background">
+
+            <TextView
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:text="@string/chat_edit_some"
+                    android:textSize="18sp"
+                    android:textColor="?attr/text_medium"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="4dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/chat_send"
+                    android:text="@string/chat_send"
+                    android:textSize="18sp"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="?attr/colorAccent"
+                    android:layout_marginEnd="4dp"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    tools:ignore="RelativeOverlap"/>
+
+        </RelativeLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:textColorHint="?attr/text_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="@string/chat_edit_hint"
+                    android:id="@+id/chat_edit_view"
+                    android:background="?attr/color_windows_background"
+                    android:maxEms="1000"
+                    android:textColorHint="?attr/text_hint"
+                    android:textColor="?attr/text_high"
+                    android:layout_margin="4dp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

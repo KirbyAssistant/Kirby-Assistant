@@ -5,22 +5,29 @@
         android:layout_height="match_parent"
         android:background="#60000000">
 
-    <cn.endureblaze.ka.nocropper.CropperView
+    <cn.endureblaze.kirby.nocropper.CropperView
             android:id="@+id/CropImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"/>
 
     <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
-        <Button
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/move_image"
+                android:textColor="?attr/colorAccent"/>
+
+        <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 style="?android:attr/buttonBarButtonStyle"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:text="@string/dia_yes"
                 android:id="@+id/cropimage_ok"/>
 

@@ -1,96 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="?color_bkg_main">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/color_view_background">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            tools:ignore="UselessParent">
+            android:layout_width="match_parent">
 
-        <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                >
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
 
-            <androidx.cardview.widget.CardView
-                    android:layout_height="280dp"
+        <androidx.cardview.widget.CardView
+                android:layout_height="280dp"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/card_margin_vertical_big_activity"
+                android:layout_marginEnd="@dimen/card_margin_horizontal_big_activity"
+                android:layout_marginStart="@dimen/card_margin_horizontal_big_activity"
+                android:layout_marginTop="@dimen/card_margin_vertical_big_activity"
+                android:foreground="?attr/selectableItemBackground"
+                android:id="@+id/image_cardview"
+                android:transitionName="card"
+                android:layout_margin="4dp">
+
+            <RelativeLayout
                     android:layout_width="match_parent"
-                    app:elevation="5dp"
-                    app:cardCornerRadius="4dp"
-                    android:id="@+id/image_cardview"
-                    android:transitionName="card"
-                    android:layout_margin="4dp">
+                    android:layout_height="match_parent">
 
-                <RelativeLayout
+                <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:id="@+id/blur_game_img"
+                        android:transitionName="image"
+                        tools:ignore="ContentDescription"/>
 
-                    <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/blur_game_img"
-                            android:transitionName="image"
-                            tools:ignore="ContentDescription"/>
+                <ImageView
+                        android:src="@android:drawable/ic_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/game_img"
+                        android:layout_centerInParent="true"
+                        android:transitionName="image"
+                        android:layout_margin="8dp"
+                        tools:ignore="ContentDescription"/>
 
-                    <ImageView
-                            android:src="@android:drawable/ic_delete"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/game_img"
-                            android:layout_centerInParent="true"
-                            android:transitionName="image"
-                            android:layout_margin="8dp"
-                            tools:ignore="ContentDescription"/>
+            </RelativeLayout>
 
-                    <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:id="@+id/game_title"
-                            android:transitionName="name"
-                            android:background="#20000000"
-                            android:textColor="#FFFFFFFF"
-                            android:padding="4dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="8dp"
-                            android:textSize="16sp"/>
+        </androidx.cardview.widget.CardView>
 
-                </RelativeLayout>
+        <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/game_js"
+                android:textSize="20sp"
+                android:layout_below="@id/image_cardview"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"/>
 
-            </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
 
-            <Button
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/dia_download"
-                    android:id="@+id/download_button"
-                    android:textColor="#FFFFFFFF"
-                    android:background="?attr/colorPrimary"
-                    android:layout_below="@id/image_cardview"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginBottom="4dp"/>
+    <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/game_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:layout_gravity="bottom"
+            android:backgroundTint="?attr/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:buttonGravity="bottom|top"
+            app:fabAlignmentMode="end"
+            app:hideOnScroll="true"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            style="@style/Widget.MaterialComponents.BottomAppBar">
 
-            <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:id="@+id/game_js"
-                    android:textSize="20sp"
-                    android:layout_below="@id/download_button"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"/>
+        <TextView
+                android:id="@+id/game_bottom_bar_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="4dp"
+                android:transitionName="name"
+                android:paddingBottom="?actionBarSize"
+                android:textStyle="bold"
+                android:textColor="#ffffff"/>
 
-        </RelativeLayout>
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
-    </ScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/game_download_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_kirby_download"
+            app:backgroundTint="?attr/colorAccent"
+            app:fabSize="normal"
+            app:tint="@android:color/white"
+            app:layout_anchor="@id/game_bottom_bar"/>
 
-</RelativeLayout>
-
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

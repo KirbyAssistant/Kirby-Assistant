@@ -5,9 +5,14 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        app:cardCornerRadius="8dp"
+        android:layout_marginBottom="@dimen/card_margin_vertical_big_activity"
+        android:layout_marginEnd="@dimen/card_margin_horizontal_big_activity"
+        android:layout_marginStart="@dimen/card_margin_horizontal_big_activity"
+        android:layout_marginTop="@dimen/card_margin_vertical_big_activity"
+        android:foreground="?attr/selectableItemBackground"
         android:id="@+id/cardview"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="?attr/color_view_background">
 
     <LinearLayout
             style="?android:attr/buttonBarButtonStyle"
@@ -30,10 +35,10 @@
                 android:layout_width="wrap_content"
                 android:text="Text"
                 android:textSize="14sp"
+                android:textColor="?attr/text_high"
                 android:id="@+id/video_text"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginTop="4dp"
-                android:textColor="?attr/color_text"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"
                 android:layout_marginBottom="8dp"

@@ -1,5 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="LauncherLoading" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/ka_logo</item>
+    </style>
+
     <declare-styleable name="nocropper__CropperView">
         <attr name="nocropper__grid_color" format="color"/>
         <attr name="nocropper__grid_thickness" format="dimension"/>
@@ -9,106 +17,140 @@
         <attr name="nocropper__fit_to_center" format="boolean"/>
     </declare-styleable>
 
-    <style name="BottomDialogDefaultAnimation" parent="android:Animation">
-        <item name="android:windowEnterAnimation">@anim/enter_anim</item>
-        <item name="android:windowExitAnimation">@anim/exit_anim</item>
-    </style>
 
-	<style name="LauncherLoading" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/ka_logo</item>
-    </style>
-
-	<style name="BottomDialogStyle">
-		<item name="android:windowNoTitle">true</item>
+    <style name="OMGDialogStyle">
+        <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowSoftInputMode">adjustPan</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
-	</style>
+    </style>
 
-	<style name="BaseLightTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-		<item name="android:windowBackground">@android:color/white</item>
-		<item name="color_bkg_main">#FFF5F5F5</item>
-		<item name="color_bkg_title">#FFEEEEEE</item>
-		<item name="color_bkg">#FFFFFFFF</item>
-        <item name="color_text">#ff000000</item>
-        <item name="color_text_pressed">#70212121</item>
-        <item name="color_text_hint">#30212121</item>
-        <item name="color_divider">#bdbdbd</item>
+    <style name="BottomAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/omgdialog_bottom_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/omgdialog_bottom_exit_anim</item>
+    </style>
+
+    <style name="RightAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/omgdialog_right_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/omgdialog_right_exit_anim</item>
+    </style>
+
+    <style name="LeftAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/omgdialog_left_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/omgdialog_left_exit_anim</item>
+    </style>
+
+    <style name="TopAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/omgdialog_top_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/omgdialog_top_exit_anim</item>
+    </style>
+
+    <style name="BaseLightTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="color_view_background">@android:color/white</item>
+        <item name="color_windows_background">#FFF5F5F5</item>
+        <item name="text_high">#87000000</item>
+        <item name="text_medium">#60000000</item>
+        <item name="text_hint">#38000000</item>
+        <item name="text_error">#FFB00020</item>
         <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
-	</style>
+    </style>
 
-    <style name="BuleTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#2196F3</item>
-		<item name="colorPrimaryDark">#1976D2</item>
-		<item name="colorAccent">#90CAF9</item>
-	</style>
+    <style name="BaseDarkTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">#FF303030</item>
+        <item name="color_view_background">#FF303030</item>
+        <item name="color_windows_background">#FF202020</item>
+        <item name="text_high">#87FFFFFF</item>
+        <item name="text_medium">#60FFFFFF</item>
+        <item name="text_hint">#38FFFFFF</item>
+        <item name="text_error">#FFB00020</item>
+        <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
+    </style>
 
-	<style name="RedTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#F44336</item>	
-		<item name="colorPrimaryDark">#D32F2F</item>
-		<item name="colorAccent">#ef9a9a</item>
-	</style>
+    <style name="BlueAppTheme" parent="BaseLightTheme">
+        <item name="colorPrimary">@color/blueColorPrimary</item>
+        <item name="colorPrimaryDark">@color/blueColorPrimaryDark</item>
+        <item name="colorAccent">@color/blueColorAccent</item>
+        <item name="color_nav">@color/blueColorPrimary</item>
+    </style>
 
-	<style name="PurpleTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#9C27B0</item>	
-		<item name="colorPrimaryDark">#7B1FA2</item>
-		<item name="colorAccent">#CE93D8</item>
-	</style>
+    <style name="RedAppTheme" parent="BaseLightTheme">
+        <item name="colorPrimary">@color/redColorPrimary</item>
+        <item name="colorPrimaryDark">@color/redColorPrimaryDark</item>
+        <item name="colorAccent">@color/redColorAccent</item>
+        <item name="color_nav">@color/redColorPrimary</item>
+    </style>
 
-	<style name="LindigoTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#3F51B5</item>	
-		<item name="colorPrimaryDark">#303F9F</item>
-		<item name="colorAccent">#9FA8DA</item>
-	</style>
+    <style name="PurpleAppTheme" parent="BaseLightTheme">
+        <item name="colorPrimary">@color/purpleColorPrimary</item>
+        <item name="colorPrimaryDark">@color/purpleColorPrimaryDark</item>
+        <item name="colorAccent">@color/purpleColorAccent</item>
+        <item name="color_nav">@color/purpleColorPrimary</item>
+    </style>
 
-	<style name="TealTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#009688</item>	
-		<item name="colorPrimaryDark">#00796B</item>
-		<item name="colorAccent">#80CBC4</item>
-	</style>
+    <style name="IndigoAppTheme" parent="BaseLightTheme">
+        <item name="colorPrimary">@color/indigoColorPrimary</item>
+        <item name="colorPrimaryDark">@color/indigoColorPrimaryDark</item>
+        <item name="colorAccent">@color/indigoColorAccent</item>
+        <item name="color_nav">@color/indigoColorPrimary</item>
+    </style>
 
-	<style name="GreenTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#4CAF50</item>	
-		<item name="colorPrimaryDark">#388E3C</item>
-		<item name="colorAccent">#A5D6A7</item>
-	</style>
+    <style name="TealAppTheme" parent="BaseLightTheme">
+        <item name="colorPrimary">@color/tealColorPrimary</item>
+        <item name="colorPrimaryDark">@color/tealColorPrimaryDark</item>
+        <item name="colorAccent">@color/tealColorAccent</item>
+        <item name="color_nav">@color/tealColorPrimary</item>
+    </style>
 
-	<style name="OrangeTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#FF9800</item>	
-		<item name="colorPrimaryDark">#FFA000</item>
-		<item name="colorAccent">#FFE082</item>
-	</style>
+    <style name="GreenAppTheme" parent="BaseLightTheme">
+        <item name="colorPrimary">@color/greenColorPrimary</item>
+        <item name="colorPrimaryDark">@color/greenColorPrimaryDark</item>
+        <item name="colorAccent">@color/greenColorAccent</item>
+        <item name="color_nav">@color/greenColorPrimary</item>
+    </style>
 
-	<style name="BrownTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#795548</item>	
-		<item name="colorPrimaryDark">#5D4037</item>
-		<item name="colorAccent">#BCAAA4</item>
-	</style>
+    <style name="OrangeAppTheme" parent="BaseLightTheme">
+        <item name="colorPrimary">@color/orangeColorPrimary</item>
+        <item name="colorPrimaryDark">@color/orangeColorPrimaryDark</item>
+        <item name="colorAccent">@color/orangeColorAccent</item>
+        <item name="color_nav">@color/orangeColorPrimary</item>
+    </style>
 
-	<style name="BlueGreyTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#607D8B</item>	
-		<item name="colorPrimaryDark">#455A64</item>
-		<item name="colorAccent">#B0BEC5</item>
-	</style>
+    <style name="BrownAppTheme" parent="BaseLightTheme">
+        <item name="colorPrimary">@color/brownColorPrimary</item>
+        <item name="colorPrimaryDark">@color/brownColorPrimaryDark</item>
+        <item name="colorAccent">@color/brownColorAccent</item>
+        <item name="color_nav">@color/brownColorPrimary</item>
+    </style>
 
-	<style name="YellowTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#FFEB3B</item>	
-		<item name="colorPrimaryDark">#FBC02D</item>
-		<item name="colorAccent">#FFF59D</item>
-	</style>
+    <style name="BlueGreyAppTheme" parent="BaseLightTheme">
+        <item name="colorPrimary">@color/blueGreyColorPrimary</item>
+        <item name="colorPrimaryDark">@color/blueGreyColorPrimaryDark</item>
+        <item name="colorAccent">@color/blueGreyColorAccent</item>
+        <item name="color_nav">@color/blueGreyColorAccent</item>
+    </style>
 
-	<style name="KirbyTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#ee749d</item>	
-		<item name="colorPrimaryDark">#cf5f83</item>
-		<item name="colorAccent">#FF4081</item>	
-	</style>
+    <style name="YellowAppTheme" parent="BaseLightTheme">
+        <item name="colorPrimary">@color/yellowColorPrimary</item>
+        <item name="colorPrimaryDark">@color/yellowColorPrimaryDark</item>
+        <item name="colorAccent">@color/yellowColorAccent</item>
+        <item name="color_nav">@color/yellowColorPrimary</item>
+    </style>
 
-	<style name="WhiteTheme" parent="BaseLightTheme">		
-		<item name="colorPrimary">#9E9E9E</item>
-		<item name="colorPrimaryDark">#616161</item>
-		<item name="colorAccent">#EEEEEE</item>
-	</style>
+    <style name="WhiteAppTheme" parent="BaseLightTheme">
+        <item name="colorPrimary">@color/whiteColorPrimary</item>
+        <item name="colorPrimaryDark">@color/whiteColorPrimaryDark</item>
+        <item name="colorAccent">@color/whiteColorAccent</item>
+        <item name="color_nav">@color/whiteColorPrimary</item>
+    </style>
+
+    <style name="DarkAppTheme" parent="BaseDarkTheme">
+        <item name="colorPrimary">@color/darkColorPrimary</item>
+        <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
+        <item name="colorAccent">@color/darkColorAccent</item>
+        <item name="color_nav">@color/darkColorAccent</item>
+    </style>
 
 </resources>

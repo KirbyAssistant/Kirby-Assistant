@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:background="?color_bkg_main">
+        android:background="?attr/color_windows_background">
 
     <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -25,10 +25,10 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/mainAppBarLayout1">
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout
                 android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
                     android:layout_margin="4dp"
                     app:cardCornerRadius="4dp"
                     app:cardElevation="2dp"
-                    android:id="@+id/alidonate_card">
+                    android:id="@+id/alipay_donate_card">
 
                 <LinearLayout
                         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                         android:padding="12dp">
 
                     <ImageView
-                            android:src="@drawable/ic_kirby_alipay"
+                            app:srcCompat="@drawable/ic_kirby_alipay"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -64,7 +64,7 @@
                             android:textSize="16sp"
                             android:layout_gravity="center_horizontal"/>
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                             android:id="@+id/bt_alipay_user_input"
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
@@ -82,33 +82,44 @@
                     android:layout_margin="4dp"
                     app:cardCornerRadius="4dp"
                     app:cardElevation="2dp"
-                    android:layout_below="@id/alidonate_card"
-                    android:id="@+id/wechatdonate_card">
+                    android:layout_below="@id/alipay_donate_card"
+                    android:id="@+id/other_donate_card">
 
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="12dp">
-
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="12dp">
                     <ImageView
-                            android:src="@drawable/ic_kirby_wechat"
+                            app:srcCompat="@drawable/ic_kirby_wechat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             tools:ignore="ContentDescription"/>
-
+                    <ImageView
+                            app:srcCompat="@drawable/ic_kirby_qq"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            tools:ignore="ContentDescription"/>
+                </LinearLayout>
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingBottom="8dp"
                             android:paddingTop="8dp"
-                            android:text="@string/donate_wechatpay"
+                            android:text="@string/donate_other"
                             android:textSize="16sp"
                             android:layout_gravity="center_horizontal"/>
 
                     <ImageView
-                            android:src="@drawable/wechat"
+                            android:id="@+id/donate_other_image"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -124,8 +135,7 @@
                     android:layout_margin="4dp"
                     app:cardCornerRadius="4dp"
                     app:cardElevation="2dp"
-                    android:layout_below="@id/wechatdonate_card"
-                    android:id="@+id/btc_card">
+                    android:layout_below="@id/other_donate_card">
 
                 <LinearLayout
                         android:layout_width="match_parent"
@@ -134,96 +144,7 @@
                         android:padding="12dp">
 
                     <ImageView
-                            android:src="@drawable/ic_kirby_btc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            tools:ignore="ContentDescription"/>
-
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingBottom="8dp"
-                            android:paddingTop="8dp"
-                            android:text="@string/donate_btc"
-                            android:textSize="16sp"
-                            android:layout_gravity="center_horizontal"/>
-
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="13yQa3Q95hZJR3VvmaM3XNj39AQVMgkg8P"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:gravity="center_horizontal"
-                            tools:ignore="HardcodedText"/>
-
-                    <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/check_me"
-                            android:id="@+id/btc"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="2dp"
-                    android:layout_below="@id/btc_card"
-                    android:id="@+id/qqdonate_card">
-
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="12dp">
-
-                    <ImageView
-                            android:src="@drawable/ic_kirby_qq"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            tools:ignore="ContentDescription"/>
-
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingBottom="8dp"
-                            android:paddingTop="8dp"
-                            android:text="@string/donate_qqpay"
-                            android:textSize="16sp"
-                            android:layout_gravity="center_horizontal"/>
-
-                    <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/check_me"
-                            android:id="@+id/qq"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="2dp"
-                    android:layout_below="@id/qqdonate_card">
-
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="12dp">
-
-                    <ImageView
-                            android:src="@drawable/ic_kirby_paypal"
+                            app:srcCompat="@drawable/ic_kirby_paypal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -250,7 +171,6 @@
 
         </RelativeLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</RelativeLayout>
-
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

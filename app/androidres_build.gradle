@@ -12,7 +12,6 @@ andResGuard {
     whiteList = [
             // your icon
             "R.maimap.ic_launcher",
-
             //友盟
             "R.string.umeng*",
             "R.string.UM*",

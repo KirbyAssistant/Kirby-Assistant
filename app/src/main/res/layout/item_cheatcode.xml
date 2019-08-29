@@ -4,12 +4,15 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="?android:attr/selectableItemBackground"
+        android:id="@+id/cheatCode_root_view">
 
     <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="Text"
+            android:textColor="?attr/text_medium"
             android:layout_centerVertical="true"
             android:id="@+id/cheatCode_id"
             android:layout_marginStart="10dp"
@@ -19,9 +22,10 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="Text"
+            android:textColor="?attr/text_high"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:id="@+id/cheatCode_ny"
+            android:id="@+id/cheatCode_mess"
             android:layout_marginEnd="10dp"
             tools:ignore="HardcodedText"/>
 

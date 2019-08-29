@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/res"
+            android:icon="@drawable/ic_kirby_game"
+            android:title="@string/title_res"/>
+
+    <item
+            android:id="@+id/video"
+            android:icon="@drawable/ic_kirby_video"
+            android:title="@string/title_video"/>
+
+    <item
+            android:id="@+id/chat"
+            android:icon="@drawable/ic_kirby_chat"
+            android:title="@string/title_chat"/>
+
+    <item
+            android:id="@+id/me"
+            android:icon="@drawable/ic_kirby_account"
+            android:title="@string/title_me"/>
+
+</menu>

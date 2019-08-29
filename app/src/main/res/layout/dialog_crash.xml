@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="?color_bkg_main"
+        android:background="?attr/color_windows_background"
         android:orientation="vertical">
 
     <TextView
@@ -21,11 +21,10 @@
             android:orientation="horizontal"
             >
 
-        <Button
-                style="?android:attr/buttonBarButtonStyle"
+        <com.google.android.material.button.MaterialButton
                 android:layout_height="wrap_content"
                 android:layout_width="0dp"
-                android:text="@string/copy"
+                android:text="@string/copy_text"
                 android:layout_weight="5"
                 android:id="@+id/copy"/>
 
@@ -39,10 +38,9 @@
         <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:textColor="?color_text"
+                android:textColor="?attr/text_high"
                 android:id="@+id/crashText"/>
 
     </ScrollView>
 
 </LinearLayout>
-

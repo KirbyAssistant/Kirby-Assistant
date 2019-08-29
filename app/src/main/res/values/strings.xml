@@ -1,405 +1,204 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Kirby Assistant</string>
-	<string name="simple_mode_app_name">Kirby Assistant·极简模式</string>
-	
-	<string name="game_title">当前是</string>
-    <string name="setting_title">设置</string>
-	<string name="about_title">关于</string>
-    <string name="video_title">视频</string>
-	<string name="cheatCode_title">金手指</string>
-	<string name="ziyuan">资源</string>
-	<string name="talk">闲聊</string>
-    <string name="me">我</string>
-	<string name="login_title">登录/注册</string>
-	<string name="game">游戏</string>
-    <string name="emulator">模拟器</string>
-    <string name="language">语言设置</string>
-	<string name="crash_title">出错了</string>
-    <string name="two_back">请再按一次退出程序</string>
-	<string name="profile_photo">头像</string>
-	
-	<string name="permissionandprivacy_title">权限和隐私政策</string>
-	<string name="permissionandprivacy_cnntent">权限说明:\n
-		Kirby Assistant 申请了一些运行时权限和普通权限，关于这些权限申请的说明，请看下文:\n
-		网络访问权限:用于获取游戏封面图，查看攻略视频封面操作\n
-		请求访问安装包权限:用于下载模拟器文件完毕后进行跳转安装\n
-		防止手机休眠:服务商要求必须申请的权限，否则无法使用服务商提供的服务\n
-		读取日志:用于程序崩溃后，定位崩溃信息的操作\n
-		如果您不同意上述权限可以不赋予相关权限或者退出 Kirby Assistant\n
-		\n\n\n
-		隐私政策:\n
-		Kirby Assistant 仅使用了服务商提供的数据服务功能，也就是用户登录注册，闲聊发送获取，视频封面获取，游戏封面获取，模拟器文件下载等操作。
-		当程序崩溃时会收集崩溃信息，可能包括:手机型号、系统版本、程序版本等信息，这些信息不会上传，您需要手动发送给我，而且这些信息不会包括您的私人数据。
-		</string>
-	
-	<string name="find_new_version">发现新版本</string>
-	<string name="view_new_version">查看</string>
-	
-	<string name="chat_send">发送</string>
-	<string name="chat_upload">发送中</string>
-	<string name="chat_true">发送成功:</string>
-	<string name="chat_false">发送失败:</string>
-	<string name="chat_del_success">闲聊删除成功</string>
-	<string name="chat_del_fail">闲聊删除失败:</string>
-    <string name="chat_copy">复制内容</string>
-	<string name="chat_del">删除此闲聊</string>
-	<string name="chat_edit">编辑此闲聊</string>
-	
-	<string name="donate_alipay">支付宝</string>
-	<string name="donate_wechatpay">微信</string>
-	<string name="donate_btc">比特币</string>
-	<string name="donate_qqpay">QQ</string>
-	<string name="donate_paypal">PayPal</string>
-	
-	<string name="load_fail">加载失败，请刷新重试</string>
-	
-	<string name="user_title">用户信息</string>
-	<string name="head_upload">上传头像中</string>
-	
-	<string name="copy">复制</string>
+    <!--底栏的四个-->
+    <!--小标题也要用到-->
+    <string name="title_res">资源</string>
+    <string name="title_video">视频</string>
+    <string name="title_chat">闲聊</string>
+    <string name="title_me">我</string>
+    <!--上面这个还有个替代品-->
+    <string name="title_login">登录/注册</string>
+    <!--结束————底栏的四个-->
 
-    <string name="check_me">点我</string>
-	<string name="email_fail">邮箱格式不正确</string>
+    <!--资源碎片分页的那三个-->
+    <string name="tab_game">游戏</string>
+    <string name="tab_emulator">模拟器</string>
+    <!--这个模拟器列表需要用到-->
+    <string name="tab_cheatcode">金手指</string>
+    <!--结束————资源碎片分页的那三个-->
+
+    <!--ToolBar菜单-->
+    <string name="toolbar_menu_theme">主题</string>
+    <string name="toolbar_menu_app">推荐 APP</string>
+    <string name="toolbar_menu_app_ZArchiver">方便好用的解压工具</string>
+    <!--这两个对应的界面标题也要用-->
+    <string name="toolbar_menu_setting">设置</string>
+    <string name="toolbar_menu_donate">捐赠</string>
+    <!--结束————ToolBar菜单-->
+
+    <!--游戏列表需要-->
+    <string name="title_game_list">当前是</string>
+    <!--结束————游戏列表需要-->
+
+    <!--游戏下载-->
+    <string name="game_download_game">请选择您需要的语言版本</string>
+    <string name="game_download_game_1">[限定]仅存在美版</string>
+    <string name="game_download_game_2">[限定]仅存在日版</string>
+    <!--结束————游戏下载-->
+
+    <!--文件下载-->
+    <string name="download_dia_mess">咱只给你汉化版</string>
+    <string name="downloading">下载中</string>
+    <string name="download_success">下载成功，保存路径:</string>
+    <string name="download_fail">下载失败:</string>
+    <!--结束————文件下载-->
+
+    <!--闲聊-->
+    <string name="chat_send">发送</string>
+    <string name="chat_sending">发送中</string>
+    <string name="chat_success">发送成功</string>
+    <string name="chat_fail">发送失败</string>
+    <string name="chat_del_success">闲聊删除成功</string>
+    <string name="chat_del_fail">闲聊删除失败</string>
+    <string name="chat_copy">复制内容</string>
+    <string name="chat_del">删除此闲聊</string>
+    <string name="chat_edit">编辑此闲聊</string>
+    <string name="chat_look_more">查看更多</string>
+    <string name="chat_edit_some">写点什么吧</string>
+    <string name="chat_edit_hint">内容(1000字)</string>
+    <string name="chat_not_login">未登录，无法使用</string>
+    <!--结束————闲聊-->
+
+    <!--捐赠-->
+    <string name="donate_title">捐赠</string>
+    <string name="donate_alipay">支付宝</string>
+    <string name="donate_other">其他</string>
+    <string name="donate_paypal">PayPal</string>
+    <!--结束————捐赠-->
+
+    <!--用户系统-->
+    <string name="user_email_fail">邮箱格式不正确</string>
+
+    <string name="user_info_title">用户信息</string>
+    <string name="user_avatar_upload">上传头像中</string>
 
     <string name="user_email">邮箱</string>
-	<string name="choose_photo">选择图片</string>
-	<string name="not_have_user">没有账号？点我</string>
-	<string name="have_user">已有账号？点我</string>
-	
-	<string name="modification_email">修改邮箱</string>
-    <string name="modification_email_false">邮箱验证失败</string>
-	<string name="modification_email_old">请输入原来的邮箱</string>
-	<string name="modification_email_new">请输入新的邮箱</string>
-    <string name="modification_password_old">请输入原密码</string>
-	<string name="modification_password_new">请输入新密码</string>
-	<string name="modification_password_new_again">请再输入一次新密码</string>
-	<string name="password">两次输入的密码不同</string>
-	<string name="modification_password">修改密码</string>
-    <string name="modification_password_false">出错</string>
-	
-	
-	<string name="is_null">不能为空</string>
-	<string name="edit_true">修改成功</string>
-	<string name="edit_false">修改失败:</string>
-	
-	<string name="user_logout">账号登出</string>
-    <string name="register_time">注册于</string>
-	
-	<string name="theme_title">主题</string>
+    <string name="user_not_have_user">没有账号？点我</string>
+    <string name="user_have_user">已有账号？点我</string>
 
-    <string name="look_more">查看更多</string>
-	<string name="edit_some">写点什么吧｡ӧ◡ӧ｡</string>
-    <string name="edit_ny">内容(1000字)</string>
-	
-	<string name="game_name">请选择您需要的语言版本</string>
-	<string name="game_name1">[限定]仅存在美版</string>
-	<string name="game_name2">[限定]仅存在日版</string>
-	
-	<string name="tj_app">推荐APP</string>
-	<string name="app_ZArchiver">方便好用的解压工具</string>
-	
-	<string name="downloading">下载中</string>
-	<string name="download_success">下载成功，保存路径:</string>
-	<string name="download_fail">下载失败:</string>
-	<string name="link_bmob">连接服务器中</string>
-	<string name="link_fail">连接服务器失败</string>
-	<string name="download_dia_mess">咱只给你汉化版</string>
-	
-	<string name="not_install_CoolApk">未安装酷安</string>
-	<string name="no_login">未登录，无法使用</string>
-	
-	<string name="login">登录</string>
-	<string name="login_user">用户名/邮箱</string>
-	<string name="login_password">密码</string>
-	<string name="login_success">登录成功</string>
-	<string name="login_fail">登录失败</string>
-	
-	<string name="copy_success">文本已复制</string>
+    <string name="user_login">登录</string>
+    <string name="user_login_username">用户名/邮箱</string>
+    <string name="user_login_password">密码</string>
+    <string name="user_login_success">登录成功</string>
+    <string name="user_login_fail">登录失败</string>
 
-    <string name="version">版本</string>
-	<string name="star_title">评分</string>
-	<string name="simple_mode">极简模式</string>
-	<string name="star_message">期待你的五分好评</string>
-	<string name="faq_title">帮助</string>
-	<string name="faq_message">常见问题汇总</string>
-	<string name="feedback_title">反馈</string>
-	<string name="qq_group">更详细的帮助？点我进入QQ群</string>
-	<string name="tg_channel_title">Telegram频道</string>
-	<string name="tg_channel_message">会在里面发布更新内容以及其他事情</string>
-	<string name="dev_title">开发者</string>
-	<string name="dev_coolapk">酷安\@汝南京</string>
-	<string name="dev_coolapk_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzY1MTg4MA==</string>
-	<string name="dev_github">Github\@EnduerBlaze</string>
-	<string name="dev_github_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL0VuZHVyZUJsYXpl</string>
-	<string name="dev_weibo">新浪微博\@汝南京</string>
-	<string name="dev_weibo_link" translatable="false">aHR0cHM6Ly93ZWliby5jb20vcnVuYW5qaW5n</string>
-	<string name="dev_twitter">Twitter\@EndureBlaze</string>
-	<string name="dev_twitter_link" translatable="false">aHR0cHM6Ly90d2l0dGVyLmNvbS9uaWhhb2N1bj9zPTA5</string>
-	<string name="github">在Github查看这个项目</string>
-    <string name="contributor_title">贡献者</string>
-    <string name="domain_name_title">域名特别贡献</string>
-    <string name="domain_name_website_shaoxudong">访问 @邵旭东 的主页</string>
-    <string name="domain_name_website_shaoxudong_link" translatable="false">aHR0cDovL3d3dy5zaGFveHVkb25nLmNvbS8=</string>
-	<string name="program_title">程序特别贡献</string>
-	<string name="program_github_lxfly2000">Github @lxfly2000</string>
-	<string name="program_github_lxfly2000_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
-	<string name="translation_tw_title">繁体中文翻译</string>
-	<string name="translation_tw_github_longxk2017">Github @longxk2017</string>
-	<string name="translation_tw_github_longxk2017_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2xvbmd4azIwMTc=</string>
-	<string name="translation_en_title">英语翻译</string>
-	<string name="translation_en_tieba_nannannan550">百度贴吧 @难难难550</string>
-	<string name="translation_en_tieba_nannannan550_link" translatable="false">aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vaG9tZS9tYWluP3VuPemavumavumavjU1MA==</string>
-	<string name="translation_en_tieba_guangzhiyaoxi">百度贴吧 @光之耀西</string>
-	<string name="translation_en_tieba_guangzhiyaoxi_link" translatable="false">aHR0cDovL3RpZWJhLmJhaWR1LmNvbS9ob21lL21haW4/dW495YWJ5LmL6ICA6KW/</string>
-	<string name="draw_icon_title">图标绘制</string>
-	<string name="draw_icon_coolapk_hkliuxing">酷安 @hk流星</string>
-	<string name="draw_icon_coolapk_hkliuxing_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzU1NTg4Mw==</string>
-	<string name="draw_icon_coolapk_markuss">酷安 @Markuss</string>
-	<string name="draw_icon_coolapk_markuss_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzUyOTcxOA==</string>
-	<string name="draw_icon_tieba_xiaoyibu">百度贴吧 @★☆小伊布☆★</string>
-	<string name="draw_icon_tieba_xiaoyibu_link" translatable="false">aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vaG9tZS9tYWluP3VuPeKYheKYhuWwj+S8iuW4g+KYhuKYhQ==</string>
-	<string name="video_author_title">视频作者</string>
-	<string name="video_author_bilibili_xige">哔哩哔哩动画 @虚影无华</string>
-	<string name="video_author_bilibili_xige_link" translatable="false">aHR0cDovL3NwYWNlLmJpbGliaWxpLmNvbS8xMzAwMTI1Mg==</string>
-	<string name="writer_help_faq_title">FAQ 编写</string>
-	<string name="writer_help_faq_coolapk_talinhu">酷安 @塔林狐</string>
-	<string name="writer_help_faq_coolapk_talinhu_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzExNTc3NzQ=</string>
-	<string name="greenapps_title">Android 绿色应用公约</string>
-	<string name="greenapps_message">Kirby Assistant 遵循绿色应用公约，并通过认证\n点击访问 Android 绿色应用公约官网</string>
-	
-	<string name="simple_mode_is_enable">已启用极简模式</string>
-	<string name="simple_mode_is_disable">已禁用极简模式</string>
-	<string name="simple_mode_to_enable">启用极简模式后会重新进入应用并且禁用[闲聊]和[我]功能\n禁用所有动画特效\n禁用主题功能</string>
-	<string name="simple_mode_to_disable">禁用极简模式后会重新进入应用并且启用[闲聊]和[我]功能\n启用所有动画特效\n启用主题功能</string>
-	
-	<string name="register">注册</string>
-	<string name="register_success">注册成功</string>
-	<string name="register_fail">注册失败</string>
-	<string name="register_username">用户名（注册以后不可更改）</string>
-	<string name="register_email">邮箱（用于找回密码）</string>
-	<string name="register_password">密码（支持数字和字母）</string>
-	<string name="register_password_again">请再次输入密码</string>
-	
-	<string name="donate_title">捐赠</string>
-	
-	<string name="dia_download">下载</string>
-	<string name="dia_yes">确定</string>
-	<string name="dia_enable">启用</string>
-	<string name="dia_disable">禁用</string>
+    <string name="user_register">注册</string>
+    <string name="user_register_success">注册成功</string>
+    <string name="user_register_fail">注册失败</string>
+    <string name="user_register_username">用户名（注册以后不可更改）</string>
+    <string name="user_register_email">邮箱（用于找回密码）</string>
+    <string name="user_register_password">密码（支持数字和字母）</string>
+    <string name="user_register_password_again">请再次输入密码</string>
+
+    <string name="user_modify_email">修改邮箱</string>
+    <string name="user_modify_email_old">请输入原来的邮箱</string>
+    <string name="user_modify_email_new">请输入新的邮箱</string>
+    <string name="user_modify_email_verify_fail">邮箱验证失败</string>
+
+    <string name="user_modify_password">修改密码</string>
+    <string name="user_modify_password_old">请输入原密码</string>
+    <string name="user_modify_password_new">请输入新密码</string>
+    <string name="user_modify_password_new_again">请再输入一次新密码</string>
+    <string name="user_modify_password_verify_fail">两次输入的密码不同</string>
+    <string name="user_modify_password_fail">修改密码出错出错</string>
+
+    <string name="user_logout">账号登出</string>
+    <string name="user_register_time">注册于</string>
+    <!--结束————用户系统-->
+
+    <!--设置-->
+    <string name="setting_title">设置</string>
+    <string name="setting_language_title">语言设置</string>
+    <string name="setting_apk_cache_clean_title">模拟器下载缓存清理</string>
+    <string name="setting_apk_cache_clean_summary">点击清理</string>
+    <string name="setting_image_cache_clean_title">图片缓存清理</string>
+    <string name="setting_image_cache_clean_summary">点击清理</string>
+
+    <string name="setting_version_title">版本</string>
+
+    <string name="setting_about_title">关于</string>
+    <string name="setting_about_star_title">评分</string>
+    <string name="setting_about_star_summary">期待你的五分好评</string>
+    <string name="setting_about_faq_title">帮助</string>
+    <string name="setting_about_faq_summary">常见问题汇总</string>
+    <string name="setting_about_feedback_title">反馈</string>
+    <string name="setting_about_feedback_summary">更详细的帮助？点我进入QQ群</string>
+    <string name="setting_about_tg_title">Telegram 频道</string>
+    <string name="setting_about_tg_summary">会在里面发布更新内容以及其他事情</string>
+    <string name="setting_about_github_title">在Github查看这个项目</string>
+
+    <string name="setting_dev_title">开发者</string>
+    <string name="setting_dev_coolapk_title">酷安 @汝南京</string>
+    <string name="setting_dev_coolapk_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzY1MTg4MA==</string>
+    <string name="setting_dev_github_title">Github @EnduerBlaze</string>
+    <string name="setting_dev_github_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL0VuZHVyZUJsYXpl</string>
+    <string name="setting_dev_weibo_title">新浪微博 @汝南京</string>
+    <string name="setting_dev_weibo_link" translatable="false">aHR0cHM6Ly93ZWliby5jb20vcnVuYW5qaW5n</string>
+    <string name="setting_dev_twitter_title">Twitter @EndureBlaze</string>
+    <string name="setting_dev_twitter_link" translatable="false">aHR0cHM6Ly90d2l0dGVyLmNvbS9uaWhhb2N1bj9zPTA5</string>
+
+    <string name="setting_contributor_title">贡献者</string>
+    <string name="setting_contributor_domain_name_title">域名特别贡献</string>
+    <string name="setting_contributor_domain_name_summary">访问 @邵旭东 的主页</string>
+    <string name="setting_contributor_domain_name_link" translatable="false">aHR0cDovL3d3dy5zaGFveHVkb25nLmNvbS8=</string>
+    <string name="setting_contributor_program_title">程序特别贡献</string>
+    <string name="setting_contributor_program_summary">Github @lxfly2000</string>
+    <string name="setting_contributor_program_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
+    <string name="setting_contributor_translation_tw_title">繁体中文翻译</string>
+    <string name="setting_contributor_translation_tw_summary">Github @longxk2017</string>
+    <string name="setting_contributor_translation_tw_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2xvbmd4azIwMTc=</string>
+    <string name="setting_contributor_translation_en_title">英语翻译</string>
+    <string name="setting_contributor_translation_en_1_summary">百度贴吧 @难难难550</string>
+    <string name="setting_contributor_translation_en_1_link" translatable="false">aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vaG9tZS9tYWluP3VuPemavumavumavjU1MA==</string>
+    <string name="setting_contributor_translation_en_2_summary">百度贴吧 @光之耀西</string>
+    <string name="setting_contributor_translation_en_2_link" translatable="false">aHR0cDovL3RpZWJhLmJhaWR1LmNvbS9ob21lL21haW4/dW495YWJ5LmL6ICA6KW/</string>
+    <string name="setting_contributor_draw_icon_title">图标绘制</string>
+    <string name="setting_contributor_draw_icon_1_summary">酷安 @hk流星</string>
+    <string name="setting_contributor_draw_icon_1_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzU1NTg4Mw==</string>
+    <string name="setting_contributor_draw_icon_2_summary">酷安 @Markuss</string>
+    <string name="setting_contributor_draw_icon_2_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzUyOTcxOA==</string>
+    <string name="setting_contributor_draw_icon_3_summary">百度贴吧 @★☆小伊布☆★</string>
+    <string name="setting_contributor_draw_icon_3_link" translatable="false">aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vaG9tZS9tYWluP3VuPeKYheKYhuWwj+S8iuW4g+KYhuKYhQ==</string>
+    <string name="setting_contributor_video_author_title">视频作者</string>
+    <string name="setting_contributor_video_author_summary">哔哩哔哩动画 @虚影无华</string>
+    <string name="setting_contributor_video_author_link" translatable="false">aHR0cDovL3NwYWNlLmJpbGliaWxpLmNvbS8xMzAwMTI1Mg==</string>
+    <string name="setting_contributor_writer_help_faq_title">FAQ 编写</string>
+    <string name="setting_contributor_writer_help_faq_summary">酷安 @塔林狐</string>
+    <string name="setting_contributor_writer_help_faq_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzExNTc3NzQ=</string>
+    <!--结束————设置-->
+
+    <!--对话框用词-->
+    <string name="dia_download">下载</string>
+    <string name="dia_yes">确定</string>
+    <string name="dia_enable">启用</string>
+    <string name="dia_disable">禁用</string>
     <string name="dia_cancel">取消</string>
-	<string name="dia_jp">日版</string>
-	<string name="dia_us">美版</string>
-	<string name="dia_zh">汉化</string>
+    <string name="dia_jp">日版</string>
+    <string name="dia_us">美版</string>
+    <string name="dia_zh">汉化</string>
     <string name="dia_nu"/>
-	<string name="dia_agree">同意</string>
-	<string name="dia_disagree">不同意</string>
-	
-	<string name="bj">背景:</string>
-	<string name="js">介绍:</string>
-	
-	<string name="gb_x1_bj">暂无</string>
-	<string name="gb_x1_js">HAL研究所在1992年时面临破产危机，樱井政博当时设计了一个叫Popopo的小角色，
-		但因为不少人的喜欢，就准备成为准备在GB（Gameboy）平台发行的Twinkle Popo的主角，
-		随着后来主角被改名为卡比，最后游戏定名为《星之卡比》，于1992年4月27日在日本发行。
-		\n游戏定义为“初级者适用”，不走当时动作游戏追求难度的路线，让每个玩家都可以轻松通关，受到了玩家的极大欢迎。
-		除此以外，《星之卡比》还塑造了系列全勤奖的小兵角色瓦豆鲁迪、很容易成为第一关大Boss的风语大树，
-		屡败屡战的独眼云，还有可以视为搞笑角色的最终Boss帝帝帝大王，与适合给挑战者游玩的Extra模式，
-		为将来的百分比完成度设定打下了良好的基础。在当时GB游戏普遍质量不算高的情况下，卡比脱颖而出，
-		取得了成功，从此成为任天堂新一代明星。</string>
-	
-	<string name="gb_x2_bj">暂无</string>
-	<string name="gb_x2_js">《梦之泉物语》之后樱井政博准备在SFC平台发行作品，而原地图设计下村真一
-		则作为Gameboy平台新作的监督，1995年3月21日，《星之卡比2》在Gameboy平台发行，
-		支持在Gameboy Color平台彩色显示。本作的卖点是伙伴系统，利用不同的伙伴和能力组合取得不同的效果。
-		\n而能力数量减少至7种，一共3个伙伴—陆库、海恩、空，总共有21种组合。游戏没有隐藏关卡，
-		在每个关卡收集的彩虹碎片是完成游戏的重点。部分彩虹碎片获取需要特定的动物伙伴来帮助，
-		增加了游戏的策略性。必须收集所有彩虹碎片，才能在最终关获得虹之剑对抗最终Boss暗物质，达成真结局。</string>
+    <string name="dia_agree">同意</string>
+    <string name="dia_disagree">不同意</string>
+    <!--结束————对话框用词-->
 
-	<string name="gb_dzk_bj">暂无</string>
-	<string name="gb_dzk_js">暂无</string>
-	
-	<string name="gb_dzt_bj">暂无</string>
-	<string name="gb_dzt_js">暂无</string>
+    <!--错误捕获-->
+    <string name="crash_title">出错了</string>
+    <!--结束————错误捕获-->
 
-	<string name="gb_bsx_bj">暂无</string>
-	<string name="gb_bsx_js">暂无</string>
-	
-	<string name="fc_mzq_bj">在波普星中有一个梦之泉，那个梦之泉每天都会涌出一些梦的精华，
-		那是整个普普大陆的梦和希望的来源，并且可以给人带去美梦和恬静。可是有一天所有人发现自己都没办法做梦了。
-		原来是迪迪迪大王（DDD）在泉水里洗澡玩水的结果，他还把梦之泉的所有力量来源星之杖弄碎，分给了他的部下。
-		卡比为了夺回大家愉快的午睡时间，开始了他的冒险。</string>
-	<string name="fc_mzq_js">1993年，在第一作的成功之后，任天堂本社也对卡比多加关注，
-		宫本茂等人也参与了续作的制作。1993年3月23日，在当时基本退役的FC（Family Computer）
-		平台上发行了《星之卡比：梦之泉物语》，游戏定义为“初级者与上级者通用”。
-		\n卡比在本作中正式拥有了粉色的外观，并且本作给卡比系列定义了吞入敌人可以复制能力的设定，
-		这个设定也用于之后所有的正作与部分非正作中。游戏中一共20多种能力，各种能力都各具特色，
-		由于游戏简单，所以根本不需要去考虑能力的平衡性，能力本身的表现力反而成了主题。这让玩家想碰到
-		一个敌人先吞入试试可以出现什么复制能力。魅塔骑士在本作中初次登场。
-		\n本作增加了完成度设定与小游戏设定，完成度让玩家在游玩时能注意到还有什么地方没有完成，
-		而小游戏则为星之卡比系列增加了饱满度。</string>
-	
-	<string name="sfc_x3_bj">暂无</string>
-	<string name="sfc_x3_js">1998年3月27日，《星之卡比3》在走入末期的SFC平台发售，
-		这部作品监督是《星之卡比2》的下村真一，本作拥有明显的蜡笔风格，让卡比与其所在波普之星
-		世界变得更有温暖感。游戏剧情与系统继承了2代的设定，复制能力增加一种，
-		动物伙伴除了2代的陆库、海恩、空，还增加了喵果，啾啾，哔奇三位，让原有的8种能力拥有更多的展现形式，
-		与《超级豪华》一样，拥有2P角色，名为蛊依，同样可以复制敌人能力。
-		\n本作基本每个关卡都有隐藏要素，每个大关只有收集全部的爱心，打败Boss时才能驱逐附身的暗物质，
-		而全部的暗物质驱逐后，卡比获得心之棒，蛊依获得拟物质形态，
-		进入最终关Hyper Zone对抗最后敌人暗物质与0，达成真结局。</string>
-	
-	<string name="sfc_bsxdx_bj">暂无</string>
-	<string name="sfc_bsxdx_js">暂无</string>
-
-	<string name="sfc_toybox_bj">暂无</string>
-	<string name="sfc_toybox_js">暂无</string>
-	
-	<string name="sfc_mfqp_bj">暂无</string>
-	<string name="sfc_mfqp_js">暂无</string>
-	
-	<string name="sfc_kss_bj">暂无</string>
-	<string name="sfc_kss_js">樱井政博的团队在SFC（Super Family Computer）
-		平台上开发全新的卡比新作----《星之卡比超级豪华版》，于1996年3月21日发售。
-		\n本作由若干小游戏组成，为接近初代游戏剧情的“沐浴春风”，自由关卡式的“白之翼
-		银翼刀锋”，充满收集要素，并且有多个往返门的“洞窟大作战”，充满搞笑气息，
-		BGM成为知名鬼畜素材的“冲击！美食赛跑”，拥有时间限制，破坏哈尔巴德战舰的
-		“魅塔骑士的逆袭”，和不通过吞入敌人，而直接通过获得超级复制之源获得能力并收集许愿星的
-		“向银河许愿”，此外还有挑战全游戏大Boss的“格斗王之道”。这些创意影响了未来的《任天堂明星大乱斗》
-		和《星之卡比镜之大迷宫》。\n本作能力方面也有多种改动，如增加了格斗家、忍者这些对操作有要求的能力，
-		满足了不少男性格斗玩家的喜好，每种能力用各自的帽子展现，增加了复制能力的个性，
-		除单发复制能力外的复制能力拥有多种攻击招式。各种改动让不少新玩家也开始喜欢这个粉球角色。
-		本作首次将原本的点数生命值改成了条形生命值，受到不同攻击所受伤害也不尽相同，
-		同时加入了二人游戏设定，可以在单人游戏时加入CP控制的角色（虽然没多大用处），
-		或者让2P角色一起游玩，体现任天堂游戏的共同游玩概念。
-		本作由于是众多游戏组合，完成度100%较为麻烦，每个部分的游戏都有其各自结局，让游戏拥有强烈的观赏性。</string>
-	
-	<string name="gbc_gg_bj">暂无</string>
-	<string name="gbc_gg_js">暂无</string>
-	
-	<string name="sfc_mhd_bj">暂无</string>
-	<string name="sfc_mhd_js">暂无</string>
-	
-	<string name="gba_mzqdx_bj">在波普星中有一个梦之泉，那个梦之泉每天都会涌出一些梦的精华，
-		那是整个普普大陆的梦和希望的来源，并且可以给人带去美梦和恬静。可是有一天所有人发现自己都没办法
-		做梦了。原来是迪迪迪大王（DDD）在泉水里洗澡玩水的结果，他还把梦之泉的所有力量来源星之杖弄碎，
-		分给了他的部下。卡比为了夺回大家愉快的午睡时间，开始了他的冒险。</string>
-	<string name="gba_mzqdx_js">2002年10月23日，在任天堂新的掌机平台GBA（Gameboy Advance）
-		平台上发行了《星之卡比：梦之泉DX》。作为过去《梦之泉物语》的重制作品，《梦之泉DX》拥有很多新改动，
-		除了GBA化的更丰富色彩，还让每个Boss的体积变得大了一些（除了魅塔骑士）。
-		\n在100%完成Extra 模式后开启魅塔骑士GO，以魅塔骑士通关游戏（但是不可存档）。
-		并且增加了多人联机游戏。音乐全部重新混音。从以上改变可以看出HAL的用心程度。
-		题外话，本作的欧美版重新设计了Kirby的logo，并沿用到之后的作品。</string>
-	
-	<string name="gba_jm_bj">在普普王国的天空中有一块镜子，愿望都会在镜子世界中实现，
-		但被黑暗意志侵入，并把镜子世界搞得一团糟。梅塔骑士（Meta knight）打算进去拯救镜子世界，
-		但黑暗梅塔骑士却攻击了卡比，令他分身成四个不同颜色的卡比。他们於是跟著暗梅塔骑士一起进入了镜子世界。
-		在镜之国内。梅塔骑士被暗黑梅塔打败 便进入圣镜逃回波普星 而圣镜被黑暗梅塔骑士分成了八块，
-		卡比要展开旅途，找回镜子碎片打通镜之国与波普星的连接。游戏中除了玩家操作的卡比外，
-		还有另外三个卡比，单人游戏中，他们是由电脑操作，而多人游戏中就是和你一起玩的朋友们。</string>
-	<string name="gba_jm_js">
-		2004年4月15日，《星之卡比：镜之大迷宫》在GBA平台上发行。本作品由HAL研究所、
-		Flagship工作室和Dimps联合开发，而樱井政博是高级顾问。本作学习了《超级豪华》
-		里“洞窟大作战”的往返门设定，游戏世界是由各个镜子作为传送门的大迷宫，让本作的世界脱离线性关卡，
-		变得有立体感。最终boss战要去各个区域获得次元之镜的碎片，复原镜子后才可进入挑战。
-		\n本作的能力既有那种有多种攻击方式的，也有攻击方式单一的，
-		同时也加入了游戏完成后可随意使用的终战能力Master（万能剑）。
-		本作将GBA的性能充分利用，一方面，四个卡比可以用四台GBA联机，
-		一起在镜之国冒险或是一起玩幸运星，另一方面，卡比可以用收集的色彩喷枪变换自身颜色。
-		\n题外话，本作是很多中国玩家最先接触的《星之卡比》系列游戏，而因为本作没有帝帝帝大王，
-		导致只接触过本作的玩家不认识其存在。</string>
-	
-	<string name="ngc_ft_bj">暂无</string>
-	<string name="ngc_ft_js">分为Air Ride、Top Ride和City Trial三个模式，且每个模式都有120个任务。
-		\nAir Ride里面的赛车包括：Warp Star、Slick Star、Winged Star、Formula Star、Shadow Star、Swerve Star、Rocket Star、Wagon Star、Turbo Star、Jet Star、
-		飞天赛车
-		\n飞天赛车(3张)
-		Bulk Star、Wheelie Bike、Wheelie Scooter、Meta Knight、King Dedede和Rex Wheelie。
-		\nTop Ride里面的赛车只有2辆，分别是：Free Star和Steer Star。
-		\nCity Trial他有的赛车有：Dragoon、Hydra、Flight Warp Star和Compact Star。
-		\n注：Meta Knight和King Dedede可以在Air Ride的任何赛道使用，但在City Trial只能在Free Run使用。
-		发展：和GCN一样。首先，该游戏是在N64平台上的，但被取消了。最后在2003年发布，其掌机为Nintendo GameCube。</string>
-	
-	<string name="wii_cf_bj">DDD和瓦豆鲁迪正在追赶那个拿着一块拿着草莓蛋糕的卡比，
-		从晒着太阳，懒懒地靠在石头上读书的梅塔骑士身边跑过。突然天空明亮的闪了一下并
-		且一艘五角星模样的星云在天空中打开，一艘结晶质大型帆船模样的，并带有不熟悉徽章的未来飞船开了出来。
-		\n蔓延的烟雾并且齿轮散的到处都是。片刻之后，船分崩离析-先是最前面桨，然后在再是其尾部的飞翼，
-		次之是它的引擎和一块船舷，最后是其顶桅。剩下的船体坠毁在附近。然后四位英雄赶紧跑去查看。
-		他们到达事故现场，发现该船的船体，大多完好无损。然后船门自己打开了。卡比等人专注地进到了里面。
-		\n孤独的Magolor在其另一边，昏迷在闪烁警告标志的大屏幕前。Magolor醒来后，马上到了控制屏幕，
-		但屏幕上显示所有120个齿轮失踪和所有五个部分的船舶的船体已被分散的五个角落的波普星。</string>
-	<string name="wii_cf_js">到了2011年10月27日，Wii上的新作品《星之卡比Wii》
-		和大家见面了！由于Wii可以四人游玩的设定，除了主角卡比外，帝帝帝大王、魅塔骑士、
-		头巾瓦豆鲁迪也是可选角色，关卡收集系统是齿轮与Boss战的洛星船部件。画面、BGM等达到了新高度。
-		本作的要点是超级能力，获得超级能力后可以破坏或改变原本能力无法奇效的地形，同时也对最终boss战有影响。
-		Wii的遥控器手柄功能对游戏故事模式时的部分能力与小游戏有辅助作用。
-		本作少有地可以在真竞技场外的模式可以挑战灵魂形态Boss，并且星河骑士只在真·格斗王之道出现。</string>
-	
-	<string name="wii_mx_bj">卡比因为无意间吃到的巫师身上的变身番茄而获得了由毛线组成的全新身体，
-		同时惹怒了巫师，被吸到一个巫师的袜子里，迷失在毛线王国中。卡比在遇到毛线王国的王子Fluff，
-		它从王子那了解到了这个国家因为被下了诅咒
-		才变成毛线世界的。卡比决定帮助Fluff王子，同时也为了找回自己原来的身体，踏上了冒险的旅途......</string>
-	<string name="wii_mx_js">虽然变成毛线的卡比失去了吞食的能力，但是变身的能力却依然还在，
-		而且借助毛线的力量获得的变身也更加有趣。</string>
-	
-	<string name="n64_64_bj">暂无</string>
-	<string name="n64_64_js">2000年3月24日，《星之卡比64》在N64（Nintendo 64）平台隆重登场！监督依旧是下村真一，
-		本作第一次是以3D的卡比与世界形象，同时以2D横版操作的星之卡比游戏，卡比的3D化并没有让玩家感觉到不适，
-		反而让游戏更受欢迎。
-		\n本作有两个要点，一个是能力组合，除了原本的能力外，一个能力与另一个能力组合可以获得新的能力，
-		增加了复制能力的多样性；另一个是每个关卡的水晶碎片收集系统，每个关卡都有若干个水晶碎片收集，
-		\n这种关卡收集开创了后来的作品关卡收集的先河。
-		本作是最后一个下村真一监督的作品，同时也是最后一个明显剧情上与暗物质对抗的游戏，
-		获得全部水晶碎片后获得丝带（依斑）与水晶的能力组合，对抗最终敌人02，达成真结局。</string>
-	
-	<string name="nds_nht_bj">故事发生一个十分平静而炎热的一天里，卡比正在准备享受他的下午茶———草莓小蛋糕。这时一个黑影掠过（黑影类似于瓦豆鲁迪），
-		蛋糕就消失了。卡比来到了城堡。到了城堡却发现了城堡遭一伙盗贼团的抢劫，于是卡比的冒险便开始了。</string>
-	<string name="nds_nht_js">
-		新要素：
-		\n1：增加了能力卷轴，除卡比法师和幽灵外其他都有，具体看后面介绍。
-		\n2：新能力，此次加入了泡泡、鼹鼠和忍者，终极武器是三星法杖
-		\n3：新敌人，本作的主敌便是呐喊团。每次拿到或出现重要的宝箱(黄金箱和暗黑的黄金箱)都会出现。
-		\n4：新机关，随着机关的增加，能力的作用也就越来越明显了。各种机关需要各种的能力来解决。
-		\n5：卡比的生命：本作将格计量HP改成了槽计量HP，不会像原来受攻击时仅仅受到1个攻击。要增加1格HP需要找到2个HP星的碎片，也就是说有8个碎片在游戏里。仅仅有1个碎片是没有用的！
-		\n6：物品以及能力的储存~这给游戏大大增加了战略性，储存什么以及用什么物品储存在身上过关也成了重要的组成部分！（肚子的空间最大为5个）
-		\n7：能力随机，就是随机抽取！两个能力合成的效果和能力随机的效果一样，但有可能得到能力随机!
-		\n合成：
-		\n首先本作是具备合成功能的！下屏幕中储存的物品几乎都可以合成！但是只有同类物品才能够合成！
-		\n1：食品(等于一些小食品)为5级 樱桃为4级 瓶子为3级 肉为2级 M南瓜为1级。可以以樱桃作为催化品逐个向上升级！食品的最后最后组合都是M南瓜，其中 食品+食品=樱桃 M南瓜+M南瓜=随机能力
-		\n2：能力除 剑能配合3个属性 以及 炸弹能配合2个属性外。其他组合推测为随即抽取！随即能力不能合成！
-		\n3：星星：用泡泡打中没有能力的敌人会掉落此类物品，最多合成3个，成为巨大星星！
-		\n4：迷你卡比：3个可以兑换1up！作用不大，而且占空间~
-		\n5：顺带一提，在两个有能力的泡泡合成时把泡泡拖到一起不放开然后不停地摇晃，会听到不同的声音，这段时间里泡泡的颜色会发生变化，最后会变成彩色，这是在放开就会是比较好的能力了呢~！
-	</string>
-	
-	<string name="nds_cm_bj">在和平安详的Pupupu大陆，卡比一如既往在悠闲地散步。有一天，天空中出现一个奇怪的门，卡比发现面前出现了一个奇怪的魔女；同时，卡比还发现周围的景色都变成了乱七八糟的涂鸦。这时，Drawcia似乎注意到了卡比，她慌慌张张地在空中画了一个巨大的画框并逃了进去。在逃离时，卡比当然会紧追不舍，Drawcia见甩不掉卡比，只好使出了杀手锏——球球魔法，将卡比变成了一个圆滚滚的球，然后扬长而去。卡比发现自己进入了Drawcia的paint-themed世界。幸运的是，魔女在仓惶逃窜时候丢下了一只神奇的魔法画笔。</string>
-	<string name="nds_cm_js">暂无</string>
-	
-	<string name="nds_jh_bj">集合卡比是一款横版动作NDS游戏。游戏里供玩家控制的卡比共有10个，玩家需要用触摸笔来操控它们，并给它们吃水果，卡比吃的水果越多，能量就越大，并产生新的卡比。再强的敌人，只要有足够的卡比就可以应付了。遇敌之后，玩家只需要把卡比靠近敌人，卡比就可以自动对敌攻击作战。</string>
-	<string name="nds_jh_js">暂无</string>
-	
-	<string name="nds_kssu_bj">星之卡比：豪华版的复刻版，7段独立剧情，小游戏5个，
-		Boss Rush的竞技场有3种。另外还有36段华丽的CG动画及音乐盒模式。</string>
-	<string name="nds_kssu_js">沐浴春风：祥和的普普普大陆上 所有的食物在一夜间被偷走了！这一定是那个贪吃的迪迪迪大王干的！(既简单又好玩 新人上手必备)
-		\n银翼刀锋：刀锋鸟正在糟蹋我们的农场 这其中一定有原因 但是当务之急是先阻止她（五个关卡等待着你！完善你的能力和帮手技能吧！）
-		\n洞穴大作战：卡比在一个大型洞穴里走丢了 这个洞穴充满了危险...和宝藏！（找到全部的60个宝物 并且尽力逃出这里吧！）
-		\n冲刺 美食竞赛：迪迪迪大王向卡比发起了挑战 到底谁才是吃得最多的大胃王？在饕餮大道上飞奔吧 吃得多就是胜利！（你也可以和一位朋友对战 一边赛跑一边狂吃！）
-		\n梅塔骑士的逆袭：梅塔骑士打破了普普普大陆的宁静！请摧毁他的空中战舰 哈尔巴德！(直面令人却步的限时挑战 战胜并跨越这个前所未有的危机吧！）
-		\n向银河许愿：太阳和月亮打起来了 而你要平息他们的争斗 银河尽头的大彗星 请帮帮我们吧！（收集到的复制之源DX可以随时使用哦！）
-		\n提示:复制能力是在那颗闪烁的星星上,挪到上面最开始是没有名称和能力数量的显示的,但是仍然可以进去,加上这个能力一共可以取得19个
-		一开始的6个图标就这样结束了...不过当把第6个通关后，下面又会多出4个图标...
-		\n王之逆袭（大王的逆袭）：迪迪迪大王想要复仇！他能否从他的宿敌手里夺来胜利的桂冠呢？（迪迪迪大王卷土重来了！卡比 小心！这次他可是玩真的了！）
-		\n格斗王之路 ＆ 真·格斗王之路：6星难度，看到中间红颜色的True了么，最开始是没有这个True的，只是普通的竞技场。
-		\n格斗王之路：为什么人们会战斗不止？当那个粉色的死神举起拳头时 即使是至强者也已吓得瑟瑟发抖...（与你战斗过的所有BOSS 都将出现！你真的能将他们全解决掉吗？）
-		\n真·格斗王之路：毫无疑问 这就是最终的决战！击败十个强大的敌人 包括四大天王（新的BOSS都在这里！将他们全数打败 你就是真正的王者！）
-		\n真·格斗王之路BOSS
-		\n随机前6个：真·罗罗罗 ＆ 拉拉拉，真·克拉克，真·小克拉克，真·中BOSS全明星，卡布拉以及真·维斯比
-		\n4天王：面具迪迪迪、钻石魔人、银河骑士和马尔克斯之魂。
-		\n梅塔骑士外传：那个炫酷的剑士再次出现了！打倒敌人收集能力 触摸屏幕释放技能 修行的旅途永不终止...（带上一名随从骑士 向着银河尽头的大彗星出发吧！）
-		\n帮手大师之路：卡比才不是唯一的英雄呢！我们帮手也是可以成为英雄的啦！我们会用一场全明星大战证明的！（作为众帮手之一击败13个对手吧！熟练掌握每一个帮手的技能！）
-		</string>
-	
-	<string name="copyrights_warning_title">版权说明</string>
-	<string name="copyrights_warning_content">本程序中收集的所有资源均来自于网络，未经版权方授权，仅供测试、学习之用并严禁用于任何商业用途。\n
-	如果您喜欢星之卡比系列游戏，请支持正版！</string>
+    <!--通用词-->
+    <string name="load_fail">加载失败，请刷新重试</string>
+    <string name="choose_photo">选择图片</string>
+    <string name="is_null">不能为空</string>
+    <string name="link_ser_now">连接服务器中</string>
+    <string name="link_ser_fail">连接服务器失败</string>
+    <string name="modify_success">修改成功</string>
+    <string name="modify_fail">修改失败</string>
+    <string name="two_back">请再按一次退出程序</string>
+    <string name="check_me">点我</string>
+    <string name="close">关闭</string>
+    <string name="menu">菜单</string>
+    <string name="copy_text">复制</string>
+    <string name="copy_success">文本已复制</string>
+    <string name="move_image">移动照片进行剪裁</string>
+    <!--结束————通用词-->
 </resources>

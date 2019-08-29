@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="?attr/color_windows_background"
+        android:id="@+id/root_view">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/chat_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srlPrimaryColor="?attr/colorAccent"
+            app:srlAccentColor="@android:color/white">
+
+        <com.scwang.smartrefresh.header.MaterialHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/chat_list"/>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:textColor="?attr/text_high"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_centerInParent="true"
+            android:id="@+id/mess_loadfail_text"
+            android:visibility="gone"/>
+
+</RelativeLayout>

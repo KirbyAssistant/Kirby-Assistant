@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="?attr/color_view_background"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:id="@+id/chat_line"
+            android:background="?attr/color_windows_background">
+
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:text="@string/title_chat"
+                android:textSize="18sp"
+                android:textColor="?attr/text_high"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                tools:ignore="RelativeOverlap"/>
+
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:textColor="?attr/colorAccent"
+                android:id="@+id/chatdia_close"
+                android:text="@string/close"/>
+
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:id="@+id/chat_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/chatdia_close"
+                android:layout_centerVertical="true"
+                android:textColor="?attr/colorAccent"
+                android:text="@string/menu"
+                tools:ignore="ContentDescription"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/chat_line">
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <cn.endureblaze.kirby.customview.CircleImageView
+                    android:layout_height="64dp"
+                    android:layout_width="64dp"
+                    android:id="@+id/user_avatar"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/theme_blue"/>
+
+            <TextView
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="wrap_content"
+                    android:text="Medium Text"
+                    android:id="@+id/userName"
+                    android:textColor="?attr/text_high"
+                    android:transitionName="userName"
+                    android:layout_toEndOf="@id/user_avatar"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"/>
+
+            <TextView
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:text="Small Text"
+                    android:layout_below="@id/userName"
+                    android:id="@+id/time"
+                    android:textColor="?attr/text_medium"
+                    android:transitionName="timr"
+                    android:layout_marginBottom="18dp"
+                    android:layout_toEndOf="@id/user_avatar"
+                    android:layout_marginStart="16dp"/>
+
+            <TextView
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="wrap_content"
+                    android:text="Medium Text"
+                    android:layout_below="@id/user_avatar"
+                    android:id="@+id/mess"
+                    android:transitionName="mess"
+                    android:textColor="?attr/text_high"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical"
         android:fitsSystemWindows="true"
-        android:background="?color_bkg_main">
+        android:background="?attr/color_windows_background">
 
     <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -25,11 +24,16 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
-            android:layout_height="match_parent"
+    <androidx.core.widget.NestedScrollView
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_below="@id/mainAppBarLayout1"
-            android:id="@+id/about_fragment"/>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-</RelativeLayout>
+        <FrameLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_below="@id/mainAppBarLayout1"
+                android:id="@+id/setting_fragment"/>
+    </androidx.core.widget.NestedScrollView>
 
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

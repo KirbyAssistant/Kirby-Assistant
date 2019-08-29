@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="?attr/color_windows_background"
+        android:id="@+id/root_view">
+
+    <androidx.cardview.widget.CardView
+            android:layout_height="192dp"
+            android:layout_width="match_parent"
+            app:elevation="5dp"
+            app:cardCornerRadius="4dp"
+            android:layout_margin="8dp">
+
+        <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/change_user_avatar">
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/mo_user_avatar"
+                    tools:ignore="ContentDescription"/>
+
+            <cn.endureblaze.kirby.customview.CircleImageView
+                    android:layout_height="80dp"
+                    android:layout_width="80dp"
+                    android:id="@+id/user_avatar"
+                    android:background="@drawable/theme_blue"
+                    android:src="@drawable/theme_blue"
+                    android:layout_centerHorizontal="true"
+                    android:transitionName="userAvatar"
+                    android:layout_marginTop="10dp"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Large Text"
+                    android:id="@+id/user_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/user_avatar"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Small Text"
+                    android:id="@+id/user_id"
+                    android:layout_below="@id/user_name"
+                    android:textColor="?attr/text_high"
+                    android:layout_centerHorizontal="true"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Small Text"
+                    android:layout_below="@id/user_id"
+                    android:id="@+id/user_data"
+                    android:textColor="?attr/text_high"
+                    android:layout_centerHorizontal="true"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Small Text"
+                    android:textColor="?attr/text_high"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/user_data"
+                    android:id="@+id/user_email"
+                    android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rowCount="2"
+            android:columnCount="2">
+
+        <com.google.android.material.button.MaterialButton
+                android:layout_height="wrap_content"
+                android:text="@string/user_modify_email"
+                android:id="@+id/edit_email"
+                android:layout_columnWeight="1"
+                android:transitionName="email"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="4dp"/>
+
+        <com.google.android.material.button.MaterialButton
+                android:layout_height="wrap_content"
+                android:text="@string/user_modify_password"
+                android:id="@+id/edit_password"
+                android:layout_columnWeight="1"
+                android:transitionName="pass"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+                android:layout_height="wrap_content"
+                android:text="@string/user_logout"
+                android:id="@+id/user_logout"
+                android:layout_columnSpan="2"
+                android:layout_columnWeight="2"
+                android:transitionName="logout"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"/>
+
+    </GridLayout>
+
+</LinearLayout>
