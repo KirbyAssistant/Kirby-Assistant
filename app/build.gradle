@@ -8,8 +8,8 @@ android {
         applicationId "cn.endureblaze.kirby"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 49
-        versionName "2.0.0-Beta"
+        versionCode 50
+        versionName "2.0.0"
         flavorDimensions "versionCode"
         vectorDrawables.useSupportLibrary = true
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']

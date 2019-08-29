@@ -19,7 +19,6 @@ import java.util.Objects;
 public class DonateActivity extends BaseActivity {
     private static String Donate_ALIPAY="FKX07472I7DSDDEO5UYS82";
     private static String Donate_PAYPAL="https://www.paypal.me/nihaocun";
-    private static String Donate_OTHER="https://sapi.k780.com/?app=qr.get&data=https%3A%2F%2Fka.endureblaze.cn%2Fzh%2Fpay";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -45,8 +44,9 @@ public class DonateActivity extends BaseActivity {
             startActivity(web);
         });
 
+        String donate_OTHER = "https://sapi.k780.com/?app=qr.get&data=https%3A%2F%2Fkirby.endureblaze.cn%2Fpay";
         Glide.with(this)
-                .load(Donate_OTHER)
+                .load(donate_OTHER)
                 .apply(Kirby.getGlideRequestOptions())
                 .into(donate_other_image);
     }
