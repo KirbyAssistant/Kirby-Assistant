@@ -16,8 +16,6 @@ import java.util.Objects;
 public class CheatCodeActivity extends BaseActivity
     {
         private List<CheatCode> cheatCodeArrayList=new ArrayList<>();
-        private RecyclerView rlv_cheatcode;
-        private CheatCodeAdapter cheatcode_adapter;
 
         @Override
         protected void onCreate(Bundle savedInstanceState)
@@ -34,10 +32,10 @@ public class CheatCodeActivity extends BaseActivity
 
             toolbar.setSubtitle(name);
 
-            rlv_cheatcode = findViewById(R.id.cheatCode_listview);
+            RecyclerView rlv_cheatcode = findViewById(R.id.cheatCode_listview);
             GridLayoutManager layoutManager_console=new GridLayoutManager(this, 1);
             rlv_cheatcode.setLayoutManager(layoutManager_console);
-            cheatcode_adapter = new CheatCodeAdapter(cheatCodeArrayList,this);
+            CheatCodeAdapter cheatcode_adapter = new CheatCodeAdapter(cheatCodeArrayList, this);
             rlv_cheatcode.setAdapter(cheatcode_adapter);
             CheatCodeData.setCheatCodeData(Objects.requireNonNull(name),cheatCodeArrayList);
         }

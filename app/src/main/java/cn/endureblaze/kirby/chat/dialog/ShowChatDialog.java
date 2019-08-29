@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.fragment.app.FragmentActivity;
@@ -24,7 +23,6 @@ import cn.endureblaze.kirby.base.BaseDialog;
 import cn.endureblaze.kirby.bmob.BmobChat;
 import cn.endureblaze.kirby.bmob.BmobKirbyAssistantUser;
 import cn.endureblaze.kirby.chat.ChatMode;
-import cn.endureblaze.kirby.data.DataBus;
 import cn.endureblaze.kirby.manager.ActManager;
 import cn.endureblaze.kirby.omgdialog.OMGDialog;
 import cn.endureblaze.kirby.omgdialog.ViewHolder;
@@ -107,7 +105,7 @@ public class ShowChatDialog extends BaseDialog {
         MaterialButton chatDialog_close = holder.getView(R.id.chatdia_close);
         chatDialog_close.setOnClickListener(p1 -> chat_dialog.dismiss());
 
-        chat_menu.setOnClickListener(p1 -> {initMenu(chat_dialog);});
+        chat_menu.setOnClickListener(p1 -> initMenu(chat_dialog));
 
         BmobQuery<BmobKirbyAssistantUser> user=new BmobQuery<>();
         user.addWhereEqualTo("username", str_username);

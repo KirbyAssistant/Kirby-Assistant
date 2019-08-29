@@ -43,7 +43,7 @@
                 android:layout_centerVertical="true"
                 android:textColor="?attr/colorAccent"
                 android:text="@string/menu"
-                tools:ignore="ContentDescription"/>
+                tools:ignore="ContentDescription,RelativeOverlap"/>
 
     </RelativeLayout>
 

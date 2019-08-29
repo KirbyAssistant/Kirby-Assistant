@@ -16,7 +16,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import cn.endureblaze.kirby.R;
 import cn.endureblaze.kirby.base.BaseDialog;
-import cn.endureblaze.kirby.data.DataBus;
 import cn.endureblaze.kirby.manager.ActManager;
 import cn.endureblaze.kirby.nocropper.CropperView;
 import cn.endureblaze.kirby.omgdialog.OMGDialog;

@@ -33,7 +33,6 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.ViewHo
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         private View item_game;
-        private CardView card_view;
         private android.widget.LinearLayout LinearLayout;
         private ImageView gameImage;
         private TextView gameName;
@@ -42,7 +41,7 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.ViewHo
             super(view);
             item_game = view;
             LinearLayout = view.findViewById(R.id.LinearLayout);
-            card_view = view.findViewById(R.id.cardview);
+            CardView card_view = view.findViewById(R.id.cardview);
             gameImage = view.findViewById(R.id.console_image);
             gameName = view.findViewById(R.id.console_text);
             blurImage = view.findViewById(R.id.blur_image);

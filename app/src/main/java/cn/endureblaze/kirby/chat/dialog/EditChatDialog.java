@@ -11,7 +11,6 @@ import android.text.TextWatcher;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;

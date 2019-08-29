@@ -28,9 +28,6 @@ import java.util.Objects;
 public class MainUserInfoFragment extends BaseFragment {
     private boolean CHANGE_HEAD=false;
     private ImageView userAvatar,blur_user_avatar;
-    private String email;
-    private String id;
-    private CardView card;
 
     private Button modify_email,modify_password,user_logout;
     private View view;
@@ -59,7 +56,7 @@ public class MainUserInfoFragment extends BaseFragment {
         userId= view.findViewById(R.id.user_id);
         userTime= view.findViewById(R.id.user_data);
         userEmail= view.findViewById(R.id.user_email);
-        card = view.findViewById(R.id.cardview);
+        CardView card = view.findViewById(R.id.cardview);
 
         modify_email = view.findViewById(R.id.edit_email);
         modify_password = view.findViewById(R.id.edit_password);
@@ -71,8 +68,8 @@ public class MainUserInfoFragment extends BaseFragment {
 
     @SuppressLint("SetTextI18n")
     private void initUserInfo() {
-        email = UserUtil.getCurrentUser().getEmail();
-        id = UserUtil.getCurrentUser().getObjectId();
+        String email = UserUtil.getCurrentUser().getEmail();
+        String id = UserUtil.getCurrentUser().getObjectId();
 
         modify_email.setOnClickListener(p1 -> userModifyEmail());
         modify_password.setOnClickListener(p1 -> userModifyPassword());

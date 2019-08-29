@@ -17,7 +17,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.Objects;
 
 public class Register {
-    private Context context;
     private Activity activity;
     private TextInputEditText edit_username,edit_email,edit_password,edit_password_again,login_username,login_password;
     private CardView login_card,register_card;
@@ -35,7 +34,6 @@ public class Register {
              CardView register_card,
              TextView loginOrRegister){
 
-        this.context = context;
         this.activity = activity;
         this.edit_email = edit_email;
         this.edit_username = edit_username;

@@ -22,7 +22,6 @@ import java.util.Objects;
 public class GameActivity extends BaseActivity {
     private FloatingActionButton download_button;
     private String game_name;
-    private String game_img_url;
     private String game_tag;
 
     @Override
@@ -36,7 +35,7 @@ public class GameActivity extends BaseActivity {
         }
         Intent game=getIntent();
         game_name=game.getStringExtra("game_name");
-        game_img_url=game.getStringExtra("game_img");
+        String game_img_url = game.getStringExtra("game_img");
         game_tag=game.getStringExtra("game_tag");
         TextView game_title= findViewById(R.id.game_bottom_bar_title);
         game_title.setText(game_name);
@@ -45,8 +44,8 @@ public class GameActivity extends BaseActivity {
         TextView game_js= findViewById(R.id.game_js);
         //下載按鈕
         download_button= findViewById(R.id.game_download_fab);
-        GlideCache.setNormalImageViaGlideCache(GameActivity.this,game_img,game_img_url);
-        GlideCache.setBlurImageViaGlideCache(GameActivity.this,blur_game_img,game_img_url,"5");
+        GlideCache.setNormalImageViaGlideCache(GameActivity.this,game_img, game_img_url);
+        GlideCache.setBlurImageViaGlideCache(GameActivity.this,blur_game_img, game_img_url,"5");
         initDownload();
         //initInfo();
     }

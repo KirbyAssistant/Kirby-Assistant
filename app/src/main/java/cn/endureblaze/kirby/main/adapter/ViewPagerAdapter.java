@@ -75,8 +75,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             Method method = cls.getDeclaredMethod("makeFragmentName",
                     parameterTypes);
             method.setAccessible(true);
-            String tag = (String) method.invoke(this, viewId, index);
-            return tag;
+            return (String) method.invoke(this, viewId, index);
         } catch (Exception e) {
             e.printStackTrace();
             return "";

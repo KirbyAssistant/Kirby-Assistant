@@ -2,6 +2,7 @@ package cn.endureblaze.kirby.base;
 
 import android.os.Bundle;
 import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import cn.endureblaze.kirby.omgdialog.OMGDialog;
@@ -61,7 +62,7 @@ public class BaseDialog extends OMGDialog {
      * @param outState
      */
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable("listener", convertListener);
     }

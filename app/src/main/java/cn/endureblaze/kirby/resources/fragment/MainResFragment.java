@@ -46,10 +46,6 @@ public class MainResFragment extends BaseFragment {
     private RecyclerView rlv_emulator;
     private RecyclerView rlv_cheat_code_game_list;
 
-    private ConsoleAdapter console_adapter;
-    private EmulatorAdapter emulator_adapter;
-    private CheatCodeGameAdapter cheat_adapter;
-
     private View main_res_view;
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
@@ -129,21 +125,21 @@ public class MainResFragment extends BaseFragment {
         //主机列表配置
         GridLayoutManager layoutManager_console = new GridLayoutManager(getActivity(), 1);
         rlv_console.setLayoutManager(layoutManager_console);
-        console_adapter = new ConsoleAdapter(console_list, getActivity());
+        ConsoleAdapter console_adapter = new ConsoleAdapter(console_list, getActivity());
         rlv_console.setAdapter(console_adapter);
         ResourceData.setConsoseData(console_list);
 
         //模拟器列表配置
         GridLayoutManager layoutManager_emulator = new GridLayoutManager(getActivity(), 3);
         rlv_emulator.setLayoutManager(layoutManager_emulator);
-        emulator_adapter = new EmulatorAdapter(emulator_list, getActivity());
+        EmulatorAdapter emulator_adapter = new EmulatorAdapter(emulator_list, getActivity());
         rlv_emulator.setAdapter(emulator_adapter);
         ResourceData.setEmulatorData(emulator_list);
 
         //金手指游戏列表配置
         GridLayoutManager layoutManager_cheat_code_game_list = new GridLayoutManager(getActivity(), 1);
         rlv_cheat_code_game_list.setLayoutManager(layoutManager_cheat_code_game_list);
-        cheat_adapter = new CheatCodeGameAdapter(cheatCodeGame_list, getActivity());
+        CheatCodeGameAdapter cheat_adapter = new CheatCodeGameAdapter(cheatCodeGame_list, getActivity());
         rlv_cheat_code_game_list.setAdapter(cheat_adapter);
         ResourceData.setCheatCodeGameData(cheatCodeGame_list);
     }

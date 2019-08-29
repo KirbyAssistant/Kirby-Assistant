@@ -24,7 +24,6 @@ import cn.endureblaze.kirby.base.BaseFragment;
 import cn.endureblaze.kirby.bean.Chat;
 import cn.endureblaze.kirby.bmob.BmobChat;
 import cn.endureblaze.kirby.chat.adapter.ChatAdapter;
-import cn.endureblaze.kirby.main.MainActivity;
 import cn.endureblaze.kirby.util.ThemeUtil;
 import cn.endureblaze.kirby.util.ToastUtil;
 import cn.endureblaze.kirby.util.UserUtil;
@@ -170,8 +169,6 @@ public class MainChatFragment extends BaseFragment
     @SuppressLint("HandlerLeak")
     private Handler messHandler=new Handler(){
 
-        private String chat;
-        private boolean show_all;
         private String userAvatar;
         @Override
         public void handleMessage(Message msg)
@@ -186,18 +183,20 @@ public class MainChatFragment extends BaseFragment
                         String id=m.getObjectId();
                         String user=m.getNickname();
                         String chat_full=m.getChat();
+                        String chat;
+                        boolean show_all;
                         if(chat_full.length()>40){
-                            chat=chat_full.substring(0,40)+"...";
-                            show_all=true;
+                            chat =chat_full.substring(0,40)+"...";
+                            show_all =true;
                         }
                         else
                         {
-                            chat=chat_full;
-                            show_all=false;
+                            chat =chat_full;
+                            show_all =false;
                         }
                         String time_=m.getCreatedAt();
                         String time = time_.substring(0, 16);
-                        Chat mess=new Chat(id,user,userAvatar,chat,time,chat_full,show_all);
+                        Chat mess=new Chat(id,user,userAvatar, chat,time,chat_full, show_all);
                         //将查询到的数据依次添加到列表
                         chat_list.add(mess);
                         //设置适配器
@@ -212,8 +211,6 @@ public class MainChatFragment extends BaseFragment
 
     @SuppressLint("HandlerLeak")
     private Handler moreMessHandler=new Handler(){
-
-        private String chat;
 
         private boolean show_all;
 
@@ -231,18 +228,19 @@ public class MainChatFragment extends BaseFragment
                         String user=m.getNickname();
                         String userAvatar=null;
                         String chat_full=m.getChat();
+                        String chat;
                         if(chat_full.length()>40){
-                            chat=chat_full.substring(0,40)+"...";
+                            chat =chat_full.substring(0,40)+"...";
                             show_all=true;
                         }
                         else
                         {
-                            chat=chat_full;
+                            chat =chat_full;
                             show_all=false;
                         }
                         String time_=m.getCreatedAt();
                         String time = time_.substring(0, 16);
-                        Chat mess=new Chat(id,user, null,chat,time,chat_full,show_all);
+                        Chat mess=new Chat(id,user, null, chat,time,chat_full,show_all);
                         //将查询到的数据依次添加到列表
                         chat_list.add(mess);
                         Objects.requireNonNull(re.getAdapter()).notifyItemChanged(messItem);

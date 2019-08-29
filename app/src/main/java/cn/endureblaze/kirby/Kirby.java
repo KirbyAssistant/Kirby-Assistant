@@ -17,9 +17,7 @@ public class Kirby extends Application
     {
         super.onCreate();
         //registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
-        CaptureCrash.init((t, e) -> {
-            toCrashActivity(e);
-        });
+        CaptureCrash.init((t, e) -> toCrashActivity(e));
     }
 
     @SuppressLint("CheckResult")

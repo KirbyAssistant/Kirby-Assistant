@@ -1,7 +1,6 @@
 package cn.endureblaze.kirby.main.donate;
 
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;

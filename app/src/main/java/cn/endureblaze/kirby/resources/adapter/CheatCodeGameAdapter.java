@@ -19,7 +19,6 @@ import cn.ednureblaze.glidecache.GlideCache;
 import cn.endureblaze.kirby.Kirby;
 import cn.endureblaze.kirby.R;
 import cn.endureblaze.kirby.bean.CheatCodeGame;
-import cn.endureblaze.kirby.main.MainActivity;
 import cn.endureblaze.kirby.resources.cheatcode.CheatCodeActivity;
 import com.bumptech.glide.Glide;
 
