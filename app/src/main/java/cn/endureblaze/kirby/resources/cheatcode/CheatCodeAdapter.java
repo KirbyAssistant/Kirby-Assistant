@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import cn.endureblaze.kirby.R;
 import cn.endureblaze.kirby.bean.CheatCode;
+import cn.endureblaze.kirby.util.ToastUtil;
 
 import java.util.List;
 import java.util.Objects;
@@ -22,7 +23,7 @@ import java.util.Objects;
 public class CheatCodeAdapter extends RecyclerView.Adapter<CheatCodeAdapter.ViewHolder>{
 
     private Context mContext;
-    private List<CheatCode> mCheatCodeLiat;
+    private List<CheatCode> mCheatCodeList;
 
     private Activity mActivity;
     static class ViewHolder extends RecyclerView.ViewHolder
@@ -42,7 +43,7 @@ public class CheatCodeAdapter extends RecyclerView.Adapter<CheatCodeAdapter.View
 
     public CheatCodeAdapter(List<CheatCode> cheatcode_list, Activity activity)
     {
-        mCheatCodeLiat = cheatcode_list;
+        mCheatCodeList = cheatcode_list;
         mActivity=activity;
     }
 
@@ -57,21 +58,21 @@ public class CheatCodeAdapter extends RecyclerView.Adapter<CheatCodeAdapter.View
         final ViewHolder holder=new ViewHolder(view);
         view.setOnClickListener(view1 -> {
             int position=holder.getAdapterPosition();
-            CheatCode cheatCode = mCheatCodeLiat.get(position);
+            CheatCode cheatCode = mCheatCodeList.get(position);
             String q=cheatCode.getCheatCode();
             ClipboardManager cm = (ClipboardManager) mActivity.getSystemService(Context.CLIPBOARD_SERVICE);
             Objects.requireNonNull(cm).setPrimaryClip(ClipData.newPlainText("cheat_code",q));
             if (cm.hasPrimaryClip()) {
                 Objects.requireNonNull(cm.getPrimaryClip()).getItemAt(0).getText();
             }
-            // TODO: 2019/8/19
+            ToastUtil.show(R.string.copy_success);
         });
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final CheatCode co = mCheatCodeLiat.get(position);
+        final CheatCode co = mCheatCodeList.get(position);
 
         Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.anim_recycler_item_show);
         holder.item_cheatcode.startAnimation(animation);
@@ -87,6 +88,6 @@ public class CheatCodeAdapter extends RecyclerView.Adapter<CheatCodeAdapter.View
 
     @Override
     public int getItemCount() {
-        return mCheatCodeLiat.size();
+        return mCheatCodeList.size();
     }
 }
