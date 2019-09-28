@@ -6,11 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,11 +21,11 @@ import cn.endureblaze.kirby.bean.CheatCodeGame;
 import cn.endureblaze.kirby.bean.Console;
 import cn.endureblaze.kirby.bean.Emulator;
 import cn.endureblaze.kirby.data.DataBus;
+import cn.endureblaze.kirby.resources.ResourceData;
 import cn.endureblaze.kirby.resources.adapter.CheatCodeGameAdapter;
 import cn.endureblaze.kirby.resources.adapter.ConsoleAdapter;
 import cn.endureblaze.kirby.resources.adapter.EmulatorAdapter;
 import cn.endureblaze.kirby.resources.adapter.ResPagerAdapter;
-import cn.endureblaze.kirby.resources.ResourceData;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -127,7 +127,7 @@ public class MainResFragment extends BaseFragment {
         rlv_console.setLayoutManager(layoutManager_console);
         ConsoleAdapter console_adapter = new ConsoleAdapter(console_list, getActivity());
         rlv_console.setAdapter(console_adapter);
-        ResourceData.setConsoseData(console_list);
+        ResourceData.setConsoleData(console_list);
 
         //模拟器列表配置
         GridLayoutManager layoutManager_emulator = new GridLayoutManager(getActivity(), 3);

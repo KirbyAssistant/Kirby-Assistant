@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kirby Assistant</string>
+    <!--底栏的四个-->
+    <!--小标题也要用到-->
+    <string name="title_res">Resources</string>
+    <string name="title_video">Video</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_me">Me</string>
+    <!--上面这个还有个替代品-->
+    <string name="title_login">Login/Register</string>
+    <!--结束————底栏的四个-->
+
+    <!--资源碎片分页的那三个-->
+    <string name="tab_game">Game</string>
+    <string name="tab_emulator">Emulators</string>
+    <!--这个模拟器列表需要用到-->
+    <string name="tab_cheatcode">Cheat Code</string>
+    <!--结束————资源碎片分页的那三个-->
+
+    <!--ToolBar菜单-->
+    <string name="toolbar_menu_theme">Theme</string>
+    <string name="toolbar_menu_app">Recommend APP</string>
+    <string name="toolbar_menu_app_ZArchiver">Convenient File Compression And Decompression Utilities .</string>
+    <!--这两个对应的界面标题也要用-->
+    <string name="toolbar_menu_setting">Setting</string>
+    <string name="toolbar_menu_donate">Donate</string>
+    <!--结束————ToolBar菜单-->
+
+    <!--游戏列表需要-->
+    <string name="title_game_list">Now is</string>
+    <!--结束————游戏列表需要-->
+
+    <!--游戏下载-->
+    <string name="game_download_game">Please Choose Versions Of The Languages You Need</string>
+    <string name="game_download_game_1">ONLY North American Version</string>
+    <string name="game_download_game_2">ONLY Japanese Version</string>
+    <!--结束————游戏下载-->
+
+    <!--文件下载-->
+    <string name="download_dia_mess">ONLY Chinesize Version</string>
+    <string name="downloading">Downloading</string>
+    <string name="download_success">Download Successfully，Save Path:</string>
+    <string name="download_fail">Download Unsuccessfully:</string>
+    <!--结束————文件下载-->
+
+    <!--闲聊-->
+    <string name="chat_send">Send</string>
+    <string name="chat_sending">Sending</string>
+    <string name="chat_success">Send Successfully</string>
+    <string name="chat_fail">Send Unsuccessfully</string>
+    <string name="chat_del_success">Chat delete successfully</string>
+    <string name="chat_del_fail">Chat delete failed :</string>
+    <string name="chat_copy">Copy Chat Content</string>
+    <string name="chat_del">Delete this chat</string>
+    <string name="chat_edit">Edit this chat</string>
+    <string name="chat_look_more">Look more</string>
+    <string name="chat_edit_some">Please write something</string>
+    <string name="chat_edit_hint">Text (1000 Letters)</string>
+    <string name="chat_not_login">Not logged in,unable to use</string>
+    <!--结束————闲聊-->
+
+    <!--捐赠-->
+    <string name="donate_title">Donate</string>
+    <string name="donate_alipay">Alipay</string>
+    <string name="donate_other">Other</string>
+    <string name="donate_paypal">PayPal</string>
+    <!--结束————捐赠-->
+
+    <!--用户系统-->
+    <string name="user_email_fail">The mailbox format is not correct</string>
+
+    <string name="user_info_title">用户信息</string>
+    <string name="user_avatar_upload">Avater Uploading</string>
+
+    <string name="user_email">E-mail</string>
+    <string name="user_not_have_user">No account number? Click me</string>
+    <string name="user_have_user">Existing account? Click me</string>
+
+    <string name="user_login">Login</string>
+    <string name="user_login_username">User Name/E-mail</string>
+    <string name="user_login_password">Password</string>
+    <string name="user_login_success">Login Successfully</string>
+    <string name="user_login_fail">Login Unsuccessfully</string>
+
+    <string name="user_register">Register</string>
+    <string name="user_register_success">Register Successfully</string>
+    <string name="user_register_fail">Register Unsuccessfully</string>
+    <string name="user_register_username">User Name(Can\'t modification If You Have Registered)</string>
+    <string name="user_register_email">E-mail(Used To Retrieve Password)</string>
+    <string name="user_register_password">Password(Support Numbers Or Letter)</string>
+    <string name="user_register_password_again">Please enter your password again</string>
+
+    <string name="user_modify_email">Modify E-mail</string>
+    <string name="user_modify_email_old">Please Enter Your Original Email Address</string>
+    <string name="user_modify_email_new">Please Enter New Email Address</string>
+    <string name="user_modify_email_verify_fail">Email verification Unsuccessfully</string>
+
+    <string name="user_modify_password">Modify Password</string>
+    <string name="user_modify_password_old">Please Enter Old Password</string>
+    <string name="user_modify_password_new">Please Enter New Password</string>
+    <string name="user_modify_password_new_again">Please Enter New Password Again</string>
+    <string name="user_modify_password_verify_fail">Twice You Input Passwords Are Different</string>
+    <string name="user_modify_password_fail">ERROR</string>
+
+    <string name="user_logout">Logout</string>
+    <string name="user_register_time">Registration time</string>
+    <!--结束————用户系统-->
+
+    <!--设置-->
+    <string name="setting_title">Setting</string>
+    <string name="setting_language_title">Language setting</string>
+    <string name="setting_apk_cache_clean_title">Apk download cache cleanup</string>
+    <string name="setting_apk_cache_clean_summary">Check here to cleanup</string>
+    <string name="setting_image_cache_clean_title">Image cache cleanup</string>
+    <string name="setting_image_cache_clean_summary">Check here to cleanup</string>
+
+    <string name="setting_version_title">Version</string>
+
+    <string name="setting_about_title">About</string>
+    <string name="setting_about_star_title">Gtade</string>
+    <string name="setting_about_star_summary">Hope You Give Me FIVE STAR!</string>
+    <string name="setting_about_faq_title">Help</string>
+    <string name="setting_about_faq_summary">FAQ</string>
+    <string name="setting_about_feedback_title">Feedback</string>
+    <string name="setting_about_feedback_summary">More Detailed Help？Pass The Button To Go To Me Tencent QQ Group</string>
+    <string name="setting_about_tg_title">Telegram Channel</string>
+    <string name="setting_about_tg_summary">Will post updates and other things in it</string>
+    <string name="setting_about_github_title">Browsing The Program In Github.</string>
+
+    <string name="setting_dev_title">Developer</string>
+    <string name="setting_dev_coolapk_title">CoolApk @汝南京</string>
+    <string name="setting_dev_coolapk_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzY1MTg4MA==</string>
+    <string name="setting_dev_github_title">Github @EnduerBlaze</string>
+    <string name="setting_dev_github_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL0VuZHVyZUJsYXpl</string>
+    <string name="setting_dev_weibo_title">Weibo @汝南京</string>
+    <string name="setting_dev_weibo_link" translatable="false">aHR0cHM6Ly93ZWliby5jb20vcnVuYW5qaW5n</string>
+    <string name="setting_dev_twitter_title">Twitter @EndureBlaze</string>
+    <string name="setting_dev_twitter_link" translatable="false">aHR0cHM6Ly90d2l0dGVyLmNvbS9uaWhhb2N1bj9zPTA5</string>
+
+    <string name="setting_contributor_title">Contributor</string>
+    <string name="setting_contributor_domain_name_title">Special contribution of domain</string>
+    <string name="setting_contributor_domain_name_summary">View @邵旭东 Website</string>
+    <string name="setting_contributor_domain_name_link" translatable="false">aHR0cDovL3d3dy5zaGFveHVkb25nLmNvbS8=</string>
+    <string name="setting_contributor_program_title">Special contribution of program</string>
+    <string name="setting_contributor_program_summary">Github @lxfly2000</string>
+    <string name="setting_contributor_program_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
+    <string name="setting_contributor_translation_tw_title">Traditional Chinese translator</string>
+    <string name="setting_contributor_translation_tw_summary">Github @longxk2017</string>
+    <string name="setting_contributor_translation_tw_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2xvbmd4azIwMTc=</string>
+    <string name="setting_contributor_translation_en_title">English translator</string>
+    <string name="setting_contributor_translation_en_1_summary">Baidu Tieba @难难难550</string>
+    <string name="setting_contributor_translation_en_1_link" translatable="false">aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vaG9tZS9tYWluP3VuPemavumavumavjU1MA==</string>
+    <string name="setting_contributor_translation_en_2_summary">Baidu Tieba @光之耀西</string>
+    <string name="setting_contributor_translation_en_2_link" translatable="false">aHR0cDovL3RpZWJhLmJhaWR1LmNvbS9ob21lL21haW4/dW495YWJ5LmL6ICA6KW/</string>
+    <string name="setting_contributor_draw_icon_title">Draw ICON</string>
+    <string name="setting_contributor_draw_icon_1_summary">Coolapk @hk流星</string>
+    <string name="setting_contributor_draw_icon_1_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzU1NTg4Mw==</string>
+    <string name="setting_contributor_draw_icon_2_summary">Coolapk @Markuss</string>
+    <string name="setting_contributor_draw_icon_2_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzUyOTcxOA==</string>
+    <string name="setting_contributor_draw_icon_3_summary">Baidu Tieba @★☆小伊布☆★</string>
+    <string name="setting_contributor_draw_icon_3_link" translatable="false">aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vaG9tZS9tYWluP3VuPeKYheKYhuWwj+S8iuW4g+KYhuKYhQ==</string>
+    <string name="setting_contributor_video_author_title">Video author</string>
+    <string name="setting_contributor_video_author_summary">Bilibili @虚影无华</string>
+    <string name="setting_contributor_video_author_link" translatable="false">aHR0cDovL3NwYWNlLmJpbGliaWxpLmNvbS8xMzAwMTI1Mg==</string>
+    <string name="setting_contributor_writer_help_faq_title">FAQ Writer</string>
+    <string name="setting_contributor_writer_help_faq_summary">Coolapk @塔林狐</string>
+    <string name="setting_contributor_writer_help_faq_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzExNTc3NzQ=</string>
+    <!--结束————设置-->
+
+    <!--对话框用词-->
+    <string name="dia_download">Download</string>
+    <string name="dia_yes">Yes</string>
+    <string name="dia_enable">Enale</string>
+    <string name="dia_disable">Disable</string>
+    <string name="dia_cancel">Cancel</string>
+    <string name="dia_jp">Japanese Version</string>
+    <string name="dia_us">North America Version</string>
+    <string name="dia_zh">Chinesize Version</string>
+    <string name="dia_nu"/>
+    <string name="dia_agree">Agree</string>
+    <string name="dia_disagree">Agree</string>
+    <!--结束————对话框用词-->
+
+    <!--错误捕获-->
+    <string name="crash_title">This Bugs</string>
+    <!--结束————错误捕获-->
+
+    <!--通用词-->
+    <string name="load_fail">Failed to load, please refresh and try again</string>
+    <string name="choose_photo">Choose a picture</string>
+    <string name="is_null">Not Empty</string>
+    <string name="link_ser_now">Linking Server...</string>
+    <string name="link_ser_fail">Link Server Fail</string>
+    <string name="modify_success">Modify Successfully</string>
+    <string name="modify_fail">MOdify Unsuccessfully:</string>
+    <string name="two_back">Please press exit again</string>
+    <string name="check_me">Cheak me</string>
+    <string name="close">Close</string>
+    <string name="menu">Menu</string>
+    <string name="copy_text">Copy content</string>
+    <string name="copy_success">The text has been copied</string>
+    <string name="move_image">Move Image</string>
+    <!--结束————通用词-->
+</resources>

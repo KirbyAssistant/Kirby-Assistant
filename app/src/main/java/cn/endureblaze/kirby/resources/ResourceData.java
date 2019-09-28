@@ -10,9 +10,9 @@ import java.util.List;
 
 public class ResourceData
 {
-    public static void setConsoseData(List<Console> consolelist)
+    public static void setConsoleData(List<Console> consolelist)
     {
-        Console[] consosle={
+        Console[] console={
                 new Console("gba", "https://api.endureblaze.cn/ka_image/consose/gba.png", "gba"),
                 new Console("sfc", "https://api.endureblaze.cn/ka_image/consose/sfc.png", "sfc"),
                 new Console("n64", "https://api.endureblaze.cn/ka_image/consose/n64.png", "n64"),
@@ -25,9 +25,9 @@ public class ResourceData
 
         int index = 0;//定义数值
         //遍历
-        while (index < consosle.length)
+        while (index < console.length)
         {
-            consolelist.add(consosle[index++]);
+            consolelist.add(console[index++]);
         }
     }
 	public static void setEmulatorData(List<Emulator> emulatorslist)

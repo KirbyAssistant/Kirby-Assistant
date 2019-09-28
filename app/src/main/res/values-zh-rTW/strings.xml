@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kirby Assistant</string>
+    <!--底栏的四个-->
+    <!--小标题也要用到-->
+    <string name="title_res">資源</string>
+    <string name="title_video">視訊</string>
+    <string name="title_chat">閑聊</string>
+    <string name="title_me">我</string>
+    <!--上面这个还有个替代品-->
+    <string name="title_login">登入/註冊</string>
+    <!--结束————底栏的四个-->
+
+    <!--资源碎片分页的那三个-->
+    <string name="tab_game">游戲</string>
+    <string name="tab_emulator">模擬器</string>
+    <!--这个模拟器列表需要用到-->
+    <string name="tab_cheatcode">金手指</string>
+    <!--结束————资源碎片分页的那三个-->
+
+    <!--ToolBar菜单-->
+    <string name="toolbar_menu_theme">主題</string>
+    <string name="toolbar_menu_app">推薦 APP</string>
+    <string name="toolbar_menu_app_ZArchiver">方便好用的壓縮工具</string>
+    <!--这两个对应的界面标题也要用-->
+    <string name="toolbar_menu_setting">設置</string>
+    <string name="toolbar_menu_donate">捐贈</string>
+    <!--结束————ToolBar菜单-->
+
+    <!--游戏列表需要-->
+    <string name="title_game_list">當前是</string>
+    <!--结束————游戏列表需要-->
+
+    <!--游戏下载-->
+    <string name="game_download_game">請選擇您需要的語言</string>
+    <string name="game_download_game_1">[限定] 僅存在美版</string>
+    <string name="game_download_game_2">[限定] 僅存在日版</string>
+    <!--结束————游戏下载-->
+
+    <!--文件下载-->
+    <string name="download_dia_mess">咱只給你簡體漢化版</string>
+    <string name="downloading">下載中</string>
+    <string name="download_success">下載成功，保存路徑：</string>
+    <string name="download_fail">下載失敗：</string>
+    <!--结束————文件下载-->
+
+    <!--闲聊-->
+    <string name="chat_send">發送</string>
+    <string name="chat_sending">發送中</string>
+    <string name="chat_success">發送成功</string>
+    <string name="chat_fail">發送失敗</string>
+    <string name="chat_del_success">閑聊刪除成功</string>
+    <string name="chat_del_fail">閑聊刪除失敗</string>
+    <string name="chat_copy">拷貝內容</string>
+    <string name="chat_del">刪除此閑聊</string>
+    <string name="chat_edit">編輯此閑聊</string>
+    <string name="chat_look_more">查看更多</string>
+    <string name="chat_edit_some">寫點什麼吧</string>
+    <string name="chat_edit_hint">內容(1000字)</string>
+    <string name="chat_not_login">未登入，無法使用</string>
+    <!--结束————闲聊-->
+
+    <!--捐赠-->
+    <string name="donate_title">捐贈</string>
+    <string name="donate_alipay">支付寶</string>
+    <string name="donate_other">其他</string>
+    <string name="donate_paypal">PayPal</string>
+    <!--结束————捐赠-->
+
+    <!--用户系统-->
+    <string name="user_email_fail">郵箱格式不正確</string>
+
+    <string name="user_info_title">用戶信息</string>
+    <string name="user_avatar_upload">上載頭像中</string>
+
+    <string name="user_email">郵箱</string>
+    <string name="user_not_have_user">沒有帳戶？點我</string>
+    <string name="user_have_user">已有帳戶？點我</string>
+
+    <string name="user_login">登入</string>
+    <string name="user_login_username">用戶名/郵箱</string>
+    <string name="user_login_password">密碼</string>
+    <string name="user_login_success">登入成功</string>
+    <string name="user_login_fail">登入失敗</string>
+
+    <string name="user_register">注冊</string>
+    <string name="user_register_success">注冊成功</string>
+    <string name="user_register_fail">注冊失敗</string>
+    <string name="user_register_username">用戶名（註冊以後不可更改）</string>
+    <string name="user_register_email">郵箱（用於找回密碼）</string>
+    <string name="user_register_password">密碼（支持數字和字母）</string>
+    <string name="user_register_password_again">請再次輸入密碼</string>
+
+    <string name="user_modify_email">修改郵箱</string>
+    <string name="user_modify_email_old">請輸入原來的郵箱</string>
+    <string name="user_modify_email_new">請輸入新的郵箱</string>
+    <string name="user_modify_email_verify_fail">郵箱驗證失敗</string>
+
+    <string name="user_modify_password">修改密碼</string>
+    <string name="user_modify_password_old">請輸入原密碼</string>
+    <string name="user_modify_password_new">請輸入新密碼</string>
+    <string name="user_modify_password_new_again">請再輸入新密碼</string>
+    <string name="user_modify_password_verify_fail">兩次輸入的密碼不相同</string>
+    <string name="user_modify_password_fail">修改密碼出錯</string>
+
+    <string name="user_logout">帳戶登出</string>
+    <string name="user_register_time">註冊於</string>
+    <!--结束————用户系统-->
+
+    <!--设置-->
+    <string name="setting_title">設置</string>
+    <string name="setting_language_title">語言設置</string>
+    <string name="setting_apk_cache_clean_title">模擬器下載緩存清理</string>
+    <string name="setting_apk_cache_clean_summary">點擊清理</string>
+    <string name="setting_image_cache_clean_title">圖像緩存清理</string>
+    <string name="setting_image_cache_clean_summary">點擊清理</string>
+
+    <string name="setting_version_title">版本</string>
+
+    <string name="setting_about_title">關於</string>
+    <string name="setting_about_star_title">評分</string>
+    <string name="setting_about_star_summary">期待你的五分好評</string>
+    <string name="setting_about_faq_title">幫助</string>
+    <string name="setting_about_faq_summary">常見問題匯總</string>
+    <string name="setting_about_feedback_title">反饋</string>
+    <string name="setting_about_feedback_summary">更詳細的幫助？點我進入QQ群</string>
+    <string name="setting_about_tg_title">Telegram 頻道</string>
+    <string name="setting_about_tg_summary">會在這裏發佈更新信息</string>
+    <string name="setting_about_github_title">在 Github 查看這個項目</string>
+
+    <string name="setting_dev_title">开发者</string>
+    <string name="setting_dev_coolapk_title">酷安 @汝南京</string>
+    <string name="setting_dev_coolapk_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzY1MTg4MA==</string>
+    <string name="setting_dev_github_title">Github @EnduerBlaze</string>
+    <string name="setting_dev_github_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL0VuZHVyZUJsYXpl</string>
+    <string name="setting_dev_weibo_title">新浪微博 @汝南京</string>
+    <string name="setting_dev_weibo_link" translatable="false">aHR0cHM6Ly93ZWliby5jb20vcnVuYW5qaW5n</string>
+    <string name="setting_dev_twitter_title">Twitter @EndureBlaze</string>
+    <string name="setting_dev_twitter_link" translatable="false">aHR0cHM6Ly90d2l0dGVyLmNvbS9uaWhhb2N1bj9zPTA5</string>
+
+    <string name="setting_contributor_title">贡献者</string>
+    <string name="setting_contributor_domain_name_title">域名特别贡献</string>
+    <string name="setting_contributor_domain_name_summary">访问 @邵旭东 的主页</string>
+    <string name="setting_contributor_domain_name_link" translatable="false">aHR0cDovL3d3dy5zaGFveHVkb25nLmNvbS8=</string>
+    <string name="setting_contributor_program_title">程序特别贡献</string>
+    <string name="setting_contributor_program_summary">Github @lxfly2000</string>
+    <string name="setting_contributor_program_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2x4Zmx5MjAwMA==</string>
+    <string name="setting_contributor_translation_tw_title">繁体中文翻译</string>
+    <string name="setting_contributor_translation_tw_summary">Github @longxk2017</string>
+    <string name="setting_contributor_translation_tw_link" translatable="false">aHR0cHM6Ly9naXRodWIuY29tL2xvbmd4azIwMTc=</string>
+    <string name="setting_contributor_translation_en_title">英语翻译</string>
+    <string name="setting_contributor_translation_en_1_summary">百度贴吧 @难难难550</string>
+    <string name="setting_contributor_translation_en_1_link" translatable="false">aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vaG9tZS9tYWluP3VuPemavumavumavjU1MA==</string>
+    <string name="setting_contributor_translation_en_2_summary">百度贴吧 @光之耀西</string>
+    <string name="setting_contributor_translation_en_2_link" translatable="false">aHR0cDovL3RpZWJhLmJhaWR1LmNvbS9ob21lL21haW4/dW495YWJ5LmL6ICA6KW/</string>
+    <string name="setting_contributor_draw_icon_title">图标绘制</string>
+    <string name="setting_contributor_draw_icon_1_summary">酷安 @hk流星</string>
+    <string name="setting_contributor_draw_icon_1_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzU1NTg4Mw==</string>
+    <string name="setting_contributor_draw_icon_2_summary">酷安 @Markuss</string>
+    <string name="setting_contributor_draw_icon_2_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzUyOTcxOA==</string>
+    <string name="setting_contributor_draw_icon_3_summary">百度贴吧 @★☆小伊布☆★</string>
+    <string name="setting_contributor_draw_icon_3_link" translatable="false">aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vaG9tZS9tYWluP3VuPeKYheKYhuWwj+S8iuW4g+KYhuKYhQ==</string>
+    <string name="setting_contributor_video_author_title">视频作者</string>
+    <string name="setting_contributor_video_author_summary">哔哩哔哩动画 @虚影无华</string>
+    <string name="setting_contributor_video_author_link" translatable="false">aHR0cDovL3NwYWNlLmJpbGliaWxpLmNvbS8xMzAwMTI1Mg==</string>
+    <string name="setting_contributor_writer_help_faq_title">FAQ 编写</string>
+    <string name="setting_contributor_writer_help_faq_summary">酷安 @塔林狐</string>
+    <string name="setting_contributor_writer_help_faq_link" translatable="false">aHR0cDovL3d3dy5jb29sYXBrLmNvbS91LzExNTc3NzQ=</string>
+    <!--结束————设置-->
+
+    <!--对话框用词-->
+    <string name="dia_download">下載</string>
+    <string name="dia_yes">確定</string>
+    <string name="dia_enable">啟用</string>
+    <string name="dia_disable">禁用</string>
+    <string name="dia_cancel">取消</string>
+    <string name="dia_jp">日版</string>
+    <string name="dia_us">美版</string>
+    <string name="dia_zh">簡體漢化</string>
+    <string name="dia_nu"/>
+    <string name="dia_agree">同意</string>
+    <string name="dia_disagree">不同意</string>
+    <!--结束————对话框用词-->
+
+    <!--错误捕获-->
+    <string name="crash_title">出錯了</string>
+    <!--结束————错误捕获-->
+
+    <!--通用词-->
+    <string name="load_fail">加載失敗，請刷新重試</string>
+    <string name="choose_photo">選擇圖片</string>
+    <string name="is_null">不能爲空</string>
+    <string name="link_ser_now">連接伺服器中</string>
+    <string name="link_ser_fail">連接伺服失敗</string>
+    <string name="modify_success">修改成功</string>
+    <string name="modify_fail">修改失敗</string>
+    <string name="two_back">請再按一次退出程式</string>
+    <string name="check_me">點我</string>
+    <string name="close">關閉</string>
+    <string name="menu">菜單</string>
+    <string name="copy_text">拷貝</string>
+    <string name="copy_success">文本已拷貝</string>
+    <string name="move_image">移動圖片進行裁剪</string>
+    <!--结束————通用词-->
+</resources>

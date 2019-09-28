@@ -83,7 +83,7 @@ public class SettingPreferenceFragment extends PreferenceFragmentCompat {
                                     edit.apply();
                                     break;
                             }
-                            edit.apply();
+                            edit.commit();
                             dialog1.dismiss();
                             Intent intent = new Intent(getActivity(), LauncherActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
