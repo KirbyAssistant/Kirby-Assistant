@@ -14,9 +14,9 @@
                 android:key="setLanguage"
                 android:title="@string/setting_language_title" />
 
-        <SwitchPreference
+        <!--SwitchPreference
                 android:key="autoDarkMode"
-                android:title="@string/setting_language_title" />
+                android:title="@string/setting_language_title" /!-->
 
         <Preference
                 android:key="apkCacheClean"

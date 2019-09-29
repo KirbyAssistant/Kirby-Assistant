@@ -87,7 +87,7 @@ public class ThemeUtil {
         }
     }
     private static boolean isDarkMode(Context context){
-        return getDarkModeStatus(context)||isAutoDarkModeByTime(context);
+        return getDarkModeStatus(context);
     }
     /**
      * 获取主题颜色

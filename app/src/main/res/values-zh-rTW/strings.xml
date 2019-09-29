@@ -71,7 +71,7 @@
     <string name="user_email_fail">郵箱格式不正確</string>
 
     <string name="user_info_title">用戶信息</string>
-    <string name="user_avatar_upload">上載頭像中</string>
+    <string name="user_avatar_upload">上傳頭像中</string>
 
     <string name="user_email">郵箱</string>
     <string name="user_not_have_user">沒有帳戶？點我</string>
@@ -125,7 +125,7 @@
     <string name="setting_about_feedback_title">反饋</string>
     <string name="setting_about_feedback_summary">更詳細的幫助？點我進入QQ群</string>
     <string name="setting_about_tg_title">Telegram 頻道</string>
-    <string name="setting_about_tg_summary">會在這裏發佈更新信息</string>
+    <string name="setting_about_tg_summary">會在這裡發佈更新信息</string>
     <string name="setting_about_github_title">在 Github 查看這個項目</string>
 
     <string name="setting_dev_title">开发者</string>
@@ -191,7 +191,7 @@
     <string name="choose_photo">選擇圖片</string>
     <string name="is_null">不能爲空</string>
     <string name="link_ser_now">連接伺服器中</string>
-    <string name="link_ser_fail">連接伺服失敗</string>
+    <string name="link_ser_fail">連接伺服器失敗</string>
     <string name="modify_success">修改成功</string>
     <string name="modify_fail">修改失敗</string>
     <string name="two_back">請再按一次退出程式</string>

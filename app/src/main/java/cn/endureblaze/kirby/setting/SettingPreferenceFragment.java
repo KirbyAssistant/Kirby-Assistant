@@ -9,8 +9,6 @@ import android.util.Base64;
 import androidx.appcompat.app.AlertDialog;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceManager;
-import androidx.preference.SwitchPreference;
 import cn.endureblaze.kirby.R;
 import cn.endureblaze.kirby.launcher.LauncherActivity;
 import cn.endureblaze.kirby.util.AppUtil;
@@ -29,9 +27,9 @@ public class SettingPreferenceFragment extends PreferenceFragmentCompat {
         findPreference("version").setSummary(String.format("%s (Build %d) (%s) (%s)", AppUtil.getVersionName(getActivity()), AppUtil.getVersionCode(getActivity()), AppUtil.getPackageName(getActivity()),AppUtil.getChannel(Objects.requireNonNull(getActivity()))));
         findPreference("apkCacheClean").setSummary(String.format("%s %s",getActivity().getResources().getString(R.string.setting_apk_cache_clean_summary)+":" ,FileUtil.getFileOrFilesSize(Objects.requireNonNull(getContext()).getExternalCacheDir()+"/bmob/",3))+"M");
         findPreference("imageCacheClean").setSummary(String.format("%s %s",getActivity().getResources().getString(R.string.setting_image_cache_clean_summary)+":" ,FileUtil.getFileOrFilesSize(Objects.requireNonNull(getContext()).getCacheDir()+"/image_manager_disk_cache/",3))+"M");
-        SharedPreferences edit= PreferenceManager.getDefaultSharedPreferences(getActivity());
-        SwitchPreference autoDarkMode = findPreference("autoDarkMode");
-        autoDarkMode.setChecked(edit.getBoolean("autoDarkMode",true));
+        //SharedPreferences edit= PreferenceManager.getDefaultSharedPreferences(getActivity());
+        //SwitchPreference autoDarkMode = findPreference("autoDarkMode");
+        //autoDarkMode.setChecked(edit.getBoolean("autoDarkMode",true));
     }
 
 
