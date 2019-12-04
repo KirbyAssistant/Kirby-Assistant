@@ -10,17 +10,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/mainAppBarLayout1">
 
-        <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_width="match_parent"
-                android:background="?attr/colorPrimary"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
-                android:elevation="4dp">
-
-        </androidx.appcompat.widget.Toolbar>
+        <include layout="@layout/layout_toolbar"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -49,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:visibility="gone"
+            android:theme="@style/Widget.MaterialComponents.FloatingActionButton"
             app:srcCompat="@drawable/ic_kirby_editchat"
             app:backgroundTint="?attr/colorAccent"
             app:tint="@android:color/white"

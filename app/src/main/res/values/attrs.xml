@@ -11,6 +11,11 @@
         <attr name="civ_circle_background_color" format="color" />
     </declare-styleable>
 
+    <attr name="icon_color" format="color"/>
+
+    <attr name="toolbar_theme" format="string"/>
+    <attr name="toolbar_icon_color" format="color"/>
+
     <!--窗口背景色-->
     <attr name="color_windows_background" format="color"/>
     <attr name="color_view_background" format="color"/>

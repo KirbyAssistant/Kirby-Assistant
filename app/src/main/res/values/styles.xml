@@ -1,9 +1,5 @@
 <resources>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
     <style name="LauncherLoading" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/ka_logo</item>
     </style>
@@ -51,22 +47,32 @@
         <item name="android:windowBackground">@android:color/white</item>
         <item name="color_view_background">@android:color/white</item>
         <item name="color_windows_background">#FFF5F5F5</item>
-        <item name="text_high">#87000000</item>
-        <item name="text_medium">#60000000</item>
+        <item name="text_high">#CC000000</item>
+        <item name="text_medium">#77000000</item>
         <item name="text_hint">#38000000</item>
         <item name="text_error">#FFB00020</item>
+        <item name="icon_color">#FF202020</item>
+        <item name="toolbar_theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="toolbar_icon_color">#FFFEFEFE</item>
         <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
+        <item name="android:textColorSecondary">?attr/text_medium</item>
+        <item name="android:textColorPrimary">?attr/text_high</item>
     </style>
 
     <style name="BaseDarkTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">#FF303030</item>
         <item name="color_view_background">#FF303030</item>
         <item name="color_windows_background">#FF202020</item>
-        <item name="text_high">#87FFFFFF</item>
-        <item name="text_medium">#60FFFFFF</item>
-        <item name="text_hint">#38FFFFFF</item>
+        <item name="text_high">#85FFFFFF</item>
+        <item name="text_medium">#65FFFFFF</item>
+        <item name="text_hint">#45FFFFFF</item>
         <item name="text_error">#FFB00020</item>
+        <item name="icon_color">#FFF5F5F5</item>
+        <item name="toolbar_theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="toolbar_icon_color">#FFFEFEFE</item>
         <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
+        <item name="android:textColorSecondary">?attr/text_medium</item>
+        <item name="android:textColorPrimary">?attr/text_high</item>
     </style>
 
     <style name="BlueAppTheme" parent="BaseLightTheme">
@@ -140,10 +146,13 @@
     </style>
 
     <style name="WhiteAppTheme" parent="BaseLightTheme">
+        <item name="color_windows_background">@color/whiteColorPrimary</item>
         <item name="colorPrimary">@color/whiteColorPrimary</item>
-        <item name="colorPrimaryDark">@color/whiteColorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/whiteColorPrimary</item>
         <item name="colorAccent">@color/whiteColorAccent</item>
         <item name="color_nav">@color/whiteColorPrimary</item>
+        <item name="toolbar_theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item name="toolbar_icon_color">#FF606060</item>
     </style>
 
     <style name="DarkAppTheme" parent="BaseDarkTheme">

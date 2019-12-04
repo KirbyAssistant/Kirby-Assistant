@@ -71,11 +71,11 @@
             android:layout_height="?android:actionBarSize"
             android:layout_gravity="bottom"
             android:backgroundTint="?attr/colorPrimary"
-            android:theme="@style/AppTheme.AppBarOverlay"
+            android:theme="?attr/toolbar_theme"
             app:buttonGravity="bottom|top"
             app:fabAlignmentMode="end"
             app:hideOnScroll="true"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             style="@style/Widget.MaterialComponents.BottomAppBar">
 

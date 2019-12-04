@@ -42,9 +42,9 @@
     <color name="yellowColorPrimaryDark">#FBC02D</color>
     <color name="yellowColorAccent">#FFF59D</color>
     <!--WhiteAppTheme 主题-->
-    <color name="whiteColorPrimary">#9E9E9E</color>
-    <color name="whiteColorPrimaryDark">#616161</color>
-    <color name="whiteColorAccent">#EEEEEE</color>
+    <color name="whiteColorPrimary">#FEFEFE</color>
+    <color name="whiteColorPrimaryDark">#FEFEFE</color>
+    <color name="whiteColorAccent">#00bdd5</color>
     <!--DarkAppTheme 主题-->
     <color name="darkColorPrimary">#FF212121</color>
     <color name="darkColorPrimaryDark">#FF212121</color>

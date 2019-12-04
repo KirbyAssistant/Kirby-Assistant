@@ -2,6 +2,7 @@ package cn.endureblaze.kirby.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.util.TypedValue;
@@ -28,13 +29,12 @@ public class ThemeUtil {
     public final static String FILE_NAME = "theme";
 
     public static void setClassTheme(Context context) {
+        Theme(context, getThemeId(context));
+    }
+
+    public static int getThemeId(Context context) {
         SharedPreferences theme = context.getSharedPreferences(FILE_NAME, 0);
-        int themeId = theme.getInt("themeId", 0);
-        if(isDarkMode(context)){
-            Theme(context, DARK_THEME);
-        }else {
-            Theme(context, themeId);
-        }
+        return theme.getInt("themeId", 0);
     }
 
     public static void setThemeByName(Context context, int i) {
@@ -89,6 +89,30 @@ public class ThemeUtil {
     private static boolean isDarkMode(Context context){
         return getDarkModeStatus(context);
     }
+
+    public static void sw2DarkTheme(Activity activity, final Class<?> toClass)
+    {
+        SharedPreferences sw2dark = activity.getSharedPreferences(FILE_NAME, 0);
+        SharedPreferences.Editor sw2dark_edit = sw2dark.edit();
+        sw2dark_edit.putInt("before_app_theme", getThemeId(activity));
+        sw2dark_edit.apply();
+        sw2dark_edit.commit();
+        ThemeUtil.setThemeByName(activity, DARK_THEME);
+        Intent intent = new Intent(activity, toClass);
+        activity.startActivity(intent);
+        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        activity.finish();
+    }
+
+    public static void sw2AppTheme(Activity activity, final Class<?> toClass){
+        SharedPreferences sw2app = activity.getSharedPreferences(FILE_NAME, 0);
+        ThemeUtil.setThemeByName(activity, sw2app.getInt("before_app_theme", 0));
+        Intent intent = new Intent(activity, toClass);
+        activity.startActivity(intent);
+        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        activity.finish();
+    }
+
     /**
      * 获取主题颜色
      *

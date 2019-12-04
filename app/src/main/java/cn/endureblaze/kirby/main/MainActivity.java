@@ -63,7 +63,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mian);
+        setContentView(R.layout.activity_main);
         findShortcut();
         //配置toolbar
         toolbar = findViewById(R.id.toolbar);
