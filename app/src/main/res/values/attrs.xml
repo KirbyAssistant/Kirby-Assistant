@@ -25,7 +25,7 @@
     <attr name="text_medium" format="color"/>
     <attr name="text_hint" format="color"/>
     <attr name="text_error" format="color"/>
-
+    <attr name="btn_text_color" format="color"/>
     <!--底栏选中颜色-->
     <attr name="color_nav" format="color"/>
 

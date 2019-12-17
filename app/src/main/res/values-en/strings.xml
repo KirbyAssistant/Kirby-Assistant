@@ -201,5 +201,7 @@
     <string name="copy_text">Copy content</string>
     <string name="copy_success">The text has been copied</string>
     <string name="move_image">Move Image</string>
+    <string name="find_new_version">Find a new version</string>
+    <string name="view_new_version">View</string>
     <!--结束————通用词-->
 </resources>

@@ -49,4 +49,18 @@
     <color name="darkColorPrimary">#FF212121</color>
     <color name="darkColorPrimaryDark">#FF212121</color>
     <color name="darkColorAccent">#90CAF9</color>
+    <!--亮色主题的字体颜色-->
+    <color name="light_text_high">#CC000000</color>
+    <color name="light_text_medium">#77000000</color>
+    <color name="light_text_hint">#38000000</color>
+    <color name="light_text_error">#FFB00020</color>
+    <color name="light_btn_text_color">#FFFFFFFF</color>
+    <!--Dark主题的字体颜色-->
+    <color name="dark_text_high">#85FFFFFF</color>
+    <color name="dark_text_medium">#65FFFFFF</color>
+    <color name="dark_text_hint">#45FFFFFF</color>
+    <color name="dark_text_error">#FFB00020</color>
+    <color name="dark_btn_text_color">#FFFFFFFF</color>
+    <!--白色主题字体颜色-->
+    <color name="white_btn_text_color">#CC000000</color>
 </resources>

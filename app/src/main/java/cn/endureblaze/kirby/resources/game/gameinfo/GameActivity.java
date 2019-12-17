@@ -127,7 +127,7 @@ public class GameActivity extends BaseActivity {
     //显示下载窗口
     private void showDownloadDialog(String name, int mess, Integer pos, Integer neg, Integer neu, final String pos_url, final String neg_url, final String neu_url) {
         MaterialAlertDialogBuilder dialog = new
-                MaterialAlertDialogBuilder(this)
+                MaterialAlertDialogBuilder(this,R.style.Theme_MaterialComponents)
                 .setTitle(name)
                 .setMessage(mess)
                 .setPositiveButton(pos, (dialog1, which) -> {

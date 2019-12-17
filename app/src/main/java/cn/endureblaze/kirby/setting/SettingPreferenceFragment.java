@@ -42,7 +42,7 @@ public class SettingPreferenceFragment extends PreferenceFragmentCompat {
                 try
                 {
                     Intent star=new Intent("android.intent.action.VIEW");
-                    star .setData(Uri.parse("market://details?id=cn.endureblaze.ka"));
+                    star .setData(Uri.parse("market://details?id=cn.endureblaze.kirby"));
                     star.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     star .setPackage("com.coolapk.market");
                     Objects.requireNonNull(getActivity()).startActivity(star);

@@ -27,6 +27,7 @@ import cn.endureblaze.kirby.resources.fragment.MainResFragment;
 import cn.endureblaze.kirby.setting.SettingActivity;
 import cn.endureblaze.kirby.user.info.MainUserInfoFragment;
 import cn.endureblaze.kirby.user.login.MainLoginFragment;
+import cn.endureblaze.kirby.util.CheckUpdateUtil;
 import cn.endureblaze.kirby.util.DownloadApkUtil;
 import cn.endureblaze.kirby.util.ThemeUtil;
 import cn.endureblaze.kirby.util.UserUtil;
@@ -59,7 +60,7 @@ public class MainActivity extends BaseActivity {
     private BottomNavigationView bottomNavigationView;
     private LocalBroadcastManager localBroadcastManager;
 
-    private boolean isVide = false;
+    private boolean isVideo = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +77,7 @@ public class MainActivity extends BaseActivity {
         main_fragment_viewpager.setNoScroll(true);
         main_fragment_viewpager.setOffscreenPageLimit(4);
         initFragmentViewPager();
+        CheckUpdateUtil.checkUpdate(toolbar, this);
         Intent intent = getIntent();
         if(intent.getBooleanExtra("theme",false)) {
             int tag = intent.getIntExtra("fragment", 0);
@@ -126,10 +128,11 @@ public class MainActivity extends BaseActivity {
                 case R.id.chat:
                     main_fragment_viewpager.setCurrentItem(2);
                     toolbar.setSubtitle(page_title.get(2));
-
-                    fab.setVisibility(View.VISIBLE);
-                    fab.startAnimation(mess_fab_show_anim);
-                    showEditChatDialog(fab);
+                    if(UserUtil.isUserLogin()) {
+                        fab.setVisibility(View.VISIBLE);
+                        fab.startAnimation(mess_fab_show_anim);
+                        showEditChatDialog(fab);
+                    }
                     break;
                 case R.id.me:
                     main_fragment_viewpager.setCurrentItem(3);
@@ -191,7 +194,7 @@ public class MainActivity extends BaseActivity {
         viewpager_adapter = new ViewPagerAdapter(getSupportFragmentManager(), fragments, page_title);
         main_fragment_viewpager.setAdapter(viewpager_adapter);
 
-        if(isVide){
+        if(isVideo){
             toolbar.setSubtitle(R.string.title_login);
             main_fragment_viewpager.setCurrentItem(1);
             bottomNavigationView.setSelectedItemId(R.id.video);
@@ -202,7 +205,7 @@ public class MainActivity extends BaseActivity {
     private void findShortcut() {
         Intent intent = getIntent();
         if ("video".equals(intent.getStringExtra("function"))) {
-            isVide = true;
+            isVideo = true;
         }
     }
     //设置闲聊界面的FAB显示
@@ -244,7 +247,7 @@ public class MainActivity extends BaseActivity {
                         R.drawable.theme_brown,
                         R.drawable.theme_bluegrey,
                         R.drawable.theme_yellow,
-                        R.drawable.theme_white,
+                       // R.drawable.theme_white,
                         R.drawable.theme_dark
                 };
                 List<Integer> list = Arrays.asList(res);

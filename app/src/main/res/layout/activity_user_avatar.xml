@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:text="@string/choose_photo"
             android:id="@+id/choose_photo"
+            android:textColor="?attr/btn_text_color"
             android:transitionName="logout"/>
 
 </LinearLayout>

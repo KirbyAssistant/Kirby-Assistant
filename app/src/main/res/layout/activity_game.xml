@@ -88,7 +88,7 @@
                 android:transitionName="name"
                 android:paddingBottom="?actionBarSize"
                 android:textStyle="bold"
-                android:textColor="#ffffff"/>
+                android:textColor="?attr/text_high"/>
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 

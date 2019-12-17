@@ -8,8 +8,8 @@ android {
         applicationId "cn.endureblaze.kirby"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 51
-        versionName "2.0.1"
+        versionCode 52
+        versionName "2.0.2"
         flavorDimensions "versionCode"
         vectorDrawables.useSupportLibrary = true
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']
@@ -20,6 +20,9 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        debug {
             signingConfig signingConfigs.debug
         }
     }
@@ -35,7 +38,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     //下拉刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-16'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-16'
@@ -54,12 +57,11 @@ dependencies {
     //自己开源出去的库
     //GlideCache
     implementation 'com.github.EndureBlaze:GlideCache:1.1'
-
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.2.0-alpha02'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.preference:preference:1.1.0'
-    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0-rc01'
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
 }

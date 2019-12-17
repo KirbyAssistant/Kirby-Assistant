@@ -29,6 +29,7 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_height="40dp"
                 android:text="@string/dia_yes"
+                android:textColor="?attr/btn_text_color"
                 android:id="@+id/cropimage_ok"/>
 
     </LinearLayout>

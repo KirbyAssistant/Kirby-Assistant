@@ -13,7 +13,6 @@
         <attr name="nocropper__fit_to_center" format="boolean"/>
     </declare-styleable>
 
-
     <style name="OMGDialogStyle">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -38,19 +37,26 @@
         <item name="android:windowExitAnimation">@anim/omgdialog_left_exit_anim</item>
     </style>
 
-    <style name="TopAnimation" parent="android:Animation">
+    <style name="TopAnimation" parent="MaterialAlertDialog.MaterialComponents">
         <item name="android:windowEnterAnimation">@anim/omgdialog_top_enter_anim</item>
         <item name="android:windowExitAnimation">@anim/omgdialog_top_exit_anim</item>
+    </style>s
+
+    <style name="MaterialAlertDialog" parent="@style/Base.ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="materialAlertDialogTitlePanelStyle">@style/MaterialAlertDialog.MaterialComponents.Title.Panel.CenterStacked</item>
+        <item name="materialAlertDialogTitleIconStyle">@style/MaterialAlertDialog.MaterialComponents.Title.Icon.CenterStacked</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked</item>
     </style>
 
     <style name="BaseLightTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@android:color/white</item>
         <item name="color_view_background">@android:color/white</item>
         <item name="color_windows_background">#FFF5F5F5</item>
-        <item name="text_high">#CC000000</item>
-        <item name="text_medium">#77000000</item>
-        <item name="text_hint">#38000000</item>
-        <item name="text_error">#FFB00020</item>
+        <item name="text_high">@color/light_text_high</item>
+        <item name="text_medium">@color/light_text_medium</item>
+        <item name="text_hint">@color/light_text_hint</item>
+        <item name="text_error">@color/light_text_error</item>
+        <item name="btn_text_color">@color/light_btn_text_color</item>
         <item name="icon_color">#FF202020</item>
         <item name="toolbar_theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
         <item name="toolbar_icon_color">#FFFEFEFE</item>
@@ -63,10 +69,11 @@
         <item name="android:windowBackground">#FF303030</item>
         <item name="color_view_background">#FF303030</item>
         <item name="color_windows_background">#FF202020</item>
-        <item name="text_high">#85FFFFFF</item>
-        <item name="text_medium">#65FFFFFF</item>
-        <item name="text_hint">#45FFFFFF</item>
-        <item name="text_error">#FFB00020</item>
+        <item name="text_high">@color/dark_text_high</item>
+        <item name="text_medium">@color/dark_text_medium</item>
+        <item name="text_hint">@color/dark_text_hint</item>
+        <item name="text_error">@color/dark_text_error</item>
+        <item name="btn_text_color">@color/dark_btn_text_color</item>
         <item name="icon_color">#FFF5F5F5</item>
         <item name="toolbar_theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
         <item name="toolbar_icon_color">#FFFEFEFE</item>
@@ -74,6 +81,8 @@
         <item name="android:textColorSecondary">?attr/text_medium</item>
         <item name="android:textColorPrimary">?attr/text_high</item>
     </style>
+
+
 
     <style name="BlueAppTheme" parent="BaseLightTheme">
         <item name="colorPrimary">@color/blueColorPrimary</item>
@@ -150,7 +159,8 @@
         <item name="colorPrimary">@color/whiteColorPrimary</item>
         <item name="colorPrimaryDark">@color/whiteColorPrimary</item>
         <item name="colorAccent">@color/whiteColorAccent</item>
-        <item name="color_nav">@color/whiteColorPrimary</item>
+        <item name="color_nav">@color/whiteColorAccent</item>
+        <item name="btn_text_color">@color/white_btn_text_color</item>
         <item name="toolbar_theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
         <item name="toolbar_icon_color">#FF606060</item>
     </style>

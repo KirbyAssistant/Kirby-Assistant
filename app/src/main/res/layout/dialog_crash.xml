@@ -26,6 +26,7 @@
                 android:layout_width="0dp"
                 android:text="@string/copy_text"
                 android:layout_weight="5"
+                android:textColor="?attr/btn_text_color"
                 android:id="@+id/copy"/>
 
     </LinearLayout>

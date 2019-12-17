@@ -201,5 +201,7 @@
     <string name="copy_text">拷貝</string>
     <string name="copy_success">文本已拷貝</string>
     <string name="move_image">移動圖片進行裁剪</string>
+    <string name="find_new_version">发现新版本</string>
+    <string name="view_new_version">查看</string>
     <!--结束————通用词-->
 </resources>
