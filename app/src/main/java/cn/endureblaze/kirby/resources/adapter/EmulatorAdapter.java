@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import cn.ednureblaze.glidecache.GlideCache;
@@ -20,7 +21,6 @@ import cn.endureblaze.kirby.R;
 import cn.endureblaze.kirby.bean.Emulator;
 import cn.endureblaze.kirby.util.DownloadApkUtil;
 import com.bumptech.glide.Glide;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
 
@@ -67,8 +67,8 @@ public class EmulatorAdapter extends RecyclerView.Adapter<EmulatorAdapter.ViewHo
 		holder.LinearLayout.setOnClickListener(v -> {
 			int position = holder.getAdapterPosition();
 			Emulator emulator = mEmulatorlist.get(position);
-			MaterialAlertDialogBuilder dialog = new
-                            MaterialAlertDialogBuilder(mContext)
+			AlertDialog.Builder dialog = new
+                            AlertDialog.Builder(mContext)
                             .setTitle(emulator.getName())
                             .setMessage(R.string.download_dia_mess)
                             .setPositiveButton(R.string.dia_download, (dialog1, which) -> DownloadApkUtil.downloadAppApk(emulator.getTag(), mContext)

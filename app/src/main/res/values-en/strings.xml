@@ -190,7 +190,7 @@
     <string name="load_fail">Failed to load, please refresh and try again</string>
     <string name="choose_photo">Choose a picture</string>
     <string name="is_null">Not Empty</string>
-    <string name="link_ser_now">Linking Server...</string>
+    <string name="link_ser_now">Linking Server…</string>
     <string name="link_ser_fail">Link Server Fail</string>
     <string name="modify_success">Modify Successfully</string>
     <string name="modify_fail">MOdify Unsuccessfully:</string>

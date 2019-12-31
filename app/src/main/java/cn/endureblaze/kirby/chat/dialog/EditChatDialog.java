@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
+import androidx.appcompat.app.AlertDialog;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
@@ -28,7 +29,6 @@ import cn.endureblaze.kirby.omgdialog.ViewHolder;
 import cn.endureblaze.kirby.util.CheckTextUtil;
 import cn.endureblaze.kirby.util.ToastUtil;
 import cn.endureblaze.kirby.util.UserUtil;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Objects;
 
@@ -104,8 +104,8 @@ public class EditChatDialog extends BaseDialog {
             ToastUtil.show(R.string.is_null);
             } else {
                 if (CheckTextUtil.isHaveTerribleWord(str_chat)) {
-                    MaterialAlertDialogBuilder dialog = new
-                            MaterialAlertDialogBuilder(getActivity())
+                    AlertDialog.Builder dialog = new
+                            AlertDialog.Builder(getActivity())
                             .setTitle("需要帮助吗？")
                             .setMessage("这个世界虽然不完美\n我们仍可以治愈自己\n以下电话全国可拨(24小时)\n010-82951332")
                             .setCancelable(false)

@@ -14,7 +14,6 @@ import cn.endureblaze.kirby.launcher.LauncherActivity;
 import cn.endureblaze.kirby.util.AppUtil;
 import cn.endureblaze.kirby.util.FileUtil;
 import cn.endureblaze.kirby.util.LanguageUtil;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Objects;
 
@@ -56,7 +55,7 @@ public class SettingPreferenceFragment extends PreferenceFragmentCompat {
                 SharedPreferences c= Objects.requireNonNull(getActivity()).getSharedPreferences("setting", 0);
                 int itemSelected=c.getInt("language_i", 0);
                 String [] lan={"Auto","简体中文","繁體中文（台灣）","ENGLISH"};
-                AlertDialog dialog = new MaterialAlertDialogBuilder(getActivity()).setTitle(R.string.setting_language_title)
+                AlertDialog dialog = new AlertDialog.Builder(getActivity()).setTitle(R.string.setting_language_title)
                         .setSingleChoiceItems(lan, itemSelected, (dialog1, i) -> {
                             SharedPreferences lan1 =getActivity().getSharedPreferences("setting", 0);
                             SharedPreferences.Editor edit= lan1.edit();

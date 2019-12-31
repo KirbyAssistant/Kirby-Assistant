@@ -29,4 +29,5 @@
     <!--底栏选中颜色-->
     <attr name="color_nav" format="color"/>
 
+    <attr name="dialog_button_color" format="color"/>
 </resources>

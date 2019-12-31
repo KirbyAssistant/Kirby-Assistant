@@ -10,11 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.appcompat.app.AlertDialog;
 import cn.ednureblaze.glidecache.GlideCache;
 import cn.endureblaze.kirby.R;
 import cn.endureblaze.kirby.base.BaseActivity;
 import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Objects;
@@ -126,8 +126,8 @@ public class GameActivity extends BaseActivity {
     }
     //显示下载窗口
     private void showDownloadDialog(String name, int mess, Integer pos, Integer neg, Integer neu, final String pos_url, final String neg_url, final String neu_url) {
-        MaterialAlertDialogBuilder dialog = new
-                MaterialAlertDialogBuilder(this,R.style.Theme_MaterialComponents)
+        AlertDialog.Builder dialog = new
+                AlertDialog.Builder(this)
                 .setTitle(name)
                 .setMessage(mess)
                 .setPositiveButton(pos, (dialog1, which) -> {

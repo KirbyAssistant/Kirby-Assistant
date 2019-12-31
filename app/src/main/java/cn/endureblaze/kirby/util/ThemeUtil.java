@@ -23,8 +23,8 @@ public class ThemeUtil {
     public final static int BROWN_THEME = 7;
     public final static int BLUEGREY_THEME = 8;
     public final static int YELLOW_THEME = 9;
-    //public final static int WHITE_THEME = 10;
-    public final static int DARK_THEME = 10;
+    public final static int WHITE_THEME = 10;
+    public final static int DARK_THEME = 11;
 
     public final static String FILE_NAME = "theme";
 
@@ -76,9 +76,9 @@ public class ThemeUtil {
             case YELLOW_THEME:
                 context.setTheme(R.style.YellowAppTheme);
                 break;
-            /*case WHITE_THEME:
+            case WHITE_THEME:
                 context.setTheme(R.style.WhiteAppTheme);
-                break;*/
+                break;
             case DARK_THEME:
                 context.setTheme(R.style.DarkAppTheme);
                 break;

@@ -42,12 +42,6 @@
         <item name="android:windowExitAnimation">@anim/omgdialog_top_exit_anim</item>
     </style>s
 
-    <style name="MaterialAlertDialog" parent="@style/Base.ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <item name="materialAlertDialogTitlePanelStyle">@style/MaterialAlertDialog.MaterialComponents.Title.Panel.CenterStacked</item>
-        <item name="materialAlertDialogTitleIconStyle">@style/MaterialAlertDialog.MaterialComponents.Title.Icon.CenterStacked</item>
-        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked</item>
-    </style>
-
     <style name="BaseLightTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@android:color/white</item>
         <item name="color_view_background">@android:color/white</item>
@@ -63,6 +57,7 @@
         <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
         <item name="android:textColorSecondary">?attr/text_medium</item>
         <item name="android:textColorPrimary">?attr/text_high</item>
+        <item name="alertDialogTheme">@style/LightAlertDialog</item>
     </style>
 
     <style name="BaseDarkTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -80,15 +75,15 @@
         <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
         <item name="android:textColorSecondary">?attr/text_medium</item>
         <item name="android:textColorPrimary">?attr/text_high</item>
+        <item name="alertDialogTheme">@style/DarkAlertDialog</item>
     </style>
-
-
 
     <style name="BlueAppTheme" parent="BaseLightTheme">
         <item name="colorPrimary">@color/blueColorPrimary</item>
         <item name="colorPrimaryDark">@color/blueColorPrimaryDark</item>
         <item name="colorAccent">@color/blueColorAccent</item>
         <item name="color_nav">@color/blueColorPrimary</item>
+        <item name="dialog_button_color">@color/blueColorAccent</item>
     </style>
 
     <style name="RedAppTheme" parent="BaseLightTheme">
@@ -96,6 +91,7 @@
         <item name="colorPrimaryDark">@color/redColorPrimaryDark</item>
         <item name="colorAccent">@color/redColorAccent</item>
         <item name="color_nav">@color/redColorPrimary</item>
+        <item name="dialog_button_color">@color/redColorAccent</item>
     </style>
 
     <style name="PurpleAppTheme" parent="BaseLightTheme">
@@ -103,6 +99,7 @@
         <item name="colorPrimaryDark">@color/purpleColorPrimaryDark</item>
         <item name="colorAccent">@color/purpleColorAccent</item>
         <item name="color_nav">@color/purpleColorPrimary</item>
+        <item name="dialog_button_color">@color/purpleColorAccent</item>
     </style>
 
     <style name="IndigoAppTheme" parent="BaseLightTheme">
@@ -110,6 +107,7 @@
         <item name="colorPrimaryDark">@color/indigoColorPrimaryDark</item>
         <item name="colorAccent">@color/indigoColorAccent</item>
         <item name="color_nav">@color/indigoColorPrimary</item>
+        <item name="dialog_button_color">@color/indigoColorAccent</item>
     </style>
 
     <style name="TealAppTheme" parent="BaseLightTheme">
@@ -117,6 +115,7 @@
         <item name="colorPrimaryDark">@color/tealColorPrimaryDark</item>
         <item name="colorAccent">@color/tealColorAccent</item>
         <item name="color_nav">@color/tealColorPrimary</item>
+        <item name="dialog_button_color">@color/tealColorAccent</item>
     </style>
 
     <style name="GreenAppTheme" parent="BaseLightTheme">
@@ -124,6 +123,7 @@
         <item name="colorPrimaryDark">@color/greenColorPrimaryDark</item>
         <item name="colorAccent">@color/greenColorAccent</item>
         <item name="color_nav">@color/greenColorPrimary</item>
+        <item name="dialog_button_color">@color/greenColorAccent</item>
     </style>
 
     <style name="OrangeAppTheme" parent="BaseLightTheme">
@@ -131,6 +131,7 @@
         <item name="colorPrimaryDark">@color/orangeColorPrimaryDark</item>
         <item name="colorAccent">@color/orangeColorAccent</item>
         <item name="color_nav">@color/orangeColorPrimary</item>
+        <item name="dialog_button_color">@color/orangeColorAccent</item>
     </style>
 
     <style name="BrownAppTheme" parent="BaseLightTheme">
@@ -138,6 +139,7 @@
         <item name="colorPrimaryDark">@color/brownColorPrimaryDark</item>
         <item name="colorAccent">@color/brownColorAccent</item>
         <item name="color_nav">@color/brownColorPrimary</item>
+        <item name="dialog_button_color">@color/brownColorAccent</item>
     </style>
 
     <style name="BlueGreyAppTheme" parent="BaseLightTheme">
@@ -145,6 +147,7 @@
         <item name="colorPrimaryDark">@color/blueGreyColorPrimaryDark</item>
         <item name="colorAccent">@color/blueGreyColorAccent</item>
         <item name="color_nav">@color/blueGreyColorAccent</item>
+        <item name="dialog_button_color">@color/blueGreyColorAccent</item>
     </style>
 
     <style name="YellowAppTheme" parent="BaseLightTheme">
@@ -152,6 +155,15 @@
         <item name="colorPrimaryDark">@color/yellowColorPrimaryDark</item>
         <item name="colorAccent">@color/yellowColorAccent</item>
         <item name="color_nav">@color/yellowColorPrimary</item>
+        <item name="dialog_button_color">@color/yellowColorAccent</item>
+    </style>
+
+    <style name="DarkAppTheme" parent="BaseDarkTheme">
+        <item name="colorPrimary">@color/darkColorPrimary</item>
+        <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
+        <item name="colorAccent">@color/darkColorAccent</item>
+        <item name="color_nav">@color/darkColorAccent</item>
+        <item name="dialog_button_color">@color/darkColorAccent</item>
     </style>
 
     <style name="WhiteAppTheme" parent="BaseLightTheme">
@@ -163,13 +175,20 @@
         <item name="btn_text_color">@color/white_btn_text_color</item>
         <item name="toolbar_theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
         <item name="toolbar_icon_color">#FF606060</item>
+        <item name="dialog_button_color">@color/whiteColorAccent</item>
+        <item name="android:textColorSecondary">?attr/text_medium</item>
+        <item name="android:textColorPrimary">?attr/text_high</item>
     </style>
 
-    <style name="DarkAppTheme" parent="BaseDarkTheme">
-        <item name="colorPrimary">@color/darkColorPrimary</item>
-        <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
-        <item name="colorAccent">@color/darkColorAccent</item>
-        <item name="color_nav">@color/darkColorAccent</item>
+    <style name="LightAlertDialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="buttonBarButtonStyle">@style/DialogTextButton</item>
     </style>
 
+    <style name="DarkAlertDialog" parent="Theme.MaterialComponents.Dialog.Alert">
+        <item name="buttonBarButtonStyle">@style/DialogTextButton</item>
+    </style>
+
+    <style name="DialogTextButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog.Flush">
+        <item name="android:textColor">?attr/dialog_button_color</item>
+    </style>
 </resources>

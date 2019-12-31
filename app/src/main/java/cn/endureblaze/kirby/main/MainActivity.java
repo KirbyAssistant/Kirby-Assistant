@@ -33,7 +33,6 @@ import cn.endureblaze.kirby.util.ThemeUtil;
 import cn.endureblaze.kirby.util.UserUtil;
 import cn.endureblaze.kirby.video.fragment.MainVideoFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -234,7 +233,7 @@ public class MainActivity extends BaseActivity {
                  */
                 SharedPreferences theme_id = getSharedPreferences(ThemeUtil.FILE_NAME, 0);
                 final int itemSelected = theme_id.getInt("themeId", 0);
-                MaterialAlertDialogBuilder theme = new MaterialAlertDialogBuilder(MainActivity.this);
+                AlertDialog.Builder theme = new AlertDialog.Builder(MainActivity.this);
                 theme.setTitle(R.string.toolbar_menu_theme);
                 Integer[] res = new Integer[]{
                         R.drawable.theme_blue,
@@ -247,7 +246,7 @@ public class MainActivity extends BaseActivity {
                         R.drawable.theme_brown,
                         R.drawable.theme_bluegrey,
                         R.drawable.theme_yellow,
-                       // R.drawable.theme_white,
+                        R.drawable.theme_white,
                         R.drawable.theme_dark
                 };
                 List<Integer> list = Arrays.asList(res);
@@ -274,7 +273,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(setting);
                 break;
             case R.id.app:
-                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(R.string.toolbar_menu_app);
                 String[] items = {"ZArchiver\n" + getResources().getString(R.string.toolbar_menu_app_ZArchiver)};
                 builder.setItems(items, (dialogInterface, i) -> {

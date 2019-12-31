@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import androidx.appcompat.app.AlertDialog;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
@@ -14,7 +15,6 @@ import cn.endureblaze.kirby.R;
 import cn.endureblaze.kirby.util.EmailUtil;
 import cn.endureblaze.kirby.util.ToastUtil;
 import cn.endureblaze.kirby.util.UserUtil;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Objects;
 
@@ -28,7 +28,7 @@ class UserModifyEmail {
     void start(){
         LayoutInflater lay_1 = Objects.requireNonNull(activity).getLayoutInflater();
         @SuppressLint("InflateParams") final View modification_email_layout = lay_1.inflate(R.layout.dialog_modify_email, null);
-        new MaterialAlertDialogBuilder(activity)
+        new AlertDialog.Builder(activity)
                 .setTitle(R.string.user_modify_email)
                 .setView(modification_email_layout)
                 .setPositiveButton(R.string.dia_yes, new
