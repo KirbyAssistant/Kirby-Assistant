@@ -247,7 +247,8 @@ public class MainActivity extends BaseActivity {
                         R.drawable.theme_bluegrey,
                         R.drawable.theme_yellow,
                         R.drawable.theme_white,
-                        R.drawable.theme_dark
+                        R.drawable.theme_dark,
+                        R.drawable.theme_pink
                 };
                 List<Integer> list = Arrays.asList(res);
                 ThemeListAdapter adapter = new ThemeListAdapter(MainActivity.this, list);

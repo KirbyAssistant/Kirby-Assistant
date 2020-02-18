@@ -45,6 +45,10 @@
     <color name="whiteColorPrimary">#FEFEFE</color>
     <color name="whiteColorPrimaryDark">#FEFEFE</color>
     <color name="whiteColorAccent">#00bdd5</color>
+    <!--PinkAppTheme 主题-->
+    <color name="pinkColorPrimary">#F87295</color>
+    <color name="pinkColorPrimaryDark">#E35B87</color>
+    <color name="pinkColorAccent">#fCC6D4</color>
     <!--DarkAppTheme 主题-->
     <color name="darkColorPrimary">#FF212121</color>
     <color name="darkColorPrimaryDark">#FF212121</color>

@@ -145,7 +145,7 @@ public class UserAvatarActivity extends BaseActivity {
             catch (IOException ignored)
             {}
             userAvatar.setImageBitmap(imageBitmap);
-            Intent intent = new Intent("com.endureblaze.kirby.CHANGE_USER_AVATAR");
+            Intent intent = new Intent("kirby.CHANGE_USER_AVATAR");
             intent.putExtra("type", "user_avatar");
             localBroadcastManager.sendBroadcast(intent);
         }

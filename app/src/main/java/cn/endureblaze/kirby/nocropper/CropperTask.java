@@ -1,10 +1,6 @@
 package cn.endureblaze.kirby.nocropper;
 
 import android.os.AsyncTask;
-import cn.endureblaze.kirby.nocropper.BitmapResult;
-import cn.endureblaze.kirby.nocropper.CropState;
-import cn.endureblaze.kirby.nocropper.Cropper;
-import cn.endureblaze.kirby.nocropper.CropperCallback;
 
 public class CropperTask extends AsyncTask<Cropper, Void, BitmapResult> {
 

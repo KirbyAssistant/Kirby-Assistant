@@ -63,19 +63,17 @@
                     <com.google.android.material.textfield.TextInputLayout
                             android:textColorHint="?attr/text_hint"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:hint="@string/user_login_username"
+                            style="@style/MD_Dialog_Input_Layout">
 
                         <com.google.android.material.textfield.TextInputEditText
-                                android:textSize="16sp"
-                                android:hint="@string/user_login_username"
-                                android:textColor="?attr/colorPrimary"
                                 android:id="@+id/login_username"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="?attr/color_view_background"
-                                android:textColorHint="?attr/text_hint"
                                 android:inputType="textPersonName"
-                                android:paddingBottom="2dp"/>
+                                android:paddingBottom="2dp"
+                                style="@style/MD_Dialog_Input_Layout.Message"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -89,21 +87,18 @@
                         android:layout_height="50dp">
 
                     <com.google.android.material.textfield.TextInputLayout
-                            android:textColorHint="?attr/text_hint"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:hint="@string/user_login_password"
+                            style="@style/MD_Dialog_Input_Layout">
 
                         <com.google.android.material.textfield.TextInputEditText
-                                android:textSize="16sp"
-                                android:hint="@string/user_login_password"
-                                android:textColor="?attr/colorAccent"
-                                android:textColorHint="?attr/text_hint"
                                 android:id="@+id/login_password"
-                                android:background="?attr/color_view_background"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="textPassword"
-                                android:paddingBottom="2dp"/>
+                                android:paddingBottom="2dp"
+                                style="@style/MD_Dialog_Input_Layout.Message"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -179,21 +174,18 @@
                         android:layout_height="50dp">
 
                     <com.google.android.material.textfield.TextInputLayout
-                            android:textColorHint="?attr/text_hint"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:hint="@string/user_register_username"
+                            style="@style/MD_Dialog_Input_Layout">
 
                         <com.google.android.material.textfield.TextInputEditText
-                                android:textSize="16sp"
-                                android:hint="@string/user_register_username"
-                                android:textColor="?attr/colorPrimary"
                                 android:id="@+id/register_username"
-                                android:background="?attr/color_view_background"
-                                android:textColorHint="?attr/text_hint"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="text"
-                                android:paddingBottom="2dp"/>
+                                android:paddingBottom="2dp"
+                                style="@style/MD_Dialog_Input_Layout.Message"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -207,21 +199,18 @@
                         android:layout_height="50dp">
 
                     <com.google.android.material.textfield.TextInputLayout
-                            android:textColorHint="?attr/text_hint"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:hint="@string/user_register_email"
+                            style="@style/MD_Dialog_Input_Layout">
 
                         <com.google.android.material.textfield.TextInputEditText
-                                android:textSize="16sp"
-                                android:hint="@string/user_register_email"
-                                android:textColor="?attr/colorPrimary"
                                 android:id="@+id/register_email"
-                                android:background="?attr/color_view_background"
-                                android:textColorHint="?attr/text_hint"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="textEmailAddress"
-                                android:paddingBottom="2dp"/>
+                                android:paddingBottom="2dp"
+                                style="@style/MD_Dialog_Input_Layout.Message"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -236,21 +225,18 @@
                         android:layout_height="50dp">
 
                     <com.google.android.material.textfield.TextInputLayout
-                            android:textColorHint="?attr/text_hint"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:hint="@string/user_register_password"
+                            style="@style/MD_Dialog_Input_Layout">
 
                         <com.google.android.material.textfield.TextInputEditText
-                                android:textSize="16sp"
-                                android:hint="@string/user_register_password"
-                                android:textColor="?attr/colorPrimary"
                                 android:id="@+id/register_password"
-                                android:background="?attr/color_view_background"
-                                android:textColorHint="?attr/text_hint"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="textPassword"
-                                android:paddingBottom="2dp"/>
+                                android:paddingBottom="2dp"
+                                style="@style/MD_Dialog_Input_Layout.Message"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -264,21 +250,18 @@
                         android:layout_height="50dp">
 
                     <com.google.android.material.textfield.TextInputLayout
-                            android:textColorHint="?attr/text_hint"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:hint="@string/user_register_password_again"
+                            style="@style/MD_Dialog_Input_Layout">
 
                         <com.google.android.material.textfield.TextInputEditText
-                                android:textSize="16sp"
-                                android:hint="@string/user_register_password_again"
-                                android:textColor="?attr/colorPrimary"
                                 android:id="@+id/register_password_again"
-                                android:background="?attr/color_view_background"
-                                android:textColorHint="?attr/text_hint"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="textPassword"
-                                android:paddingBottom="2dp"/>
+                                android:paddingBottom="2dp"
+                                style="@style/MD_Dialog_Input_Layout.Message"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 

@@ -166,6 +166,14 @@
         <item name="dialog_button_color">@color/darkColorAccent</item>
     </style>
 
+    <style name="PinkAppTheme" parent="BaseLightTheme">
+        <item name="colorPrimary">@color/pinkColorPrimary</item>
+        <item name="colorPrimaryDark">@color/pinkColorPrimaryDark</item>
+        <item name="colorAccent">@color/pinkColorAccent</item>
+        <item name="color_nav">@color/pinkColorPrimary</item>
+        <item name="dialog_button_color">@color/pinkColorAccent</item>
+    </style>
+
     <style name="WhiteAppTheme" parent="BaseLightTheme">
         <item name="color_windows_background">@color/whiteColorPrimary</item>
         <item name="colorPrimary">@color/whiteColorPrimary</item>
@@ -190,5 +198,27 @@
 
     <style name="DialogTextButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog.Flush">
         <item name="android:textColor">?attr/dialog_button_color</item>
+        <item name="rippleColor">?attr/dialog_button_color</item>
     </style>
+
+    <style name="MD_Dialog_Input_Layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="boxStrokeColor">?attr/colorAccent</item>
+        <item name="android:textColorHint">?attr/colorAccent</item>
+        <item name="hintTextColor">?attr/colorAccent</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_color</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="MD_Dialog_Input_Layout.Message">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?attr/text_high</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColorHint">?attr/colorAccent</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>

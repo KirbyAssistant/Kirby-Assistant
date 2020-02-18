@@ -1,8 +1,5 @@
 package cn.endureblaze.kirby.nocropper;
 
-import cn.endureblaze.kirby.nocropper.CropInfo;
-import cn.endureblaze.kirby.nocropper.CropState;
-
 public class CropResult {
 
     private final CropInfo cropInfo;

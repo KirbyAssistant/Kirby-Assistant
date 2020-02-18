@@ -25,6 +25,7 @@ public class ThemeUtil {
     public final static int YELLOW_THEME = 9;
     public final static int WHITE_THEME = 10;
     public final static int DARK_THEME = 11;
+    public final static int PINK_THEME = 12;
 
     public final static String FILE_NAME = "theme";
 
@@ -81,6 +82,9 @@ public class ThemeUtil {
                 break;
             case DARK_THEME:
                 context.setTheme(R.style.DarkAppTheme);
+                break;
+            case PINK_THEME:
+                context.setTheme(R.style.PinkAppTheme);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + themeId);

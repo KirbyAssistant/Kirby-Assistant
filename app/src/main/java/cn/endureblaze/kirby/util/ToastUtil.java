@@ -10,13 +10,13 @@ public class ToastUtil {
         int duration = Toast.LENGTH_SHORT;
         show(charSequence,duration);
     }
-    //传入StringID，时长默认
+    //传入 StringID，时长默认
     public static void show(@StringRes int stringID){
         int duration = Toast.LENGTH_SHORT;
         CharSequence charSequence = ActManager.getCurrentActivity().getString(stringID);
         show(charSequence,duration);
     }
-    //传入StringID，时长自定义
+    //传入 StringID，时长自定义
     public static void show(@StringRes int stringID,int duration){
         CharSequence charSequence = ActManager.getCurrentActivity().getString(stringID);
         show(charSequence,duration);
