@@ -46,8 +46,8 @@ public class BaseActivity extends AppCompatActivity {
         super.setContentView(layoutResID);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        setStatusBar(ThemeUtil.getDarkColorPrimary(this));
-            getWindow().setNavigationBarColor(ThemeUtil.getColorPrimary(this));
+        setStatusBar(ThemeUtil.getThemeColorById(this,R.attr.colorPrimary));
+            getWindow().setNavigationBarColor(ThemeUtil.getThemeColorById(this,R.attr.colorPrimary));
             if (layoutResID == R.layout.activity_game||layoutResID == R.layout.activity_user_avatar) {
                 getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             }

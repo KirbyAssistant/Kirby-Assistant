@@ -122,20 +122,9 @@ public class ThemeUtil {
      *
      * @return
      */
-    public static int getColorPrimary(Activity activity) {
+    public static int getThemeColorById(Activity activity,int id) {
         TypedValue typedValue = new TypedValue();
-        activity.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
-        return typedValue.data;
-    }
-
-    /**
-     * 获取主题颜色
-     *
-     * @return
-     */
-    public static int getDarkColorPrimary(Activity activity) {
-        TypedValue typedValue = new TypedValue();
-        activity.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
+        activity.getTheme().resolveAttribute(id, typedValue, true);
         return typedValue.data;
     }
 

@@ -70,7 +70,7 @@ public class MainVideoFragment extends BaseFragment {
         refresh = view.findViewById(R.id.video_refresh);
         refresh.setEnableNestedScroll(true);
         MaterialHeader mMaterialHeader=(MaterialHeader) refresh.getRefreshHeader();
-        Objects.requireNonNull(mMaterialHeader).setColorSchemeColors(ThemeUtil.getColorPrimary(Objects.requireNonNull(getActivity())));
+        Objects.requireNonNull(mMaterialHeader).setColorSchemeColors(ThemeUtil.getThemeColorById(Objects.requireNonNull(getActivity()),R.attr.colorPrimary));
         refresh.setOnRefreshListener(re -> {
             refresh.setEnableLoadMore(false);
             getVideo();

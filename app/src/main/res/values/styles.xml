@@ -60,6 +60,11 @@
         <item name="alertDialogTheme">@style/LightAlertDialog</item>
     </style>
 
+    <style name="TransperantToolbar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
     <style name="BaseDarkTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">#FF303030</item>
         <item name="color_view_background">#FF303030</item>
@@ -206,7 +211,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="boxBackgroundColor">@android:color/transparent</item>
         <item name="boxStrokeColor">?attr/colorAccent</item>
-        <item name="android:textColorHint">?attr/colorAccent</item>
+        <item name="android:textColorHint">?attr/text_hint</item>
         <item name="hintTextColor">?attr/colorAccent</item>
         <item name="android:textCursorDrawable">@drawable/cursor_color</item>
         <item name="android:background">@android:color/transparent</item>
