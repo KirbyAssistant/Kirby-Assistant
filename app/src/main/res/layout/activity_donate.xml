@@ -83,25 +83,25 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="12dp">
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:padding="12dp">
-                    <ImageView
-                            app:srcCompat="@drawable/ic_kirby_wechat"
-                            android:layout_width="wrap_content"
+                    <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            tools:ignore="ContentDescription"/>
-                    <ImageView
-                            app:srcCompat="@drawable/ic_kirby_qq"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            tools:ignore="ContentDescription"/>
-                </LinearLayout>
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:padding="12dp">
+                        <ImageView
+                                app:srcCompat="@drawable/ic_kirby_wechat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                tools:ignore="ContentDescription"/>
+                        <ImageView
+                                app:srcCompat="@drawable/ic_kirby_qq"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                tools:ignore="ContentDescription"/>
+                    </LinearLayout>
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

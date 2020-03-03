@@ -1,13 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    
+
     <item
-        android:id="@+id/chat_copy"
-        android:title="@string/chat_copy"/>
-	<item
-        android:id="@+id/chat_del"
-        android:title="@string/chat_del"/>
-	<item
-        android:id="@+id/chat_edit"
-        android:title="@string/chat_edit"/>
-    
+            android:id="@+id/chat_copy"
+            android:title="@string/chat_copy"/>
+    <item
+            android:id="@+id/chat_del"
+            android:title="@string/chat_del"/>
+    <item
+            android:id="@+id/chat_edit"
+            android:title="@string/chat_edit"/>
+
 </menu>

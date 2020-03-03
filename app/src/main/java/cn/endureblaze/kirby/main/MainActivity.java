@@ -60,6 +60,7 @@ public class MainActivity extends BaseActivity {
     private LocalBroadcastManager localBroadcastManager;
 
     private boolean isVideo = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,14 +79,15 @@ public class MainActivity extends BaseActivity {
         initFragmentViewPager();
         CheckUpdateUtil.checkUpdate(toolbar, this);
         Intent intent = getIntent();
-        if(intent.getBooleanExtra("theme",false)) {
+        if (intent.getBooleanExtra("theme", false)) {
             int tag = intent.getIntExtra("fragment", 0);
             bottomNavigationView.getMenu().getItem(tag).setChecked(true);
             main_fragment_viewpager.setCurrentItem(tag);
             toolbar.setSubtitle(page_title.get(tag));
         }
     }
-    private void initBroad(){
+
+    private void initBroad() {
         localBroadcastManager = LocalBroadcastManager.getInstance(Objects.requireNonNull(this));
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("cn.endureblaze.kirby.USER_LOGIN");
@@ -94,8 +96,9 @@ public class MainActivity extends BaseActivity {
         //注册本地广播监听器
         localBroadcastManager.registerReceiver(localReceiver, intentFilter);
     }
+
     //配置碎片显示
-    private void initFragmentViewPager(){
+    private void initFragmentViewPager() {
         //FAB获取
         FloatingActionButton fab = findViewById(R.id.fab_main);
         @SuppressLint("ResourceType")
@@ -127,7 +130,7 @@ public class MainActivity extends BaseActivity {
                 case R.id.chat:
                     main_fragment_viewpager.setCurrentItem(2);
                     toolbar.setSubtitle(page_title.get(2));
-                    if(UserUtil.isUserLogin()) {
+                    if (UserUtil.isUserLogin()) {
                         fab.setVisibility(View.VISIBLE);
                         fab.startAnimation(mess_fab_show_anim);
                         showEditChatDialog(fab);
@@ -159,6 +162,7 @@ public class MainActivity extends BaseActivity {
                 fragment_position = position;
 
             }
+
             @Override
             public void onPageScrollStateChanged(int state) {
 
@@ -181,11 +185,10 @@ public class MainActivity extends BaseActivity {
         fragments.add(mainChatFragment);
         page_title.add(getResources().getString(R.string.title_chat));
         //判断是否登录
-        if(UserUtil.isUserLogin())
-        {
+        if (UserUtil.isUserLogin()) {
             fragments.add(mainUserInfoFragment);
             page_title.add(UserUtil.getCurrentUser().getUsername());
-        }else {
+        } else {
             fragments.add(mainLoginFragment);
             page_title.add(getResources().getString(R.string.title_login));
         }
@@ -193,7 +196,7 @@ public class MainActivity extends BaseActivity {
         viewpager_adapter = new ViewPagerAdapter(getSupportFragmentManager(), fragments, page_title);
         main_fragment_viewpager.setAdapter(viewpager_adapter);
 
-        if(isVideo){
+        if (isVideo) {
             toolbar.setSubtitle(R.string.title_login);
             main_fragment_viewpager.setCurrentItem(1);
             bottomNavigationView.setSelectedItemId(R.id.video);
@@ -207,20 +210,23 @@ public class MainActivity extends BaseActivity {
             isVideo = true;
         }
     }
+
     //设置闲聊界面的FAB显示
-    private void showEditChatDialog(FloatingActionButton fab){
-        fab.setOnClickListener(v -> EditChatDialog.newInstance("0",null,null, ChatMode.CHAT_SEND_MODE)
+    private void showEditChatDialog(FloatingActionButton fab) {
+        fab.setOnClickListener(v -> EditChatDialog.newInstance("0", null, null, ChatMode.CHAT_SEND_MODE)
                 .setTheme(R.style.OMGDialogStyle)
                 .setMargin(0)
                 .setGravity(Gravity.BOTTOM)
                 .setOutCancel(true)
                 .show(getSupportFragmentManager()));
     }
+
     //ToolBar菜单配置
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar, menu);
         return true;
     }
+
     //菜单选项
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -297,21 +303,24 @@ public class MainActivity extends BaseActivity {
         }
         return true;
     }
+
     /**
      * 方法名:changeTheme
      * 不需要传入参数
      * 用于退出并再次打开MainActivity 适用于修改主题或者修改用户头像等之后使用
      */
     private void changeTheme() {
-        Intent intent = new Intent(this,MainActivity.class);
-        intent.putExtra("theme",true);
-        intent.putExtra("fragment",fragment_position);
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("theme", true);
+        intent.putExtra("fragment", fragment_position);
         startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);//假装没退出过...
         finish();
     }
+
     //按两次退出
     private long exitTime = 0;
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK
@@ -326,6 +335,7 @@ public class MainActivity extends BaseActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
     //广播处理
     class MainLocalReceiver extends BroadcastReceiver {
         @Override
@@ -333,16 +343,17 @@ public class MainActivity extends BaseActivity {
             changeFragment(intent);
         }
     }
-    private void changeFragment(Intent intent){
+
+    private void changeFragment(Intent intent) {
         String type = intent.getStringExtra("type");
-        switch (Objects.requireNonNull(type)){
+        switch (Objects.requireNonNull(type)) {
             case "user_login":
                 //替换登录到用户详情
                 fragments.remove(3);
-                fragments.add(3,mainUserInfoFragment);
+                fragments.add(3, mainUserInfoFragment);
 
                 page_title.remove(3);
-                page_title.add(3,UserUtil.getCurrentUser().getUsername());
+                page_title.add(3, UserUtil.getCurrentUser().getUsername());
                 toolbar.setSubtitle(UserUtil.getCurrentUser().getUsername());
 
                 viewpager_adapter.notifyDataSetChanged();
@@ -350,13 +361,13 @@ public class MainActivity extends BaseActivity {
             case "user_logout":
                 //替换用户详情到登录
                 fragments.remove(3);
-                fragments.add(3,mainLoginFragment);
+                fragments.add(3, mainLoginFragment);
                 //顺便刷新一下闲聊
                 fragments.remove(2);
-                fragments.add(2,mainChatFragment);
+                fragments.add(2, mainChatFragment);
 
                 page_title.remove(3);
-                page_title.add(3,getResources().getString(R.string.title_login));
+                page_title.add(3, getResources().getString(R.string.title_login));
                 toolbar.setSubtitle(R.string.title_login);
 
                 viewpager_adapter.notifyDataSetChanged();
@@ -370,7 +381,7 @@ public class MainActivity extends BaseActivity {
     public void onResume() {
         super.onResume();
 
-        if(DataBus.isChangeUserAvatar()) {
+        if (DataBus.isChangeUserAvatar()) {
             DataBus.setChangeUserAvatar(false);
 
             fragments.remove(3);

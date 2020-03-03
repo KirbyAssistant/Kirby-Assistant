@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<color name="shortcut_background">#F5F5F5</color>
+    <color name="shortcut_background">#F5F5F5</color>
     <!--BlueAppTheme 主题-->
     <color name="blueColorPrimary">#2196F3</color>
     <color name="blueColorPrimaryDark">#1976D2</color>

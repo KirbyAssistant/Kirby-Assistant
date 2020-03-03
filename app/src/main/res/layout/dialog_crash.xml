@@ -18,8 +18,7 @@
     <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
                 android:layout_height="wrap_content"
@@ -34,7 +33,7 @@
     <ScrollView
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            >
+    >
 
         <TextView
                 android:layout_height="wrap_content"
