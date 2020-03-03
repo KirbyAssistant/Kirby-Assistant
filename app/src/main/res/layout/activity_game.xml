@@ -11,58 +11,58 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
 
-    <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
 
-        <androidx.cardview.widget.CardView
-                android:layout_height="280dp"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="@dimen/card_margin_vertical_big_activity"
-                android:layout_marginEnd="@dimen/card_margin_horizontal_big_activity"
-                android:layout_marginStart="@dimen/card_margin_horizontal_big_activity"
-                android:layout_marginTop="@dimen/card_margin_vertical_big_activity"
-                android:foreground="?attr/selectableItemBackground"
-                android:id="@+id/image_cardview"
-                android:transitionName="card"
-                android:layout_margin="4dp">
-
-            <RelativeLayout
+            <androidx.cardview.widget.CardView
+                    android:layout_height="280dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_marginBottom="@dimen/card_margin_vertical_big_activity"
+                    android:layout_marginEnd="@dimen/card_margin_horizontal_big_activity"
+                    android:layout_marginStart="@dimen/card_margin_horizontal_big_activity"
+                    android:layout_marginTop="@dimen/card_margin_vertical_big_activity"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:id="@+id/image_cardview"
+                    android:transitionName="card"
+                    android:layout_margin="4dp">
 
-                <ImageView
+                <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/blur_game_img"
-                        android:transitionName="image"
-                        tools:ignore="ContentDescription"/>
+                        android:layout_height="match_parent">
 
-                <ImageView
-                        android:src="@android:drawable/ic_delete"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/game_img"
-                        android:layout_centerInParent="true"
-                        android:transitionName="image"
-                        android:layout_margin="8dp"
-                        tools:ignore="ContentDescription"/>
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/blur_game_img"
+                            android:transitionName="image"
+                            tools:ignore="ContentDescription"/>
 
-            </RelativeLayout>
+                    <ImageView
+                            android:src="@android:drawable/ic_delete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/game_img"
+                            android:layout_centerInParent="true"
+                            android:transitionName="image"
+                            android:layout_margin="8dp"
+                            tools:ignore="ContentDescription"/>
 
-        </androidx.cardview.widget.CardView>
+                </RelativeLayout>
 
-        <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:id="@+id/game_js"
-                android:textSize="20sp"
-                android:layout_below="@id/image_cardview"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"/>
+            </androidx.cardview.widget.CardView>
 
-    </RelativeLayout>
+            <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/game_js"
+                    android:textSize="20sp"
+                    android:layout_below="@id/image_cardview"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"/>
+
+        </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomappbar.BottomAppBar
