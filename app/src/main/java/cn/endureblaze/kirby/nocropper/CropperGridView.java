@@ -18,7 +18,7 @@ public class CropperGridView extends View {
 
     private static final String TAG = "CropperGridView";
 
-    private long HIDE_INTERVAL = 1500;
+    private final long HIDE_INTERVAL = 1500;
     private Paint mPaint;
     private int mColor = 0xfffffff;
     private int mAlpha = 200;

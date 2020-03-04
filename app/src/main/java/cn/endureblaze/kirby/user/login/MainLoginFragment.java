@@ -130,11 +130,7 @@ public class MainLoginFragment extends BaseFragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             DataBus.setChangeTheme(true);
-            if (login_card.getVisibility()==View.VISIBLE){
-                DataBus.setLoginOrRegister(true);
-            }else{
-                DataBus.setLoginOrRegister(false);
-            }
+            DataBus.setLoginOrRegister(login_card.getVisibility() == View.VISIBLE);
             DataBus.setLoginUsername(Objects.requireNonNull(login_username.getText()).toString());
             DataBus.setLoginPassword(Objects.requireNonNull(login_password.getText()).toString());
             DataBus.setRegisterUsername(Objects.requireNonNull(register_username.getText()).toString());

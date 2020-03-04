@@ -67,9 +67,7 @@ public class GameActivity extends BaseActivity {
         initDownload();
         //initInfo();
         CardView image_card = findViewById(R.id.image_cardview);
-        image_card.setOnLongClickListener(view -> {
-            return false;
-        });
+        image_card.setOnLongClickListener(view -> false);
     }
 
     private void initDownload() {

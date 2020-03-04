@@ -38,7 +38,7 @@ public class BitmapUtils {
         } catch (OutOfMemoryError e) {
             if (bitmap != null && !bitmap.isRecycled()) {
                 bitmap.recycle();
-                bitmap = null;
+                //bitmap = null;
             }
 
             throw e;

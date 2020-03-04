@@ -455,11 +455,7 @@ public class CropperImageView extends ImageView {
                     yTranslate = 0;
                 } else {
                     float yDiff = getHeight() - (scaleY) * drawable.getIntrinsicHeight();
-                    if (ty < yDiff) {
-                        yTranslate = yDiff;
-                    } else {
-                        yTranslate = ty;
-                    }
+                    yTranslate = Math.max(ty, yDiff);
                 }
             }
 

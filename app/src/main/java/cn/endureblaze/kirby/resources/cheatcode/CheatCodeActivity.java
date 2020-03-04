@@ -13,30 +13,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class CheatCodeActivity extends BaseActivity
-    {
-        private List<CheatCode> cheatCodeArrayList=new ArrayList<>();
+public class CheatCodeActivity extends BaseActivity {
+    private List<CheatCode> cheatCodeArrayList = new ArrayList<>();
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState)
-        {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_cheatcode);
-            //配置toolbar
-            final Toolbar toolbar= findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
-            Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.tab_cheatcode);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cheatcode);
+        //配置toolbar
+        final Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.tab_cheatcode);
 
-            Intent intent=getIntent();
-            String name=intent.getStringExtra("game_name");
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("game_name");
 
-            toolbar.setSubtitle(name);
+        toolbar.setSubtitle(name);
 
-            RecyclerView rlv_cheatcode = findViewById(R.id.cheatCode_listview);
-            GridLayoutManager layoutManager_console=new GridLayoutManager(this, 1);
-            rlv_cheatcode.setLayoutManager(layoutManager_console);
-            CheatCodeAdapter cheatcode_adapter = new CheatCodeAdapter(cheatCodeArrayList, this);
-            rlv_cheatcode.setAdapter(cheatcode_adapter);
-            CheatCodeData.setCheatCodeData(Objects.requireNonNull(name),cheatCodeArrayList);
-        }
+        RecyclerView rlv_cheatcode = findViewById(R.id.rlv_cheat_code);
+        GridLayoutManager layoutManager_console = new GridLayoutManager(this, 1);
+        rlv_cheatcode.setLayoutManager(layoutManager_console);
+        CheatCodeAdapter cheatcode_adapter = new CheatCodeAdapter(cheatCodeArrayList, this);
+        rlv_cheatcode.setAdapter(cheatcode_adapter);
+        CheatCodeData.setCheatCodeData(Objects.requireNonNull(name), cheatCodeArrayList);
+    }
 }

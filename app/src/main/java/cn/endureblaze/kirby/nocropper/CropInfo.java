@@ -2,6 +2,7 @@ package cn.endureblaze.kirby.nocropper;
 
 import android.graphics.Bitmap;
 import android.graphics.Rect;
+import org.jetbrains.annotations.NotNull;
 
 public class CropInfo {
     public final int x;
@@ -119,6 +120,7 @@ public class CropInfo {
         return info;
     }
 
+    @NotNull
     @Override
     public String toString() {
         return "CropInfo{" +

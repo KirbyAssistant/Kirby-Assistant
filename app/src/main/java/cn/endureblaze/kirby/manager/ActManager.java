@@ -78,7 +78,7 @@ public class ActManager
         {
             activityStack.remove(activity);
             activity.finish();
-            activity = null;
+            //activity = null;
         }
     }
 

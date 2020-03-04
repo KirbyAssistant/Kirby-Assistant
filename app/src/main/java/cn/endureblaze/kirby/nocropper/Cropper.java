@@ -15,10 +15,10 @@ public class Cropper {
         this.originalBitmap = originalBitmap;
     }
 
-    public  CropState crop( CropperCallback callback) {
-         CropperTask task = new  CropperTask(callback);
+    public CropState crop(CropperCallback callback) {
+        CropperTask task = new CropperTask(callback);
         task.execute(this);
-        return  CropState.STARTED;
+        return CropState.STARTED;
     }
 
     public Bitmap cropBitmap() throws IllegalArgumentException {

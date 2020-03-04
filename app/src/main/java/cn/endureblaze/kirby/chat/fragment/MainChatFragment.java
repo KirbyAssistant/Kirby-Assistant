@@ -173,38 +173,32 @@ public class MainChatFragment extends BaseFragment
         @Override
         public void handleMessage(Message msg)
         {
-            switch (msg.what)
-            {
-                case 0:
-                    List<BmobChat> list= (List<BmobChat>)msg.obj;
-                    for (BmobChat m : list)
-                    {
-                        //从获取的数据中提取需要的数据
-                        String id=m.getObjectId();
-                        String user=m.getNickname();
-                        String chat_full=m.getChat();
-                        String chat;
-                        boolean show_all;
-                        if(chat_full.length()>40){
-                            chat =chat_full.substring(0,40)+"...";
-                            show_all =true;
-                        }
-                        else
-                        {
-                            chat =chat_full;
-                            show_all =false;
-                        }
-                        String time_=m.getCreatedAt();
-                        String time = time_.substring(0, 16);
-                        Chat mess=new Chat(id,user,userAvatar, chat,time,chat_full, show_all);
-                        //将查询到的数据依次添加到列表
-                        chat_list.add(mess);
-                        //设置适配器
-                        re.setAdapter(adapter);
+            if (msg.what == 0) {
+                List<BmobChat> list = (List<BmobChat>) msg.obj;
+                for (BmobChat m : list) {
+                    //从获取的数据中提取需要的数据
+                    String id = m.getObjectId();
+                    String user = m.getNickname();
+                    String chat_full = m.getChat();
+                    String chat;
+                    boolean show_all;
+                    if (chat_full.length() > 40) {
+                        chat = chat_full.substring(0, 40) + "...";
+                        show_all = true;
+                    } else {
+                        chat = chat_full;
+                        show_all = false;
                     }
-                    //refresh回调
-                    refresh.finishRefresh();
-                    break;
+                    String time_ = m.getCreatedAt();
+                    String time = time_.substring(0, 16);
+                    Chat mess = new Chat(id, user, userAvatar, chat, time, chat_full, show_all);
+                    //将查询到的数据依次添加到列表
+                    chat_list.add(mess);
+                    //设置适配器
+                    re.setAdapter(adapter);
+                }
+                //refresh回调
+                refresh.finishRefresh();
             }
         }
     };

@@ -40,7 +40,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         FragmentTransaction ft = fm.beginTransaction();
         ft.remove(fragment);
         ft.commit();
-        ft = null;
+        //ft = null;
         fm.executePendingTransactions();
     }
 

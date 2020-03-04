@@ -24,64 +24,60 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class CheatCodeGameAdapter extends RecyclerView.Adapter<CheatCodeGameAdapter.ViewHolder>
-{
+public class CheatCodeGameAdapter extends RecyclerView.Adapter<CheatCodeGameAdapter.ViewHolder> {
 
-	private List<CheatCodeGame> mCheatCodeGameList;
-	private Context mContext;
+    private List<CheatCodeGame> mCheatCodeGameList;
+    private Context mContext;
 
-	private Activity mActivity;
-	static class ViewHolder extends RecyclerView.ViewHolder
-	{
-	    View item_cheat_code_view;
+    private Activity mActivity;
+
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        View item_cheat_code_view;
         LinearLayout LinearLayout;
-		CardView cardView;
+        CardView cardView;
         ImageView gameImage;
         TextView gameName;
 
-		private ImageView blurImage;
-        public ViewHolder(View view)
-		{
+        private ImageView blurImage;
+
+        public ViewHolder(View view) {
             super(view);
             item_cheat_code_view = view;
-			LinearLayout = view.findViewById(R.id.LinearLayout);
+            LinearLayout = view.findViewById(R.id.LinearLayout);
             cardView = view.findViewById(R.id.cardview);
-			gameImage = view.findViewById(R.id.console_image);
+            gameImage = view.findViewById(R.id.console_image);
             gameName = view.findViewById(R.id.console_text);
-			blurImage = view.findViewById(R.id.blur_image);
+            blurImage = view.findViewById(R.id.blur_image);
         }
     }
 
-    public CheatCodeGameAdapter(List<CheatCodeGame> cheatCodeGamelist, Activity activity)
-	{
+    public CheatCodeGameAdapter(List<CheatCodeGame> cheatCodeGamelist, Activity activity) {
         mCheatCodeGameList = cheatCodeGamelist;
-		mActivity=activity;
+        mActivity = activity;
     }
-	@NonNull
+
+    @NonNull
     @Override
-	public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-	{
-		if (mContext == null)
-		{
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (mContext == null) {
             mContext = parent.getContext();
         }
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_console, parent, false);
-		final ViewHolder holder=new ViewHolder(view);
-		holder.LinearLayout.setOnClickListener(v -> {
-			int position=holder.getAdapterPosition();
-			CheatCodeGame cheat_code_game=mCheatCodeGameList.get(position);
-			Intent in=new Intent(mContext, CheatCodeActivity.class);
-			String name= cheat_code_game.getName();
-			in.putExtra("game_name",name);
-			mActivity.startActivity(in);
-		}
-		);
-		return holder;
-	}
+        final ViewHolder holder = new ViewHolder(view);
+        holder.LinearLayout.setOnClickListener(v -> {
+                    int position = holder.getAdapterPosition();
+                    CheatCodeGame cheat_code_game = mCheatCodeGameList.get(position);
+                    Intent in = new Intent(mContext, CheatCodeActivity.class);
+                    String name = cheat_code_game.getName();
+                    in.putExtra("game_name", name);
+                    mActivity.startActivity(in);
+                }
+        );
+        return holder;
+    }
 
-	@Override
-	public void onBindViewHolder(final ViewHolder holder, int position)
-	{
+    @Override
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.anim_recycler_item_show);
         holder.item_cheat_code_view.startAnimation(animation);
 
@@ -91,20 +87,19 @@ public class CheatCodeGameAdapter extends RecyclerView.Adapter<CheatCodeGameAdap
         holder.gameImage.setAnimation(item_anim);
         holder.blurImage.setAnimation(item_anim);
 
-		final CheatCodeGame ch = mCheatCodeGameList.get(position);
+        final CheatCodeGame ch = mCheatCodeGameList.get(position);
         holder.gameName.setText(ch.getName());
         Glide
-			.with(mContext)
-			.load(ch.getImageUrl())
-			.apply(Kirby.getGlideRequestOptions())
-			.into(holder.gameImage);	
-		GlideCache.setBlurImageViaGlideCache(mActivity,holder.blurImage,ch.getImageUrl(),"5");
-		}
+                .with(mContext)
+                .load(ch.getImageUrl())
+                .apply(Kirby.getGlideRequestOptions())
+                .into(holder.gameImage);
+        GlideCache.setBlurImageViaGlideCache(mActivity, holder.blurImage, ch.getImageUrl(), "5");
+    }
 
-	@Override
-	public int getItemCount()
-	{
-		return mCheatCodeGameList.size();
-	}
-	
+    @Override
+    public int getItemCount() {
+        return mCheatCodeGameList.size();
+    }
+
 }

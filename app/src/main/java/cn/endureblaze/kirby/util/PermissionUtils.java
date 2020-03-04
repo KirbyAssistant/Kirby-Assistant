@@ -55,7 +55,6 @@ public class PermissionUtils {
         } else {
             //说明权限都已经通过，可以做你想做的事情去
             permissionsResult.passPermissons();
-            return;
         }
 
 

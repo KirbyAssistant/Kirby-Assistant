@@ -76,7 +76,7 @@ public class BitmapUriUtil
         InputStream input = ac.getContentResolver().openInputStream(uri);
         BitmapFactory.Options onlyBoundsOptions = new BitmapFactory.Options();
         onlyBoundsOptions.inJustDecodeBounds = true;
-        onlyBoundsOptions.inDither = true;//optional
+        //onlyBoundsOptions.inDither = true;//optional
         onlyBoundsOptions.inPreferredConfig = Bitmap.Config.ARGB_8888;//optional
         BitmapFactory.decodeStream(input, null, onlyBoundsOptions);
         Objects.requireNonNull(input).close();
@@ -106,7 +106,7 @@ public class BitmapUriUtil
         //比例压缩
         BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
         bitmapOptions.inSampleSize = be;//设置缩放比例
-        bitmapOptions.inDither = true;//optional
+        //bitmapOptions.inDither = true;//optional
         bitmapOptions.inPreferredConfig = Bitmap.Config.ARGB_8888;//optional
         input = ac.getContentResolver().openInputStream(uri);
         Bitmap bitmap = BitmapFactory.decodeStream(input, null, bitmapOptions);

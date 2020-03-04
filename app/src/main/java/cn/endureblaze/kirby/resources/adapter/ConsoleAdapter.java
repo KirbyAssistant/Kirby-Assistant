@@ -23,62 +23,55 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHolder>
-{
+public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHolder> {
     private Context mContext;
     private List<Console> mConsoleList;
 
-	private Activity mActivity;
-    static class ViewHolder extends RecyclerView.ViewHolder
-	{
-	    View item_console;
+    private Activity mActivity;
+
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        View item_console;
         LinearLayout LinearLayout;
-		CardView cardView;
+        CardView cardView;
         ImageView consoleImage;
         TextView consoleName;
 
-        ViewHolder(View view)
-		{
+        ViewHolder(View view) {
             super(view);
             item_console = view;
-			LinearLayout = view.findViewById(R.id.LinearLayout);
+            LinearLayout = view.findViewById(R.id.LinearLayout);
             cardView = view.findViewById(R.id.cardview);
-			consoleImage = view.findViewById(R.id.console_image);
+            consoleImage = view.findViewById(R.id.console_image);
             consoleName = view.findViewById(R.id.console_text);
-            ImageView blurImage = view.findViewById(R.id.blur_image);
         }
     }
 
-    public ConsoleAdapter(List<Console> console_list, Activity activity)
-	{
+    public ConsoleAdapter(List<Console> console_list, Activity activity) {
         mConsoleList = console_list;
-		mActivity=activity;
+        mActivity = activity;
     }
+
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-	{
-        if (mContext == null)
-		{
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (mContext == null) {
             mContext = parent.getContext();
         }
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_console, parent, false);
-		final ViewHolder holder=new ViewHolder(view);
-		holder.LinearLayout.setOnClickListener(v -> {
-			int position=holder.getAdapterPosition();
-			Console console=mConsoleList.get(position);
-			Intent in=new Intent(mContext, GameListActivity.class);
-			String name=console.getTag();
-			in.putExtra("console_name",name);
-			mActivity.startActivity(in);
-		}
-		);
-		return holder;
+        final ViewHolder holder = new ViewHolder(view);
+        holder.LinearLayout.setOnClickListener(v -> {
+            int position = holder.getAdapterPosition();
+            Console console = mConsoleList.get(position);
+            Intent in = new Intent(mContext, GameListActivity.class);
+            String name = console.getTag();
+            in.putExtra("console_name", name);
+            mActivity.startActivity(in);
+        });
+        return holder;
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position)
-	{
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         final Console co = mConsoleList.get(position);
 
         Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.anim_recycler_item_show);
@@ -91,16 +84,15 @@ public class ConsoleAdapter extends RecyclerView.Adapter<ConsoleAdapter.ViewHold
 
         holder.consoleName.setText(co.getName());
         Glide
-			.with(mContext)
-			.load(co.getImageUrl())
-			.apply(Kirby.getGlideRequestOptions())
+                .with(mContext)
+                .load(co.getImageUrl())
+                .apply(Kirby.getGlideRequestOptions())
                 .centerInside()
-			.into(holder.consoleImage);		
-		//GlideUtil.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"5");
-		}
+                .into(holder.consoleImage);
+    }
+
     @Override
-    public int getItemCount()
-	{
+    public int getItemCount() {
         return mConsoleList.size();
     }
 }

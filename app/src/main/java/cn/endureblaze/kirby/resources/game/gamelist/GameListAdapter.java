@@ -30,6 +30,7 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.ViewHo
     private Context mContext;
     private List<Console> mGameList;
     private Activity mActivity;
+
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         private View item_game;
@@ -37,6 +38,7 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.ViewHo
         private ImageView gameImage;
         private TextView gameName;
         private ImageView blurImage;
+
         public ViewHolder(View view) {
             super(view);
             item_game = view;
@@ -47,10 +49,12 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.ViewHo
             blurImage = view.findViewById(R.id.blur_image);
         }
     }
+
     public GameListAdapter(List<Console> game_list, Activity activity) {
         mGameList = game_list;
         mActivity = activity;
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -58,22 +62,21 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.ViewHo
             mContext = parent.getContext();
         }
         final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_console, parent, false);
-        final ViewHolder holder=new ViewHolder(view);
+        final ViewHolder holder = new ViewHolder(view);
         holder.LinearLayout.setOnClickListener(v -> {
-                    int position = holder.getAdapterPosition();
-                    Console game = mGameList.get(position);
-                    MainActivity m=new MainActivity();
-                    Intent mm=new Intent(mContext, GameActivity.class);
-                    mm.putExtra("game_name", game.getName());
-                    mm.putExtra("game_img", game.getImageUrl());
-                    mm.putExtra("game_tag", game.getTag());
-                    Pair<View, String> card= new Pair<>(view.findViewById(R.id.cardview), "card");
-                    Pair<View, String> image= new Pair<>(view.findViewById(R.id.console_image), "image");
-                    Pair<View, String> blur_image= new Pair<>(view.findViewById(R.id.blur_image), "blur_image");
-                    Pair<View, String> name= new Pair<>(view.findViewById(R.id.console_text), "name");
-                    mActivity.startActivity(mm, ActivityOptionsCompat.makeSceneTransitionAnimation(mActivity, card,blur_image, image, name).toBundle());
-                }
-        );
+            int position = holder.getAdapterPosition();
+            Console game = mGameList.get(position);
+            MainActivity m = new MainActivity();
+            Intent mm = new Intent(mContext, GameActivity.class);
+            mm.putExtra("game_name", game.getName());
+            mm.putExtra("game_img", game.getImageUrl());
+            mm.putExtra("game_tag", game.getTag());
+            Pair<View, String> card = new Pair<>(view.findViewById(R.id.cardview), "card");
+            Pair<View, String> image = new Pair<>(view.findViewById(R.id.console_image), "image");
+            Pair<View, String> blur_image = new Pair<>(view.findViewById(R.id.blur_image), "blur_image");
+            Pair<View, String> name = new Pair<>(view.findViewById(R.id.console_text), "name");
+            mActivity.startActivity(mm, ActivityOptionsCompat.makeSceneTransitionAnimation(mActivity, card, blur_image, image, name).toBundle());
+        });
         return holder;
     }
 
@@ -95,7 +98,7 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.ViewHo
                 .load(co.getImageUrl())
                 .apply(Kirby.getGlideRequestOptions())
                 .into(holder.gameImage);
-        GlideCache.setBlurImageViaGlideCache(mActivity,holder.blurImage,co.getImageUrl(),"5");
+        GlideCache.setBlurImageViaGlideCache(mActivity, holder.blurImage, co.getImageUrl(), "5");
     }
 
     @Override

@@ -117,25 +117,21 @@ public class MainVideoFragment extends BaseFragment {
         @Override
         public void handleMessage(Message msg)
         {
-            switch (msg.what)
-            {
-                case 0:
-                    List<BmobVideo> list= (List<BmobVideo>)msg.obj;
-                    for (BmobVideo m : list)
-                    {
-                        //从获取的数据中提取需要的数据
-                        String video_url=m.getAv();
-                        String video_title=m.getName();
-                        String video_image_url=m.getImageUrl();
-                        //将查询到的数据依次添加到列表
-                        Video video=new Video(video_title, video_image_url , video_url);
-                        video_list.add(video);
-                        //设置适配器
-                        re.setAdapter(video_adapter);
-                    }
-                    //refresh回调
-                    refresh.finishRefresh();
-                    break;
+            if (msg.what == 0) {
+                List<BmobVideo> list = (List<BmobVideo>) msg.obj;
+                for (BmobVideo m : list) {
+                    //从获取的数据中提取需要的数据
+                    String video_url = m.getAv();
+                    String video_title = m.getName();
+                    String video_image_url = m.getImageUrl();
+                    //将查询到的数据依次添加到列表
+                    Video video = new Video(video_title, video_image_url, video_url);
+                    video_list.add(video);
+                    //设置适配器
+                    re.setAdapter(video_adapter);
+                }
+                //refresh回调
+                refresh.finishRefresh();
             }
         }
     };

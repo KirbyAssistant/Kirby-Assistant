@@ -137,7 +137,7 @@ public class CropperView extends FrameLayout {
             return  CropState.FAILURE_GESTURE_IN_PROCESS;
         }
 
-         CropperTask task = new CropperTask(callback);
+        CropperTask task = new CropperTask(callback);
         Cropper cropper = new Cropper(mImageView.getCropInfo(), mImageView.getLoadedBitmap());
         task.execute(cropper);
         return  CropState.STARTED;

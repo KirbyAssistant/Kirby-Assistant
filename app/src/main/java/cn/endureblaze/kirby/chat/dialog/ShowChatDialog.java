@@ -210,26 +210,20 @@ public class ShowChatDialog extends BaseDialog {
         @Override
         public void handleMessage(Message msg)
         {
-            switch (msg.what)
-            {
-                case 0:
-                    List<BmobKirbyAssistantUser> list= (List<BmobKirbyAssistantUser>)msg.obj;
-                    for (BmobKirbyAssistantUser m : list)
-                    {
-                        try
-                        {
-                            Glide
-                                    .with(fragmentActivity)
-                                    .load(m.getUserAvatar().getFileUrl())
-                                    .apply(Kirby.getGlideRequestOptions())
-                                    .into(userAvatarImage);
-                        }
-                        catch (Exception ignored)
-                        {}
+            if (msg.what == 0) {
+                List<BmobKirbyAssistantUser> list = (List<BmobKirbyAssistantUser>) msg.obj;
+                for (BmobKirbyAssistantUser m : list) {
+                    try {
+                        Glide
+                                .with(fragmentActivity)
+                                .load(m.getUserAvatar().getFileUrl())
+                                .apply(Kirby.getGlideRequestOptions())
+                                .into(userAvatarImage);
+                    } catch (Exception ignored) {
                     }
-                    break;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + msg.what);
+                }
+            } else {
+                throw new IllegalStateException("Unexpected value: " + msg.what);
             }
         }
     };
