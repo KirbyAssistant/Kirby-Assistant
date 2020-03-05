@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 apply from: 'androidres_build.gradle'
 
 android {
-    compileSdkVersion 'android-R'
+    compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "cn.endureblaze.kirby"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 55
-        versionName "2.0.5"
+        versionCode 56
+        versionName "2.0.6"
         flavorDimensions "versionCode"
         vectorDrawables.useSupportLibrary = true
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']
