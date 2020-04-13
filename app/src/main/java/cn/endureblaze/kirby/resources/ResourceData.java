@@ -19,8 +19,8 @@ public class ResourceData {
                 new Console("nds", "https://api.endureblaze.cn/ka_image/consose/nds.png", "nds"),
                 new Console("gb", "https://api.endureblaze.cn/ka_image/consose/gb.png", "gb"),
                 new Console("gbc", "https://api.endureblaze.cn/ka_image/consose/gbc.png", "gbc"),
-                new Console("fc", "https://api.endureblaze.cn/ka_image/consose/fc.png", "fc")};
-
+                new Console("fc", "https://api.endureblaze.cn/ka_image/consose/fc.png", "fc")
+        };
         int index = 0;//定义数值
         //遍历
         while (index < console.length) {

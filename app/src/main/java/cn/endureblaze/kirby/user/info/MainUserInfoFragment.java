@@ -26,19 +26,19 @@ import com.bumptech.glide.Glide;
 import java.util.Objects;
 
 public class MainUserInfoFragment extends BaseFragment {
-    private boolean CHANGE_HEAD=false;
-    private ImageView userAvatar,blur_user_avatar;
+    private boolean CHANGE_HEAD = false;
+    private ImageView userAvatar, blur_user_avatar;
 
-    private Button modify_email,modify_password,user_logout;
+    private Button modify_email, modify_password, user_logout;
     private View view;
     private LocalBroadcastManager localBroadcastManager;
-    private TextView userName,userId,userTime,userEmail;
+    private TextView userName, userId, userTime, userEmail;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       view = inflater.inflate(R.layout.main_user_info_fragment, container, false);
-       initView();
-       return view;
+        view = inflater.inflate(R.layout.main_user_info_fragment, container, false);
+        initView();
+        return view;
     }
 
     @Override
@@ -47,15 +47,15 @@ public class MainUserInfoFragment extends BaseFragment {
         initBroad();
     }
 
-    private void initBroad(){
+    private void initBroad() {
         localBroadcastManager = LocalBroadcastManager.getInstance(Objects.requireNonNull(getActivity()));
     }
 
-    private void initView(){
-        userName= view.findViewById(R.id.user_name);
-        userId= view.findViewById(R.id.user_id);
-        userTime= view.findViewById(R.id.user_data);
-        userEmail= view.findViewById(R.id.user_email);
+    private void initView() {
+        userName = view.findViewById(R.id.user_name);
+        userId = view.findViewById(R.id.user_id);
+        userTime = view.findViewById(R.id.user_data);
+        userEmail = view.findViewById(R.id.user_email);
         CardView card = view.findViewById(R.id.cardview);
 
         modify_email = view.findViewById(R.id.edit_email);
@@ -88,9 +88,10 @@ public class MainUserInfoFragment extends BaseFragment {
                         .load(UserUtil.getCurrentUser().getUserAvatar().getFileUrl())
                         .apply(Kirby.getGlideRequestOptions())
                         .into(userAvatar);
-                GlideCache.setBlurImageViaGlideCache(getActivity(), blur_user_avatar,UserUtil.getCurrentUser().getUserAvatar().getFileUrl(),"5");
+                GlideCache.setBlurImageViaGlideCache(getActivity(), blur_user_avatar, UserUtil.getCurrentUser().getUserAvatar().getFileUrl(), "5");
             }
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
 
         userName.setText(UserUtil.getCurrentUser().getUsername());
         userId.setText("id:" + UserUtil.getCurrentUser().getObjectId());
@@ -100,15 +101,20 @@ public class MainUserInfoFragment extends BaseFragment {
         RelativeLayout changeUserAvatar = view.findViewById(R.id.change_user_avatar);
 
         changeUserAvatar.setOnClickListener(p1 -> {
-            Pair<View, String> userAvatarPair= new Pair<>(userAvatar, "userAvatar");
-            Pair<View, String> logoutPair= new Pair<>(user_logout, "logout");
+            Pair<View, String> userAvatarPair = new Pair<>(userAvatar, "userAvatar");
+            Pair<View, String> logoutPair = new Pair<>(user_logout, "logout");
             Intent intent = new Intent(getActivity(), UserAvatarActivity.class);
             ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), userAvatarPair, logoutPair);
             getActivity().startActivityForResult(intent, 3, options.toBundle());
         });
     }
 
-    private void userModifyEmail() { new UserModifyEmail(getActivity()).start();}
-    private void userModifyPassword() { new UserModifyPassword(getActivity(),localBroadcastManager).start();}
+    private void userModifyEmail() {
+        new UserModifyEmail(getActivity()).start();
+    }
+
+    private void userModifyPassword() {
+        new UserModifyPassword(getActivity(), localBroadcastManager).start();
+    }
 
 }

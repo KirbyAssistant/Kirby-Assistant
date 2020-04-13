@@ -135,7 +135,7 @@ public class GameActivity extends BaseActivity {
                     break;
                 case "nds_jh"://"星之卡比 集合！卡比":
                     showDownloadDialog(game_name, new String[]{JP_VERSION, US_VERSION, "「那个」汉化组 " + CN_VERSION, CN_VERSION},
-                            new String[]{"https://eyun.baidu.com/s/3geO4mbx", "https://eyun.baidu.com/s/3eSijdHS", "https://eyun.baidu.com/s/3gfXg9JP", "https://eyun.baidu.com/s/3o80PA6e"});
+                            new String[]{"https://eyun.baidu.com/s/3geO4mbx", "https://eyun.baidu.com/s/3eSijdHS", "https://eyun.baidu.com/s/3kVVCFFx", "https://eyun.baidu.com/s/3o80PA6e"});
                     break;
                 case "gb_x1"://"星之卡比 1":
                     showDownloadDialog(game_name, new String[]{JP_VERSION, US_VERSION},
