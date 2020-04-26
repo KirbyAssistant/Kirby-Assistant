@@ -71,7 +71,7 @@ public class CrashDialog extends BaseDialog {
         crashText.append(Html.fromHtml("<font color=\"#E51C23\">" + phoneInfo.getAndroidVersion() + "</font>"));
         crashText.append("\n");
         crashText.append("软件版本:");
-        crashText.append(Html.fromHtml("<font color=\"#E51C23\">" + phoneInfo.getAppVersion() + "</font>"));
+        crashText.append(Html.fromHtml("<font color=\"#E51C23\">" + phoneInfo.getAndroidVersion() + "</font>"));
         crashText.append("\n");
 
         crashText.append("错误信息: ");

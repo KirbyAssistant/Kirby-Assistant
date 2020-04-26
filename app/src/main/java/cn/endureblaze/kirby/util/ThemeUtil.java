@@ -94,8 +94,7 @@ public class ThemeUtil {
         return getDarkModeStatus(context);
     }
 
-    public static void sw2DarkTheme(Activity activity, final Class<?> toClass)
-    {
+    public static void sw2DarkTheme(Activity activity, final Class<?> toClass) {
         SharedPreferences sw2dark = activity.getSharedPreferences(FILE_NAME, 0);
         SharedPreferences.Editor sw2dark_edit = sw2dark.edit();
         sw2dark_edit.putInt("before_app_theme", getThemeId(activity));

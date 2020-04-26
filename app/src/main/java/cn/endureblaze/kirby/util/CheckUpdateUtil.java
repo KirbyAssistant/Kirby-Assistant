@@ -14,46 +14,39 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
-public class CheckUpdateUtil
-{
-    public static void checkUpdate(final View snackBarShowView, final Context context)
-    {
-        BmobQuery<BmobCheckUpdate>  findCheckupdate= new BmobQuery<>();
+public class CheckUpdateUtil {
+    public static void checkUpdate(final View snackBarShowView, final Context context) {
+        BmobQuery<BmobCheckUpdate> findCheckupdate = new BmobQuery<>();
         findCheckupdate.setLimit(1);
         findCheckupdate.order("-createdAt");//时间降序排列
-        findCheckupdate.findObjects(new FindListener<BmobCheckUpdate>(){
+        findCheckupdate.findObjects(new FindListener<BmobCheckUpdate>() {
             private int versionCode;
             private String versionName;
             private String changeLog;
+
             @Override
-            public void done(List<BmobCheckUpdate> list, BmobException e)
-            {
-                if (e == null)
-                {
-                    for (BmobCheckUpdate checkupdate: list)
-                    {
+            public void done(List<BmobCheckUpdate> list, BmobException e) {
+                if (e == null) {
+                    for (BmobCheckUpdate checkupdate : list) {
                         versionCode = checkupdate.getVersionCode();
-                        versionName=checkupdate.getVersionName();
-                        changeLog=checkupdate.getChangeLog();
+                        versionName = checkupdate.getVersionName();
+                        changeLog = checkupdate.getChangeLog();
                     }
-                    if(versionCode>AppUtil.getVersionCode(context)){
+                    if (versionCode > AppUtil.getVersionCode(context)) {
                         Snackbar.make(snackBarShowView, R.string.find_new_version, Snackbar.LENGTH_LONG).setAction(R.string.view_new_version, p1 -> {
-                            AlertDialog.Builder update_dialog=new AlertDialog.Builder(context)
-                                    .setTitle(context.getResources().getString(R.string.find_new_version)+versionName)
+                            AlertDialog.Builder update_dialog = new AlertDialog.Builder(context)
+                                    .setTitle(context.getResources().getString(R.string.find_new_version) + versionName)
                                     .setMessage(changeLog)
                                     .setCancelable(false)
                                     .setPositiveButton(context.getResources().getString(R.string.dia_download), (dialog, which) -> {
-                                                try
-                                                {
-                                                    Intent update=new Intent("android.intent.action.VIEW");
-                                                    update .setData(Uri.parse("market://details?id=cn.endureblaze.kirby"));
+                                                try {
+                                                    Intent update = new Intent("android.intent.action.VIEW");
+                                                    update.setData(Uri.parse("market://details?id=cn.endureblaze.kirby"));
                                                     update.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                                    update .setPackage("com.coolapk.market");
+                                                    update.setPackage("com.coolapk.market");
                                                     context.startActivity(update);
-                                                }
-                                                catch (Exception e1)
-                                                {
-                                                    Intent update=new Intent("android.intent.action.VIEW");
+                                                } catch (Exception e1) {
+                                                    Intent update = new Intent("android.intent.action.VIEW");
                                                     update.setData(Uri.parse("https://kirby.endureblaze.cn"));
                                                     context.startActivity(update);
                                                 }

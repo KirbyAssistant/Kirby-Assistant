@@ -30,6 +30,5 @@ QQ:2323355219
 QQ群:[点我](https://shang.qq.com/wpa/qunwpa?idkey=0e172ee61a12688b204d4d0b014010b40c1fca60c59aec9c8266123fe6248511)    
 新浪微博:https://weibo.com/runanjing    
 Twitter:https://twitter.com/nihaocun?s=09   
-开源地址(Github):https://github.com/nihaocun/Kirby-Assistant    
-开源地址(Gitlab):https://gitlab.com/nihaocun/Kirby-Assistant    
-官网:ka.endureblaze.cn
+开源地址(Github):https://github.com/KirbyAssistant/Kirby-Assistant
+官网:https://kirby.endureblaze.cn

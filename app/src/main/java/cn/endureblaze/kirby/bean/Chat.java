@@ -9,7 +9,7 @@ public class Chat
 	private String chat_full;
 	private boolean show_all;
 	
-	public Chat(String id,String name,String userAvatar  ,String chat, String time,String chat_full,boolean show_all)
+	public Chat(String id,String name,String name0,String chat, String time,String chat_full,boolean show_all)
 	{
 		this.id = id;
 		this.name = name;

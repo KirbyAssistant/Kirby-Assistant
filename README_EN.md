@@ -27,6 +27,5 @@ Contact me
 --------  
 Weibops://weibo.com/runanjing    
 Twitter:https://twitter.com/nihaocun?s=09   
-Open source address(Github):https://github.com/nihaocun/Kirby-Assistant    
-Open source address(Gitlab):https://gitlab.com/nihaocun/Kirby-Assistant    
-Official website:ka.endureblaze.cn
+Open source address(Github):https://github.com/KirbyAssistant/Kirby-Assistant
+Official website:https://kirby.endureblaze.cn

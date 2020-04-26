@@ -14,32 +14,32 @@ public class FileUtil {
     public static final int SIZETYPE_MB = 3;//获取文件大小单位为MB的double值
     public static final int SIZETYPE_GB = 4;//获取文件大小单位为GB的double值
 
-    public static File newFile(String filePath, String fileName){
-        if(filePath == null || filePath.length() == 0
-                || fileName == null || fileName.length() == 0){
+    public static File newFile(String filePath, String fileName) {
+        if (filePath == null || filePath.length() == 0
+                || fileName == null || fileName.length() == 0) {
             return null;
         }
         try {
             //判断目录是否存在，如果不存在，递归创建目录
             File dir = new File(filePath);
-            if(!dir.exists()){
+            if (!dir.exists()) {
                 dir.mkdirs();
             }
 
             //组织文件路径
             StringBuilder sbFile = new StringBuilder(filePath);
-            if(!filePath.endsWith("/")){
+            if (!filePath.endsWith("/")) {
                 sbFile.append("/");
             }
             sbFile.append(fileName);
 
             //创建文件并返回文件对象
             File file = new File(sbFile.toString());
-            if(!file.exists()){
+            if (!file.exists()) {
                 file.createNewFile();
             }
             return file;
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return null;
@@ -47,74 +47,77 @@ public class FileUtil {
 
     /**
      * 获取文件指定文件的指定单位的大小
+     *
      * @param filePath 文件路径
      * @param sizeType 获取大小的类型1为B、2为KB、3为MB、4为GB
      * @return double值的大小
      */
-    public static double getFileOrFilesSize(String filePath,int sizeType){
-        File file=new File(filePath);
-        long blockSize=0;
+    public static double getFileOrFilesSize(String filePath, int sizeType) {
+        File file = new File(filePath);
+        long blockSize = 0;
         try {
-            if(file.isDirectory()){
+            if (file.isDirectory()) {
                 blockSize = getFileSizes(file);
-            }else{
+            } else {
                 blockSize = getFileSize(file);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("获取文件大小","获取失败!");
+            Log.e("获取文件大小", "获取失败!");
         }
         return FormetFileSize(blockSize, sizeType);
     }
+
     /**
      * 调用此方法自动计算指定文件或指定文件夹的大小
+     *
      * @param filePath 文件路径
      * @return 计算好的带B、KB、MB、GB的字符串
      */
-    public static String getAutoFileOrFilesSize(String filePath){
-        File file=new File(filePath);
-        long blockSize=0;
+    public static String getAutoFileOrFilesSize(String filePath) {
+        File file = new File(filePath);
+        long blockSize = 0;
         try {
-            if(file.isDirectory()){
+            if (file.isDirectory()) {
                 blockSize = getFileSizes(file);
-            }else{
+            } else {
                 blockSize = getFileSize(file);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("获取文件大小","获取失败!");
+            Log.e("获取文件大小", "获取失败!");
         }
         return FormetFileSize(blockSize);
     }
+
     /**
      * 获取指定文件大小
+     *
      * @param
      * @return
      * @throws Exception
      */
-    private static long getFileSize(File file) throws Exception
-    {
+    private static long getFileSize(File file) throws Exception {
         long size = 0;
-        if (file.exists()){
+        if (file.exists()) {
             FileInputStream fis = null;
             fis = new FileInputStream(file);
             size = fis.available();
-        }
-        else{
+        } else {
             file.createNewFile();
-            Log.e("获取文件大小","文件不存在!");
+            Log.e("获取文件大小", "文件不存在!");
         }
         return size;
     }
 
     /**
      * 获取指定文件夹
+     *
      * @param f
      * @return
      * @throws Exception
      */
-    private static long getFileSizes(File f) throws Exception
-    {
+    private static long getFileSizes(File f) throws Exception {
         long size = 0;
         File[] flist = f.listFiles();
         for (File file : Objects.requireNonNull(flist)) {
@@ -126,55 +129,54 @@ public class FileUtil {
         }
         return size;
     }
+
     /**
      * 转换文件大小
+     *
      * @param fileS
      * @return
      */
-    private static String FormetFileSize(long fileS)
-    {
+    private static String FormetFileSize(long fileS) {
         DecimalFormat df = new DecimalFormat("#.00");
         String fileSizeString = "";
-        String wrongSize="0B";
-        if(fileS==0){
+        String wrongSize = "0B";
+        if (fileS == 0) {
             return wrongSize;
         }
-        if (fileS < 1024){
+        if (fileS < 1024) {
             fileSizeString = df.format((double) fileS) + "B";
-        }
-        else if (fileS < 1048576){
+        } else if (fileS < 1048576) {
             fileSizeString = df.format((double) fileS / 1024) + "KB";
-        }
-        else if (fileS < 1073741824){
+        } else if (fileS < 1073741824) {
             fileSizeString = df.format((double) fileS / 1048576) + "MB";
-        }
-        else{
+        } else {
             fileSizeString = df.format((double) fileS / 1073741824) + "GB";
         }
         return fileSizeString;
     }
+
     /**
      * 转换文件大小,指定转换的类型
+     *
      * @param fileS
      * @param sizeType
      * @return
      */
-    private static double FormetFileSize(long fileS,int sizeType)
-    {
+    private static double FormetFileSize(long fileS, int sizeType) {
         DecimalFormat df = new DecimalFormat("#.00");
         double fileSizeLong = 0;
         switch (sizeType) {
             case SIZETYPE_B:
-                fileSizeLong=Double.parseDouble(df.format((double) fileS));
+                fileSizeLong = Double.parseDouble(df.format((double) fileS));
                 break;
             case SIZETYPE_KB:
-                fileSizeLong=Double.parseDouble(df.format((double) fileS / 1024));
+                fileSizeLong = Double.parseDouble(df.format((double) fileS / 1024));
                 break;
             case SIZETYPE_MB:
-                fileSizeLong=Double.parseDouble(df.format((double) fileS / 1048576));
+                fileSizeLong = Double.parseDouble(df.format((double) fileS / 1048576));
                 break;
             case SIZETYPE_GB:
-                fileSizeLong=Double.parseDouble(df.format((double) fileS / 1073741824));
+                fileSizeLong = Double.parseDouble(df.format((double) fileS / 1073741824));
                 break;
             default:
                 break;
@@ -184,7 +186,8 @@ public class FileUtil {
 
     /**
      * 删除单个文件
-     * @param   filePath    被删除文件的文件名
+     *
+     * @param filePath 被删除文件的文件名
      * @return 文件删除成功返回true，否则返回false
      */
     public static boolean deleteFile(String filePath) {
@@ -197,10 +200,11 @@ public class FileUtil {
 
     /**
      * 删除文件夹以及目录下的文件
-     * @param   filePath 被删除目录的文件路径
-     * @return  目录删除成功返回true，否则返回false
+     *
+     * @param filePath 被删除目录的文件路径
+     * @return 目录删除成功返回true，否则返回false
      */
-    public static boolean deleteDirectory(String filePath,boolean isDelThisDir) {
+    public static boolean deleteDirectory(String filePath, boolean isDelThisDir) {
         boolean flag = false;
         //如果filePath不以文件分隔符结尾，自动添加文件分隔符
         if (!filePath.endsWith(File.separator)) {
@@ -220,7 +224,7 @@ public class FileUtil {
                 if (!flag) break;
             } else {
                 //删除子目录
-                flag = deleteDirectory(file.getAbsolutePath(),isDelThisDir);
+                flag = deleteDirectory(file.getAbsolutePath(), isDelThisDir);
                 if (!flag) break;
             }
         }
@@ -232,11 +236,12 @@ public class FileUtil {
     }
 
     /**
-     *  根据路径删除指定的目录或文件，无论存在与否
-     *@param filePath  要删除的目录或文件
-     *@return 删除成功返回 true，否则返回 false。
+     * 根据路径删除指定的目录或文件，无论存在与否
+     *
+     * @param filePath 要删除的目录或文件
+     * @return 删除成功返回 true，否则返回 false。
      */
-    public static boolean DeleteFolder(String filePath,boolean isDelThisDir) {
+    public static boolean DeleteFolder(String filePath, boolean isDelThisDir) {
         File file = new File(filePath);
         if (!file.exists()) {
             return false;
@@ -246,25 +251,20 @@ public class FileUtil {
                 return deleteFile(filePath);
             } else {
                 // 为目录时调用删除目录方法
-                return deleteDirectory(filePath,isDelThisDir);
+                return deleteDirectory(filePath, isDelThisDir);
             }
         }
     }
 
     //判断文件是否存在
-    public static boolean isfFileIsExists(String strFile)
-    {
-        try
-        {
-            File f=new File(strFile);
-            if (!f.exists())
-            {
+    public static boolean isfFileIsExists(String strFile) {
+        try {
+            File f = new File(strFile);
+            if (!f.exists()) {
                 return false;
             }
 
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             return false;
         }
         return true;

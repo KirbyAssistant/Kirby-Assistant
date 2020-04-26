@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class ActManager
-{
+public class ActManager {
     private static Stack<Activity> activityStack;
     private static ActManager instance;
 
@@ -18,10 +17,8 @@ public class ActManager
      *
      * @return
      */
-    public static ActManager getAppManager()
-    {
-        if (instance == null)
-        {
+    public static ActManager getAppManager() {
+        if (instance == null) {
             instance = new ActManager();
         }
         return instance;
@@ -30,10 +27,8 @@ public class ActManager
     /**
      * 初始化Stack<Activity>
      */
-    private static void initActivityStack()
-    {
-        if (activityStack == null)
-        {
+    private static void initActivityStack() {
+        if (activityStack == null) {
             activityStack = new Stack<>();
         }
     }
@@ -43,8 +38,7 @@ public class ActManager
      *
      * @param activity
      */
-    public static void addActivity(Activity activity)
-    {
+    public static void addActivity(Activity activity) {
         initActivityStack();
         activityStack.add(activity);
     }
@@ -54,8 +48,7 @@ public class ActManager
      *
      * @return
      */
-    public static FragmentActivity getCurrentFragmentActivity()
-    {
+    public static FragmentActivity getCurrentFragmentActivity() {
         return (FragmentActivity) activityStack.lastElement();
     }
 
@@ -64,18 +57,15 @@ public class ActManager
      *
      * @return
      */
-    public static Activity getCurrentActivity()
-    {
+    public static Activity getCurrentActivity() {
         return activityStack.lastElement();
     }
 
     /**
      * 结束指定的Activity
      */
-    public static void finishActivity(Activity activity)
-    {
-        if (activity != null)
-        {
+    public static void finishActivity(Activity activity) {
+        if (activity != null) {
             activityStack.remove(activity);
             activity.finish();
             //activity = null;
@@ -85,8 +75,7 @@ public class ActManager
     /**
      * 结束当前Activity（堆栈中最后一个压入的）
      */
-    public static void finishActivity()
-    {
+    public static void finishActivity() {
         //获取到当前Activity
         Activity activity = activityStack.lastElement();
         //结束指定Activity
@@ -96,21 +85,17 @@ public class ActManager
     /**
      * 结束指定类名的Activity
      */
-    public static void finishActivity(Class<?> cls)
-    {
+    public static void finishActivity(Class<?> cls) {
         List<Activity> activities = new ArrayList<>();
-        for (Activity activity : activityStack)
-        {
-            if (activity.getClass().equals(cls))
-            {
+        for (Activity activity : activityStack) {
+            if (activity.getClass().equals(cls)) {
                 // finishActivity(activity);
                 activities.add(activity);
             }
         }
         // 结束所有类名相同activity
         activityStack.removeAll(activities);
-        for (Activity activity : activities)
-        {
+        for (Activity activity : activities) {
             finishActivity(activity);
         }
     }
@@ -118,8 +103,7 @@ public class ActManager
     /**
      * 结束所有Activity
      */
-    public static void finishAllActivity()
-    {
+    public static void finishAllActivity() {
         for (Activity value : activityStack) {
             if (null != value) {
                 if (!value.isFinishing()) {
@@ -140,10 +124,8 @@ public class ActManager
      * 它能有效的释放JVM之外的资源,执行清除任务，运行相关的finalizer方法终结对象，
      * 而finish只是退出了Activity。
      */
-    public static void AppExit(Context context)
-    {
-        try
-        {
+    public static void AppExit(Context context) {
+        try {
             finishAllActivity();
             //DalvikVM的本地方法
             // 杀死该应用进程
@@ -151,9 +133,7 @@ public class ActManager
             //System.exit(0);
             //这些方法如果是放到主Activity就可以退出应用，如果不是主Activity
             //就是退出当前的Activity
-        }
-        catch (Exception ignored)
-        {
+        } catch (Exception ignored) {
         }
     }
 }
